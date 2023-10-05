@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Listing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-color-baby-blue-3">
+  <div class="min-vh-100 d-flex flex-column justify-content-between">
+    <div>
+      <!-- Navigation Bar -->
+      <nav>
+        <iframe width="100%" height="56px" src="shelter-header.html" frameborder="0" scrolling="no"></iframe>
+      </nav>
+      <div class="container my-3">
+        <div class="row">
+          <div class="col-lg-2 col-md-3 bg">
+            <div class="d-flex flex-column align-items-sm-start px-3 pt-2 text-white">
+              <a><span class="fs-4 text-color-baby-blue bold">Settings</span>
+              </a>
+              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-sm-start" id="menu">
+                <li class="nav-item">
+                  <a href="shelter-account-update-page.html"
+                    class="btn-link text-color-baby-blue text-decoration-none px-0">
+                    <i class="fs-4 bi-house"></i>
+                    <span class="ms-1 fs-5">Profile</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi-speedometer2"></i>
+                    <span class="ms-1 fs-5 text-color-baby-blue bold">Listings</span>
+                  </a>
+                  <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                    <li class="w-100 mb-2">
+                      <a href="pet-creation-page.html" class="btn-link text-color-baby-blue text-decoration-none">
+                        <span>+ New Listing</span></a>
+                    </li>
+                    <li class="w-100 mb-2">
+                      <a href="shelter-management-page.html" class="btn-link text-color-baby-blue text-decoration-none">
+                        <span>Active Listings</span></a>
+                    </li>
+                    <li class="w-100 mb-2">
+                      <a href="shelter-management-page-past.html"
+                        class="btn-link text-color-baby-blue text-decoration-none">
+                        <span>Past Listings</span></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <a href="shelter-detail-page.html" class="btn-link text-color-baby-blue bold text-decoration-none px-0">
+                <i class="fs-4 bi-house"></i>
+                <span class="ms-1 fs-5">Back To Profile</span>
+              </a>
+              <!-- </div> -->
+            </div>
+          </div>
+
+          <!-- Information  -->
+          <div class="col-lg-10 col-md-9">
+            <div class="col-lg-">
+              <div class="card p-5">
+                <h1 class="">Update Listing</h1>
+                <form class="col-">
+                  <div class="pet-field">
+                    <label class="form-label text-color-light-black" for="customFile">Picture</label>
+                    <div class="row">
+                      <div class="col-6" style="width: 150px">
+                        <img src="nugget.jpeg" alt="Pet Picture" class="img-fluid"
+                          style="width: 150px; height: 150px" />
+                      </div>
+                      <div class="col-6 pet-field d-flex flex-column justify-content-end">
+                        <input type="file" name="uploadfile" id="img" style="display: none" class="custom-file-input" />
+                        <label for="img" style="color: blue; text-decoration: underline">Replace Image</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pet-field">
+                    <label class="pet-label" for="name">Name</label>
+                    <input class="pet-input" name="name" type="text" value="Nugget" id="name" required />
+                  </div>
+
+                  <div class="pet-field">
+                    <label class="pet-label" for="age">Age</label>
+                    <input type="number" id="age" class="form-control pet-input" value="2" required />
+                  </div>
+
+                  <div class="pet-field">
+                    <label class="pet-label" for="gender">Gender</label>
+                    <!-- Default radio -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="male" />
+                      <label class="form-check-label" for="male">
+                        Male
+                      </label>
+                    </div>
+                    <!-- Default checked radio -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="female" checked />
+                      <label class="form-check-label" for="female">
+                        Female
+                      </label>
+                    </div>
+                  </div>
+                  <div class="pet-field">
+                    <label class="pet-label" for="color"> Color </label>
+                    <input class="pet-input" name="color" type="text" value="Orange/Tan/Cream" required />
+                  </div>
+                  <div class="pet-field">
+                    <label class="pet-label" for="breed">Breed</label>
+                    <input class="pet-input" name="breed" type="text" id="breed" value="Shiba Inu" required />
+                  </div>
+                  <div class="pet-field">
+                    <label class="pet-label" for="location">Location</label>
+                    <fieldset disabled="disabled">
+                      <input class="form-control" type="text" value="Toronto, ON" readonly />
+                    </fieldset>
+                  </div>
+
+                  <div class="pet-field">
+                    <label class="pet-label" for="behaviour">
+                      Behaviour</label>
+                    <input class="pet-input" name="behaviour" type="text" id="behaviour"
+                      value="Adventurous, Friendly, Loyal" required />
+                  </div>
+                  <div class="pet-field">
+                    <label class="pet-label" for="special-needs">
+                      Special Needs</label>
+                    <input class="pet-input" name="special-needs" type="text" id="special-needs"
+                      value="Prefers to be in a home without other dogs" required />
+                  </div>
+                  <div class="pet-field">
+                    <label class="pet-label" for="medical-history">
+                      Medical History</label>
+                    <input class="pet-input" name="medical-history" type="text" id="medical-history"
+                      value="Vaccinated Up-To-Date" />
+                  </div>
+
+                  <div class="pet-field">
+                    <label class="pet-label" for="house-trained">House Trained</label>
+                    <!-- Default radio -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="house-trained" id="house-trained-yes"
+                        checked />
+                      <label class="form-check-label" for="house-trained-yes">
+                        Yes
+                      </label>
+                    </div>
+
+                    <!-- Default checked radio -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="house-trained" id="flexRadioDefault2" />
+                      <label class="form-check-label" for="house-trained-no">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                  <!--  -->
+
+                  <div class="pet-field">
+                    <label class="pet-label" for="good-in-home">Good in a Home with</label>
+                    <!-- Default checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="house-trained" id="good-in-home-children"
+                        checked />
+                      <label class="form-check-label" for="good-in-home-children">Children</label>
+                    </div>
+
+                    <!-- Checked checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="good-in-home-pets" />
+                      <label class="form-check-label" for="good-in-home-pets">Other Pets</label>
+                    </div>
+                  </div>
+                  <a href="shelter-detail-page.html" type="submit" class="btn btn-primary">
+                    Save Changes
+                  </a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <iframe width="100%" height="72px" src="footer.html" frameborder="0"></iframe>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
