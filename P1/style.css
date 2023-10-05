@@ -84,3 +84,12 @@
     color: #212b2c;
     font-size: 12px
 }
+
+.form-bg {
+    background-color: var(--baby-blue);
+    padding: 30px;
+}
+
+.form-group {
+    padding: 8px;
+}
