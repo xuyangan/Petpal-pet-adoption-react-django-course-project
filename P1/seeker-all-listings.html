@@ -14,9 +14,96 @@
 <body class="bg-color-baby-blue-3">
     <div class=" min-vh-100 d-flex flex-column justify-content-between">
         <div>
-            <nav>
-                <iframe width="100%" height="56px" src="seeker-header.html" frameborder="0" scrolling="no"></iframe>
-            </nav>
+        <!-- Navigation Bar -->
+
+        <nav
+        class="navbar navbar-expand-lg bg-color-baby-blue default-shadow"
+        data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand" href="landing-page.html">PetPal</a>
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home-page.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="pet-application-page.html">Applications</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active current" aria-current="page" href="advanced-search-page.html">Explore</a>
+              </li>
+            </ul>
+
+            <div class="dropdown pr-3">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge bg-danger">2</span> 
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end bg-color-baby-blue" aria-labelledby="notificationDropdown">
+                    <h2>Notifications - <span>2</span></h2>
+                    <li><a class="dropdown-item" href="seeker-notification-page.html">
+                        <div class="text">
+                            <h4>New Message from: Tail Tales Retreat</h4>
+                            <p>Do you live with a roommate?</p>
+                        </div>
+                    </a></li>
+                    <li><a class="dropdown-item">
+                            <div class="text">
+                                <h4>System</h4>
+                                <p>New pet has been added! Click to view!</p>
+                            </div>
+                        </a></li>
+                    <li><a class="dropdown-viewall" href="seeker-notification-page.html">View All</a></li>
+                </ul>
+            </div>
+            <div class="dropdown align-items-center">
+              <a
+                href="#"
+                class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
+                id="dropdownUser1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="profile-container">
+                  <img
+                    src="https://github.com/mdo.png"
+                    alt="hugenerd"
+                    width="30"
+                    height="30"
+                    class="rounded-circle"
+                  />
+                </div>
+                <div class="username">
+                  <span class="d-none d-sm-inline mx-1 text-white"
+                    >Scarlett Johansson</span
+                  >
+                </div>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2"
+                aria-labelledby="dropdownUser1"
+              >
+                <li><a class="dropdown-item2" href="seeker-detail-page.html">Profile</a></li>
+                <li><a class="dropdown-signout" href="landing-page-to-shelter.html">Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </nav>
 
             <!-- https://mdbootstrap.com/docs/standard/extended/gallery/ -->
             <div class="container">
@@ -125,9 +212,17 @@
     </div>
 
 
-    <footer>
-        <iframe width="100%" height="72px" src="footer.html" frameborder="0"></iframe>
-    </footer>
+    <footer class="text-center text-lg-start text-muted">
+        <!-- Copyright -->
+        <div
+          class="text-center p-4 text-color-baby-blue"
+          style="background-color: rgba(0, 0, 0, 0.025)"
+        >
+          © 2023 Copyright:
+          <a class="text-reset fw-bold" href="landing-page.html">Pet Pal</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
     <!-- Footer -->
     </div>
     <div class="row d-flex justify-content-center fixed-chat-box">
