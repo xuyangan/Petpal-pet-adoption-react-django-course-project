@@ -549,21 +549,6 @@ div.media label {
     flex-direction: row;
 } 
 
-.custom-dropdown {
-    position: relative;
-}
-
-.options {
-    display: none;
-    position: absolute;
-    top: 100%; /* Position it below the selected option */
-    left: 0;
-    /* Add other styles as needed */
-}
-
-.custom-dropdown:hover .options {
-    display: block;
-}
 
 @media only screen and (max-width: 480px) {
     .chat-input {
