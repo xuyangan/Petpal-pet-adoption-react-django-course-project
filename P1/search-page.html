@@ -54,18 +54,28 @@
                     <button class="btn border-lightv text-white" type="submit">Search</button>
                 </form>
             </div>
-                        <!-- Notification Icon with Dropdown -->
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-bell"></i>
-                                <span class="badge bg-danger">3</span> <!-- Number of unread notifications -->
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
-                                <li><a class="dropdown-item" href="#">John has applied for Bella</a></li>
-                                <li><a class="dropdown-item" href="#">Your application for Max has been approved!</a></li>
-                                <li><a class="dropdown-item" href="#">New pet Charlie has been added</a></li>
-                            </ul>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge bg-danger">2</span> <!-- Number of unread notifications -->
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                    <h2>Notifications - <span>2</span></h2>
+                    <li><a class="dropdown-item" href="notification-page.html#">
+                        <div class="text">
+                            <h4>System</h4>
+                            <p>Your application for Max has been approved!</p>
                         </div>
+                    </a></li>
+                    <li><a class="dropdown-item" href="notification-page.html#">
+                        <div class="text">
+                            <h4>David Leiblay</h4>
+                            <p>Hi!</p>
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
