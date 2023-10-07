@@ -2,16 +2,32 @@
     --baby-blue: #78CEE3;
     --baby-blue-2: #99DAEA;
     --baby-blue-3: #DDF3F8;
+    --baby-blue-4: #f0f9fb;
     
 }
 
 .bg-color-baby-blue{
     background-color: var(--baby-blue);
 }
-
+.bg-color-baby-blue-2{
+    background-color: var(--baby-blue-2);
+}
 .bg-color-baby-blue-3{
     background-color: var(--baby-blue-3);
 }
-.shadow-baby-blue{
-    box-shadow: 10px 10px 1px 0px rgba(120,206,227,0.5);
+.bg-color-baby-blue-4{
+    background-color: var(--baby-blue-4);
+}
+.default-shadow{
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)
+}
+
+.text-color-baby-blue{
+    color: var(--baby-blue);
+}
+.text-color-baby-blue-2{
+    color: var(--baby-blue-2);
+}
+.text-color-baby-blue-3{
+    color: var(--baby-blue-3);
 }
