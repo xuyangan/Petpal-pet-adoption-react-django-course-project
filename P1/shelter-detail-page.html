@@ -12,99 +12,16 @@
 </head>
 
 <body class="bg-color-baby-blue-3">
-    <div class="container-fluid">
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg  bg-color-baby-blue default-shadow" data-bs-theme="dark">
-            <div class="container">
-                <a class="navbar-brand" href="#">PetPal</a>
-                
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2 bg-light border-white" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <button class="btn border-lightv text-white" type="submit">Search</button>
-                    </form>
-                    <div class="dropdown px-3">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-bell"></i>
-                            <span class="badge bg-danger">2</span> <!-- Number of unread notifications -->
-                        </a>
-    
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
-                            <h2>Notifications - <span>2</span></h2>
-                            <li><a class="dropdown-item" href="notification-page.html#">
-                                <div class="text">
-                                    <h4>System</h4>
-                                    <p>Your application for Max has been approved!</p>
-                                </div>
-                            </a></li>
-                            <li><a class="dropdown-item" href="notification-page.html#">
-                                <div class="text">
-                                    <h4>David Leiblay</h4>
-                                    <p>Hi!</p>
-                                </div>
-                            </a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown align-items-center ">
-                        <a href="#"
-                            class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
-                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
-                                class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1 text-white">loser</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Navigation Bar -->
-                
-            </div>
-        </nav>
-        
-        <!-- Shelter Profile -->
-        <!-- https://mdbootstrap.com/docs/standard/extended/profiles/#section-5 -->
-        <section>
+    <div class=" min-vh-100 d-flex flex-column justify-content-between">
+        <div>
+            <nav>
+                <iframe width="100%" height="56px" src="header.html" frameborder="0" scrolling="no"></iframe>
+            </nav>
+
+            <!-- Shelter Profile -->
+            <!-- https://mdbootstrap.com/docs/standard/extended/profiles/#section-5 -->
             <div class="container py-3">
-                
+
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="card mb-4 border-0 default-shadow">
@@ -288,44 +205,42 @@
                                                 <div class="card2 w-100 h-100">
                                                     <div class="card-details2">
                                                         <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
-                                                        class="card-img-top" alt="Sunset Over the Sea" />
-                                                      <p class="text-title2">Card title</p>
-                                                      <p class="text-body2">Here are the details of the card</p>
+                                                            class="card-img-top" alt="Sunset Over the Sea" />
+                                                        <p class="text-title2">Card title</p>
+                                                        <p class="text-body2">Here are the details of the card</p>
                                                     </div>
                                                     <button class="card-button2">More info</button>
-                                                  </div>
+                                                </div>
                                             </div>
 
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-4 d-none d-lg-block">
                                                 <div class="card2 w-100 h-100">
                                                     <div class="card-details2">
                                                         <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
-                                                        class="card-img-top" alt="Sunset Over the Sea" />
-                                                      <p class="text-title2">Card title</p>
-                                                      <p class="text-body2">Here are the details of the card</p>
+                                                            class="card-img-top" alt="Sunset Over the Sea" />
+                                                        <p class="text-title2">Card title</p>
+                                                        <p class="text-body2">Here are the details of the card</p>
                                                     </div>
                                                     <button class="card-button2">More info</button>
-                                                  </div>
+                                                </div>
                                             </div>
 
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-4 d-none d-lg-block">
                                                 <div class="card2 w-100 h-100">
                                                     <div class="card-details2">
                                                         <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
-                                                        class="card-img-top" alt="Sunset Over the Sea" />
-                                                      <p class="text-title2">Card title</p>
-                                                      <p class="text-body2">Here are the details of the card</p>
+                                                            class="card-img-top" alt="Sunset Over the Sea" />
+                                                        <p class="text-title2">Card title</p>
+                                                        <p class="text-body2">Here are the details of the card</p>
                                                     </div>
                                                     <button class="card-button2">More info</button>
-                                                  </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Single item -->
-                                
-
                             </div>
                             <div class=""><a href="#!" class="btn ">See More</a></div>
                             <!-- Inner -->
@@ -334,236 +249,307 @@
                     </div>
                 </div>
 
-                <!-- <div class="card px-3 py-3 border-0 shadow">
-                    <div class="row gy-3">
-                        <div class="col-lg-3 ">
-                            <div class="card">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                    class="card-img-top" alt="Waterfall" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary">Button</a>
+                <div class="card border-0 mb-4 shadow">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-12 col- col-xl-8 m-2">
+                            <div class="card border-0">
+                                <div class="card-body p-4">
+                                    <h4 class="mb-4 pb-2">Comments</h4>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="d-flex flex-start">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                                                    alt="avatar" width="65" height="65" />
+                                                <div class="flex-grow-1 flex-shrink-1">
+                                                    <div>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <p class="mb-1">
+                                                                Maria Smantha <span class="small">- 2 hours ago</span>
+                                                            </p>
+                                                            <a href="#!"><i class="fas fa-reply fa-xs"></i><span
+                                                                    class="small text-dark"> reply</span></a>
+                                                        </div>
+                                                        <p class="small mb-0">
+                                                            It is a long established fact that a reader will be
+                                                            distracted by
+                                                            the readable content of a page.
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="d-flex flex-start mt-4">
+                                                        <a class="me-3" href="#">
+                                                            <img class="rounded-circle shadow-1-strong"
+                                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp"
+                                                                alt="avatar" width="65" height="65" />
+                                                        </a>
+                                                        <div class="flex-grow-1 flex-shrink-1">
+                                                            <div>
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center">
+                                                                    <p class="mb-1">
+                                                                        Simona Disa <span class="small">- 3 hours
+                                                                            ago</span>
+                                                                    </p>
+                                                                </div>
+                                                                <p class="small mb-0">
+                                                                    letters, as opposed to using 'Content here, content
+                                                                    here',
+                                                                    making it look like readable English.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="d-flex flex-start mt-4">
+                                                        <a class="me-3" href="#">
+                                                            <img class="rounded-circle shadow-1-strong"
+                                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp"
+                                                                alt="avatar" width="65" height="65" />
+                                                        </a>
+                                                        <div class="flex-grow-1 flex-shrink-1">
+                                                            <div>
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center">
+                                                                    <p class="mb-1">
+                                                                        John Smith <span class="small">- 4 hours
+                                                                            ago</span>
+                                                                    </p>
+                                                                </div>
+                                                                <p class="small mb-0">
+                                                                    the majority have suffered alteration in some form,
+                                                                    by
+                                                                    injected humour, or randomised words.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex flex-start mt-4">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp"
+                                                    alt="avatar" width="65" height="65" />
+                                                <div class="flex-grow-1 flex-shrink-1">
+                                                    <div>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <p class="mb-1">
+                                                                Natalie Smith <span class="small">- 2 hours ago</span>
+                                                            </p>
+                                                            <a href="#!"><i class="fas fa-reply fa-xs"></i><span
+                                                                    class="small text-dark"> reply</span></a>
+                                                        </div>
+                                                        <p class="small mb-0">
+                                                            The standard chunk of Lorem Ipsum used since the 1500s is
+                                                            reproduced below for those interested. Sections 1.10.32 and
+                                                            1.10.33.
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="d-flex flex-start mt-4">
+                                                        <a class="me-3" href="#">
+                                                            <img class="rounded-circle shadow-1-strong"
+                                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp"
+                                                                alt="avatar" width="65" height="65" />
+                                                        </a>
+                                                        <div class="flex-grow-1 flex-shrink-1">
+                                                            <div>
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center">
+                                                                    <p class="mb-1">
+                                                                        Lisa Cudrow <span class="small">- 4 hours
+                                                                            ago</span>
+                                                                    </p>
+                                                                </div>
+                                                                <p class="small mb-0">
+                                                                    Cras sit amet nibh libero, in gravida nulla. Nulla
+                                                                    vel metus
+                                                                    scelerisque ante sollicitudin commodo. Cras purus
+                                                                    odio,
+                                                                    vestibulum in vulputate at, tempus viverra turpis.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="d-flex flex-start mt-4">
+                                                        <a class="me-3" href="#">
+                                                            <img class="rounded-circle shadow-1-strong"
+                                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp"
+                                                                alt="avatar" width="65" height="65" />
+                                                        </a>
+                                                        <div class="flex-grow-1 flex-shrink-1">
+                                                            <div>
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center">
+                                                                    <p class="mb-1">
+                                                                        Maggie McLoan <span class="small">- 5 hours
+                                                                            ago</span>
+                                                                    </p>
+                                                                </div>
+                                                                <p class="small mb-0">
+                                                                    a Latin professor at Hampden-Sydney College in
+                                                                    Virginia,
+                                                                    looked up one of the more obscure Latin words,
+                                                                    consectetur
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="d-flex flex-start mt-4">
+                                                        <a class="me-3" href="#">
+                                                            <img class="rounded-circle shadow-1-strong"
+                                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp"
+                                                                alt="avatar" width="65" height="65" />
+                                                        </a>
+                                                        <div class="flex-grow-1 flex-shrink-1">
+                                                            <div>
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center">
+                                                                    <p class="mb-1">
+                                                                        John Smith <span class="small">- 6 hours
+                                                                            ago</span>
+                                                                    </p>
+                                                                </div>
+                                                                <p class="small mb-0">
+                                                                    Autem, totam debitis suscipit saepe sapiente magnam
+                                                                    officiis
+                                                                    quaerat necessitatibus odio assumenda, perferendis
+                                                                    quae iusto
+                                                                    labore laboriosam minima numquam impedit quam
+                                                                    dolorem!
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                    class="card-img-top" alt="Waterfall" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary">Button</a>
+                            <div class="card-footer bg-white m-2">
+                                <div class="d-flex flex-start w-100 ">
+                                  <img class="rounded-circle me-3"
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="65"
+                                    height="65" />
+                                  <div class="form-outline w-100">
+                                    <textarea class="form-control" id="textAreaExample" placeholder="Insert a comment" rows="4"
+                                      style="background: #fff;"></textarea>
+                                  </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                    class="card-img-top" alt="Waterfall" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary">Button</a>
+                                <div class="float-end mt-2 pt-1">
+                                  <button type="button" class="btn btn-dark btn-sm ">Post comment</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm">Cancel</button>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mb-4 mb-lg-0 d-none d-lg-block">
-                            <div class="card">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                    class="card-img-top" alt="Waterfall" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mb-4 mb-lg-0 d-none d-lg-block">
-                            <div class="card">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                    class="card-img-top" alt="Waterfall" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mb-4 mb-lg-0 d-none d-lg-block">
-                            <div class="card">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                    class="card-img-top" alt="Waterfall" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary ">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mb-4 mb-lg-0 d-none d-lg-block">
-                            <div class="card">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                    class="card-img-top" alt="Waterfall" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mb-4 mb-lg-0 d-none d-lg-block">
-                            <div class="card">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                    class="card-img-top" alt="Waterfall" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
+                              </div>
+
                         </div>
                     </div>
-                    <div class="row justify-content-end"><a href="#!" class="btn justify-content-end">See More</a></div>
-                </div> -->
-
-            </div>
-        </section>
-        <!-- Footer -->
-        <footer class="text-center text-lg-start  text-muted">
-            <!-- Section: Social media -->
-
-            <!-- Section: Social media -->
-
-            <!-- Section: Links  -->
-            <section class="">
-                <div class="container text-center p-4 text-md-start mt-2 text-color-baby-blue-2">
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                            <!-- Content -->
-                            <h6 class="text-uppercase fw-bold mb-4">
-                                <i class="fas fa-gem me-3 text-secondary"></i>Company name
-                            </h6>
-                            <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                                dolor sit amet, consectetur adipisicing elit.
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">
-                                Products
-                            </h6>
-                            <p>
-                                <a href="#!" class="text-reset">Angular</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">React</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Vue</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Laravel</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">
-                                Useful links
-                            </h6>
-                            <p>
-                                <a href="#!" class="text-reset">Pricing</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Settings</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Orders</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Help</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                            <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
-                            <p>
-                                <i class="fas fa-envelope me-3 text-secondary"></i>
-                                info@example.com
-                            </p>
-                            <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
-                            <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
                 </div>
-            </section>
-            <!-- Section: Links  -->
-
-            <!-- Copyright -->
-            <div class="text-center p-4 text-color-baby-blue" style="background-color: rgba(0, 0, 0, 0.025);">
-                © 2021 Copyright:
-                <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                
             </div>
-            <!-- Copyright -->
+            <!-- Footer -->
+            
+        </div>
+
+
+        <footer>
+            <iframe width="100%" height="72px" src="footer.html" frameborder="0"></iframe>
         </footer>
         <!-- Footer -->
-    </div>
+    </div>      
+    <div class="row d-flex justify-content-center fixed-chat-box">
+        <!-- <div class="col-md-8 col-lg-8 ">
+    
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center p-3"
+              style="border-top: 4px solid #78cee3;">
+              <h5 class="mb-0">Chat messages</h5>
+              <div class="d-flex flex-row align-items-center">
+                <span class="badge bg-color-baby-blue me-3">20</span>
+                <i class="fas fa-minus me-3 text-muted fa-xs"></i>
+                <i class="fas fa-comments me-3 text-muted fa-xs"></i>
+                <i class="fas fa-times text-muted fa-xs"></i>
+              </div>
+            </div>
+            <div class="card-body overflow-auto" data-mdb-perfect-scrollbar="true"
+              style="position: relative; height: 400px">
+    
+              <div class="d-flex justify-content-between">
+                <p class="small mb-1">Timona Siera</p>
+                <p class="small mb-1 text-muted">23 Jan 2:00 pm</p>
+              </div>
+              <div class="d-flex flex-row justify-content-start">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp" alt="avatar 1"
+                  style="width: 45px; height: 100%;">
+                <div>
+                  <p class="small p-2 ms-3 mb-3 rounded-3" style="background-color: #f5f6f7;">For what reason
+                    would it
+                    be advisable for me to think about business content?</p>
+                </div>
+              </div>
+    
+              <div class="d-flex justify-content-between">
+                <p class="small mb-1 text-muted">23 Jan 2:05 pm</p>
+                <p class="small mb-1">Johny Bullock</p>
+              </div>
+              <div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                <div>
+                  <p class="small p-2 me-3 mb-3 text-white rounded-3 bg-color-baby-blue">Thank you for your believe in
+                    our
+                    supports</p>
+                </div>
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp" alt="avatar 1"
+                  style="width: 45px; height: 100%;">
+              </div>
+    
+              <div class="d-flex justify-content-between">
+                <p class="small mb-1">Timona Siera</p>
+                <p class="small mb-1 text-muted">23 Jan 5:37 pm</p>
+              </div>
+              <div class="d-flex flex-row justify-content-start">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp" alt="avatar 1"
+                  style="width: 45px; height: 100%;">
+                <div>
+                  <p class="small p-2 ms-3 mb-3 rounded-3" style="background-color: #f5f6f7;">Lorem ipsum dolor
+                    sit amet
+                    consectetur adipisicing elit similique quae consequatur</p>
+                </div>
+              </div>
+    
+              <div class="d-flex justify-content-between">
+                <p class="small mb-1 text-muted">23 Jan 6:10 pm</p>
+                <p class="small mb-1">Johny Bullock</p>
+              </div>
+              <div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                <div>
+                  <p class="small p-2 me-3 mb-3 text-white rounded-3 bg-color-baby-blue">Dolorum quasi voluptates quas
+                    amet in
+                    repellendus perspiciatis fugiat</p>
+                </div>
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp" alt="avatar 1"
+                  style="width: 45px; height: 100%;">
+              </div>
+    
+            </div>
+            <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
+              <div class="input-group mb-0">
+                <input type="text" class="form-control" placeholder="Type message" aria-label="Recipient's username"
+                  aria-describedby="button-addon2" />
+                <button class="btn bg-color-baby-blue text-white" type="button" id="button-addon2"
+                  style="padding-top: .55rem;">
+                  Button
+                </button>
+              </div>
+            </div>
+          </div>
+    
+        </div> -->
+      </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
