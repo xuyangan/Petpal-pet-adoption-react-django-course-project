@@ -43,6 +43,9 @@
 .text-color-light-black {
   color: rgb(0, 0, 0, 0.5)
 }
+.pr-3 {
+  padding-right: 1rem;
+}
 
 .main {
   min-height: 100vh;

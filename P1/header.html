@@ -48,11 +48,34 @@
                             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                    <form class="d-flex px-3" role="search">
+                    <form class="d-flex" role="search">
                         <input class="form-control me-2 bg-light border-white" type="search" placeholder="Search"
                             aria-label="Search">
                         <button class="btn border-lightv text-white" type="submit">Search</button>
                     </form>
+                    <div class="dropdown pr-3">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="badge bg-danger">2</span> <!-- Number of unread notifications -->
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                            <h2>Notifications - <span>2</span></h2>
+                            <li><a class="dropdown-item" href="notification-page.html#">
+                                    <div class="text">
+                                        <h4>System</h4>
+                                        <p>Your application for Max has been approved!</p>
+                                    </div>
+                                </a></li>
+                            <li><a class="dropdown-item" href="notification-page.html#">
+                                    <div class="text">
+                                        <h4>David Leiblay</h4>
+                                        <p>Hi!</p>
+                                    </div>
+                                </a></li>
+                        </ul>
+                    </div>
                     <div class="dropdown align-items-center ">
                         <a href="#"
                             class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
@@ -71,29 +94,7 @@
                             <li><a class="dropdown-item" href="#">Sign out</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-bell"></i>
-                        <span class="badge bg-danger">2</span> <!-- Number of unread notifications -->
-                    </a>
 
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
-                        <h2>Notifications - <span>2</span></h2>
-                        <li><a class="dropdown-item" href="notification-page.html#">
-                                <div class="text">
-                                    <h4>System</h4>
-                                    <p>Your application for Max has been approved!</p>
-                                </div>
-                            </a></li>
-                        <li><a class="dropdown-item" href="notification-page.html#">
-                                <div class="text">
-                                    <h4>David Leiblay</h4>
-                                    <p>Hi!</p>
-                                </div>
-                            </a></li>
-                    </ul>
                 </div>
             </div>
         </nav>
