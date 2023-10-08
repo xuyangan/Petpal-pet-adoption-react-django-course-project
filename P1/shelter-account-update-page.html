@@ -61,8 +61,7 @@
                                 class="rounded-circle">
                             <span class="d-none d-sm-inline mx-1 text-white">loser</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                            aria-labelledby="dropdownUser1">
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -72,7 +71,7 @@
                             <li><a class="dropdown-item" href="#">Sign out</a></li>
                         </ul>
                     </div>
-                    
+
                 </div>
 
                 <!-- Navigation Bar -->
@@ -102,96 +101,117 @@
         </nav>
 
         <div class="container">
-            <div class="row flex-nowrap">
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 default-shadow bg-color-baby-blue-4 rounded">
-                    <div
-                        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                        <a href="/"
-                            class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-color-baby-blue text-decoration-none">
-                            <span class="fs-4 d-none d-sm-inline">Menu</span>
-                        </a>
-                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-                            id="menu">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link align-middle px-0">
-                                    <i class="fs-4 bi-house"></i> <span
-                                        class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Home</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="shelter-management-page.html" data-bs-toggle="collapse"
-                                    class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-speedometer2"></i> <span
-                                        class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Listings</span> </a>
-                                <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                    <li class="w-100 ">
-                                        <a href="#" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline text-color-baby-blue">Item 1</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline text-color-baby-blue">Item 2</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-table"></i> <span
-                                        class="ms-1 fs-5 d-none d-sm-inline text text-color-baby-blue">Orders</span></a>
-                            </li>
-                            <li>
-                                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                    <i class="fs-4 bi-bootstrap"></i> <span
-                                        class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Bootstrap</span></a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                    <li class="w-100">
-                                        <a href="#" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline text-color-baby-blue">Dashboard</span> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline text-color-baby-blue">Dashboard</span> </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-grid"></i> <span
-                                        class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Products</span> </a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                    <li class="w-100">
-                                        <a href="#" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline text-color-baby-blue">Product 1</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline text-color-baby-blue ">Product 2</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline text-color-baby-blue ">Product 3</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span
-                                                class="d-none d-sm-inline text-color-baby-blue">Product 4</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-people"></i> <span
-                                        class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Customers</span> </a>
-                            </li>
-                        </ul>
-                        <hr>
-                        
+            <div class="row">
+                <div class="col-lg-2 col-md-3 d-none d-sm-block">
+                    <div class="default-shadow rounded">
+                        <div
+                            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                            <a><span class="fs-4 d-none d-sm-inline text-color-baby-blue bold">Settings</span>
+                            </a>
+
+                            <!-- <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#sidebarContent" aria-controls="sidebarContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon">hello</span>
+                            </button> -->
+                            <!-- <div class="collapse navbar-collapse" id="sidebarContent"> -->
+                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                                id="menu">
+                                <li class="nav-item ">
+                                    <a href="#" class="nav-link align-middle px-0 ">
+                                        <i class="fs-4 bi-house"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue-2 bold">Home</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="shelter-management-page.html" data-bs-toggle="collapse"
+                                        class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-speedometer2"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Listings</span>
+                                    </a>
+                                    <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                        <li class="w-100 ">
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Active Listing</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Past Listing</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-table"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text text-color-baby-blue">Orders</span></a>
+                                </li>
+                                <li>
+                                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                        <i class="fs-4 bi-bootstrap"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Bootstrap</span></a>
+                                    <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                        <li class="w-100">
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Dashboard</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-grid"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Products</span>
+                                    </a>
+                                    <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                        <li class="w-100">
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Product
+                                                    1</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue ">Product
+                                                    2</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue ">Product
+                                                    3</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Product
+                                                    4</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-people"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Customers</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- </div> -->
+
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="col min-vh-100 m-0 bg-color-baby-blue-4 rounded default-shadow"></div>
+
+                <!-- Information  -->
+                <div class="col-lg-10 col-md-9">
+                    <div class="default-shadow bg-color-baby-blue-4 rounded min-vh-100">
+                    </div>
                 </div>
             </div>
+
         </div>
+
         <!-- Footer -->
         <footer class="text-center text-lg-start  text-muted">
             <!-- Section: Social media -->

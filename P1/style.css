@@ -48,6 +48,11 @@
   flex-direction: column;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+
 .dropdown-menu-end{
     background-color: rgb(183, 181, 181);
 }
