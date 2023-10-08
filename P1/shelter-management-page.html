@@ -51,11 +51,33 @@
                             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                    <form class="d-flex px-3" role="search">
+                    <form class="d-flex" role="search">
                         <input class="form-control me-2 bg-light border-white" type="search" placeholder="Search"
                             aria-label="Search">
                         <button class="btn border-lightv text-white" type="submit">Search</button>
                     </form>
+                    <div class="dropdown px-3">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="badge bg-danger">2</span> <!-- Number of unread notifications -->
+                        </a>
+    
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                            <h2>Notifications - <span>2</span></h2>
+                            <li><a class="dropdown-item" href="notification-page.html#">
+                                <div class="text">
+                                    <h4>System</h4>
+                                    <p>Your application for Max has been approved!</p>
+                                </div>
+                            </a></li>
+                            <li><a class="dropdown-item" href="notification-page.html#">
+                                <div class="text">
+                                    <h4>David Leiblay</h4>
+                                    <p>Hi!</p>
+                                </div>
+                            </a></li>
+                        </ul>
+                    </div>
                     <div class="dropdown align-items-center ">
                         <a href="#"
                             class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
@@ -79,29 +101,22 @@
             </div>
         </nav>
 
-        
+
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-2 col-md-3 d-none d-sm-block">
-                    <div class="default-shadow rounded">
+                <div class="col-lg-2 col-md-3 d-none d-sm-block my-3">
+                    <div class="default-shadow rounded vh-100">
                         <div
-                            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white ">
                             <a><span class="fs-4 d-none d-sm-inline text-color-baby-blue bold">Settings</span>
                             </a>
-
-                            <!-- <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#sidebarContent" aria-controls="sidebarContent" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon">hello</span>
-                            </button> -->
-                            <!-- <div class="collapse navbar-collapse" id="sidebarContent"> -->
                             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                                 id="menu">
                                 <li class="nav-item ">
                                     <a href="#" class="nav-link align-middle px-0 ">
                                         <i class="fs-4 bi-house"></i> <span
-                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Home</span>
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Profile</span>
                                     </a>
                                 </li>
                                 <li>
@@ -113,17 +128,17 @@
                                     <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                         <li class="w-100 ">
                                             <a href="#" class="nav-link px-0"> <span
-                                                    class="d-none d-sm-inline text-color-baby-blue">Item
-                                                    1</span></a>
+                                                    class="d-none d-sm-inline text-color-baby-blue">Active
+                                                    Listings</span></a>
                                         </li>
                                         <li>
                                             <a href="#" class="nav-link px-0"> <span
-                                                    class="d-none d-sm-inline text-color-baby-blue">Item
-                                                    2</span></a>
+                                                    class="d-none d-sm-inline text-color-baby-blue">Past
+                                                    Listings</span></a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="#" class="nav-link px-0 align-middle">
                                         <i class="fs-4 bi-table"></i> <span
                                             class="ms-1 fs-5 d-none d-sm-inline text text-color-baby-blue">Orders</span></a>
@@ -178,7 +193,7 @@
                                         <i class="fs-4 bi-people"></i> <span
                                             class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Customers</span>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                             <!-- </div> -->
 
@@ -187,8 +202,157 @@
                 </div>
 
                 <!-- Information  -->
-                <div class="col-lg-10 col-md-9">
-                    <div class="default-shadow bg-color-baby-blue-4 rounded min-vh-100">
+                <div class=" col-lg-10 col-md-9">
+                    <div class="table-responsive default-shadow my-3 bg-color-baby-blue-4 rounded min-vh-100 d-flex flex-column justify-content-between">
+                        <table class="table bg-white w-100 ">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Position</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                                style="width: 45px; height: 45px" class="rounded-circle" />
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">John Doe</p>
+                                                <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">Software engineer</p>
+                                        <p class="text-muted mb-0">IT department</p>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-success rounded-pill d-inline">Active</span>
+                                    </td>
+                                    <td>Senior</td>
+                                    <td>
+                                        <button type="button" class="btn btn-link btn-sm btn-rounded">
+                                            Edit
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://mdbootstrap.com/img/new/avatars/6.jpg"
+                                                class="rounded-circle" alt="" style="width: 45px; height: 45px" />
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">Alex Ray</p>
+                                                <p class="text-muted mb-0">alex.ray@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">Consultant</p>
+                                        <p class="text-muted mb-0">Finance</p>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-primary rounded-pill d-inline">Onboarding</span>
+                                    </td>
+                                    <td>Junior</td>
+                                    <td>
+                                        <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold"
+                                            data-mdb-ripple-color="dark">
+                                            Edit
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://mdbootstrap.com/img/new/avatars/7.jpg"
+                                                class="rounded-circle" alt="" style="width: 45px; height: 45px" />
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">Kate Hunington</p>
+                                                <p class="text-muted mb-0">kate.hunington@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">Designer</p>
+                                        <p class="text-muted mb-0">UI/UX</p>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
+                                    </td>
+                                    <td>Senior</td>
+                                    <td>
+                                        <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold"
+                                            data-mdb-ripple-color="dark">
+                                            Edit
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://mdbootstrap.com/img/new/avatars/6.jpg"
+                                                class="rounded-circle" alt="" style="width: 45px; height: 45px" />
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">Alex Ray</p>
+                                                <p class="text-muted mb-0">alex.ray@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">Consultant</p>
+                                        <p class="text-muted mb-0">Finance</p>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-primary rounded-pill d-inline">Onboarding</span>
+                                    </td>
+                                    <td>Junior</td>
+                                    <td>
+                                        <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold"
+                                            data-mdb-ripple-color="dark">
+                                            Edit
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://mdbootstrap.com/img/new/avatars/7.jpg"
+                                                class="rounded-circle" alt="" style="width: 45px; height: 45px" />
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">Kate Hunington</p>
+                                                <p class="text-muted mb-0">kate.hunington@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">Designer</p>
+                                        <p class="text-muted mb-0">UI/UX</p>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
+                                    </td>
+                                    <td>Senior</td>
+                                    <td>
+                                        <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold"
+                                            data-mdb-ripple-color="dark">
+                                            Edit
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="container w-100 mb-3">
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a class="text-decoration-none"></a>
+                                <a class="text-decoration-none" href="shelter-management-page.html">1</a>
+                                <a class="text-decoration-none" href="#"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
