@@ -115,6 +115,15 @@
     background-color: #f0f9fb;
 }
 
+.textarea-container {
+    display: none;
+}
+
+#adopted-yes:checked ~ .textarea-container, 
+#adopted-yes:checked + label + .textarea-container {
+    display: block;
+}
+
 .error-img{
     width: 500px;
     height: 400px;
@@ -213,4 +222,45 @@
   font-size: 14px;
   display: block;
   padding-bottom: 4px;
+}
+
+.btn.disabled {
+    background-color: #ccc;
+    color: #888;
+    border: none;
+    pointer-events: none; 
+}
+
+.btn-container {
+    position: relative; 
+    display: inline-block; 
+}
+
+/* Tooltip styles */
+.btn-container[data-tooltip]:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%; 
+    transform: translateX(-50%); 
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    white-space: nowrap; 
+    z-index: 1;
+    margin-bottom: 5px; 
+}
+
+.notification-title {
+    font-weight: bold;
+}
+
+#markAsRead:checked ~ .notification-title {
+    font-weight: normal;
+}
+
+#markAsUnread:checked ~ .notification-title {
+    font-weight: bold;
 }

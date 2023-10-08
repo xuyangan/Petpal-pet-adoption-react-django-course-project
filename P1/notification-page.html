@@ -2,55 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notifications - PetPal</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    </head>
 
 <body class="bg-color-baby-blue-3">
-
-    <nav>
-        <iframe
-          width="100%"
-          src="header.html"
-          frameborder="0"
-          scrolling="no"
-        ></iframe>
-    </nav>
-
-    <!-- Notification Section -->
-    <section class="container py-5">
-        <h2 class="mb-4">Your Notifications</h2>
-        <ul class="list-group">
-            <!-- Unread Notification -->
-            <li class="list-group-item list-group-item-action bg-light">
-                <strong>John has applied for Bella</strong>
-                <p class="mb-0">John has submitted an adoption application for Bella. Click to view details.</p>
-            </li>
-            <!-- Read Notification -->
-            <li class="list-group-item list-group-item-action">
-                Your application for Max has been approved!
-                <p class="mb-0">Congratulations! Your application to adopt Max has been approved. Contact us to finalize the adoption process.</p>
-            </li>
-            <!-- Read Notification -->
-            <li class="list-group-item list-group-item-action">
-                New pet Charlie has been added
-                <p class="mb-0">A new pet named Charlie is now available for adoption. Check out his profile!</p>
-            </li>
-            <!-- ... add more notifications as needed ... -->
-        </ul>
-    </section>
-    <footer>
-        <iframe
-          width="100%"
-          height="72px"
-          src="footer.html"
-          frameborder="0"
-        ></iframe>
-      </footer>
+    <div class=" min-vh-100 d-flex flex-column justify-content-between">
+        <div>
+            <nav>
+                <iframe width="100%" height="56px" src="header.html" frameborder="0" scrolling="no"></iframe>
+            </nav>
+            <!-- Notification Section -->
+            <section class="container py-5">
+                <h2 class="mb-4">Your Notifications</h2>
+                <ul class="list-group">
+                    <!-- Unread Notification -->
+                    <li class="list-group-item list-group-item-action bg-light d-flex justify-content-between align-items-center">
+                        <div>
+                            <!-- Radio buttons for Mark as Read and Mark as Unread -->
+                            <input type="radio" id="markAsRead" name="notificationStatus" class="d-none">
+                            <input type="radio" id="markAsUnread" name="notificationStatus" class="d-none">
+                            
+                            <strong class="notification-title">Your application for Oreo has been approved!</strong>
+                            <p class="mb-0">Congratulations! Your application to adopt Oreo has been approved. Contact us to finalize the adoption process.</p>
+                        </div>
+                        <div class="dropdown">
+                            <label class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Status
+                            </label>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><label class="dropdown-item" for="markAsRead">Mark as Read</label></li>
+                                <li><label class="dropdown-item" for="markAsUnread">Mark as Unread</label></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light d-flex justify-content-between align-items-center">
+                        <div>
+                            <!-- Radio buttons for Mark as Read and Mark as Unread -->
+                            <input type="radio" id="markAsRead" name="notificationStatus" class="d-none">
+                            <input type="radio" id="markAsUnread" name="notificationStatus" class="d-none">
+                            
+                            <strong class="notification-title">You have a new message from David Leiblay.</strong>
+                            <p class="mb-0">Hi! I am the owner of Nugget. I have recieved your application and I would like to discuss it further with you.</p>
+                        </div>
+                        <div class="dropdown">
+                            <label class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Status
+                            </label>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><label class="dropdown-item" for="markAsRead">Mark as Read</label></li>
+                                <li><label class="dropdown-item" for="markAsUnread">Mark as Unread</label></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <footer>
+            <iframe width="100%" height="72px" src="footer.html" frameborder="0"></iframe>
+        </footer>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
