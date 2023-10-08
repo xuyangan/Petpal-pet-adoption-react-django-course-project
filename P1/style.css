@@ -96,3 +96,58 @@
 .form-group {
   padding: 8px;
 }
+
+.card2 {
+  width: 190px;
+  height: 254px;
+  border-radius: 20px;
+  position: relative;
+  padding: 1.8rem;
+  transition: 0.5s ease-out;
+  overflow: visible;
+ }
+ 
+ .card-details2 {
+  color: rgb(0, 0, 0, 0.5);
+  height: 100%;
+  gap: .5em;
+  display: grid;
+  place-content: center;
+ }
+ 
+ .card-button2 {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: black;
+  color: #fff;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+ }
+ 
+ .text-body2 {
+  color: rgb(134, 134, 134);
+ }
+ 
+ /*Text*/
+ .text-title2 {
+  font-size: 1.5em;
+  font-weight: bold;
+ }
+ 
+ /*Hover*/
+ .card2:hover {
+  border-color: var(--baby-blue-2);
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+ }
+ 
+ .card2:hover .card-button2 {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+ }
