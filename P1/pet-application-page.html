@@ -13,93 +13,148 @@
 
 <body class="bg-color-baby-blue-3">
 
-    <nav class="navbar navbar-expand-lg bg-color-baby-blue" data-bs-theme="dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">PetPal</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon "></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 bg-light border-white" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn border-lightv text-white" type="submit">Search</button>
-                </form>
-            </div>
-            <!-- Notification Icon with Dropdown -->
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-bell"></i>
-                    <span class="badge bg-danger">2</span> <!-- Number of unread notifications -->
-                </a>
-
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
-                    <h2>Notifications - <span>2</span></h2>
-                    <li><a class="dropdown-item" href="notification-page.html#">
-                        <div class="text">
-                            <h4>System</h4>
-                            <p>Your application for Max has been approved!</p>
-                        </div>
-                    </a></li>
-                    <li><a class="dropdown-item" href="notification-page.html#">
-                        <div class="text">
-                            <h4>David Leiblay</h4>
-                            <p>Hi!</p>
-                        </div>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
+    <nav>
+        <iframe
+          width="100%"
+          src="header.html"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
     </nav>
 
     <!-- Application Form Section -->
     <section class="container py-5">
         <h2 class="mb-4">Pet Adoption Application</h2>
         <form>
+            <!-- Pet Preferences -->
+            <h5 class="mt-4">Pet Preferences</h5>
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Name of the pet that prompted you to apply*</label>
+                <input type="text" class="form-control" id="fullName" required>
+            </div>
             <!-- Personal Information -->
-            <h5>Personal Information</h5>
+            <h5>Adoption Checklist</h5>
+            <div class="option-section">
+                <p class="description">All members of the household are in agreement about adopting a dog</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="special-needs" value="yes">
+                        <span>Yes</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="special-needs" value="no">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+            <div class="option-section">
+                <p class="description">You have thought about where the pet will go when you are away on a trip or if the dog requires a dog walker/daycare during the day</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="special-needs" value="yes">
+                        <span>Yes</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="special-needs" value="no">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+            <div class="option-section">
+                <p class="description">You have budgeted for regular vetting and medical emergencies</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="special-needs" value="yes">
+                        <span>Yes</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="special-needs" value="no">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+            <!-- Personal Information -->
+            <h5>About You</h5> 
             <div class="mb-3">
-                <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="fullName" placeholder="John Doe">
+                <label for="fullName" class="form-label">Full Name*</label>
+                <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" placeholder="johndoe@example.com">
+                <label for="email" class="form-label">Email Address*</label>
+                <input type="email" class="form-control" id="email" placeholder="johndoe@example.com" required>
             </div>
             <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" placeholder="(123) 456-7890">
+                <label for="phone" class="form-label">Phone Number*</label>
+                <input type="tel" class="form-control" id="phone" placeholder="(123) 456-7890" required>
             </div>
-
+            <div class="mb-3">
+                <label for="petType" class="form-label">Your Age</label>
+                <select class="form-select" id="petType">
+                    <option selected>Choose...</option>
+                    <option>18-25</option>
+                    <option>25-30</option>
+                    <option>30-40</option>
+                    <option>40-50</option>
+                    <option>50+</option>
+                    <!-- Add other pet types here -->
+                </select>
+            </div>
+            <div class="option-section">
+                <p class="description">What is your living arrangement? </p>
+                <div class="options">
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="dog"> Detached House
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="cat"> Townhouse
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="bird"> Apartment/condo
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="bird"> With outdoor space (fenced)
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="bird"> With outdoor space (unfenced)
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="bird"> No outdoor space
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="bird"> I live alone
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="bird"> I share a space with roommates/family
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="bird"> I rent my home
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="pets" value="bird"> I own my home
+                        </label>
+                </div>
+            </div>
+            <h6 class="mt-4">Tell Us About Yourself</h6>
+            <div class="option-section">
+                <p class="description">Have you ever adopted or applied to adopt a pet from a shelter or rescue?* </p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="special-needs" value="yes">
+                        <span>Yes</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="special-needs" value="no">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label id="label-feedback" class="left-side" for="feedback">If yes, please elaborate on the experience with that organization. 
+                    Was it a positive experience? What did you learn through this experience?</label>
+                <textarea id="input-feedback" name="feedback" rows="4" cols="50" required></textarea>
+            </div>
             <!-- Address -->
-            <h5 class="mt-4">Address</h5>
+            <h6 class="mt-4">Address</h6>
             <div class="mb-3">
                 <label for="address" class="form-label">Street Address</label>
                 <input type="text" class="form-control" id="address" placeholder="123 Main St">
@@ -116,27 +171,7 @@
                 <label for="postalCode" class="form-label">Postal Code</label>
                 <input type="text" class="form-control" id="postalCode" placeholder="A1B 2C3">
             </div>
-
-            <!-- Pet Preferences -->
-            <h5 class="mt-4">Pet Preferences</h5>
-            <div class="mb-3">
-                <label for="petType" class="form-label">Type of Pet</label>
-                <select class="form-select" id="petType">
-                    <option selected>Choose...</option>
-                    <option>Dog</option>
-                    <option>Cat</option>
-                    <!-- Add other pet types here -->
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="petSize" class="form-label">Preferred Size</label>
-                <select class="form-select" id="petSize">
-                    <option selected>Choose...</option>
-                    <option>Small</option>
-                    <option>Medium</option>
-                    <option>Large</option>
-                </select>
-            </div>
+            
 
             <!-- Additional Questions (based on the reference) -->
             <!-- ... Add more fields as needed ... -->
@@ -146,7 +181,14 @@
             </div>
         </form>
     </section>
-
+    <footer>
+        <iframe
+          width="100%"
+          height="72px"
+          src="footer.html"
+          frameborder="0"
+        ></iframe>
+      </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
