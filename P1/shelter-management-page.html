@@ -22,36 +22,36 @@
             <div class="container my-3">
                 <div class="row">
                     <div class="col-lg-2 col-md-3  bg">
-                        <div class=" vh-auto">
-                            <div class="d-flex flex-column align-items-sm-start px-3 pt-2 text-white ">
-                                <a><span class="fs-4  text-color-baby-blue bold">Settings</span>
-                                </a>
-                                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-sm-start" id="menu">
-                                    <li class="nav-item ">
-                                        <a href="shelter-account-update-page.html" class=" btn-link text-color-baby-blue text-decoration-none px-0 ">
-                                            <i class="fs-4 bi-house"></i> <span
-                                                class="ms-1 fs-5 ">Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#submenu1" data-bs-toggle="collapse"
-                                            class="nav-link px-0 align-middle">
-                                            <i class="fs-4 bi-speedometer2"></i> <span
-                                                class="ms-1 fs-5 text-color-baby-blue bold">Listings</span>
-                                        </a>
-                                        <ul class="collapse show nav flex-column ms-1" id="submenu1"
-                                            data-bs-parent="#menu">
-                                            <li class="w-100 mb-2">
-                                                <a href="shelter-management-page.html" class="btn-link text-color-baby-blue text-decoration-none bold"> <span>Active
-                                                        Listings</span></a>
-                                            </li>
-                                            <li class="w-100 mb-2">
-                                                <a href="#" class="btn-link text-color-baby-blue text-decoration-none"> <span>Past
-                                                        Listings</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <!-- <li>
+                        <div class="d-flex flex-column align-items-sm-start px-3 pt-2 text-white ">
+                            <a><span class="fs-4  text-color-baby-blue bold">Settings</span>
+                            </a>
+                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-sm-start" id="menu">
+                                <li class="nav-item ">
+                                    <a href="shelter-account-update-page.html"
+                                        class=" btn-link text-color-baby-blue text-decoration-none px-0 ">
+                                        <i class="fs-4 bi-house"></i> <span class="ms-1 fs-5 ">Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-speedometer2"></i> <span
+                                            class="ms-1 fs-5 text-color-baby-blue bold">Listings</span>
+                                    </a>
+                                    <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                        <li class="w-100 mb-2">
+                                            <a href="shelter-management-page.html"
+                                                class="btn-link text-color-baby-blue text-decoration-none bold">
+                                                <span>Active
+                                                    Listings</span></a>
+                                        </li>
+                                        <li class="w-100 mb-2">
+                                            <a href="#" class="btn-link text-color-baby-blue text-decoration-none">
+                                                <span>Past
+                                                    Listings</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- <li>
                                     <a href="#" class="nav-link px-0 align-middle">
                                         <i class="fs-4 bi-table"></i> <span
                                             class="ms-1 fs-5 d-none d-sm-inline text text-color-baby-blue">Orders</span></a>
@@ -107,10 +107,13 @@
                                             class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Customers</span>
                                     </a>
                                 </li> -->
-                                </ul>
-                                <!-- </div> -->
+                            </ul>
+                            <a href="shelter-detail-page.html"
+                                class=" btn-link text-color-baby-blue bold text-decoration-none px-0 ">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 fs-5 ">Back To Profile</span>
+                            </a>
+                            <!-- </div> -->
 
-                            </div>
                         </div>
                     </div>
 
@@ -122,9 +125,9 @@
                                 <thead class="">
                                     <tr>
                                         <th>Name</th>
-                                        <th>Title</th>
+                                        <th>Type</th>
                                         <th>Status</th>
-                                        <th>Position</th>
+                                        <th>Publication date</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -132,22 +135,22 @@
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                                <img src="assets/comando.jpg" alt=""
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1">John Doe</p>
-                                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                                    <p class="fw-bold mb-1">Miko</p>
+                                                    <p class="text-muted mb-0">Senior</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="fw-normal mb-1">Software engineer</p>
-                                            <p class="text-muted mb-0">IT department</p>
+                                            <p class="fw-normal mb-1">Alaskan Malamute</p>
+                                            <p class="text-muted mb-0">Dog</p>
                                         </td>
                                         <td>
-                                            <span class="badge badge-success rounded-pill d-inline">Active</span>
+                                            <span class="badge badge-success rounded-pill d-inline text-black">Available</span>
                                         </td>
-                                        <td>Senior</td>
+                                        <td>10-02-2023</td>
                                         <td>
                                             <button type="button"
                                                 class="btn btn-link btn-sm btn-rounded fw-bold text-color-baby-blue">
@@ -158,22 +161,22 @@
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="https://mdbootstrap.com/img/new/avatars/6.jpg"
+                                                <img src="assets/orange-cat.jpg"
                                                     class="rounded-circle" alt="" style="width: 45px; height: 45px" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1">Alex Ray</p>
-                                                    <p class="text-muted mb-0">alex.ray@gmail.com</p>
+                                                    <p class="fw-bold mb-1">Hank</p>
+                                                    <p class="text-muted mb-0">Adult</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="fw-normal mb-1">Consultant</p>
-                                            <p class="text-muted mb-0">Finance</p>
+                                            <p class="fw-normal mb-1">Ginger Coat</p>
+                                            <p class="text-muted mb-0">Cat</p>
                                         </td>
                                         <td>
-                                            <span class="badge badge-primary rounded-pill d-inline">Onboarding</span>
+                                            <span class="badge badge-primary rounded-pill d-inline text-black">Available</span>
                                         </td>
-                                        <td>Junior</td>
+                                        <td>08-09-20023</td>
                                         <td>
                                             <button type="button"
                                                 class="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue"
@@ -185,7 +188,7 @@
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="https://mdbootstrap.com/img/new/avatars/7.jpg"
+                                                <img src="assets/miko.jpeg"
                                                     class="rounded-circle" alt="" style="width: 45px; height: 45px" />
                                                 <div class="ms-3">
                                                     <p class="fw-bold mb-1">Kate Hunington</p>
@@ -268,7 +271,8 @@
                             <div class="container w-100 mb-3">
                                 <div class="d-flex gap-2 justify-content-center">
                                     <a class=""></a>
-                                    <a class="text-color-baby-blue fw-bold btn-link" href="shelter-management-page.html">1</a>
+                                    <a class="text-color-baby-blue fw-bold btn-link"
+                                        href="shelter-management-page.html">1</a>
                                     <a class="" href="#"></a>
                                 </div>
                             </div>

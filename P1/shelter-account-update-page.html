@@ -20,37 +20,42 @@
 
             <div class="container my-3">
                 <div class="row">
-                    <div class="col-lg-2 col-md-3 bg">
-                        <div class=" vh-auto">
+                    <div class="col-lg-2 col-md-3 bg mb-3">
                             <div class="d-flex flex-column align-items-sm-start px-3 pt-2 text-white ">
-                                <a><span class="fs-4  text-color-baby-blue bold">Settings</span>
-                                </a>
-                                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-sm-start" id="menu">
-                                    <li class="nav-item ">
-                                        <a href="shelter-account-update-page.html" class=" btn-link text-color-baby-blue bold  text-decoration-none px-0 ">
-                                            <i class="fs-4 bi-house"></i> <span
-                                                class="ms-1 fs-5 ">Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#submenu1" data-bs-toggle="collapse"
-                                            class="nav-link px-0 align-middle">
-                                            <i class="fs-4 bi-speedometer2"></i> <span
-                                                class="ms-1 fs-5 text-color-baby-blue ">Listings</span>
-                                        </a>
-                                        <ul class="collapse show nav flex-column ms-1" id="submenu1"
-                                            data-bs-parent="#menu">
-                                            <li class="w-100 mb-2">
-                                                <a href="shelter-management-page.html" class="btn-link text-color-baby-blue text-decoration-none"> <span>Active
-                                                        Listings</span></a>
-                                            </li>
-                                            <li class="w-100 mb-2">
-                                                <a href="#" class="btn-link text-color-baby-blue text-decoration-none"> <span>Past
-                                                        Listings</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <!-- <li>
+                                    <a><span class="fs-4 text-color-baby-blue bold">Settings</span>
+                                    </a>
+                                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-sm-start"
+                                        id="menu">
+                                        <li class="nav-item ">
+                                            <a href="shelter-account-update-page.html"
+                                                class=" btn-link text-color-baby-blue bold  text-decoration-none px-0 ">
+                                                <i class="fs-4 bi-house"></i> <span class="ms-1 fs-5 ">Edit
+                                                    Profile</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#submenu1" data-bs-toggle="collapse"
+                                                class="nav-link px-0 align-middle">
+                                                <i class="fs-4 bi-speedometer2"></i> <span
+                                                    class="ms-1 fs-5 text-color-baby-blue ">Listings</span>
+                                            </a>
+                                            <ul class="collapse show nav flex-column ms-1" id="submenu1"
+                                                data-bs-parent="#menu">
+                                                <li class="w-100 mb-2">
+                                                    <a href="shelter-management-page.html"
+                                                        class="btn-link text-color-baby-blue text-decoration-none">
+                                                        <span>Active
+                                                            Listings</span></a>
+                                                </li>
+                                                <li class="w-100 mb-2">
+                                                    <a href="#"
+                                                        class="btn-link text-color-baby-blue text-decoration-none">
+                                                        <span>Past
+                                                            Listings</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <!-- <li>
                                         <a href="#submenu2" data-bs-toggle="collapse"
                                             class="nav-link px-0 align-middle ">
                                             <i class="fs-4 bi-bootstrap"></i> <span
@@ -104,11 +109,14 @@
                                                 class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Customers</span>
                                         </a>
                                     </li> -->
-                                </ul>
+                                    </ul>
+                                    <a href="shelter-detail-page.html"
+                                        class=" btn-link text-color-baby-blue bold text-decoration-none px-0 ">
+                                        <i class="fs-4 bi-house"></i> <span class="ms-1 fs-5 ">Back To Profile</span>
+                                    </a>
                                 <!-- </div> -->
 
                             </div>
-                        </div>
                     </div>
 
                     <!-- Information  -->
@@ -118,49 +126,43 @@
                                 <div class="card mb-4 border-0 default-shadow">
                                     <div class="card-body text-center">
                                         <div class="rounded-top text-white d-flex flex-row"
-                                            style="background-image: url(https://i.cbc.ca/1.3552671.1687291637!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/a-cat-looks-out-of-its-cage-at-the-toronto-humane-society.jpg);">
+                                            style="background-image: url(assets/shelter-background.png);">
                                             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                                                    alt="Generic placeholder image"
+                                                <img src="assets/calico.jpg" alt="Generic placeholder image"
                                                     class="img-fluid img-thumbnail mt-4 mb-2"
                                                     style="width: 150px; height: 150px; z-index: 1">
                                             </div>
-                                            <div class="ms-3" style="margin-top: 130px; ">
-                                            </div>
                                         </div>
+                                        <div class="m-3 col-auto d-flex flex-column justify-content-start text-start">
+                                            <form action="">
+                                                <div class="pet-field">
+                                                    <label class="form-label text-color-light-black"
+                                                        for="customFile">Profile Picture</label>
 
-                                        <div class="p-4 text-black" style="background-color: #f8f9fa;">
-                                            <div class="d-flex flex-column mb-3 justify-content-end text-start py-1">
-
-                                                <h5 class="my-3">John Smith</h5>
-                                                <p class="text-muted mb-1">Full Stack Developer</p>
-                                                <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-
-                                            </div>
+                                                    <div class="col-6 pet-field d-flex flex-column justify-content-end">
+                                                        <input class="text-color-light-black" type="file"
+                                                            class="form-control" id="customFile" />
+                                                    </div>
+                                                    <label class="form-label text-color-light-black"
+                                                        for="customFile">Profile Background Picture</label>
+                                                    <div class="col-6 pet-field d-flex flex-column justify-content-end">
+                                                        <input class="text-color-light-black" type="file"
+                                                            class="form-control" id="customFile2" />
+                                                    </div>
+                                                </div>
+                                                <div class="pet-field">
+                                                    <label class="pet-label " for="password">Name</label>
+                                                    <input class="form-outline w-100 border-0" name="name"
+                                                        type="password" placeholder="Tail Tales Retreat" id="name">
+                                                </div>
+                                                <div class="pet-field">
+                                                    <label class="pet-label" for="username">Mission Statement</label>
+                                                    <input class="form-outline w-100 border-0" name="goal-statement"
+                                                        type="text"
+                                                        placeholder="The language of compassion needs no words, just open arms and a loving heart"
+                                                        id="goal-statement">
+                                                </div>
                                         </div>
-
-                                        <ul class="list-group list-group-flush rounded-3">
-                                            <li
-                                                class="list-group-item d-flex justify-content-start align-items-center p-3">
-                                                <p class="mb-0">https://mdbootstrap.com</p>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-start align-items-center p-3">
-                                                <p class="mb-0">mdbootstrap</p>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-start align-items-center p-3">
-                                                <p class="mb-0">@mdbootstrap</p>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-start align-items-center p-3">
-                                                <p class="mb-0">mdbootstrap</p>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-start align-items-center p-3">
-                                                <p class="mb-0">mdbootstrap</p>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -171,95 +173,79 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Full Name</p>
+                                                <label class="" for="email">Email</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <p class="text-muted mb-0">Johnatan Smith</p>
+                                                <input class="form-outline w-100 border-0" name="email" type="text"
+                                                    placeholder="tailtalesinquiry@tailtales.com">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Email</p>
+                                                <label class="" for="email">Phone</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <p class="text-muted mb-0">example@example.com</p>
+                                                <input class="form-outline w-100 border-0" name="email" type="text"
+                                                    placeholder="(647) 234-5678">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Phone</p>
+                                                <label class="" for="email">Address</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <p class="text-muted mb-0">(097) 234-5678</p>
+                                                <input class="form-outline w-100 border-0" name="email" type="text"
+                                                    placeholder="Bay Area, San Francisco, CA">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Mobile</p>
+                                                <label class="" for="email">Links</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <p class="text-muted mb-0">(098) 765-4321</p>
+                                                <input class="form-outline w-100 border-0" name="email" type="text"
+                                                    placeholder="tailtalesretreat.com">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Address</p>
+                                                <label class="" for="email">Links</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                                <input class="form-outline w-100 border-0" name="email" type="text"
+                                                    placeholder="">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Full Name</p>
+                                                <label class="" for="email">Links</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <p class="text-muted mb-0">Johnatan Smith</p>
+                                                <input class="form-outline w-100 border-0" name="email" type="text"
+                                                    placeholder="">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Email</p>
+                                                <label class="" for="email">Links</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <p class="text-muted mb-0">example@example.com</p>
+                                                <input class="form-outline w-100 border-0" name="email" type="text"
+                                                    placeholder="">
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <p class="mb-0">Phone</p>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0">(097) 234-5678</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <p class="mb-0">Mobile</p>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0">(098) 765-4321</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <p class="mb-0">Address</p>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                                            </div>
-                                        </div>
+
+
                                     </div>
+
                                 </div>
+                                <button type="submit" class="btn btn-primary"> Save Changes </button></form>
 
                             </div>
                         </div>
