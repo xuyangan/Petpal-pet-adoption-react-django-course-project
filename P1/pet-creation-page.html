@@ -18,112 +18,258 @@
             <nav>
                 <iframe width="100%" height="56px" src="seeker-header.html" frameborder="0" scrolling="no"></iframe>
             </nav>
-
             <div class="container my-3">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 ">
-                        <div class="card p-5">
-                            <h1 class="">New Listing</h1>
-                            <form class=" col-">
-                                <div class="pet-field">
-                                    <label class="form-label text-color-light-black" for="customFile">Default file input
-                                        example</label>
-                                    <div class="row">
-                                        <div class="col-6" style="width: 150px;">
-                                            <img src="not-found.png" alt="Generic placeholder image"
-                                                class="img-fluid img-thumbnail " style="width: 150px; height: 150px;">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3  bg">
+                        <div class="d-flex flex-column align-items-sm-start px-3 pt-2 text-white ">
+                            <a><span class="fs-4  text-color-baby-blue bold">Settings</span>
+                            </a>
+                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-sm-start" id="menu">
+                                <li class="nav-item ">
+                                    <a href="shelter-account-update-page.html"
+                                        class=" btn-link text-color-baby-blue text-decoration-none px-0 ">
+                                        <i class="fs-4 bi-house"></i> <span class="ms-1 fs-5 ">Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-speedometer2"></i> <span
+                                            class="ms-1 fs-5 text-color-baby-blue bold">Listings</span>
+                                    </a>
+                                    <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                        <li class="w-100 mb-2">
+                                            <a href="pet-creation-page.html"
+                                                class="btn-link text-color-baby-blue text-decoration-none bold">
+                                                <span>+ New Listing</span></a>
+                                        </li>
+                                        <li class="w-100 mb-2">
+                                            <a href="shelter-management-page.html"
+                                                class="btn-link text-color-baby-blue text-decoration-none ">
+                                                <span>Active
+                                                    Listings</span></a>
+                                        </li>
+                                        <li class="w-100 mb-2">
+                                            <a href="shelter-management-page-past.html"
+                                                class="btn-link text-color-baby-blue text-decoration-none ">
+                                                <span>Past
+                                                    Listings</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- <li>
+                                    <a href="#" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-table"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text text-color-baby-blue">Orders</span></a>
+                                </li>
+                                <li>
+                                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                        <i class="fs-4 bi-bootstrap"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Bootstrap</span></a>
+                                    <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                        <li class="w-100">
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Dashboard</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-grid"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Products</span>
+                                    </a>
+                                    <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                        <li class="w-100">
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Product
+                                                    1</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue ">Product
+                                                    2</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue ">Product
+                                                    3</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link px-0"> <span
+                                                    class="d-none d-sm-inline text-color-baby-blue">Product
+                                                    4</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-people"></i> <span
+                                            class="ms-1 fs-5 d-none d-sm-inline text-color-baby-blue">Customers</span>
+                                    </a>
+                                </li> -->
+                            </ul>
+                            <a href="shelter-detail-page.html"
+                                class=" btn-link text-color-baby-blue bold text-decoration-none px-0 ">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 fs-5 ">Back To Profile</span>
+                            </a>
+                            <!-- </div> -->
+
+                        </div>
+                    </div>
+
+                    <!-- Information  -->
+                    <div class=" col-lg-10 col-md-9 ">
+                        <div class="col-lg- ">
+                            <div class="card p-5">
+                                <h1 class="">New Listing</h1>
+                                <form class=" col-">
+                                    <div class="pet-field">
+                                        <label class="form-label text-color-light-black" for="customFile">Add
+                                            Picture</label>
+                                        <div class="row">
+                                            <div class="col-6" style="width: 150px;">
+                                                <img src="not-found.png" alt="Pet Picture"
+                                                    class="img-fluid img-thumbnail "
+                                                    style="width: 150px; height: 150px;">
+                                            </div>
+                                            <div class="col-6 pet-field d-flex flex-column justify-content-end">
+                                                <input class="text-color-light-black" type="file" class="form-control"
+                                                    id="customFile" required />
+                                            </div>
                                         </div>
-                                        <div class="col-6 pet-field d-flex flex-column justify-content-end">
-                                            <input class="text-color-light-black" type="file" class="form-control"
-                                                id="customFile" />
+                                    </div>
+
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="username">Name</label>
+                                        <input class="pet-input" name="username" type="text" placeholder="Name"
+                                            id="username">
+                                    </div>
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="flexRadioDefault">Gender</label>
+                                        <!-- Default radio -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1" />
+                                            <label class="form-check-label" for="flexRadioDefault1"> Male
+                                            </label>
+                                        </div>
+                                        <!-- Default checked radio -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault2" checked />
+                                            <label class="form-check-label" for="flexRadioDefault2"> Female
+                                            </label>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="pet-field">
-                                    <label class="pet-label" for="username">Username</label>
-                                    <input class="pet-input" name="username" type="text" placeholder="Username"
-                                        id="username">
-                                </div>
-                                <div class="pet-field">
-                                    <label class="pet-label" for="password">Password</label>
-                                    <input class="pet-input" name="password" type="password" placeholder="Password"
-                                        id="password">
-                                </div>
-                                <div class="pet-field">
-                                    <label class="pet-label" for="password">Confirm Password</label>
-                                    <input class="pet-input" name="password" type="password" placeholder="Password"
-                                        id="password">
-
-                                </div>
-                                <div class="pet-field">
-                                    <label class="pet-label" for="flexRadioDefault">Gender</label>
-                                    <!-- Default radio -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1" />
-                                        <label class="form-check-label" for="flexRadioDefault1"> Default radio </label>
-                                    </div>
-
-                                    <!-- Default checked radio -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault2" checked />
-                                        <label class="form-check-label" for="flexRadioDefault2"> Default checked radio
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="pet-field">
-                                    <label class="pet-label" for="flexRadioDefault">Gender</label>
-                                    <!-- Default checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefault" />
-                                        <label class="form-check-label" for="flexCheckDefault">Default checkbox</label>
-                                    </div>
-
-                                    <!-- Checked checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                            checked />
-                                        <label class="form-check-label" for="flexCheckChecked">Checked checkbox</label>
-                                    </div>
-                                </div>
-
-                                <div class="pet-field">
-                                    <!-- Gallery -->
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
-
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-                                                class="w-100 shadow-1-strong rounded mb-4"
-                                                alt="Wintry Mountain Landscape" />
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="flexRadioDefault">Breed</label>
+                                        <!-- Default checkbox -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault" />
+                                            <label class="form-check-label" for="flexCheckDefault">Default
+                                                checkbox</label>
                                         </div>
 
-                                        <div class="col-lg-4 mb-4 mb-lg-0">
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                                class="w-100 shadow-1-strong rounded mb-4"
-                                                alt="Mountains in the Clouds" />
-
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
-                                        </div>
-
-                                        <div class="col-lg-4 mb-4 mb-lg-0">
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-                                                class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
-
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-                                                class="w-100 shadow-1-strong rounded mb-4"
-                                                alt="Yosemite National Park" />
+                                        <!-- Checked checkbox -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckChecked" checked />
+                                            <label class="form-check-label" for="flexCheckChecked">Checked
+                                                checkbox</label>
                                         </div>
                                     </div>
-                                    <!-- Gallery -->
-                                </div>
-                                <button type="submit" class="btn btn-primary"> Submit </button>
-                            </form>
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="password">Password</label>
+                                        <input class="pet-input" name="password" type="password" placeholder="Password"
+                                            id="password">
+                                    </div>
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="password">Confirm Password</label>
+                                        <input class="pet-input" name="password" type="password" placeholder="Password"
+                                            id="password">
+
+                                    </div>
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="flexRadioDefault">Gender</label>
+                                        <!-- Default radio -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1" />
+                                            <label class="form-check-label" for="flexRadioDefault1"> Default radio
+                                            </label>
+                                        </div>
+
+                                        <!-- Default checked radio -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault2" checked />
+                                            <label class="form-check-label" for="flexRadioDefault2"> Default checked
+                                                radio
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="flexRadioDefault">Gender</label>
+                                        <!-- Default checkbox -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault" />
+                                            <label class="form-check-label" for="flexCheckDefault">Default
+                                                checkbox</label>
+                                        </div>
+
+                                        <!-- Checked checkbox -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckChecked" checked />
+                                            <label class="form-check-label" for="flexCheckChecked">Checked
+                                                checkbox</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="pet-field">
+                                        <!-- Gallery -->
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                    class="w-100 shadow-1-strong rounded mb-4"
+                                                    alt="Boat on Calm Water" />
+
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+                                                    class="w-100 shadow-1-strong rounded mb-4"
+                                                    alt="Wintry Mountain Landscape" />
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4 mb-lg-0">
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+                                                    class="w-100 shadow-1-strong rounded mb-4"
+                                                    alt="Mountains in the Clouds" />
+
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                    class="w-100 shadow-1-strong rounded mb-4"
+                                                    alt="Boat on Calm Water" />
+                                            </div>
+
+                                            <div class="col-lg-4 mb-4 mb-lg-0">
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                                                    class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
+                                                    class="w-100 shadow-1-strong rounded mb-4"
+                                                    alt="Yosemite National Park" />
+                                            </div>
+                                        </div>
+                                        <!-- Gallery -->
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"> Submit </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
