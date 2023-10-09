@@ -470,3 +470,7 @@ footer {
 .disabled-apply {
   width: 100%;
 }
+
+div.media label {
+  font-weight: bold;
+}
