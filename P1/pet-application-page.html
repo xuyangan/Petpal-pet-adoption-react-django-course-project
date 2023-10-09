@@ -1,193 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <title>My Applications</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
-    </head>
+  </head>
 
-<body class="bg-color-baby-blue-3">
-    <div class=" min-vh-100 d-flex flex-column justify-content-between">
-        <div>
-            <nav>
-                <iframe width="100%" height="56px" src="seeker-header.html" frameborder="0" scrolling="no"></iframe>
-              </nav>
-        
-            <!-- Application Form Section -->
-            <section class="container py-5">
-                <h2 class="mb-4">Pet Adoption Application</h2>
-                <form>
-                    <!-- Pet Preferences -->
-                    <h5 class="mt-4">Pet Preferences</h5>
-                    <div class="mb-3">
-                        <label for="fullName" class="form-label">Name of the pet that prompted you to apply*</label>
-                        <input type="text" class="form-control" id="fullName" required>
-                    </div>
-                    <!-- Personal Information -->
-                    <h5>Adoption Checklist</h5>
-                    <div class="option-section">
-                        <p class="description">All members of the household are in agreement about adopting a dog*</p>
-                        <div class="options">
-                            <label class="option">
-                                <input type="radio" name="household-agreement" value="yes">
-                                <span>Yes</span>
-                            </label>
-                            <label class="option">
-                                <input type="radio" name="household-agreement" value="no">
-                                <span>No</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="option-section">
-                        <p class="description">You have thought about where the pet will go when you are away on a trip or if the pet requires a pet daycare during the day*</p>
-                        <div class="options">
-                            <label class="option">
-                                <input type="radio" name="trip-planning" value="yes">
-                                <span>Yes</span>
-                            </label>
-                            <label class="option">
-                                <input type="radio" name="trip-plannings" value="no">
-                                <span>No</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="option-section">
-                        <p class="description">You have budgeted for regular vetting and medical emergencies*</p>
-                        <div class="options">
-                            <label class="option">
-                                <input type="radio" name="budgeted" value="yes">
-                                <span>Yes</span>
-                            </label>
-                            <label class="option">
-                                <input type="radio" name="budgeted" value="no">
-                                <span>No</span>
-                            </label>
-                        </div>
-                    </div>
-                    <!-- Personal Information -->
-                    <h5>About You</h5> 
-                    <div class="mb-3">
-                        <label for="fullName" class="form-label">Full Name*</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address*</label>
-                        <input type="email" class="form-control" id="email" placeholder="johndoe@example.com" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number*</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="(123) 456-7890" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="petType" class="form-label">Your Age</label>
-                        <select class="form-select" id="petType">
-                            <option selected>Choose...</option>
-                            <option>18-25</option>
-                            <option>25-30</option>
-                            <option>30-40</option>
-                            <option>40-50</option>
-                            <option>50+</option>
-                            <!-- Add other pet types here -->
-                        </select>
-                    </div>
-                    <div class="option-section">
-                        <p class="description">What is your living arrangement? </p>
-                        <div class="options">
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="dog"> Detached House
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="cat"> Townhouse
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="bird"> Apartment/condo
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="bird"> With outdoor space (fenced)
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="bird"> With outdoor space (unfenced)
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="bird"> No outdoor space
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="bird"> I live alone
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="bird"> I share a space with roommates/family
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="bird"> I rent my home
-                                </label>
-                                <label class="option">
-                                    <input type="checkbox" name="pets" value="bird"> I own my home
-                                </label>
-                        </div>
-                    </div>
-                    <h6 class="mt-4">Tell Us About Yourself</h6>
-                    <div class="option-section">
-                        <p class="description">Have you ever adopted or applied to adopt a pet from a shelter or rescue?* </p>
-                        <div class="options">
-                            <label class="option">
-                                <input type="radio" name="adopted-before" id="adopted-yes" value="yes">
-                                <span>Yes</span>
-                            </label>
-                            <label class="option">
-                                <input type="radio" name="adopted-before" value="no">
-                                <span>No</span>
-                            </label>
-                        </div>
-                        <div class="textarea-container">
-                            <label id="label-feedback" class="left-side" for="feedback">If yes, please elaborate on the experience with that organization. 
-                                Was it a positive experience? What did you learn through this experience?</label>
-                            <textarea id="input-feedback" name="feedback" rows="4" cols="50"></textarea>
-                        </div>
-                    </div>
-                    
+  <body class="bg-color-baby-blue-3">
+    <div class="min-vh-100 d-flex flex-column justify-content-between">
+      <nav>
+        <iframe
+          width="100%"
+          height="56px"
+          src="seeker-header.html"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+      </nav>
 
-                    <!-- Address -->
-                    <h6 class="mt-4">Address</h6>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Street Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="123 Main St">
-                    </div>
-                    <div class="mb-3">
-                        <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" placeholder="Toronto">
-                    </div>
-                    <div class="mb-3">
-                        <label for="province" class="form-label">Province</label>
-                        <input type="text" class="form-control" id="province" placeholder="Ontario">
-                    </div>
-                    <div class="mb-3">
-                        <label for="postalCode" class="form-label">Postal Code</label>
-                        <input type="text" class="form-control" id="postalCode" placeholder="A1B 2C3">
-                    </div>
-                    
-        
-                    <!-- Additional Questions (based on the reference) -->
-                    <!-- ... Add more fields as needed ... -->
-        
-                    <div class="mt-4">
-                        <button type="submit" class="btn btn-primary">Submit Application</button>
-                    </div>
-                </form>
-            </section>
+      <!-- Search Section -->
+      <section class="container py-5">
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <img class="bi flex-shrink-0 me-2" src="circle-check-regular.svg" alt="Success Icon" width="2%" height="2%"/>
+            <div >
+                  Application successfully submitted!
+            </div>
+          </div>
+        <!-- Results Section -->
+        <div class="mt-5">
+          <h1>My Applications</h1>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span>Sort by:</span>
+            <select class="form-select w-auto">
+              <option selected>Most Recent Application</option>
+              <option>Oldest Application</option>
+              <option>Name</option>
+            </select>
+          </div>
+          <!-- Display results here in a grid or list format -->
+          <div class="row">
+            <!-- Pet Card -->
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-baby-blue">
+                <img src="nugget.jpeg" class="card-img-top" alt="Pet Name" />
+                <div class="card-body">
+                  <h5 class="card-title">Nugget</h5>
+                  <p class="card-text mb-2">Submitted 1 min ago</p>
+                  <a href="nugget-application" class="btn btn-primary">View Application</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-baby-blue">
+                <img src="oreo.jpeg" class="card-img-top" alt="Pet Name" />
+                <div class="card-body">
+                  <h5 class="card-title">Oreo</h5>
+                  <p class="card-text mb-2">Submitted 1 day ago</p>
+                    <a href="oreo-application" class="btn btn-primary" tabindex="-1">
+                      View Application
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-          
-        <footer>
-            <iframe width="100%" height="72px" src="footer.html" frameborder="0"></iframe>
-          </footer>
+      </section>
+      <footer>
+        <iframe
+          width="100%"
+          height="72px"
+          src="footer.html"
+          frameborder="0"
+        ></iframe>
+      </footer>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
