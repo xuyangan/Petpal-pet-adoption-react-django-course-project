@@ -12,8 +12,91 @@
 
 <body class="bg-color-baby-blue-3">
     <div class="min-vh-100 d-flex flex-column justify-content-between">
-        <nav>
-            <iframe width="100%" height="56px" src="seeker-header.html" frameborder="0" scrolling="no"></iframe>
+        <nav class="navbar navbar-expand-lg  bg-color-baby-blue default-shadow" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand" href="landing-page.html">PetPal</a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 bg-light border-white" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn border-lightv text-white" type="submit">Search</button>
+                    </form>
+                    <div class="dropdown pr-3">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="badge bg-danger">2</span> <!-- Number of unread notifications -->
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="notificationDropdown">
+                            <h2>Notifications - <span>2</span></h2>
+                            <li><a class="dropdown-item" href="notification-page.html">
+                                <div class="text">
+                                    <h4>New Message from: David Leiblay</h4>
+                                    <p>Do you live with a roommate?</p>
+                                </div>
+                            </a></li>
+                            <li><a class="dropdown-item">
+                                    <div class="text">
+                                        <h4>System</h4>
+                                        <p>New pet has been added! Click to view!</p>
+                                    </div>
+                                </a></li>
+
+                            <li><a class="dropdown-viewall" href="notification-page.html">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown align-items-center ">
+                        <a href="#"
+                            class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
+                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
+                                class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1 text-white">loser</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small bg-color-baby-blue" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
         </nav>
 
         <!-- Main Content -->
