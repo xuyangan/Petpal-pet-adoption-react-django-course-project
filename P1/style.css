@@ -63,19 +63,19 @@ p {
 }
 
 .dropdown-menu-end {
-  background-color: rgb(183, 181, 181);
+  /* background-color: #92d7f6; */
   margin: 0%;
 }
 .dropdown-menu-end h2 {
   font-size: 18px;
   padding: 5px;
   border-bottom: 1px solid #eee;
-  color: #000;
+  color: #888;
   margin: 0%;
 }
 
-.dropdown-menu-end h2 span {
-  color: #f00;
+.dropdown-item span {
+  color: #f56d6d;
 }
 
 .dropdown-item {
@@ -84,6 +84,7 @@ p {
   padding: 4px 6px;
   margin-bottom: 0px;
   cursor: pointer;
+  color: #fff;
 }
 
 .dropdown-item:hover {
@@ -103,13 +104,13 @@ p {
   margin: 0%;
 }
 
-.dropdown-viewall {
+.dropdown-signout {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 5px;
-  color: #333;
+  color: #fff;
 }
 .option-section {
   display: flex;
@@ -322,16 +323,17 @@ footer {
 }
 
 .search-bar {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .search-input {
-  flex: 1;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    margin-left: 3rem;
 }
 
 .search-button {
@@ -340,8 +342,8 @@ footer {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  margin-left: 0.5rem;
   cursor: pointer;
+  margin-right: 5rem;
 }
 
 .search-button:hover {
@@ -474,3 +476,34 @@ footer {
 div.media label {
   font-weight: bold;
 }
+
+.home-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px; 
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px; 
+    text-align: center;
+}
+
+.profile-container {
+    position: relative;
+    display: inline-block;
+    margin: 4px;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%); /* This will center the badge on the top-right corner of the image */
+}
+
+.username{
+    margin-left: 0.5rem;
+}
+
+.navbar>.container{
+    flex-direction: row;
+} 
