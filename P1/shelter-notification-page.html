@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-color-baby-blue-3">
+    <div class=" min-vh-100 d-flex flex-column justify-content-between">
+        <div>
+            <nav class="navbar navbar-expand-lg  bg-color-baby-blue default-shadow" data-bs-theme="dark">
+                <div class="container">
+                    <a class="navbar-brand" href="landing-page.html">PetPal</a>
+                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon "></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 bg-light border-white" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn border-lightv text-white" type="submit">Search</button>
+                        </form>
+                        <div class="dropdown pr-3">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bell"></i>
+                                <span class="badge bg-danger">1</span> <!-- Number of unread notifications -->
+                            </a>
+    
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                                <h2>Notifications - <span>1</span></h2>
+                                <li><a class="dropdown-item">
+                                        <div class="text">
+                                            <h4>Zoey</h4>
+                                            <p>Sure! Go ahead!</p>
+                                        </div>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown align-items-center ">
+                            <a href="#"
+                                class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
+                                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
+                                    class="rounded-circle">
+                                <span class="d-none d-sm-inline mx-1 text-white">Tail Tales Retreat</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" href="#">New project...</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            </ul>
+                        </div>
+    
+                    </div>
+                </div>
+            </nav>
+            <div class="d-flex">
+                <!-- Dialogue List -->
+                <div class="dialogue-list">
+                    <div class="dialogue-item active">Zoey Zhang</div>
+                    <div class="dialogue-item unread">System</div>
+                    <div class="dialogue-item">John Smith</div>
+                </div>
+    
+                <!-- Chat Container -->
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h4>Chat with Zoey</h4>
+                    </div>
+                    <div class="chat-content">
+                        <div class="message sent">
+                            <p>Hi! I have recieved your application and would like to ask you a few follow up questions.</p>
+                        </div>
+                        <div class="message received">
+                            <p>Sure! Go ahead!</p>
+                        </div>
+                        <div class="message sent">
+                            <p>Do you live with a roommate?</p>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="Type your message...">
+                        <button>Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <iframe width="100%" height="72px" src="footer.html" frameborder="0"></iframe>
+        </footer>
+    </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
