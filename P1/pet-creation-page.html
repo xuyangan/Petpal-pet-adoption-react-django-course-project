@@ -146,8 +146,34 @@
 
                                     <div class="pet-field">
                                         <label class="pet-label" for="name">Name</label>
-                                        <input class="pet-input" name="name" type="text" placeholder="Name"
-                                            id="name" required>
+                                        <input class="pet-input" name="name" type="text" placeholder="Name" id="name"
+                                            required>
+                                    </div>
+
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="age">Age</label>
+                                        <input type="number" id="age" class="form-control pet-input" />
+                                    </div>
+
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="gender">Gender</label>
+                                        <!-- Default radio -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="male" />
+                                            <label class="form-check-label" for="male"> Male
+                                            </label>
+                                        </div>
+                                        <!-- Default checked radio -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="female"
+                                                checked />
+                                            <label class="form-check-label" for="female"> Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="color"> Color </label>
+                                        <input class="pet-input" name="color" type="text" placeholder="Color">
                                     </div>
                                     <div class="pet-field">
                                         <label class="pet-label" for="breed">Breed</label>
@@ -155,139 +181,65 @@
                                             id="breed">
                                     </div>
                                     <div class="pet-field">
-                                        <label class="pet-label" for="age">Age</label>
-                                        <input type="number" id="age" class="form-control pet-input" />
+                                        <label class="pet-label" for="location">Location</label>
+                                        <fieldset disabled="disabled">
+                                            <input class="form-control" type="text" value="Toronto, ON" readonly />
+                                        </fieldset>
                                     </div>
 
                                     <div class="pet-field">
-                                        <label class="pet-label" for="gender">Gender</label >
+                                        <label class="pet-label" for="behaviour"> Behaviour</label>
+                                        <input class="pet-input" name="behaviour" type="text" id="behaviour"
+                                            placeholder="Behaviour">
+                                    </div>
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="special-needs"> Special Needs</label>
+                                        <input class="pet-input" name="special-needs" type="text" id="special-needs"
+                                            placeholder="Special Needs">
+                                    </div>
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="medical-history"> Medical History</label>
+                                        <input class="pet-input" name="medical-history" type="text" id="medical-history"
+                                            placeholder="Medical History">
+                                    </div>
+
+                                    <div class="pet-field">
+                                        <label class="pet-label" for="house-trained">House Trained</label>
                                         <!-- Default radio -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender"
-                                                id="male" />
-                                            <label class="form-check-label" for="male"> Male
+                                            <input class="form-check-input" type="radio" name="house-trained"
+                                                id="house-trained-yes" />
+                                            <label class="form-check-label" for="house-trained-yes"> Yes
                                             </label>
                                         </div>
+
                                         <!-- Default checked radio -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender"
-                                                id="female" checked />
-                                            <label class="form-check-label" for="female"> Female
+                                            <input class="form-check-input" type="radio" name="house-trained"
+                                                id="flexRadioDefault2" checked />
+                                            <label class="form-check-label" for="house-trained-no"> No
                                             </label>
                                         </div>
                                     </div>
+                                    <!--  -->
 
                                     <div class="pet-field">
-                                        <label class="pet-label" for="traits">Traits</label>
+                                        <label class="pet-label" for="good-in-home">Good in a Home with</label>
                                         <!-- Default checkbox -->
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="house-trained"
-                                                id="house-trained" />
-                                            <label class="form-check-label" for="house-trained">House Trained</label>
-                                        </div>
-
-                                        <!-- Checked checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="potty-trained"
-                                                id="potty-trained" checked />
-                                            <label class="form-check-label" for="potty-trained">Potty-trained</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="vaccinated"
-                                                id="vaccinated" checked />
-                                            <label class="form-check-label" for="vaccinated">Vaccinated</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="spayed-neutered"
-                                                id="spayed-neutered" checked />
-                                            <label class="form-check-label" for="spayed-neutered">Spayed/Neutered</label>
-                                        </div>
-                                    </div>
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="more-traits">More Triats</label>
-                                        <input class="pet-input" name="more-traits" type="text" placeholder="More Traits"
-                                            id="more-traits">
-                                    </div>
-                                    
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="password">Confirm Password</label>
-                                        <input class="pet-input" name="password" type="password" placeholder="Password"
-                                            id="password">
-                                    </div>
-
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="flexRadioDefault">Gender</label>
-                                        <!-- Default radio -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault1" />
-                                            <label class="form-check-label" for="flexRadioDefault1"> Default radio
-                                            </label>
-                                        </div>
-
-                                        <!-- Default checked radio -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault2" checked />
-                                            <label class="form-check-label" for="flexRadioDefault2"> Default checked
-                                                radio
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="flexRadioDefault">Gender</label>
-                                        <!-- Default checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" />
-                                            <label class="form-check-label" for="flexCheckDefault">Default
-                                                checkbox</label>
+                                                id="good-in-home-children" />
+                                            <label class="form-check-label" for="good-in-home-children">Children</label>
                                         </div>
 
                                         <!-- Checked checkbox -->
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked" checked />
-                                            <label class="form-check-label" for="flexCheckChecked">Checked
-                                                checkbox</label>
+                                                id="good-in-home-pets" checked />
+                                            <label class="form-check-label" for="good-in-home-pets">Other Pets</label>
                                         </div>
                                     </div>
-
-                                    <div class="pet-field">
-                                        <!-- Gallery -->
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Boat on Calm Water" />
-
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Wintry Mountain Landscape" />
-                                            </div>
-
-                                            <div class="col-lg-4 mb-4 mb-lg-0">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Mountains in the Clouds" />
-
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Boat on Calm Water" />
-                                            </div>
-
-                                            <div class="col-lg-4 mb-4 mb-lg-0">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
-
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Yosemite National Park" />
-                                            </div>
-                                        </div>
-                                        <!-- Gallery -->
-                                    </div>
-                                    <button type="submit" class="btn btn-primary"> Submit </button>
+                                    <button type="submit" class="btn btn-primary"> Create New Listing </button>
                                 </form>
                             </div>
                         </div>
