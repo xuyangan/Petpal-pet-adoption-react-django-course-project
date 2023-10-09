@@ -58,6 +58,11 @@ p {
   align-items: center;
   flex-direction: column;
 }
+
+.main > * {
+  margin-bottom: 15px;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -329,11 +334,11 @@ footer {
 }
 
 .search-input {
-    flex: 1;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    margin-left: 3rem;
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  margin-left: 3rem;
 }
 
 .search-button {
@@ -478,32 +483,35 @@ div.media label {
 }
 
 .home-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1140px; 
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px; 
-    text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
 }
 
 .profile-container {
-    position: relative;
-    display: inline-block;
-    margin: 4px;
+  position: relative;
+  display: inline-block;
+  margin: 4px;
 }
 
 .badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(50%, -50%); /* This will center the badge on the top-right corner of the image */
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(
+    50%,
+    -50%
+  ); /* This will center the badge on the top-right corner of the image */
 }
 
-.username{
-    margin-left: 0.5rem;
+.username {
+  margin-left: 0.5rem;
 }
 
-.navbar>.container{
-    flex-direction: row;
-} 
+.navbar > .container {
+  flex-direction: row;
+}
