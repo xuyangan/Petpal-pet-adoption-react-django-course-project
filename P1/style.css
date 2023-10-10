@@ -43,6 +43,9 @@
 .text-color-light-black {
   color: rgb(0, 0, 0, 0.5);
 }
+.border-baby-blue {
+  border-color: var(--baby-blue);
+} 
 .pr-3 {
   padding-right: 1rem;
 }
