@@ -1,529 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
-</head>
+  </head>
 
-<body class="bg-color-baby-blue-3">
+  <body class="bg-color-baby-blue-3">
     <div class="min-vh-100 d-flex flex-column justify-content-between">
-        <div>
-            <nav
-            class="navbar navbar-expand-lg bg-color-baby-blue default-shadow"
-            data-bs-theme="dark">
-            <div class="container">
-              <a class="navbar-brand" href="landing-page.html">PetPal</a>
-              <button
-                class="navbar-toggler border-0"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home-page.html">Home</a>
+      <div>
+        <nav
+          class="navbar navbar-expand-lg bg-color-baby-blue default-shadow"
+          data-bs-theme="dark"
+        >
+          <div class="container">
+            <a class="navbar-brand" href="landing-page.html">PetPal</a>
+            <button
+              class="navbar-toggler border-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="home-page.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="pet-application-page.html"
+                    >Applications</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active current"
+                    aria-current="page"
+                    href="advanced-search-page.html"
+                    >Explore</a
+                  >
+                </li>
+              </ul>
+
+              <div class="dropdown pr-3">
+                <a
+                  class="btn btn-secondary dropdown-toggle"
+                  href="#"
+                  role="button"
+                  id="notificationDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-bell"></i>
+                  <span class="badge bg-danger">2</span>
+                </a>
+
+                <ul
+                  class="dropdown-menu dropdown-menu-end bg-color-baby-blue"
+                  aria-labelledby="notificationDropdown"
+                >
+                  <h2>Notifications - <span>2</span></h2>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="seeker-notification-page3.html"
+                    >
+                      <div class="text">
+                        <h4>New Message from: Tail Tales Retreat</h4>
+                        <p>
+                          Yes, you can check her status and apply through her
+                          detail page!
+                        </p>
+                      </div>
+                    </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="pet-application-page.html">Applications</a
+                  <li>
+                    <a class="dropdown-item">
+                      <div class="text">
+                        <h4>System</h4>
+                        <p>New pet has been added! Click to view!</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-viewall"
+                      href="seeker-notification-page.html"
+                      >View All</a
                     >
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active current" aria-current="page" href="advanced-search-page.html">Explore</a>
+                </ul>
+              </div>
+              <div class="dropdown align-items-center">
+                <a
+                  href="#"
+                  class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
+                  id="dropdownUser1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <div class="profile-container">
+                    <img
+                      src="https://github.com/mdo.png"
+                      alt="hugenerd"
+                      width="30"
+                      height="30"
+                      class="rounded-circle"
+                    />
+                  </div>
+                  <div class="username">
+                    <span class="d-none d-sm-inline mx-1 text-white"
+                      >Scarlett Johansson</span
+                    >
+                  </div>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2"
+                  aria-labelledby="dropdownUser1"
+                >
+                  <li>
+                    <a class="dropdown-item2" href="seeker-detail-page.html"
+                      >Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-signout"
+                      href="landing-page-to-shelter.html"
+                      >Sign out</a
+                    >
                   </li>
                 </ul>
-    
-                <div class="dropdown pr-3">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-bell"></i>
-                        <span class="badge bg-danger">2</span> 
-                    </a>
-    
-                    <ul class="dropdown-menu dropdown-menu-end bg-color-baby-blue" aria-labelledby="notificationDropdown">
-                        <h2>Notifications - <span>2</span></h2>
-                        <li><a class="dropdown-item" href="seeker-notification-page.html">
-                            <div class="text">
-                                <h4>New Message from: Tail Tales Retreat</h4>
-                                <p>Do you live with a roommate?</p>
-                            </div>
-                        </a></li>
-                        <li><a class="dropdown-item">
-                                <div class="text">
-                                    <h4>System</h4>
-                                    <p>New pet has been added! Click to view!</p>
-                                </div>
-                            </a></li>
-                        <li><a class="dropdown-viewall" href="seeker-notification-page.html">View All</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown align-items-center">
-                  <a
-                    href="#"
-                    class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
-                    id="dropdownUser1"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Shelter Profile -->
+        <!-- https://mdbootstrap.com/docs/standard/extended/profiles/#section-5 -->
+        <div class="container py-3">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="card mb-4 border-0 default-shadow">
+                <div class="card-body text-center">
+                  <div
+                    class="rounded-top bg-color-baby-blue-3 d-flex flex-row"
+                    style="background-image: url(assets/shelter-background.png)"
                   >
-                    <div class="profile-container">
+                    <div
+                      class="ms-4 mt-5 d-flex flex-column"
+                      style="width: 150px"
+                    >
                       <img
-                        src="https://github.com/mdo.png"
-                        alt="hugenerd"
-                        width="30"
-                        height="30"
-                        class="rounded-circle"
+                        src="assets/calico.jpg"
+                        alt="Generic placeholder image"
+                        class="img-fluid img-thumbnail mt-4 mb-2"
+                        style="width: 150px; height: 150px; z-index: 1"
                       />
                     </div>
-                    <div class="username">
-                      <span class="d-none d-sm-inline mx-1 text-white"
-                        >Scarlett Johansson</span
-                      >
+                    <div class="ms-3" style="margin-top: 130px"></div>
+                  </div>
+
+                  <div class="p-4 text-black" style="background-color: #f8f9fa">
+                    <div
+                      class="d-flex flex-column mb-3 justify-content-end text-start py-1"
+                    >
+                      <h4 class="my-3">Tail Tales Retreat</h4>
+                      <p class="text-muted mb-1">
+                        The language of compassion needs no words, just open
+                        arms and a loving heart.
+                      </p>
+                      <p class="text-muted mb-4"></p>
+                      <div class="d-flex mb-2">
+                        <a
+                          href="seeker-notification-page.html"
+                          type="button"
+                          class="btn btn-outline-primary ms-1"
+                        >
+                          Message
+                        </a>
+                      </div>
                     </div>
-                  </a>
-                  <ul
-                    class="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2"
-                    aria-labelledby="dropdownUser1"
-                  >
-                    <li><a class="dropdown-item2" href="seeker-detail-page.html">Profile</a></li>
-                    <li><a class="dropdown-signout" href="landing-page-to-shelter.html">Sign out</a></li>
-                  </ul>
+                  </div>
                 </div>
               </div>
             </div>
-            </nav>
 
-            <!-- Shelter Profile -->
-            <!-- https://mdbootstrap.com/docs/standard/extended/profiles/#section-5 -->
-            <div class="container py-3">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card mb-4 border-0 default-shadow">
-                            <div class="card-body text-center">
-                                <div class="rounded-top bg-color-baby-blue-3 d-flex flex-row"
-                                    style="background-image: url(assets/shelter-background.png)">
-                                    <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
-                                        <img src="assets/calico.jpg" alt="Generic placeholder image"
-                                            class="img-fluid img-thumbnail mt-4 mb-2"
-                                            style="width: 150px; height: 150px; z-index: 1" />
-                                    </div>
-                                    <div class="ms-3" style="margin-top: 130px"></div>
-                                </div>
-
-                                <div class="p-4 text-black" style="background-color: #f8f9fa">
-                                    <div class="d-flex flex-column mb-3 justify-content-end text-start py-1">
-                                        <h4 class="my-3">Tail Tales Retreat</h4>
-                                        <p class="text-muted mb-1">
-                                            The language of compassion needs no words, just open
-                                            arms and a loving heart.
-                                        </p>
-                                        <p class="text-muted mb-4"></p>
-                                        <div class="d-flex mb-2">
-                                            <a href="seeker-notification-page.html" type="button" class="btn btn-outline-primary ms-1">
-                                                Message
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Information  -->
+            <div class="col-lg-4">
+              <div class="card border-0 mb-4 shadow">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Email</p>
                     </div>
-
-                    <!-- Information  -->
-                    <div class="col-lg-4">
-                        <div class="card border-0 mb-4 shadow">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">Email</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                            tailtalesinquiry@tailtales.com
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">Phone</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">(647) 234-5678</p>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">Address</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">Toronto, ON, Canada</p>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">Links</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">tailtalesretreat.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">
+                        tailtalesinquiry@tailtales.com
+                      </p>
                     </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Phone</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">(647) 234-5678</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Address</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">Toronto, ON, Canada</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Links</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">tailtalesretreat.com</p>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- https://mdbootstrap.com/docs/standard/extended/gallery/ -->
-                <div class="card border-0 mb-4 shadow">
+          <!-- https://mdbootstrap.com/docs/standard/extended/gallery/ -->
+          <div class="card border-0 mb-4 shadow">
+            <div class="row">
+              <!-- Carousel wrapper -->
+              <div
+                id="carouselMultiItemExample"
+                class="carousel slide carousel-dark text-center mb-3"
+                data-mdb-ride="carousel"
+              >
+                <!-- Controls -->
+                <div class="d-flex justify-content-center mb-4 mt-4">
+                  <button
+                    class="carousel-control-prev position-relative"
+                    type="button"
+                    data-mdb-target="#carouselMultiItemExample"
+                    data-mdb-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next position-relative"
+                    type="button"
+                    data-mdb-target="#carouselMultiItemExample"
+                    data-mdb-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <!-- Inner -->
+                <div class="carousel-inner py-4">
+                  <!-- Single item -->
+                  <div class="carousel-item active">
+                    <div class="container">
+                      <div class="row g-2">
+                        <div class="col-lg-4">
+                          <div class="card2 w-100 h-100">
+                            <div class="card-details2">
+                              <div
+                                class="rounded d-flex justify-content-center"
+                                style="
+                                  overflow: hidden;
+                                  width: 350px;
+                                  height: 350px;
+                                "
+                              >
+                                <img src="oreo.jpeg" alt="" />
+                              </div>
+                              <p class="text-black fs-2 bold">Oreo</p>
+                              <p class="text-body2">Status: Pending</p>
+                            </div>
+                            <a
+                              href="pet-detail-page-oreo.html"
+                              class="btn btn-outline-primary card-button2"
+                              >More info</a
+                            >
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="card2 w-100 h-100">
+                            <div class="card-details2">
+                              <div
+                                class="rounded d-flex justify-content-center"
+                                style="
+                                  overflow: hidden;
+                                  width: 350px;
+                                  height: 350px;
+                                "
+                              >
+                                <img src="nugget.jpeg" alt="" />
+                              </div>
+                              <p class="text-black fs-2 bold">Nugget</p>
+                              <p class="text-body2">Status: Available</p>
+                            </div>
+                            <a
+                              href="pet-detail-page-nugget.html"
+                              class="btn btn-outline-primary card-button2"
+                              >More info</a
+                            >
+                          </div>
+                        </div>
+
+                        <div class="col-lg-4 d-none d-lg-block">
+                          <div class="card2 w-100 h-100">
+                            <div class="card-details2">
+                              <div
+                                class="rounded d-flex align-items-center justify-content-center"
+                                style="
+                                  overflow: hidden;
+                                  width: 350px;
+                                  height: 350px;
+                                "
+                              >
+                                <img src="assets/miko.jpeg" alt="" />
+                              </div>
+                              <p class="text-black fs-2 bold">Miko</p>
+                              <p class="text-body2">Status: Available</p>
+                            </div>
+                            <button class="card-button2">More info</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Single item -->
+                </div>
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center"
+                >
+                  <div>
+                    <a
+                      href="seeker-all-listings.html"
+                      class="btn btn-outline-primary m-3"
+                      >See More</a
+                    >
+                  </div>
+                </div>
+                <!-- Inner -->
+              </div>
+              <!-- Carousel wrapper -->
+            </div>
+          </div>
+
+          <div class="card border-0 mb-4 shadow">
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-12 col- col-xl-8 m-2">
+                <div class="card border-0">
+                  <div class="card-body p-4">
+                    <h4 class="mb-4 fs-3 pb-2">Comments</h4>
+
                     <div class="row">
-                        <!-- Carousel wrapper -->
-                        <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center mb-3"
-                            data-mdb-ride="carousel">
-                            <!-- Controls -->
-                            <div class="d-flex justify-content-center mb-4 mt-4">
-                                <button class="carousel-control-prev position-relative" type="button"
-                                    data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next position-relative" type="button"
-                                    data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                      <div class="col">
+                        <div class="d-flex flex-start">
+                          <img
+                            class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                            alt="avatar"
+                            width="65"
+                            height="65"
+                          />
+                          <div class="flex-grow-1 flex-shrink-1">
+                            <div>
+                              <div
+                                class="d-flex justify-content-between align-items-center"
+                              >
+                                <p class="mb-1">
+                                  Maria Smantha
+                                  <span class="gig-rating text-body-2">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 1792 1792"
+                                      width="15"
+                                      height="15"
+                                    >
+                                      <path
+                                        fill="currentColor"
+                                        d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+                                      ></path>
+                                    </svg>
+                                    5.0
+                                  </span>
+                                  <span class="small">- 1 week ago</span>
+                                </p>
+                                <a href="#!"
+                                  ><i class="fas fa-reply fa-xs"></i
+                                  ><span class="small"> reply</span></a
+                                >
+                              </div>
+                              <p class="small mb-0">
+                                Meet Bella! Rescued yesterday, this 2-year-old
+                                lab mix is full of love and energy. She's
+                                looking for her forever home!
+                              </p>
                             </div>
-                            <!-- Inner -->
-                            <div class="carousel-inner py-4">
-                                <!-- Single item -->
-                                <div class="carousel-item active">
-                                    <div class="container">
-                                        <div class="row g-2">
-                                            <div class="col-lg-4">
-                                                <div class="card2 w-100 h-100">
-                                                    <div class="card-details2">
-                                                        <div class="rounded d-flex justify-content-center" style="
-                                  overflow: hidden;
-                                  width: 350px;
-                                  height: 350px;
-                                ">
-                                                            <img src="oreo.jpeg" alt="" />
-                                                        </div>
-                                                        <p class="text-black fs-2 bold">Oreo</p>
-                                                        <p class="text-body2">Status: Pending</p>
-                                                    </div>
-                                                    <a href="pet-detail-page-oreo.html"
-                                                        class="btn btn-outline-primary card-button2">More info</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="card2 w-100 h-100">
-                                                    <div class="card-details2">
-                                                        <div class="rounded d-flex justify-content-center" style="
-                                  overflow: hidden;
-                                  width: 350px;
-                                  height: 350px;
-                                ">
-                                                            <img src="nugget.jpeg" alt="" />
-                                                        </div>
-                                                        <p class="text-black fs-2 bold">Nugget</p>
-                                                        <p class="text-body2">Status: Pending</p>
-                                                    </div>
-                                                    <a href="pet-detail-page-nugget.html"
-                                                        class="btn btn-outline-primary card-button2">More info</a>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-lg-4 d-none d-lg-block">
-                                                <div class="card2 w-100 h-100">
-                                                    <div class="card-details2">
-                                                        <div class="rounded d-flex align-items-center justify-content-center"
-                                                            style="
-                                  overflow: hidden;
-                                  width: 350px;
-                                  height: 350px;
-                                ">
-                                                            <img src="assets/miko.jpeg" alt="" />
-                                                        </div>
-                                                        <p class="text-black fs-2 bold">Miko</p>
-                                                        <p class="text-body2">Status: Available</p>
-                                                    </div>
-                                                    <button class="card-button2">More info</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single item -->
-                            </div>
-                            <div class="d-flex flex-row justify-content-center align-items-center">
+                            <div class="d-flex flex-start mt-4">
+                              <a class="me-3" href="#">
+                                <img
+                                  class="rounded-circle shadow-1-strong"
+                                  src="assets/calico.jpg"
+                                  alt="avatar"
+                                  width="65"
+                                  height="65"
+                                />
+                              </a>
+                              <div class="flex-grow-1 flex-shrink-1">
                                 <div>
-                                    <a href="seeker-all-listings.html" class="btn btn-outline-primary m-3">See More</a>
+                                  <div
+                                    class="d-flex justify-content-between align-items-center"
+                                  >
+                                    <p class="mb-1">
+                                      Tail Tales Retreat
+                                      <span class="small">- 5 days ago</span>
+                                    </p>
+                                  </div>
+                                  <p class="small mb-0">
+                                    Bella is generally friendly with other dogs.
+                                    She's been playing well with her shelter
+                                    buddies. However, we always recommend a
+                                    meet-and-greet if you have other pets at
+                                    home!
+                                  </p>
                                 </div>
+                              </div>
                             </div>
-                            <!-- Inner -->
+
+                            <div class="d-flex flex-start mt-4">
+                              <a class="me-3" href="#">
+                                <img
+                                  class="rounded-circle shadow-1-strong"
+                                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                                  alt="avatar"
+                                  width="65"
+                                  height="65"
+                                />
+                              </a>
+                              <div class="flex-grow-1 flex-shrink-1">
+                                <div>
+                                  <div
+                                    class="d-flex justify-content-between align-items-center"
+                                  >
+                                    <p class="mb-1">
+                                      Maria Smantha
+                                      <span class="small">- 3 days ago</span>
+                                    </p>
+                                  </div>
+                                  <p class="small mb-0">
+                                    I've been looking to adopt a second dog.
+                                    Bella might be a perfect fit for our family.
+                                    How can I start the adoption process?
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <!-- Carousel wrapper -->
-                    </div>
-                </div>
 
-                <div class="card border-0 mb-4 shadow">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-12 col- col-xl-8 m-2">
-                            <div class="card border-0">
-                                <div class="card-body p-4">
-                                    <h4 class="mb-4 fs-3 pb-2">Comments</h4>
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="d-flex flex-start">
-                                                <img class="rounded-circle shadow-1-strong me-3"
-                                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
-                                                    alt="avatar" width="65" height="65" />
-                                                <div class="flex-grow-1 flex-shrink-1">
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <p class="mb-1">
-                                                                Maria Smantha
-                                                                <span class="gig-rating text-body-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        viewBox="0 0 1792 1792" width="15" height="15">
-                                                                        <path fill="currentColor"
-                                                                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-                                                                        </path>
-                                                                    </svg>
-                                                                    5.0
-                                                                </span>
-                                                                <span class="small">- 1 week ago</span>
-                                                            </p>
-                                                            <a href="#!"><i class="fas fa-reply fa-xs"></i><span
-                                                                    class="small"> reply</span></a>
-                                                        </div>
-                                                        <p class="small mb-0">
-                                                            Meet Bella! Rescued yesterday, this 2-year-old
-                                                            lab mix is full of love and energy. She's
-                                                            looking for her forever home!
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                src="assets/calico.jpg" alt="avatar" width="65"
-                                                                height="65" />
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center">
-                                                                    <p class="mb-1">
-                                                                        Tail Tales Retreat
-                                                                        <span class="small">- 5 days ago</span>
-                                                                    </p>
-                                                                </div>
-                                                                <p class="small mb-0">
-                                                                    Bella is generally friendly with other dogs.
-                                                                    She's been playing well with her shelter
-                                                                    buddies. However, we always recommend a
-                                                                    meet-and-greet if you have other pets at
-                                                                    home!
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
-                                                                alt="avatar" width="65" height="65" />
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center">
-                                                                    <p class="mb-1">
-                                                                        Maria Smantha
-                                                                        <span class="small">- 3 days ago</span>
-                                                                    </p>
-                                                                </div>
-                                                                <p class="small mb-0">
-                                                                    I've been looking to adopt a second dog.
-                                                                    Bella might be a perfect fit for our family.
-                                                                    How can I start the adoption process?
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="d-flex flex-start mt-4">
-                                                <img class="rounded-circle shadow-1-strong me-3"
-                                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp"
-                                                    alt="avatar" width="65" height="65" />
-                                                <div class="flex-grow-1 flex-shrink-1">
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <p class="mb-1">
-                                                                Natalie Smith
-                                                                <span class="gig-rating text-body-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        viewBox="0 0 1792 1792" width="15" height="15">
-                                                                        <path fill="currentColor"
-                                                                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
-                                                                        </path>
-                                                                    </svg>
-                                                                    5.0
-                                                                </span>
-                                                                <span class="small">- 3 days ago</span>
-                                                            </p>
-                                                            <a href="#!"><i class="fas fa-reply fa-xs"></i><span
-                                                                    class="small"> reply</span></a>
-                                                        </div>
-                                                        <p class="small mb-0">
-                                                            I can't adopt right now, but I want to help. Is
-                                                            there a way to donate to your shelter?
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                src="assets/calico.jpg" alt="avatar" width="65"
-                                                                height="65" />
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center">
-                                                                    <p class="mb-1">
-                                                                        Tail Tales Retreat
-                                                                        <span class="small">- 2 days ago</span>
-                                                                    </p>
-                                                                </div>
-                                                                <p class="small mb-0">
-                                                                    Absolutely! Every donation helps us rescue
-                                                                    and care for more pets like Bella. You can
-                                                                    donate directly through our website or
-                                                                    purchase items from our wish list. Thank you
-                                                                    for your generosity!
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp"
-                                                                alt="avatar" width="65" height="65" />
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center">
-                                                                    <p class="mb-1">
-                                                                        Natalie Smith
-                                                                        <span class="small">- 2 days ago</span>
-                                                                    </p>
-                                                                </div>
-                                                                <p class="small mb-0">
-                                                                    I've noticed some shelters have an Amazon
-                                                                    Wishlist for specific items. Do you have one
-                                                                    as well?
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                src="assets/calico.jpg" alt="avatar" width="65"
-                                                                height="65" />
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center">
-                                                                    <p class="mb-1">
-                                                                        Tail Tales Retreat
-                                                                        <span class="small">- 1 days ago</span>
-                                                                    </p>
-                                                                </div>
-                                                                <p class="small mb-0">
-                                                                    Yes, we do! Our Amazon Wishlist contains
-                                                                    items that are constantly needed at the
-                                                                    shelter, from dog food and toys to cleaning
-                                                                    supplies.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="d-flex flex-start mt-4">
+                          <img
+                            class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp"
+                            alt="avatar"
+                            width="65"
+                            height="65"
+                          />
+                          <div class="flex-grow-1 flex-shrink-1">
+                            <div>
+                              <div
+                                class="d-flex justify-content-between align-items-center"
+                              >
+                                <p class="mb-1">
+                                  Natalie Smith
+                                  <span class="gig-rating text-body-2">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 1792 1792"
+                                      width="15"
+                                      height="15"
+                                    >
+                                      <path
+                                        fill="currentColor"
+                                        d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+                                      ></path>
+                                    </svg>
+                                    5.0
+                                  </span>
+                                  <span class="small">- 3 days ago</span>
+                                </p>
+                                <a href="#!"
+                                  ><i class="fas fa-reply fa-xs"></i
+                                  ><span class="small"> reply</span></a
+                                >
+                              </div>
+                              <p class="small mb-0">
+                                I can't adopt right now, but I want to help. Is
+                                there a way to donate to your shelter?
+                              </p>
                             </div>
-                            <div class="card-footer bg-white m-2">
-                                <div class="d-flex flex-start w-100">
-                                    <img class="rounded-circle me-3" src="https://github.com/mdo.png" alt="avatar"
-                                        width="65" height="65" />
-                                    <div class="d-flex flex-column w-100">
-                                        <!-- rating.js file -->
-                                        <div class="form-outline w-100">
-                                            <textarea class="form-control" id="textAreaExample"
-                                                placeholder="Insert a comment" rows="4"
-                                                style="background: #fff"></textarea>
-                                        </div>
-                                    </div>
+
+                            <div class="d-flex flex-start mt-4">
+                              <a class="me-3" href="#">
+                                <img
+                                  class="rounded-circle shadow-1-strong"
+                                  src="assets/calico.jpg"
+                                  alt="avatar"
+                                  width="65"
+                                  height="65"
+                                />
+                              </a>
+                              <div class="flex-grow-1 flex-shrink-1">
+                                <div>
+                                  <div
+                                    class="d-flex justify-content-between align-items-center"
+                                  >
+                                    <p class="mb-1">
+                                      Tail Tales Retreat
+                                      <span class="small">- 2 days ago</span>
+                                    </p>
+                                  </div>
+                                  <p class="small mb-0">
+                                    Absolutely! Every donation helps us rescue
+                                    and care for more pets like Bella. You can
+                                    donate directly through our website or
+                                    purchase items from our wish list. Thank you
+                                    for your generosity!
+                                  </p>
                                 </div>
-                                <div class="float-end mt-2 pt-1">
-                                    <button type="button" class="btn btn-primary btn-sm">
-                                        Post comment
-                                    </button>
-                                    <button type="button" class="btn btn-outline-primary btn-sm">
-                                        Cancel
-                                    </button>
-                                </div>
+                              </div>
                             </div>
+
+                            <div class="d-flex flex-start mt-4">
+                              <a class="me-3" href="#">
+                                <img
+                                  class="rounded-circle shadow-1-strong"
+                                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp"
+                                  alt="avatar"
+                                  width="65"
+                                  height="65"
+                                />
+                              </a>
+                              <div class="flex-grow-1 flex-shrink-1">
+                                <div>
+                                  <div
+                                    class="d-flex justify-content-between align-items-center"
+                                  >
+                                    <p class="mb-1">
+                                      Natalie Smith
+                                      <span class="small">- 2 days ago</span>
+                                    </p>
+                                  </div>
+                                  <p class="small mb-0">
+                                    I've noticed some shelters have an Amazon
+                                    Wishlist for specific items. Do you have one
+                                    as well?
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="d-flex flex-start mt-4">
+                              <a class="me-3" href="#">
+                                <img
+                                  class="rounded-circle shadow-1-strong"
+                                  src="assets/calico.jpg"
+                                  alt="avatar"
+                                  width="65"
+                                  height="65"
+                                />
+                              </a>
+                              <div class="flex-grow-1 flex-shrink-1">
+                                <div>
+                                  <div
+                                    class="d-flex justify-content-between align-items-center"
+                                  >
+                                    <p class="mb-1">
+                                      Tail Tales Retreat
+                                      <span class="small">- 1 days ago</span>
+                                    </p>
+                                  </div>
+                                  <p class="small mb-0">
+                                    Yes, we do! Our Amazon Wishlist contains
+                                    items that are constantly needed at the
+                                    shelter, from dog food and toys to cleaning
+                                    supplies.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+                <div class="card-footer bg-white m-2">
+                  <div class="d-flex flex-start w-100">
+                    <img
+                      class="rounded-circle me-3"
+                      src="https://github.com/mdo.png"
+                      alt="avatar"
+                      width="65"
+                      height="65"
+                    />
+                    <div class="d-flex flex-column w-100">
+                      <!-- rating.js file -->
+                      <div class="form-outline w-100">
+                        <textarea
+                          class="form-control"
+                          id="textAreaExample"
+                          placeholder="Insert a comment"
+                          rows="4"
+                          style="background: #fff"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="float-end mt-2 pt-1">
+                    <button type="button" class="btn btn-primary btn-sm">
+                      Post comment
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- Footer -->
+          </div>
         </div>
-
-        <footer class="text-center text-lg-start text-muted">
-            <!-- Copyright -->
-            <div
-              class="text-center p-4 text-color-baby-blue"
-              style="background-color: rgba(0, 0, 0, 0.025)"
-            >
-              © 2023 Copyright:
-              <a class="text-reset fw-bold" href="landing-page.html">Pet Pal</a>
-            </div>
-            <!-- Copyright -->
-          </footer>
         <!-- Footer -->
+      </div>
+
+      <footer class="text-center text-lg-start text-muted">
+        <!-- Copyright -->
+        <div
+          class="text-center p-4 text-color-baby-blue"
+          style="background-color: rgba(0, 0, 0, 0.025)"
+        >
+          © 2023 Copyright:
+          <a class="text-reset fw-bold" href="landing-page.html">Pet Pal</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
     </div>
     <div class="row d-flex justify-content-center fixed-chat-box"></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
