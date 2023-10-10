@@ -75,12 +75,12 @@ p {
   font-size: 18px;
   padding: 5px;
   border-bottom: 1px solid #eee;
-  color: #888;
+  color: #000;
   margin: 0%;
 }
 
-.dropdown-item span {
-  color: #f56d6d;
+.dropdown-menu-end h2 span {
+  color: #ed1515;
 }
 
 .dropdown-item {
@@ -89,11 +89,33 @@ p {
   padding: 4px 6px;
   margin-bottom: 0px;
   cursor: pointer;
-  color: #fff;
+  color: #000;
 }
 
 .dropdown-item:hover {
+    background-color: #eee;
+  }
+
+.dropdown-item2 {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 4px 6px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+  }
+
+.dropdown-item2:hover {
   background-color: #eee;
+  color:#000
+}
+
+.dropdown-viewall:hover{
+    color: #eee;
+}
+.dropdown-signout:hover{
+    color:#eee;
 }
 
 .dropdown-item .text h4 {
@@ -108,6 +130,15 @@ p {
   font-size: 12px;
   margin: 0%;
 }
+
+.dropdown-viewall {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    color: #000;
+  }
 
 .dropdown-signout {
   text-align: center;
@@ -273,6 +304,10 @@ p {
   white-space: nowrap;
   z-index: 1;
   margin-bottom: 5px;
+}
+
+.btn:hover{
+    color: #eee;
 }
 
 .notification-title {
@@ -506,16 +541,6 @@ div.media label {
   margin: 4px;
 }
 
-.badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(
-    50%,
-    -50%
-  ); /* This will center the badge on the top-right corner of the image */
-}
-
 .username {
   margin-left: 0.5rem;
 }
@@ -523,10 +548,23 @@ div.media label {
 .navbar>.container{
     flex-direction: row;
 } 
-select {
-    height: 36px;
-    font-size: 30px;
-  }
+
+.custom-dropdown {
+    position: relative;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position it below the selected option */
+    left: 0;
+    /* Add other styles as needed */
+}
+
+.custom-dropdown:hover .options {
+    display: block;
+}
+
 @media only screen and (max-width: 480px) {
     .chat-input {
         display: flex;

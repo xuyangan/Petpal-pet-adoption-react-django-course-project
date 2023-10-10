@@ -15,10 +15,9 @@
 
   <body class="bg-color-baby-blue-3">
     <div class="min-vh-100 d-flex flex-column justify-content-between">
-      <nav
+        <nav
         class="navbar navbar-expand-lg bg-color-baby-blue default-shadow"
-        data-bs-theme="dark"
-      >
+        data-bs-theme="dark">
         <div class="container">
           <a class="navbar-brand" href="landing-page.html">PetPal</a>
           <button
@@ -35,14 +34,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="home-page.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Applications</a
+                <a class="nav-link active" aria-current="page" href="pet-application-page.html">Applications</a
                 >
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <form class="d-flex" role="search">
                   <input
                     class="form-control me-2 bg-light border-white"
@@ -54,23 +52,36 @@
                     Search
                   </button>
                 </form>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="advanced-search-page.html">Explore</a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li> -->
             </ul>
 
+            <div class="dropdown pr-3">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge bg-danger">2</span> <!-- Number of unread notifications -->
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end bg-color-baby-blue" aria-labelledby="notificationDropdown">
+                    <h2>Notifications - <span>2</span></h2>
+                    <li><a class="dropdown-item" href="seeker-notification-page.html">
+                        <div class="text">
+                            <h4>New Message from: Tail Tales Retreat</h4>
+                            <p>Do you live with a roommate?</p>
+                        </div>
+                    </a></li>
+                    <li><a class="dropdown-item">
+                            <div class="text">
+                                <h4>System</h4>
+                                <p>New pet has been added! Click to view!</p>
+                            </div>
+                        </a></li>
+                    <li><a class="dropdown-viewall" href="seeker-notification-page.html">View All</a></li>
+                </ul>
+            </div>
             <div class="dropdown align-items-center">
               <a
                 href="#"
@@ -87,7 +98,6 @@
                     height="30"
                     class="rounded-circle"
                   />
-                  <span class="badge bg-danger">2</span>
                 </div>
                 <div class="username">
                   <span class="d-none d-sm-inline mx-1 text-white"
@@ -99,20 +109,13 @@
                 class="dropdown-menu dropdown-menu-dark bg-color-baby-blue"
                 aria-labelledby="dropdownUser1"
               >
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                  <a class="dropdown-item" href="seeker-notification-page.html"
-                    >Notifications - <span>2</span></a
-                  >
-                </li>
+                <li><a class="dropdown-item2" href="seeker-detail-page.html">Profile</a></li>
                 <li><a class="dropdown-signout" href="#">Sign out</a></li>
               </ul>
             </div>
           </div>
         </div>
-      </nav>
+        </nav>
 
       <!-- Main Content -->
       <main class="home-container py-5">
