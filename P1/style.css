@@ -71,9 +71,10 @@ p {
 }
 
 .dropdown-menu-end {
-  /* background-color: #92d7f6; */
+  background-color: #99daea;
   margin: 0%;
 }
+
 .dropdown-menu-end h2 {
   font-size: 18px;
   padding: 5px;
@@ -85,7 +86,9 @@ p {
 .dropdown-menu-end h2 span {
   color: #ed1515;
 }
-
+.dropdown-menu.dropdown-menu-dark{
+    background-color: #99daea;
+}
 .dropdown-item {
   display: flex;
   border-bottom: 1px solid #eee;
@@ -107,11 +110,19 @@ p {
     cursor: pointer;
     color: #fff;
     text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 .dropdown-item2:hover {
   background-color: #eee;
-  color:#000
+  color:#000;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dropdown-viewall:hover{
@@ -435,7 +446,7 @@ footer {
     overflow-y: visible;
     padding: 10px 0;
     flex-grow: 1;
-    margin-bottom: 20vh;
+    margin-bottom: 6rem;
 }
 
 .message {
@@ -547,10 +558,18 @@ div.media label {
   margin-left: 0.5rem;
 }
 
-.navbar>.container{
-    flex-direction: row;
+.navbar-nav .nav-link.active:hover {
+    color: #72a1ac;
+  }
+
+.nav-link.active.current{
+    font-weight: 700;
 } 
 
+.btn.btn-secondary{
+    background-color:var(--baby-blue-2);
+    border-color:var(--baby-blue);
+}
 
 @media only screen and (max-width: 480px) {
     .chat-input {
