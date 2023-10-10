@@ -1,343 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-</head>
-
-<body class="bg-color-baby-blue-3">
-    <div class=" min-vh-100 d-flex flex-column justify-content-between">
-        <div>
+  <body class="bg-color-baby-blue-3">
+    <div class="min-vh-100 d-flex flex-column justify-content-between">
+      <div>
         <!-- Navigation Bar -->
 
         <nav
-        class="navbar navbar-expand-lg bg-color-baby-blue default-shadow"
-        data-bs-theme="dark">
-        <div class="container">
-          <a class="navbar-brand" href="landing-page.html">PetPal</a>
-          <button
-            class="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home-page.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="pet-application-page.html">Applications</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active current" aria-current="page" href="advanced-search-page.html">Explore</a>
-              </li>
-            </ul>
+          class="navbar navbar-expand-lg bg-color-baby-blue default-shadow"
+          data-bs-theme="dark"
+        >
+          <div class="container">
+            <a class="navbar-brand" href="landing-page.html">PetPal</a>
+            <button
+              class="navbar-toggler border-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="home-page.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="pet-application-page.html"
+                    >Applications</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active current"
+                    aria-current="page"
+                    href="advanced-search-page.html"
+                    >Explore</a
+                  >
+                </li>
+              </ul>
 
-            <div class="dropdown pr-3">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-bell"></i>
-                    <span class="badge bg-danger">2</span> 
+              <div class="dropdown pr-3">
+                <a
+                  class="btn btn-secondary dropdown-toggle"
+                  href="#"
+                  role="button"
+                  id="notificationDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-bell"></i>
+                  <span class="badge bg-danger">2</span>
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-end bg-color-baby-blue" aria-labelledby="notificationDropdown">
-                    <h2>Notifications - <span>2</span></h2>
-                    <li><a class="dropdown-item" href="seeker-notification-page.html">
-                        <div class="text">
-                            <h4>New Message from: Tail Tales Retreat</h4>
-                            <p>Do you live with a roommate?</p>
-                        </div>
-                    </a></li>
-                    <li><a class="dropdown-item">
-                            <div class="text">
-                                <h4>System</h4>
-                                <p>New pet has been added! Click to view!</p>
-                            </div>
-                        </a></li>
-                    <li><a class="dropdown-viewall" href="seeker-notification-page.html">View All</a></li>
+                <ul
+                  class="dropdown-menu dropdown-menu-end bg-color-baby-blue"
+                  aria-labelledby="notificationDropdown"
+                >
+                  <h2>Notifications - <span>2</span></h2>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="seeker-notification-page.html"
+                    >
+                      <div class="text">
+                        <h4>New Message from: Tail Tales Retreat</h4>
+                        <p>Do you live with a roommate?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item">
+                      <div class="text">
+                        <h4>System</h4>
+                        <p>New pet has been added! Click to view!</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-viewall"
+                      href="seeker-notification-page.html"
+                      >View All</a
+                    >
+                  </li>
                 </ul>
+              </div>
+              <div class="dropdown align-items-center">
+                <a
+                  href="#"
+                  class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
+                  id="dropdownUser1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <div class="profile-container">
+                    <img
+                      src="https://github.com/mdo.png"
+                      alt="hugenerd"
+                      width="30"
+                      height="30"
+                      class="rounded-circle"
+                    />
+                  </div>
+                  <div class="username">
+                    <span class="d-none d-sm-inline mx-1 text-white"
+                      >Scarlett Johansson</span
+                    >
+                  </div>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2"
+                  aria-labelledby="dropdownUser1"
+                >
+                  <li>
+                    <a class="dropdown-item2" href="seeker-detail-page.html"
+                      >Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-signout"
+                      href="landing-page-to-shelter.html"
+                      >Sign out</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="dropdown align-items-center">
-              <a
-                href="#"
-                class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
-                id="dropdownUser1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+          </div>
+        </nav>
+        <div class="container my-3">
+          <div class="row">
+            <div class="col-lg-2 col-md-3 bg mb-3">
+              <div
+                class="d-flex flex-column align-items-sm-start px-3 pt-2 text-white d-none d-md-block"
               >
-                <div class="profile-container">
-                  <img
-                    src="https://github.com/mdo.png"
-                    alt="hugenerd"
-                    width="30"
-                    height="30"
-                    class="rounded-circle"
-                  />
+                <a
+                  ><span class="fs-4 text-color-baby-blue bold">Settings</span>
+                </a>
+                <ul
+                  class="nav nav-pills flex-column mb-0 align-items-sm-start"
+                  id="menu"
+                >
+                  <li class="nav-item">
+                    <a
+                      href="shelter-account-update-page.html"
+                      class="btn-link text-color-baby-blue text-decoration-none px-0"
+                    >
+                      <i class="fs-4 bi-house"></i>
+                      <span class="fs-5">Edit Profile</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#submenu1"
+                      data-bs-toggle="collapse"
+                      class="nav-link px-0 align-middle"
+                    >
+                      <i class="fs-4 bi-speedometer2"></i>
+                      <span class="fs-5 text-color-baby-blue bold"
+                        >Listings</span
+                      >
+                    </a>
+                    <ul
+                      class="collapse show nav flex-column ms-3"
+                      id="submenu1"
+                      data-bs-parent="#menu"
+                    >
+                      <li class="w-100 mb-2">
+                        <a
+                          href="shelter-management-page-active.html"
+                          class="btn-link text-color-baby-blue text-decoration-none"
+                        >
+                          <span>Active Listings</span></a
+                        >
+                      </li>
+                      <li class="w-100 mb-2">
+                        <a
+                          href="shelter-management-page-pending.html"
+                          class="btn-link text-color-baby-blue text-decoration-none"
+                        >
+                          <span>Pending Listing</span></a
+                        >
+                      </li>
+                      <li class="w-100 mb-2">
+                        <a
+                          href="shelter-management-page-past.html"
+                          class="btn-link text-color-baby-blue text-decoration-none"
+                        >
+                          <span>Past Listings</span></a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <a
+                  href="shelter-detail-page.html"
+                  class="btn-link text-color-baby-blue bold text-decoration-none px-0"
+                >
+                  <i class="fs-4 bi-house"></i>
+                  <span class="fs-auto">Back To Profile</span>
+                </a>
+              </div>
+              <div class="d-flex flex-column d-md-none">
+                <a
+                  href="#submenu2"
+                  data-bs-toggle="collapse"
+                  class="nav-link px-0 align-middle"
+                >
+                  <i class="fs-4 bi-speedometer2"></i>
+                  <span class="fs-4 text-color-baby-blue bold">Settings</span>
+                </a>
+                <ul
+                  class="collapse nav flex-column"
+                  id="submenu2"
+                  data-bs-parent="#menu"
+                >
+                  <li class="w-100">
+                    <a
+                      href="shelter-account-update-page.html"
+                      class="btn-link text-color-baby-blue text-decoration-none px-0"
+                    >
+                      <i class="fs-4 bi-house"></i>
+                      <span class="fs-5">Edit Profile</span>
+                    </a>
+                  </li>
+                  <li class="w-100">
+                    <a
+                      href="#submenu3"
+                      data-bs-toggle="collapse"
+                      class="nav-link px-0 align-middle"
+                    >
+                      <i class="fs-4"></i>
+                      <span class="fs-5 text-color-baby-blue bold"
+                        >Listings</span
+                      >
+                    </a>
+                    <ul
+                      class="collapse ms-3 nav flex-column"
+                      id="submenu3"
+                      data-bs-parent="#menu"
+                    >
+                      <li class="w-100 mb-2">
+                        <a
+                          href="shelter-management-page-active.html"
+                          class="btn-link text-color-baby-blue text-decoration-none"
+                        >
+                          <span>Active Listings</span></a
+                        >
+                      </li>
+                      <li class="w-100 mb-2">
+                        <a
+                          href="shelter-management-page-pending.html"
+                          class="btn-link text-color-baby-blue text-decoration-none bold"
+                        >
+                          <span>Pending Listing</span></a
+                        >
+                      </li>
+                      <li class="w-100 mb-2">
+                        <a
+                          href="shelter-management-page-past.html"
+                          class="btn-link text-color-baby-blue text-decoration-none"
+                        >
+                          <span>Past Listings</span></a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="w-100">
+                    <a
+                      href="shelter-detail-page.html"
+                      class="btn-link text-color-baby-blue bold text-decoration-none px-0"
+                    >
+                      <i class="fs-4 bi-house"></i>
+                      <span class="fs-auto">Back To Profile</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Information  -->
+            <div class="col-lg-10 col-md-9">
+              <div class="col-lg-">
+                <div class="card p-5">
+                  <h1 class="">New Listing</h1>
+                  <form class="col-">
+                    <div class="pet-field">
+                      <label
+                        class="form-label text-color-light-black"
+                        for="customFile"
+                        >Add Picture</label
+                      >
+                      <div class="row">
+                        <div class="col-6" style="width: 150px">
+                          <img
+                            src="not-found.png"
+                            alt="Pet Picture"
+                            class="img-fluid img-thumbnail"
+                            style="width: 150px; height: 150px"
+                          />
+                        </div>
+                        <div
+                          class="col-6 pet-field d-flex flex-column justify-content-end"
+                        >
+                          <input
+                            class="text-color-light-black"
+                            type="file"
+                            class="form-control"
+                            id="customFile"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="pet-field">
+                      <label class="pet-label" for="name">Name*</label>
+                      <input
+                        class="pet-input"
+                        name="name"
+                        type="text"
+                        placeholder="Name"
+                        id="name"
+                        required
+                      />
+                    </div>
+
+                    <div class="pet-field">
+                      <label class="pet-label" for="age">Age*</label>
+                      <input
+                        type="number"
+                        id="age"
+                        class="form-control pet-input"
+                      />
+                    </div>
+
+                    <div class="pet-field">
+                      <label class="pet-label" for="gender">Gender*</label>
+                      <!-- Default radio -->
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="gender"
+                          id="male"
+                        />
+                        <label class="form-check-label" for="male">
+                          Male
+                        </label>
+                      </div>
+                      <!-- Default checked radio -->
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="gender"
+                          id="female"
+                        />
+                        <label class="form-check-label" for="female">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+                    <div class="pet-field">
+                      <label class="pet-label" for="color"> Color*</label>
+                      <input
+                        class="pet-input"
+                        name="color"
+                        type="text"
+                        placeholder="Color"
+                      />
+                    </div>
+                    <div class="pet-field">
+                      <label class="pet-label" for="breed">Breed*</label>
+                      <input
+                        class="pet-input"
+                        name="breed"
+                        type="text"
+                        placeholder="Breed"
+                        required
+                        id="breed"
+                      />
+                    </div>
+                    <div class="pet-field">
+                      <label class="pet-label" for="location">Location*</label>
+                      <fieldset disabled="disabled">
+                        <input
+                          class="form-control"
+                          type="text"
+                          value="Toronto, ON"
+                          readonly
+                        />
+                      </fieldset>
+                    </div>
+                    <div class="pet-field">
+                      <label class="pet-label" for="size">Size*</label>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="size"
+                          id="size-small"
+                        />
+                        <label class="form-check-label" for="size-small">
+                          Small
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="size"
+                          id="size-medium"
+                        />
+                        <label class="form-check-label" for="size-medium">
+                          Medium
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="size"
+                          id="size-large"
+                        />
+                        <label class="form-check-label" for="size-large">
+                          Large
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="pet-field">
+                      <label class="pet-label" for="behaviour">
+                        Behaviour*</label
+                      >
+                      <input
+                        class="pet-input"
+                        name="behaviour"
+                        type="text"
+                        id="behaviour"
+                        placeholder="Behaviour"
+                      />
+                    </div>
+                    <div class="pet-field">
+                      <label class="pet-label" for="special-needs">
+                        Special Needs*</label
+                      >
+                      <input
+                        class="pet-input"
+                        name="special-needs"
+                        type="text"
+                        id="special-needs"
+                        placeholder="Special Needs"
+                      />
+                    </div>
+                    <div class="pet-field">
+                      <label class="pet-label" for="medical-history">
+                        Medical History*</label
+                      >
+                      <input
+                        class="pet-input"
+                        name="medical-history"
+                        type="text"
+                        id="medical-history"
+                        placeholder="Medical History"
+                      />
+                    </div>
+
+                    <div class="pet-field">
+                      <label class="pet-label" for="house-trained"
+                        >House Trained*</label
+                      >
+                      <!-- Default radio -->
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="house-trained"
+                          id="house-trained-yes"
+                        />
+                        <label class="form-check-label" for="house-trained-yes">
+                          Yes
+                        </label>
+                      </div>
+
+                      <!-- Default checked radio -->
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="house-trained"
+                          id="flexRadioDefault2"
+                        />
+                        <label class="form-check-label" for="house-trained-no">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                    <!--  -->
+
+                    <div class="pet-field">
+                      <label class="pet-label" for="good-in-home"
+                        >Good in a Home with*</label
+                      >
+                      <!-- Default checkbox -->
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          name="house-trained"
+                          id="good-in-home-children"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="good-in-home-children"
+                          >Children</label
+                        >
+                      </div>
+
+                      <!-- Checked checkbox -->
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="good-in-home-pets"
+                        />
+                        <label class="form-check-label" for="good-in-home-pets"
+                          >Other Pets</label
+                        >
+                      </div>
+                    </div>
+                    <a
+                      href="pet-creation-error-page.html"
+                      type="submit"
+                      class="btn btn-primary"
+                    >
+                      Create New Listing
+                    </a>
+                  </form>
                 </div>
-                <div class="username">
-                  <span class="d-none d-sm-inline mx-1 text-white"
-                    >Scarlett Johansson</span
-                  >
-                </div>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2"
-                aria-labelledby="dropdownUser1"
-              >
-                <li><a class="dropdown-item2" href="seeker-detail-page.html">Profile</a></li>
-                <li><a class="dropdown-signout" href="landing-page-to-shelter.html">Sign out</a></li>
-              </ul>
+              </div>
             </div>
           </div>
         </div>
-        </nav>
-            <div class="container my-3">
-                <div class="row">
-                    <div class="col-lg-2 col-md-3 bg mb-3">
-                        <div class="d-flex flex-column align-items-sm-start px-3 pt-2 text-white d-none d-md-block">
-                            <a><span class="fs-4 text-color-baby-blue bold">Settings</span>
-                            </a>
-                            <ul class="nav nav-pills flex-column mb-0 align-items-sm-start" id="menu">
-                                <li class="nav-item ">
-                                    <a href="shelter-account-update-page.html"
-                                        class=" btn-link text-color-baby-blue text-decoration-none px-0 ">
-                                        <i class="fs-4 bi-house"></i> <span class="fs-5">Edit
-                                            Profile</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-speedometer2"></i> <span
-                                            class=" fs-5 text-color-baby-blue bold">Listings</span>
-                                    </a>
-                                    <ul class="collapse show nav flex-column ms-3" id="submenu1" data-bs-parent="#menu">
-                                        <li class="w-100 mb-2">
-                                            <a href="shelter-management-page-active.html"
-                                                class="btn-link text-color-baby-blue text-decoration-none">
-                                                <span>Active
-                                                    Listings</span></a>
-                                        </li>
-                                        <li class="w-100 mb-2">
-                                            <a href="shelter-management-page-pending.html"
-                                                class="btn-link text-color-baby-blue text-decoration-none">
-                                                <span>Pending Listing</span></a>
-                                        </li>
-                                        <li class="w-100 mb-2">
-                                            <a href="shelter-management-page-past.html"
-                                                class="btn-link text-color-baby-blue text-decoration-none">
-                                                <span>Past
-                                                    Listings</span></a>
-                                        </li>
-                                    </ul>
-                                </li>
+      </div>
 
-                            </ul>
-                            <a href="shelter-detail-page.html"
-                                class=" btn-link text-color-baby-blue bold text-decoration-none px-0 ">
-                                <i class="fs-4 bi-house"></i> <span class="fs-auto">Back To Profile</span>
-                            </a>
-
-                        </div>
-                        <div class="d-flex flex-column d-md-none">
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-speedometer2"></i> <span
-                                    class="fs-4 text-color-baby-blue bold">Settings</span>
-                            </a>
-                            <ul class="collapse nav flex-column" id="submenu2" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="shelter-account-update-page.html"
-                                        class=" btn-link text-color-baby-blue text-decoration-none px-0 ">
-                                        <i class="fs-4 bi-house"></i> <span class="fs-5 ">Edit
-                                            Profile</span>
-                                    </a>
-                                </li>
-                                <li class="w-100">
-                                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                        <i class="fs-4"></i> <span class="fs-5 text-color-baby-blue bold">Listings</span>
-                                    </a>
-                                    <ul class="collapse ms-3 nav flex-column" id="submenu3" data-bs-parent="#menu">
-                                        <li class="w-100 mb-2">
-                                            <a href="shelter-management-page-active.html"
-                                                class="btn-link text-color-baby-blue text-decoration-none">
-                                                <span>Active
-                                                    Listings</span></a>
-                                        </li>
-                                        <li class="w-100 mb-2">
-                                            <a href="shelter-management-page-pending.html"
-                                                class="btn-link text-color-baby-blue text-decoration-none bold">
-                                                <span>Pending Listing</span></a>
-                                        </li>
-                                        <li class="w-100 mb-2">
-                                            <a href="shelter-management-page-past.html"
-                                                class="btn-link text-color-baby-blue text-decoration-none">
-                                                <span>Past
-                                                    Listings</span></a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="w-100"><a href="shelter-detail-page.html"
-                                        class=" btn-link text-color-baby-blue bold text-decoration-none px-0 ">
-                                        <i class="fs-4 bi-house"></i> <span class="fs-auto">Back To Profile</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Information  -->
-                    <div class=" col-lg-10 col-md-9 ">
-                        <div class="col-lg- ">
-                            <div class="card p-5">
-                                <h1 class="">New Listing</h1>
-                                <form class=" col-">
-                                    <div class="pet-field">
-                                        <label class="form-label text-color-light-black" for="customFile">Add
-                                            Picture</label>
-                                        <div class="row">
-                                            <div class="col-6" style="width: 150px;">
-                                                <img src="not-found.png" alt="Pet Picture"
-                                                    class="img-fluid img-thumbnail "
-                                                    style="width: 150px; height: 150px;">
-                                            </div>
-                                            <div class="col-6 pet-field d-flex flex-column justify-content-end">
-                                                <input class="text-color-light-black" type="file" class="form-control"
-                                                    id="customFile" required />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="name">Name</label>
-                                        <input class="pet-input" name="name" type="text" placeholder="Name" id="name"
-                                            required>
-                                    </div>
-
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="age">Age</label>
-                                        <input type="number" id="age" class="form-control pet-input" />
-                                    </div>
-
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="gender">Gender</label>
-                                        <!-- Default radio -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" id="male" />
-                                            <label class="form-check-label" for="male"> Male
-                                            </label>
-                                        </div>
-                                        <!-- Default checked radio -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" id="female"
-                                                checked />
-                                            <label class="form-check-label" for="female"> Female
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="color"> Color </label>
-                                        <input class="pet-input" name="color" type="text" placeholder="Color">
-                                    </div>
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="breed">Breed</label>
-                                        <input class="pet-input" name="breed" type="text" placeholder="Breed" required
-                                            id="breed">
-                                    </div>
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="location">Location</label>
-                                        <fieldset disabled="disabled">
-                                            <input class="form-control" type="text" value="Toronto, ON" readonly />
-                                        </fieldset>
-                                    </div>
-
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="behaviour"> Behaviour</label>
-                                        <input class="pet-input" name="behaviour" type="text" id="behaviour"
-                                            placeholder="Behaviour">
-                                    </div>
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="special-needs"> Special Needs</label>
-                                        <input class="pet-input" name="special-needs" type="text" id="special-needs"
-                                            placeholder="Special Needs">
-                                    </div>
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="medical-history"> Medical History</label>
-                                        <input class="pet-input" name="medical-history" type="text" id="medical-history"
-                                            placeholder="Medical History">
-                                    </div>
-
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="house-trained">House Trained</label>
-                                        <!-- Default radio -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="house-trained"
-                                                id="house-trained-yes" />
-                                            <label class="form-check-label" for="house-trained-yes"> Yes
-                                            </label>
-                                        </div>
-
-                                        <!-- Default checked radio -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="house-trained"
-                                                id="flexRadioDefault2" checked />
-                                            <label class="form-check-label" for="house-trained-no"> No
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <!--  -->
-
-                                    <div class="pet-field">
-                                        <label class="pet-label" for="good-in-home">Good in a Home with</label>
-                                        <!-- Default checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="house-trained"
-                                                id="good-in-home-children" />
-                                            <label class="form-check-label" for="good-in-home-children">Children</label>
-                                        </div>
-
-                                        <!-- Checked checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="good-in-home-pets" checked />
-                                            <label class="form-check-label" for="good-in-home-pets">Other Pets</label>
-                                        </div>
-                                    </div>
-                                    <a href="shelter-management-page-active-comando.html" type="submit" class="btn btn-primary"> Create New Listing </a>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <footer class="text-center text-lg-start text-muted">
+        <!-- Copyright -->
+        <div
+          class="text-center p-4 text-color-baby-blue"
+          style="background-color: rgba(0, 0, 0, 0.025)"
+        >
+          © 2023 Copyright:
+          <a class="text-reset fw-bold" href="landing-page.html">Pet Pal</a>
         </div>
-
-        <footer class="text-center text-lg-start text-muted">
-            <!-- Copyright -->
-            <div
-              class="text-center p-4 text-color-baby-blue"
-              style="background-color: rgba(0, 0, 0, 0.025)"
-            >
-              © 2023 Copyright:
-              <a class="text-reset fw-bold" href="landing-page.html">Pet Pal</a>
-            </div>
-            <!-- Copyright -->
-          </footer>
+        <!-- Copyright -->
+      </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
