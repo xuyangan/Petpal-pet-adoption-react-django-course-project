@@ -573,6 +573,29 @@ div.media label {
   border-color: var(--baby-blue);
 }
 
+.header-line a{
+    color: var(--baby-blue);
+}
+
+.card:hover {
+    background-color: var(--baby-blue-2); 
+    transform: translateY(-5px); 
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.btn-link {
+    text-decoration: none;
+}
+
+.btn-link:hover, .btn-link:focus {
+    text-decoration: none; 
+}
+
 @media only screen and (max-width: 480px) {
   .chat-input {
     display: flex;
