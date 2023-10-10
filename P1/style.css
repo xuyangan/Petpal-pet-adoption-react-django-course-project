@@ -577,14 +577,14 @@ div.media label {
     color: var(--baby-blue);
 }
 
-.card:hover {
+.fqa-card:hover {
     background-color: var(--baby-blue-2); 
     transform: translateY(-5px); 
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card {
+.fqa-card {
     transition: all 0.3s ease;
 }
 
