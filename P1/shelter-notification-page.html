@@ -17,118 +17,79 @@
     <div class="min-vh-100 d-flex flex-column justify-content-between">
       <div>
         <nav
-          class="navbar navbar-expand-lg bg-color-baby-blue default-shadow"
-          data-bs-theme="dark"
-        >
-          <div class="container">
-            <a class="navbar-brand" href="landing-page.html">PetPal</a>
-            <button
-              class="navbar-toggler border-0"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a
-                    class="nav-link active current"
-                    aria-current="page"
-                    href="shelter-detail-page.html"
-                    >Home</a
+        class="navbar navbar-expand-lg bg-color-baby-blue default-shadow"
+        data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand" href="landing-page.html">PetPal</a>
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="shelter-management-page-active.html">Listings</a>
+              </li>
+            </ul>
+
+            <div class="dropdown pr-3">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="notificationDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge bg-danger">1</span> 
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end bg-color-baby-blue" aria-labelledby="notificationDropdown">
+                    <h2>Notifications - <span>1</span></h2>
+                    <li><a class="dropdown-item" href="seeker-notification-page.html">
+                        <div class="text">
+                            <h4>New Message from: Scarlett Johansson</h4>
+                              <p>I am also interested in Nugget. Is she still avaliable?</p>
+                        </div>
+                    </a></li>
+                    <li><a class="dropdown-viewall" href="seeker-notification-page.html">View All</a></li>
+                </ul>
+            </div>
+            <div class="dropdown align-items-center">
+              <a
+                href="#"
+                class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
+                id="dropdownUser1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="profile-container">
+                  <img
+                    src="assets/calico.jpg"
+                    alt="hugenerd"
+                    width="30"
+                    height="30"
+                    class="rounded-circle"
+                  />
+                </div>
+                <div class="username">
+                  <span class="d-none d-sm-inline mx-1 text-white"
+                    >Tail Tales Retreat</span
                   >
-                </li>
+                </div>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2"
+                aria-labelledby="dropdownUser1"
+              >
+                <li><a class="dropdown-item2" href="shelter-detail-page.html">Profile</a></li>
+                <li><a class="dropdown-signout" href="landing-page-to-shelter.html">Sign out</a></li>
               </ul>
-
-              <div class="dropdown pr-3">
-                <a
-                  class="btn btn-secondary dropdown-toggle"
-                  href="#"
-                  role="button"
-                  id="notificationDropdown"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="bi bi-bell"></i>
-                  <span class="badge bg-danger">1</span>
-                </a>
-
-                <ul
-                  class="dropdown-menu dropdown-menu-end bg-color-baby-blue"
-                  aria-labelledby="notificationDropdown"
-                >
-                  <h2>Notifications - <span>1</span></h2>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      href="seeker-notification-page.html"
-                    >
-                      <div class="text">
-                        <h4>New Message from: Scarlett Johansson</h4>
-                        <p>
-                          I am also interested in Nugget. Is she still
-                          avaliable?
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-viewall"
-                      href="seeker-notification-page.html"
-                      >View All</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="dropdown align-items-center">
-                <a
-                  href="#"
-                  class="d-flex align-items-center text-color-baby-blue text-decoration-none dropdown-toggle"
-                  id="dropdownUser1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <div class="profile-container">
-                    <img
-                      src="assets/calico.jpg"
-                      alt="hugenerd"
-                      width="30"
-                      height="30"
-                      class="rounded-circle"
-                    />
-                  </div>
-                  <div class="username">
-                    <span class="d-none d-sm-inline mx-1 text-white"
-                      >Tail Tales Retreat</span
-                    >
-                  </div>
-                </a>
-                <ul
-                  class="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2"
-                  aria-labelledby="dropdownUser1"
-                >
-                  <li>
-                    <a class="dropdown-item2" href="seeker-detail-page.html"
-                      >Profile</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-signout"
-                      href="landing-page-to-shelter.html"
-                      >Sign out</a
-                    >
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
+        </div>
         </nav>
         <div class="container my-3">
           <div class="d-flex">
