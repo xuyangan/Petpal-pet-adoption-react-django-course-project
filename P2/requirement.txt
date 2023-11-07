@@ -1,0 +1,4 @@
+Django==4.2.7
+Pillow==10.1.0
+djangorestframework==3.14.0
+djangorestframework_simplejwt==4.7.2
