@@ -6,4 +6,4 @@ class Comment(models.Model):
     commenter = models.ForeignKey(PetUser, on_delete=models.CASCADE)
     comment = models.TextField()
     rating = models.IntegerField(null=True, blank=True)
-    replied = models.ForeignKey(PetUser, null=True)
+    replied = models.ForeignKey(PetUser, null=True, on_delete=models.CASCADE)
