@@ -118,7 +118,7 @@ class PetListing(models.Model):
     def __str__(self):
         return 'Pet Listing: {}'.format(self.name)
     
-class PetImages(models.Model):
+class PetImage(models.Model):
         pet_listing = models.ForeignKey(
             PetListing, 
             on_delete=models.CASCADE, 

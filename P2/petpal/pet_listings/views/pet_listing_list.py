@@ -1,27 +1,18 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListAPIView
 from pet_listings.models import PetListing
-from pet_listings.serializers import PetListingListCreateSerializer, PetListingListSerializer
 from accounts.models import PetUser
-from pet_listings.models import PetImage
+from pet_listings.serializers import PetListingListSerializer
 from django.shortcuts import get_object_or_404
-from pet_listings.permissions import IsShelter
 
-
-class PetListingListCreate(ListCreateAPIView):
-    serializer_class = PetListingListCreateSerializer
-
-    def get_permissions(self):
-        if self.request.method == 'POST':
-            return [IsShelter()]
-        # 
-        return super().get_permissions()
-
+class PetListingList(ListAPIView):
+    serializer_class = PetListingListSerializer
     def get_queryset(self):
         # check if the user is none or is not authenticated or is anonymous
         if not self.request.user or \
            not self.request.user.is_authenticated or \
                self.request.user.is_anonymous:
             # return an empty queryset
+            print ("PetListingList: no user")
             return PetListing.objects.none()
         # otherwise, get the PetUser object
         pet_user_pk = self.request.user.pk
