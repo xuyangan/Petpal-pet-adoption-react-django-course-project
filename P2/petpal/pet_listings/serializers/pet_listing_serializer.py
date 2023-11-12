@@ -6,6 +6,7 @@ class PetListingListCreateSerializer(ModelSerializer):
     class Meta:
         model = PetListing
         fields = '__all__'
+        read_only_fields = ['shelter']
 
 class PetListingRetrieveUpdateDestroySerializer(ModelSerializer):
     class Meta:

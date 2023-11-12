@@ -4,7 +4,6 @@ from pet_listings.serializers import PetListingListCreateSerializer
 
 class PetListingListCreate(ListCreateAPIView):
     serializer_class = PetListingListCreateSerializer
-
     def get_queryset(self):
         queryset = PetListing.objects.all()
         # pet_type = self.request.query_params.get('pet_type', None)
@@ -13,5 +12,5 @@ class PetListingListCreate(ListCreateAPIView):
         return queryset
     
     def perform_create(self, serializer):
-
+        print(self.request.user)
         serializer.save(shelter=self.request.user)

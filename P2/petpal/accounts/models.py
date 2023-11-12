@@ -10,3 +10,5 @@ class PetUser(AbstractUser):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
     
+    def is_shelter(self) -> bool:
+        return self.shelter_name is not None and self.shelter_name != ''
