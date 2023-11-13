@@ -37,9 +37,13 @@ class PetListingQuerySerializer(serializers.ModelSerializer):
         required=False,
         help_text="Filter by size",
         )
-    age = serializers.IntegerField(
+    max_age = serializers.IntegerField(
         required=False,
-        help_text="Filter by age"
+        help_text="Filter by max age"
+    )
+    min_age = serializers.IntegerField(
+        required=False,
+        help_text="Filter by min age"
     )
     colour = serializers.CharField(
         required=False,
@@ -73,7 +77,8 @@ class PetListingQuerySerializer(serializers.ModelSerializer):
                   'breed', 
                   'status', 
                   'size', 
-                  'age', 
+                  'max_age',
+                  'min_age',
                   'colour', 
                   'gender', 
                   'sort_by_age', 

@@ -3,6 +3,7 @@ from pet_listings.models import PetListing, PetImage
 from rest_framework.fields import ListField
 
 class BasePetListingSerializer(ModelSerializer):
+    id = PrimaryKeyRelatedField(read_only=True)
     shelter = PrimaryKeyRelatedField(read_only=True)
     pet_images = SerializerMethodField()
     class Meta:
@@ -29,6 +30,7 @@ class PetListingListCreateSerializer(BasePetListingSerializer):
     def create(self, validated_data):
         print(self.initial_data)
         print(validated_data)
+        
         pet_images_data = validated_data.pop('pet_images_field', [])
         pet_listing = PetListing.objects.create(**validated_data, shelter=self.context['request'].user)
         for pet_image in pet_images_data:
