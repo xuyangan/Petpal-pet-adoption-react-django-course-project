@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField, SerializerMethodField
+from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField, SerializerMethodField, ImageField
 from pet_listings.models import PetListing, PetImage
 from rest_framework.fields import ListField
 
@@ -14,6 +14,7 @@ class BasePetListingSerializer(ModelSerializer):
         return [image.image.url for image in obj.pet_images.all()]
 
 class PetImageInlineSerializer(ModelSerializer):
+    # iamge = ImageField()
     class Meta:
         model = PetImage
         fields = ['image']
@@ -25,8 +26,12 @@ class PetListingListCreateSerializer(BasePetListingSerializer):
         write_only=True,
         required=False
         )
-    # pet_images = PetImageInlineSerializer(many=True, write_only=True, required=False)
-    
+    # pet_images_field = PetImageInlineSerializer(many=True, write_only=True, required=False)
+    def is_valid(self, raise_exception=False):
+        print(self.initial_data)
+        print(self.initial_data['pet_images_field'])
+        return super().is_valid(raise_exception=raise_exception)
+
     def create(self, validated_data):
         print(self.initial_data)
         print(validated_data)
@@ -49,8 +54,6 @@ class PetListingRetrieveUpdateDestroySerializer(BasePetListingSerializer):
             for pet_image_data in pet_images_data:
                 PetImage.objects.create(pet_listing=instance, image=pet_image_data)
         return instance
-
-
 
 class PetListingListSerializer(BasePetListingSerializer):
     shelter = PrimaryKeyRelatedField(read_only=True)
