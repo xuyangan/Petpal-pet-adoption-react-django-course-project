@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import PetSeekerCreate, PetShelterCreate
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from .views import PetShelterCreate, PetSeekerCreate
+from .views import PetShelterCreate, PetSeekerCreate, PetShelterUpdate, PetSeekerUpdate
 
 app_name = 'accounts'
 
@@ -10,4 +10,6 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('signup/shelter/', PetShelterCreate.as_view(), name='pet_shelter_create'),
     path('signup/seeker/', PetSeekerCreate.as_view(), name='pet_seeker_create'),
+    path('update/shelter/', PetShelterUpdate.as_view(), name='pet_shelter_update'),
+    path('update/seeker/', PetSeekerUpdate.as_view(), name='pet_seeker_update'),
 ]
