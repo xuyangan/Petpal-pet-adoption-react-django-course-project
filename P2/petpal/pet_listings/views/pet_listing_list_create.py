@@ -1,11 +1,7 @@
 from rest_framework.generics import ListCreateAPIView
 from pet_listings.models import PetListing
-from pet_listings.serializers import PetListingListCreateSerializer, PetListingListSerializer
-from accounts.models import PetUser
-from pet_listings.models import PetImage
-from django.shortcuts import get_object_or_404
+from pet_listings.serializers import PetListingListCreateSerializer
 from pet_listings.permissions import IsShelter, IsPetUser
-from rest_framework.permissions import AllowAny
 
 
 class PetListingListCreate(ListCreateAPIView):

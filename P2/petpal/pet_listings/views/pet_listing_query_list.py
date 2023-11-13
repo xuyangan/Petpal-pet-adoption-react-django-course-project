@@ -1,10 +1,8 @@
 from rest_framework.generics import ListAPIView
 from pet_listings.models import PetListing
 from accounts.models import PetUser
-from django.shortcuts import get_object_or_404, redirect
 from pet_listings.permissions import IsPetUser
 from pet_listings.serializers import  PetListingQuerySerializer, PetListingListSerializer
-from rest_framework.permissions import AllowAny
 
 
 class PetListingQueryList(ListAPIView):
@@ -45,7 +43,8 @@ class PetListingQueryList(ListAPIView):
             queryset = queryset.order_by('age')
         if 'sort_by_size' in data and data.get('sort_by_size'):
             queryset = queryset.order_by('size')
-        if 'sort_in_desc' in data and data.get('sort_in_descending_order'):
+        if 'sort_in_desc' in data and data.get('sort_in_desc'):
+            print("PetListingQueryList: sort in descending order")
             queryset = queryset.reverse()
 
         return queryset
