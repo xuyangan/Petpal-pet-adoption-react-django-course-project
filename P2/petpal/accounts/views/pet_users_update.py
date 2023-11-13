@@ -1,14 +1,15 @@
 from django.shortcuts import render
 from rest_framework.generics import UpdateAPIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from ..models import PetUser
 from accounts.serializers import PetShelterUpdateSerializer, PetSeekerUpdateSerializer
 
-# need to find out how to make sure only the same user can update
 class PetShelterUpdate(UpdateAPIView):
-    model = PetUser
+    queryset = PetUser.objects.all()
     serializer_class = PetShelterUpdateSerializer
+    permission_classes = [IsAuthenticated]
 
 class PetSeekerUpdate(UpdateAPIView):
-    model = PetUser
+    queryset = PetUser.objects.all()
     serializer_class = PetSeekerUpdateSerializer
+    permission_classes = [IsAuthenticated]

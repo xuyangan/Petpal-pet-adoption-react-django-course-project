@@ -13,4 +13,4 @@ class PetShelterCreate(CreateAPIView):
 class PetSeekerCreate(CreateAPIView):
     model = PetUser
     serializer_class = PetSeekerSerializer
-    permission_classes = (AllowAny, )
+    permission_classes = (AllowAny,)

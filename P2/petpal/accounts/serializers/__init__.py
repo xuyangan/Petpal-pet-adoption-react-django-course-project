@@ -1,2 +1,3 @@
 from .pet_user_serializer import PetShelterSerializer, PetSeekerSerializer
 from .pet_user_update_serializer import PetShelterUpdateSerializer, PetSeekerUpdateSerializer
+from .pet_user_profile_serializer import PetShelterProfileSerializer, PetSeekerProfileSerializer
