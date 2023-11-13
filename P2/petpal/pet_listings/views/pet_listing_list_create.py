@@ -5,6 +5,7 @@ from accounts.models import PetUser
 from pet_listings.models import PetImage
 from django.shortcuts import get_object_or_404
 from pet_listings.permissions import IsShelter, IsPetUser
+from rest_framework.permissions import AllowAny
 
 
 class PetListingListCreate(ListCreateAPIView):
@@ -18,11 +19,11 @@ class PetListingListCreate(ListCreateAPIView):
         return super().get_permissions()
 
     def get_queryset(self):
-        # otherwise, get the PetUser object
         pet_user_pk = self.request.user.pk
         pet_user = get_object_or_404(PetUser, pk=pet_user_pk)
+
         # check if the PetUser is a shelter or seeker
-        if pet_user.is_shelter:
+        if pet_user.is_shelter():
             # return pet_listing that belong to the shelter
             return PetListing.objects.filter(shelter=pet_user)
 
