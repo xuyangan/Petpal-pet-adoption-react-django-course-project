@@ -1,27 +1,18 @@
 from django.db import models
-
-# Create your models here.
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+from accounts.models import PetUser
 
-User = get_user_model()
+# Create your models here.
 
 class Notification(models.Model):
-    # Basic Notification Model
-    recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
+    user = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='notifications')
+    message = models.CharField(max_length=255)
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    link = models.URLField()  # Field to store a link to the associated model
 
-    # Generic foreign key setup
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey('content_type', 'object_id')
-
-    # Methods
     def __str__(self):
-        return f"Notification for {self.recipient.username} - {self.content_type.model}"
-
-    class Meta:
-        ordering = ['-created_at']  # Newest notifications first
+        return self.message
