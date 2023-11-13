@@ -3,18 +3,13 @@ from pet_listings.models import PetListing
 from accounts.models import PetUser
 from pet_listings.serializers import PetListingListSerializer
 from django.shortcuts import get_object_or_404
+from pet_listings.permissions import IsPetUser
 
 class PetListingList(ListAPIView):
     serializer_class = PetListingListSerializer
+    permission_classes = [IsPetUser]
+
     def get_queryset(self):
-        # check if the user is none or is not authenticated or is anonymous
-        if not self.request.user or \
-           not self.request.user.is_authenticated or \
-               self.request.user.is_anonymous:
-            # return an empty queryset
-            print ("PetListingList: no user")
-            return PetListing.objects.none()
-        # otherwise, get the PetUser object
         pet_user_pk = self.request.user.pk
         pet_user = get_object_or_404(PetUser, pk=pet_user_pk)
         # check if the PetUser is a shelter or seeker
