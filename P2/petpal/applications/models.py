@@ -1,6 +1,6 @@
 from django.db import models
 
-from P2.petpal.pet_listings.models import PetListing
+from pet_listings.models import PetListing
 
 # Create your models here.
 
