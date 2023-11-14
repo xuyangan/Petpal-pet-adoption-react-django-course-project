@@ -2,8 +2,6 @@ from django.db import models
 
 from pet_listings.models import PetListing
 
-# Create your models here.
-
 
 class Application (models.Model):
 
@@ -143,3 +141,27 @@ class Application (models.Model):
         null=False,
         blank=False,
     )
+
+    SUBMITTED = 'submitted'
+    ACCEPTED = 'accepted'
+    REJECTED = 'rejected'
+
+    STATUS_CHOICES = [
+        (SUBMITTED, 'submitted'),
+        (ACCEPTED, 'accepted'),
+        (REJECTED, 'rejected'),
+    ]
+
+    status = models.CharField(
+        choices=STATUS_CHOICES,
+        default=SUBMITTED,
+        null=False,
+        blank=False,
+    )
+
+    def save(self, *args, **kwargs):
+        self.pet_name = self.pet_listing.name
+        super(Application, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return 'Application for {}: {}'.format(self.pet_name, self.id)
