@@ -1,8 +1,15 @@
-from rest_framework.serializers import ModelSerializer
-from applications.models import Application
+from rest_framework import serializers
+from applications.models import Application, Message
 
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Message
+        fields = ['sender', 'content', 'timestamp']
 
-class ApplicationSerializer(ModelSerializer):
+class ApplicationSerializer(serializers.ModelSerializer):
+    messages = MessageSerializer(many=True, read_only=True)
+
     class Meta:
         model = Application
-        exclude = ('pet_listing', 'status',)
+        fields = ['id', 'pet_seeker', 'pet_shelter', 'pet_listing', 'status', 'messages']
+        read_only_fields = ['status'] 

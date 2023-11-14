@@ -1,6 +1,7 @@
 from django.db import models
 
 from pet_listings.models import PetListing
+from accounts.models import PetUser
 
 
 class Application(models.Model):
@@ -17,6 +18,20 @@ class Application(models.Model):
         max_length=255,
         null=False,
         blank=False,
+    )
+
+    pet_seeker = models.ForeignKey(
+        PetUser,
+        on_delete=models.CASCADE,
+        related_name='seeker_applications',
+        limit_choices_to={'shelter_name__isnull': True},
+    )
+
+    pet_shelter = models.ForeignKey(
+        PetUser,
+        on_delete=models.CASCADE,
+        related_name='shelter_applications',
+        limit_choices_to={'shelter_name__isnull': False},
     )
 
     YES = 1
@@ -162,7 +177,19 @@ class Application(models.Model):
 
     def save(self, *args, **kwargs):
         self.pet_name = self.pet_listing.name
+        if self.pet_seeker.is_shelter():
+            raise ValueError("A shelter cannot apply for a pet")
         super(Application, self).save(*args, **kwargs)
+
 
     def __str__(self):
         return 'Application for {}: {}'.format(self.pet_name, self.id)
+
+class Message(models.Model):
+    application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='messages')
+    sender = models.ForeignKey(PetUser, on_delete=models.CASCADE)
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.sender} for Application {self.application.id}"
