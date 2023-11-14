@@ -9,7 +9,13 @@ class PetShelterUpdate(UpdateAPIView):
     serializer_class = PetShelterUpdateSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_object(self):
+        return self.request.user
+
 class PetSeekerUpdate(UpdateAPIView):
     queryset = PetUser.objects.all()
     serializer_class = PetSeekerUpdateSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
