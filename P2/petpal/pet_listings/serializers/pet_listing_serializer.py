@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField, SerializerMethodField, ImageField
+from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField, SerializerMethodField, ImageField, Serializer
 from pet_listings.models import PetListing, PetImage
 from rest_framework.fields import ListField
 
@@ -13,33 +13,35 @@ class BasePetListingSerializer(ModelSerializer):
     def get_pet_images(self, obj):
         return [image.image.url for image in obj.pet_images.all()]
 
-class PetImageInlineSerializer(ModelSerializer):
-    # iamge = ImageField()
-    class Meta:
-        model = PetImage
-        fields = ['image']
+# class PetImageInlineSerializer(ModelSerializer):
+#     # image = ImageField()
+#     class Meta:
+#         model = PetImage
+#         fields = ['image']
+
+class BulkAddImageSerializer(Serializer):
+    images = ListField(child=ImageField(), required=False)
+    def create(self, validated_data):
+        images = []
+        for image in validated_data.get('images', tuple()):
+            image_object = PetImage(image=image)
+            image_object.save()
+            images.append(image_object)
+        return images
 
 class PetListingListCreateSerializer(BasePetListingSerializer):
 
-    pet_images_field = ListField(
-        child=PetImageInlineSerializer(), 
-        write_only=True,
-        required=False
-        )
-    # pet_images_field = PetImageInlineSerializer(many=True, write_only=True, required=False)
-    def is_valid(self, raise_exception=False):
-        print(self.initial_data)
-        print(self.initial_data['pet_images_field'])
-        return super().is_valid(raise_exception=raise_exception)
+    images = ListField(child=ImageField(), required=False)
 
     def create(self, validated_data):
-        print(self.initial_data)
-        print(validated_data)
-        
-        pet_images_data = validated_data.pop('pet_images_field', [])
+        images_data = validated_data.pop('images', tuple())
         pet_listing = PetListing.objects.create(**validated_data, shelter=self.context['request'].user)
-        for pet_image in pet_images_data:
-            PetImage.objects.create(pet_listing=pet_listing, image=pet_image)
+        
+        for image in images_data:
+            print(image)
+            image_object = PetImage(image=image, pet_listing=pet_listing)
+            image_object.save()
+        
         return pet_listing
     
 
