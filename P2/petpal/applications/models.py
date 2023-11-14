@@ -3,7 +3,7 @@ from django.db import models
 from pet_listings.models import PetListing
 
 
-class Application (models.Model):
+class Application(models.Model):
 
     pet_listing = models.ForeignKey(
         PetListing,
@@ -154,6 +154,7 @@ class Application (models.Model):
 
     status = models.CharField(
         choices=STATUS_CHOICES,
+        max_length=255,
         default=SUBMITTED,
         null=False,
         blank=False,
