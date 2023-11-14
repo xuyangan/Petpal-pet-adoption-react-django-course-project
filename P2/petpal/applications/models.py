@@ -1,12 +1,22 @@
 from django.db import models
 
+from P2.petpal.pet_listings.models import PetListing
+
 # Create your models here.
 
 
 class Application (models.Model):
+
+    pet_listing = models.ForeignKey(
+        PetListing,
+        on_delete=models.CASCADE,
+        # related_name='applications',
+        null=False,
+        blank=False,
+    )
+
     pet_name = models.CharField(
         max_length=255,
-        default='Placeholder',
         null=False,
         blank=False,
     )
@@ -14,7 +24,7 @@ class Application (models.Model):
     YES = 1
     NO = 0
 
-    BINARY_CHOICES = [YES, 'yes', NO, 'no']
+    BINARY_CHOICES = [(YES, 'yes'), (NO, 'no'),]
 
     all_agree = models.PositiveIntegerField(
         choices=BINARY_CHOICES,
@@ -30,7 +40,7 @@ class Application (models.Model):
         blank=False,
     )
 
-    considerate = models.PositiveIntegerField(
+    medical = models.PositiveIntegerField(
         choices=BINARY_CHOICES,
         default=NO,
         null=False,
