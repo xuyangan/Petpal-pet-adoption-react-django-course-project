@@ -186,14 +186,14 @@ class Application(models.Model):
     def __str__(self):
         return 'Application for {}: {}'.format(self.pet_name, self.id)
 
-    def delete(self, *args, **kwargs):
-        # Check if the deletion is part of deleting the associated PetListing
-        if self.pet_listing and kwargs.get('delete_pet_listing', False):
-            super(Application, self).delete(*args, **kwargs)
-        else:
-            # Raise an exception or handle the situation accordingly
-            raise ValueError(
-                "Deleting an application is not allowed unless it's part of deleting the associated PetListing.")
+    # def delete(self, *args, **kwargs):
+    #     # Check if the deletion is part of deleting the associated PetListing
+    #     if self.pet_listing and kwargs.get('delete_pet_listing', False):
+    #         super(Application, self).delete(*args, **kwargs)
+    #     else:
+    #         # Raise an exception or handle the situation accordingly
+    #         raise ValueError(
+    #             "Deleting an application is not allowed unless it's part of deleting the associated PetListing.")
 
 
 class Message(models.Model):
