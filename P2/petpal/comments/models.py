@@ -1,9 +1,6 @@
 from django.db import models
 from accounts.models import PetUser
-
-# Create your models here.
 from django.db import models
-from accounts.models import PetUser
 
 # Create your models here.
 class Comment(models.Model):
@@ -14,15 +11,17 @@ class Comment(models.Model):
     class Meta:
         abstract = True
 
-class ApplicationComment(Comment):
-    user = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='appComments')
-    
-    def __str__(self):
-        return self.text
-
 class ShelterComment(Comment):
     user = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='shelterComments')
     rating = models.IntegerField(null=True, blank=True)
+
+    pet_shelter = models.ForeignKey(
+        PetUser,
+        on_delete=models.CASCADE,
+        related_name='comments_for_shelter',
+        limit_choices_to={'shelter_name__isnull': False},
+        null=True,
+    )
     
     def __str__(self):
         return self.text
@@ -35,13 +34,3 @@ class Reply(Comment):
 
     def __str__(self):
         return 'Re: ' + self.thread.text
-
-# class ShelterComment(models.Model):
-#     commenter = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='commenter')
-#     comment = models.TextField()
-#     rating = models.IntegerField(null=True, blank=True)
-#     replied = models.ForeignKey(PetUser, null=True, on_delete=models.CASCADE, related_name='replied')
-# class ApplicationComment(models.Model):
-#     commenter = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='commenter')
-#     comment = models.TextField()
-#     replied = models.ForeignKey(PetUser, null=True, on_delete=models.CASCADE, related_name='replied')
