@@ -3,11 +3,12 @@ from pet_listings.models import PetListing
 from accounts.models import PetUser
 from pet_listings.permissions import IsPetUser
 from pet_listings.serializers import  PetListingQuerySerializer, PetListingListSerializer
-
+from pet_listings.pagination import PetListingPagination
 
 class PetListingQueryList(ListAPIView):
     serializer_class = PetListingListSerializer
     permission_classes = [IsPetUser]
+    pagination_class = PetListingPagination
 
     def get_queryset(self):
         filters = PetListingQuerySerializer(data=self.request.query_params)
