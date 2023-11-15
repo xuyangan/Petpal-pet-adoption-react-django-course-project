@@ -8,8 +8,8 @@ from .views import PetListingList
 
 app_name = 'pet_listings'
 urlpatterns = [
-    path('', PetListingCreate.as_view(), name='pet_listing_list'),
+    path('', PetListingCreate.as_view(), name='pet_listing_create'),
     path('list/', PetListingList.as_view(), name='pet_listing_list'),
     path('<int:pk>/', PetListingRetrieveUpdateDestroy.as_view(), name='pet_listing_retrieve_update_destroy'),
-    path('search/', PetListingQueryList.as_view(), name='pet_listing_retrieve_update_destroy'),
+    path('search/', PetListingQueryList.as_view(), name='pet_listing_search'),
 ]
