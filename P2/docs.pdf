@@ -1,0 +1,104 @@
+
+
+
+
+
+
+
+
+
+Pet Listings 
+    Model(s)
+        PetListing
+            - shelter: The owner of the PetListing.
+            - name: The name of the pet.
+            - breed: The breed of the pet.
+            - age: The age of the pet.
+            - size: The size of the pet (small, medium, large).
+            - gender: The gender of the pet (female, male, unknown).
+            - status: The status of the PetListing (available, pending, withdrawn, adopted).
+            - colour: The colour of the pet.
+            - location: The location of the pet.
+            - description: The description of the pet.
+            - behaviour: The behaviour of the pet.
+            - requirements: The requirements for the pet.
+            - medical_history: The medical_history of the pet.
+            - publication_date: The medical_history of the PetListing.
+        PetImage
+            - image: The image file(s) for the pet.
+            - pet_listing: Pet listings that the images belong to.
+    API endpoints
+        pet_listing/
+            - Description: 
+                - Create a pet listing. Must be a request from a shelter.
+            - Methods: 
+                - POST
+            - Payloads: 
+                - name
+                - breed
+                - age
+                - size
+                - gender
+                - status
+                - colour
+                - location
+                - description
+                - behaviour
+                - requirements
+                - medical_history
+                - images
+
+        pet_listing/list/
+            - Description:
+                - Get all pet listings. Must be a request from a seeker.
+                - Get all pet listings belonging to a shelter. Must be a request from the shelter.
+            - Methods:
+                - GET
+            - Payloads:
+
+        pet_listing/<int:pk>/
+            - Description: 
+                - Retrieve the pet listing with id = pk. Must be a request from a seeker. 
+                If it is a request from a shelter, the listing must belong to the shelter.
+                - Update the pet listing with id = pk. Must be a request from the shelter the listing belongs to.
+                - Delete the pet listing with id = pk. Must be a request from the shelter the listing belongs to.
+            - Methods:
+                - GET
+                - PUT/PATCH
+                - DELETE
+            - Payloads: 
+                - name
+                - breed
+                - age
+                - size
+                - gender
+                - status
+                - colour
+                - location
+                - description
+                - behaviour
+                - requirements
+                - medical_history
+                - images
+            
+        pet_listing/search/
+            - Description:
+                - Search by filter and/or sort. 
+                Retrieve all listings that satisfy the filter on the specified sorting order.
+            - Methods: 
+                - GET
+            - Payloads: 
+                - shelter_name
+                - breed
+                - status
+                - size
+                - min_age
+                - max_age
+                - colour    
+                - gender
+                - sort_by_age
+                - sort_by_name  
+                - sort_by_size
+                - sort_in_desc
+
+
