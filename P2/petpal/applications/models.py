@@ -9,7 +9,7 @@ class Application(models.Model):
     pet_listing = models.ForeignKey(
         PetListing,
         on_delete=models.CASCADE,
-        # related_name='applications',
+        related_name='applications',
         null=False,
         blank=False,
     )
@@ -24,6 +24,7 @@ class Application(models.Model):
         PetUser,
         on_delete=models.CASCADE,
         related_name='seeker_applications',
+        null=True,
         limit_choices_to={'shelter_name__isnull': True},
     )
 
@@ -31,6 +32,7 @@ class Application(models.Model):
         PetUser,
         on_delete=models.CASCADE,
         related_name='shelter_applications',
+        null=True,
         limit_choices_to={'shelter_name__isnull': False},
     )
 
@@ -181,12 +183,13 @@ class Application(models.Model):
             raise ValueError("A shelter cannot apply for a pet")
         super(Application, self).save(*args, **kwargs)
 
-
     def __str__(self):
         return 'Application for {}: {}'.format(self.pet_name, self.id)
 
+
 class Message(models.Model):
-    application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='messages')
+    application = models.ForeignKey(
+        Application, on_delete=models.CASCADE, related_name='messages')
     sender = models.ForeignKey(PetUser, on_delete=models.CASCADE)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
