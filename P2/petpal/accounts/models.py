@@ -26,3 +26,6 @@ class PetUser(AbstractUser):
     
     def is_shelter(self) -> bool:
         return self.shelter_name is not None and self.shelter_name != ''
+    
+    def is_preference(self, preference) -> bool:
+        return preference in self.preferences
