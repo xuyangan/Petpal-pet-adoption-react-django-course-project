@@ -12,7 +12,7 @@ class ApplicationListView(generics.ListAPIView):
     def get_queryset(self):
         queryset = self.get_shelter_queryset()
 
-        status = self.request.query_params.get('status', 'pending')
+        status = self.request.query_params.get('status')
         sort_by_creation_time = self.request.query_params.get(
             'sort_by_creation_time', 'false').lower() == 'true'
         sort_by_last_update_time = self.request.query_params.get(
