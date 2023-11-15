@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 from pet_listings.models import PetListing
 from accounts.models import PetUser
 
@@ -159,28 +159,37 @@ class Application(models.Model):
         blank=False,
     )
 
-    SUBMITTED = 'submitted'
+    PENDING = 'pending'
     ACCEPTED = 'accepted'
-    REJECTED = 'rejected'
+    DENIED = 'denied'
+    WITHDRAWN = 'withdrawn'
 
     STATUS_CHOICES = [
-        (SUBMITTED, 'submitted'),
+        (PENDING, 'pending'),
         (ACCEPTED, 'accepted'),
-        (REJECTED, 'rejected'),
+        (DENIED, 'denied'),
+        (WITHDRAWN, 'withdrawn'),
     ]
 
     status = models.CharField(
         choices=STATUS_CHOICES,
         max_length=255,
-        default=SUBMITTED,
+        default=PENDING,
         null=False,
         blank=False,
     )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        null=True,
+    )
+    updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         self.pet_name = self.pet_listing.name
         if self.pet_seeker.is_shelter():
             raise ValueError("A shelter cannot apply for a pet")
+        self.updated_at = timezone.now()
         super(Application, self).save(*args, **kwargs)
 
     def __str__(self):

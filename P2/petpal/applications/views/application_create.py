@@ -7,18 +7,19 @@ from pet_listings.models import PetListing
 from django.http import Http404
 from rest_framework.response import Response
 from applications.permissions import IsSeeker
+from datetime import datetime
 
 
 class ApplicationCreateAPIView(CreateAPIView):
     queryset = Application.objects.all()
     serializer_class = CreateApplicationSerializer
-    permission_classes = [IsSeeker]
+    permission_clases = [IsSeeker]
 
     def perform_create(self, serializer):
         pet_listing_id = self.kwargs.get('pk')
         pet_listing = get_object_or_404(PetListing, id=pet_listing_id)
         serializer.save(pet_name=pet_listing.name, pet_listing=pet_listing,
-                        pet_seeker=self.request.user, pet_shelter=pet_listing.shelter)
+                        pet_seeker=self.request.user, pet_shelter=pet_listing.shelter, created_at=datetime.now(), updated_at=datetime.now())
 
     def post(self, request, *args, **kwargs):
         try:
