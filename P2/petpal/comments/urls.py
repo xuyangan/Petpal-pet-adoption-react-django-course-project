@@ -3,7 +3,7 @@ from .views import ShelterCommentListCreate, ShelterCommentRetrieve, ReplyCreate
 
 app_name = 'comments'
 urlpatterns = [
-    path('', ShelterCommentListCreate.as_view()),
-    path('<int:pk>/', ShelterCommentRetrieve.as_view()),
-    path('<int:pk>/reply/', ReplyCreate.as_view()),
+    path('<int:shelter_pk>/', ShelterCommentListCreate.as_view()),
+    path('<int:shelter_pk>/<int:pk>/', ShelterCommentRetrieve.as_view()),
+    path('<int:shelter_pk>/<int:pk>/reply/', ReplyCreate.as_view()),
 ]

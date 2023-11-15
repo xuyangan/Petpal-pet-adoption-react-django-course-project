@@ -12,14 +12,20 @@ class ShelterCommentListCreate(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return ShelterComment.objects.all().order_by('-create_time')
+        shelter_pk = self.kwargs.get('shelter_pk')
+        return ShelterComment.objects.filter(shelter_id=shelter_pk).order_by('-create_time')
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        shelter_pk = self.kwargs.get('shelter_pk')
+        serializer.save(user=self.request.user, shelter_id=shelter_pk)
 
 class ShelterCommentRetrieve(RetrieveAPIView):
-    queryset = ShelterComment.objects.all()
+    # queryset = ShelterComment.objects.all()
     serializer_class = ShelterReplySerializer
+    def get_queryset(self):
+        shelter_pk = self.kwargs.get('shelter_pk')
+        # Filter by shelter ID
+        return ShelterComment.objects.filter(shelter_id=shelter_pk)
 
 class ReplyCreate(CreateAPIView):
     serializer_class = ReplySerializer

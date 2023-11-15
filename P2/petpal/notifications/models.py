@@ -9,10 +9,9 @@ from accounts.models import PetUser
 
 class Notification(models.Model):
     user_id = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='notifications')
-    message = models.CharField(max_length=255)
+    message = models.CharField(max_length=128)
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    link = models.URLField()  # Field to store a link to the associated model
 
     def __str__(self):
         return self.message
