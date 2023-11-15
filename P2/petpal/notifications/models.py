@@ -12,6 +12,7 @@ class Notification(models.Model):
     message = models.CharField(max_length=128)
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    related_link = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.message

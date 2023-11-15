@@ -2,6 +2,10 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Reply, ShelterComment
 from notifications.models import Notification
+from django.urls import reverse
+
+def get_comment_url(shelter_id, comment_id):
+    return reverse('comments:shelter_comment_retrieve', args=[shelter_id, comment_id])
 
 @receiver(post_save, sender=Reply)
 def new_reply_notification(sender, instance, created, **kwargs):
@@ -22,12 +26,13 @@ def new_reply_notification(sender, instance, created, **kwargs):
 def new_comment_notification(sender, instance, created, **kwargs):
     if created:
         shelter_user = instance.shelter  # Assuming 'shelter' is the field linking to the shelter's PetUser
-
         # Don't notify if the shelter is posting a comment to their own shelter
         if shelter_user != instance.user:
             # Check if the comment text is longer than 10 characters
             comment_text = instance.text[:10] + '...' if len(instance.text) > 10 else instance.text
+            comment_url = get_comment_url(instance.shelter.id, instance.id)
             Notification.objects.create(
                 user_id=shelter_user,
-                message=f'New comment received: {comment_text}'
+                message=f'New comment received: {comment_text}',
+                related_link=comment_url
             )

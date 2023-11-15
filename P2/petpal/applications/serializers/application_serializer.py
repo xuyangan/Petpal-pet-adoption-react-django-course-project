@@ -126,3 +126,19 @@ class GetApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Application
         fields = '__all__'
+
+class MessageCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Message
+        fields = ['content']
+
+    def create(self, validated_data):
+        return Message.objects.create(**validated_data)
+
+class MessageListSerializer(serializers.ModelSerializer):
+    sender_name = serializers.CharField(source='sender.username', read_only=True)
+
+    class Meta:
+        model = Message
+        fields = ['id', 'application', 'sender_name', 'content', 'timestamp']
+        read_only_fields = fields

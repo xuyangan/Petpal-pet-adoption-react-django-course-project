@@ -206,8 +206,7 @@ class Application(models.Model):
 
 
 class Message(models.Model):
-    application = models.ForeignKey(
-        Application, on_delete=models.CASCADE, related_name='messages')
+    application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='messages')
     sender = models.ForeignKey(PetUser, on_delete=models.CASCADE)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
