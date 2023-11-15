@@ -12,7 +12,7 @@ class PetShelterUpdateSerializer(ModelSerializer):
 class PetSeekerUpdateSerializer(ModelSerializer):
     class Meta:
         model = PetUser
-        fields = ['email', 'password', 'phone_number', 'location', 'preferences', 'profile_picture']
+        fields = ['email', 'password', 'first_name', 'last_name', 'phone_number', 'location', 'preferences', 'profile_picture']
 
     def update(self, instance, validated_data):
         return super().update(instance, validated_data)
