@@ -9,6 +9,6 @@ def new_reply_notification(sender, instance, created, **kwargs):
         parent_comment = instance.thread
         notify_user = parent_comment.user
         Notification.objects.create(
-            user=notify_user,
+            user_id=notify_user,
             message=f'New reply to your comment: {instance.text[:50]}...' 
         )

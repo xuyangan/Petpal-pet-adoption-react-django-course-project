@@ -6,5 +6,6 @@ from .views import ApplicationRetrieveAPIView
 
 app_name = 'applications'
 urlpatterns = [
-    path('create/', ApplicationCreateAPIView.as_view(), name='application_create'),
+    path('create/<int:pk>/', ApplicationCreateAPIView.as_view(),
+         name='application_create'),
 ]

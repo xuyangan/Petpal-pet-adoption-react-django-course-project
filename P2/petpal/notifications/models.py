@@ -8,7 +8,7 @@ from accounts.models import PetUser
 # Create your models here.
 
 class Notification(models.Model):
-    user = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='notifications')
+    user_id = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='notifications')
     message = models.CharField(max_length=255)
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

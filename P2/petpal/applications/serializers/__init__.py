@@ -1,1 +1,2 @@
+from .application_serializer import CreateApplicationSerializer
 from .application_serializer import ApplicationSerializer
