@@ -15,4 +15,6 @@ urlpatterns = [
          name='shelter-update-application'),
     path('list/', ApplicationListView.as_view(),
          name='application-list'),
+    path('get/<int:pk>/', ApplicationRetrieveAPIView.as_view(),
+         name='application-detail'),
 ]

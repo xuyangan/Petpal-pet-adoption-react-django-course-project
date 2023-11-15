@@ -118,3 +118,11 @@ class CustomPageNumberPagination(PageNumberPagination):
     page_size = 10  # You can adjust the number of items per page as needed
     page_size_query_param = 'page_size'
     max_page_size = 100
+
+
+class GetApplicationSerializer(serializers.ModelSerializer):
+    messages = MessageSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Application
+        fields = '__all__'
