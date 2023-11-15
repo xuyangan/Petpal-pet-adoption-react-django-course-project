@@ -35,6 +35,7 @@ cd petpal
 
 # Run Django migrations
 echo "Running Django migrations..."
+python manage.py makemigrations
 python manage.py migrate
 
 # Deactivate the virtual environment
