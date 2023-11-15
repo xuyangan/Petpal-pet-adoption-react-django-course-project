@@ -25,7 +25,7 @@ class PetSeekerProfile(RetrieveAPIView):
 
         if user.is_shelter():
             # must use application queryset please check lol
-            return user.application_set.all()
+            return user.shelter_applications.all()
         else:
             return PetUser.objects.all()
     
