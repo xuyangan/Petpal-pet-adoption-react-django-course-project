@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from ..models import PetUser
 from accounts.serializers import PetShelterProfileSerializer, PetSeekerProfileSerializer
@@ -25,7 +26,11 @@ class PetSeekerProfile(RetrieveAPIView):
 
         if user.is_shelter():
             # must use application queryset please check lol
-            return user.shelter_applications.get(pet_seeker=self.kwargs.get('pk'))
+            applications = user.shelter_applications.get(pet_seeker=self.kwargs.get('pk'))
+            if applications.exists():
+                return PetUser.objects.all()
+            else:
+                raise PermissionDenied("You do not have permission to view this.")
         else:
             return PetUser.objects.all()
     
