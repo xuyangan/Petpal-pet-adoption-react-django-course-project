@@ -1,0 +1,6 @@
+# Things to ignore:
+venv/
+__pycache__
+db.sqlite3
+*/migrations/0*.py
+*.pyc
