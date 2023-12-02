@@ -1,0 +1,15 @@
+.main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .main > * {
+    margin-bottom: 15px;
+  }
+  
+  .bg-color-gradient {
+      background: linear-gradient(to bottom, #add8e6, rgb(65, 219, 233, 0.5));
+  }
