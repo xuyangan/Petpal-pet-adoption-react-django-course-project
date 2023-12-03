@@ -5,7 +5,7 @@ import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SignupSeeker from './pages/SignupSeeker';
-import SignupShelter from '.pages/SignupShelter';
+import SignupShelter from './pages/SignupShelter';
 
 function App() {
   return <BrowserRouter>
