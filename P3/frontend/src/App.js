@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SignupSeeker from './pages/SignupSeeker';
 import SignupShelter from './pages/SignupShelter';
+import ApplicationForm from './pages/ApplicationForm';
 
 function App() {
   return <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
         <Route path="signup" element={<Signup />} />
         <Route path="signup/seeker" element={<SignupSeeker />} />
         <Route path="signup/shelter" element={<SignupShelter />} />
+        <Route path="applications" element={<ApplicationForm />} />
       </Route>
     </Routes>
   </BrowserRouter>
