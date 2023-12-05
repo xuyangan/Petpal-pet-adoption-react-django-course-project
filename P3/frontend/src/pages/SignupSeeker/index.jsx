@@ -15,43 +15,47 @@ function SignupSeeker() {
 
     const submitSeeker = async (e) => {
         e.preventDefault()
-    
-        const response = await fetch("localhost:8000/signup/seeker/", {
-            method: "POST",
-            mode: "cors",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                first_name: firstName,
-                last_name: lastName,
-                email: email,
-                username: username,
-                password: password1,
-                phone_number: phone,
-                location: location,
-                preferences: preferences,
-                profile_picture: profile,
+        
+        try {
+            const response = await fetch("localhost:8000/accounts/signup/seeker/", {
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    username: username,
+                    password: password1,
+                    phone_number: phone,
+                    location: location,
+                    preferences: preferences,
+                    profile_picture: profile,
+                })
             })
-        })
-
-        const json = await response.json;
-
-        if (!response.ok) {
-            console.log("there's an error");
-        }
-        if (response.ok) {
-            console.log("it worked");
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setUsername("");
-            setPassword1("");
-            setPassword2("");
-            setPhone();
-            setLocation();
-            setPreferences();
-            setProfile();
+    
+            const json = await response.json();
+    
+            if (!response.ok) {
+                console.log("there's an error");
+            }
+            if (response.ok) {
+                console.log("it worked");
+                setFirstName("");
+                setLastName("");
+                setEmail("");
+                setUsername("");
+                setPassword1("");
+                setPassword2("");
+                setPhone();
+                setLocation();
+                setPreferences();
+                setProfile();
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
 
