@@ -71,6 +71,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-first-name-input">First Name</label>
                             <input
+                                value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}
                                 type="text" className="form-control" id="seeker-first-name-input"
                                 placeholder="Enter first name" required="true" />
@@ -78,6 +79,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-last-name-input">Last Name</label>
                             <input
+                                value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}
                                 type="text" className="form-control" id="seeker-last-name-input"
                                 placeholder="Enter last name" required="true" />
@@ -85,6 +87,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-email-input">Email Address</label>
                             <input
+                                value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 type="email" className="form-control" id="seeker-email-input"
                                 aria-describedby="emailHelp" placeholder="Enter email" required="true" />
@@ -92,6 +95,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-username-input">Username</label>
                             <input
+                                value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 type="text" className="form-control" id="seeker-username-input"
                                 placeholder="Enter username" required="true" />
@@ -99,6 +103,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-password-input">Password</label>
                             <input
+                                value={password1}
                                 onChange={(e) => setPassword1(e.target.value)}
                                 type="password" className="form-control" id="seeker-password-input"
                                 placeholder="Enter password" required="true" />
@@ -106,6 +111,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-password-retype-input">Retype Password</label>
                             <input
+                                value={password2}
                                 onChange={(e) => setPassword2(e.target.value)}
                                 type="password" className="form-control" id="seeker-password-retype-input"
                                 placeholder="Enter password again" required="true" />
@@ -113,6 +119,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-phone-input">Phone</label>
                             <input
+                                value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
                                 type="text" className="form-control" id="seeker-phone-input"
                                 placeholder="Enter phone" />
@@ -120,6 +127,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-location-input">Location</label>
                             <input
+                                value={location}
                                 onChange={(e) => setLocation(e.target.value)}
                                 type="text" className="form-control" id="seeker-location-input"
                                 placeholder="Enter location" />
@@ -127,6 +135,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-preferences-input">Preferences</label>
                             <input
+                                value={preferences}
                                 onChange={(e) => setPreferences(e.target.value)}
                                 type="text" className="form-control" id="seeker-preferences-input"
                                 placeholder="Enter preferences" />
@@ -134,6 +143,7 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-profile-input">Profile Picture</label>
                             <input
+                                value={profile}
                                 onChange={(e) => setProfile(URL.createObjectURL(e.target.files[0]))}
                                 type="file" className="form-control" id="seeker-profile-input" />
                         </div>
