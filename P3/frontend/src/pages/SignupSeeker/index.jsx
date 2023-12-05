@@ -14,10 +14,12 @@ function SignupSeeker() {
     const [profile, setProfile] = useState();
 
     const submitSeeker = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         
         try {
-            const response = await fetch("localhost:8000/accounts/signup/seeker/", {
+            console.log("inside submit seeker");
+            console.log(firstName, lastName, email, username, password1, phone, location, preferences, profile);
+            const response = await fetch("http://localhost:8000/accounts/signup/seeker/", {
                 method: "POST",
                 mode: "cors",
                 headers: {
