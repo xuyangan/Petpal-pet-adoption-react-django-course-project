@@ -41,7 +41,6 @@ function Login() {
                 // console.log(access);
                 // console.log("login", authToken);
                 setAuthToken(access);
-                navigate("/pet_listings");
             }
 
         } catch(error) {
