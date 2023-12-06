@@ -661,4 +661,16 @@
       padding: 0.25rem 0.5rem; /* Adjust padding for smaller screens */
     }
   }
+ .form-error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+  }
   
+  .form-error-message::before {
+    content: "⚠ ";
+  }
+  
+  .form-error-message::after {
+    content: "!";
+  }

@@ -1,10 +1,10 @@
 
 const Footer = () => {
   return <>
-  
+
     <footer className="text-center text-lg-start text-muted">
         <div
-          className="text-center p-4 text-color-baby-blue"
+          className="text-center text-white p-4 "
         >
           © 2023 Copyright:
           <a className="text-reset fw-bold" href="landing-page.html">Pet Pal</a>
