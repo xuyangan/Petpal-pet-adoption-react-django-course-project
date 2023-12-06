@@ -16,7 +16,7 @@ class PetShelterProfile(RetrieveAPIView):
     def get_object(self):
         queryset = self.filter_queryset(self.get_queryset())
         shelter_pk = self.kwargs.get('pk')
-        shelter = get_object_or_404(queryset, pk=shelter_pk)
+        shelter = get_object_or_404(queryset, username=shelter_pk)
         return shelter
 
 
@@ -42,5 +42,5 @@ class PetSeekerProfile(RetrieveAPIView):
     def get_object(self):
         queryset = self.filter_queryset(self.get_queryset())
         seeker_pk = self.kwargs.get('pk')
-        seeker = get_object_or_404(queryset, pk=seeker_pk)
+        seeker = get_object_or_404(queryset, username=seeker_pk)
         return seeker
