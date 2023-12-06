@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const { authToken, setAuthToken } = useContext(AuthContext);
+
     const getLogin = async (e) => {
         e.preventDefault();
         
         try {
-            const response = await fetch("http://localhost:8000/accounts/token", {
+            const response = await fetch("http://localhost:8000/accounts/token/", {
                 method: "POST",
                 mode: "cors",
                 headers: {
@@ -23,9 +26,6 @@ function Login() {
 
             const json = await response.json();
 
-            const access = await json["access"];
-            const refresh = await json["refresh"];
-
             if (!response.ok) {
                 console.log("there's an error");
             }
@@ -33,6 +33,12 @@ function Login() {
                 console.log("it worked");
                 setUsername("");
                 setPassword("");
+                const access = await json["access"];
+                // console.log(json);
+                // console.log(json["access"]);
+                // console.log(access);
+                // console.log("login", authToken);
+                setAuthToken(access);
             }
 
         } catch(error) {
