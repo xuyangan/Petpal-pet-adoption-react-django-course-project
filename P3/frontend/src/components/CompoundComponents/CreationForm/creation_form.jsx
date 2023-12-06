@@ -9,8 +9,14 @@ import RadioButtonGroup from '../../FormComponents/RadioButtonGroupField/radio_b
 import CheckboxGroup from '../../FormComponents/CheckboxGroupField/checkbox_group_field';
 import ReadonlyField from '../../FormComponents/ReadonlyField/readonly_field';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
+import { PetListingContext } from '../../../contexts/PetListingContext';
 
 const PetCreationForm = () => {
+
+  const { createPetListing } = useContext(PetListingContext);
+  const { authToken, setAuthToken } = useContext(AuthContext);
   // Define the state variables and their setter functions
   const [formData, setFormData] = useState({
     name: '',
@@ -82,48 +88,69 @@ const PetCreationForm = () => {
     setUploadedFiles(uploaded);
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Validate the form data
     let errors = Object.keys(formData).map((field) => validateField(field, formData[field])).filter(error => error);
-    
+
     if (uploadedFiles.length === 0) {
       errors.push('At least one image is required');
     }
-  
+
     setFormErrors(errors);
     if (errors.length > 0) return;
-  
+
     // Initialize FormData
     const formSubmission = new FormData();
-  
+
     // Convert size to integer
     const sizeMapping = { small: 1, medium: 2, large: 3 };
     const sizeValue = sizeMapping[formData.size] || 0; // Default to 0 if size is not in mapping
-  
+
     // Append form fields to FormData
     Object.keys(formData).forEach(key => {
       const value = key === 'size' ? sizeValue.toString() : formData[key];
       formSubmission.append(key, value);
     });
-  
+
     // Convert age to integer and append
     formSubmission.append('age', parseInt(formData.age).toString());
-  
+
     // Append files to FormData
     uploadedFiles.forEach((file, index) => {
-      formSubmission.append(`image${index + 1}`, file, file.name);
+      formSubmission.append(`images`, file, file.name);
     });
-  
-    // Log FormData for debugging (FormData objects can't be directly logged)
-    for (let pair of formSubmission.entries()) {
-      console.log(`${pair[0]}: ${pair[1]}`);
-    }
+
+    // Send FormData to server
+    createPetListing(formSubmission);
   };
-  
+
+//   const createPet = async (formData) => {
+    
+//     try {
+//       const response = await fetch("http://localhost:8000/pet_listings/", {
+//         method: "POST",
+//         mode: "cors",
+//         headers: {
+//           "Authorization": `Bearer ${authToken}`
+//         },
+//         body: formData
+//       })
+//       const json = await response.json();
+//     console.log(json);
+
+//     if (!response.ok) {
+//       console.log("There's an error");
+//     } else {
+//       console.log("It worked");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+
 
 
   // ... rest of your component
@@ -132,7 +159,7 @@ const PetCreationForm = () => {
       <div className="col-lg-">
         <div className="card p-5">
           <h1>New Listing</h1>
-          <form className="col-" nonvalidate onSubmit={handleSubmit}>
+          <form className="col-" nonvalidate encType="multipart/form-data" onSubmit={handleSubmit}>
 
             <TextField
               label="Name"
@@ -248,11 +275,11 @@ const PetCreationForm = () => {
 
             <button type="submit" className="btn btn-primary">Create New Listing</button>
             {formErrors.length > 0 && (
-              <div>
+              <lu>
                 {formErrors.map((error, index) => (
                   <div key={index} className="form-error-message">{error}</div>
                 ))}
-              </div>
+              </lu>
             )}
           </form>
         </div>

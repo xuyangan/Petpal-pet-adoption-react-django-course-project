@@ -5,11 +5,13 @@ import './layout.css';
 // import footer
 import Footer from '../Footer';
 import SeekerHeader from '../Header';
+import DefaultHeader from '../DefaultHeader/default_header';
 
 function Layout() {
   return (
     <div>
-      <SeekerHeader />
+      {/* <SeekerHeader /> */}
+      <DefaultHeader />
       <main>
         <Outlet />
       </main>
