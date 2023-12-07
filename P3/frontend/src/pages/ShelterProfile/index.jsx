@@ -4,6 +4,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Profile from "../../components/Profile/profile_page";
+import PetDisplay from "../../components/Profile/pet_display";
+import CommentSection from "../CommentSection";
 
 function ShelterProfile() {
     const [shelterName, setShelterName] = useState("");
@@ -84,6 +86,8 @@ function ShelterProfile() {
                     isSeeker={isSeeker}
                 />
             </div>
+            <PetDisplay />
+            <CommentSection />
         </div>
     )
 }
