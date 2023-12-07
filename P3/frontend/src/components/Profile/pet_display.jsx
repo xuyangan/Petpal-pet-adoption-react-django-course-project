@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import PetCard from '../Cards/ImageCard/pet_card';
+import { AuthContext } from "../../contexts/AuthContext";
 
 function PetDisplay({username}) {
     const [data, setData] = useState([])
+    
+    const { authToken, setAuthToken} = useContext(AuthContext);
 
     useEffect(() => {
         getDisplay();
