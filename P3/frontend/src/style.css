@@ -674,3 +674,33 @@
   .form-error-message::after {
     content: "!";
   }
+
+  /* style.css */
+.comment-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.comment-content {
+  flex-grow: 1;
+}
+
+.comment-container .comment-content .comment-text-reply {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-container .comment-content .reply-button {
+  margin-left: auto; /* Pushes the button to the right */
+}
+
+.comment-form-textarea {
+  flex-grow: 1;
+  margin-right: 10px; /* Adjust spacing */
+}
+
+.comment-form-rating {
+  width: 150px; /* Adjust width */
+}
+
