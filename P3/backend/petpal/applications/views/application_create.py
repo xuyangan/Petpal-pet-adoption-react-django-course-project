@@ -33,23 +33,23 @@ class ApplicationCreateAPIView(CreateAPIView):
 
         ## LOOOK  HERE ##
 
-        # # Create a notification for the shelter
-        # notification_message = f"Your pet listing: {pet_listing.name} has received an application from seeker: {self.request.user.username}"
-        # application_url = reverse(
-        #     'applications:application-detail', args=[application.id])
+        # Create a notification for the shelter
+        notification_message = f"Your pet listing: {pet_listing.name} has received an application from seeker: {self.request.user.username}"
+        application_url = reverse(
+            'applications:application-detail', args=[application.id])
 
-        # Notification.objects.create(
-        #     user_id=pet_listing.shelter,
-        #     message=notification_message,
-        #     related_link=application_url)
+        Notification.objects.create(
+            user=pet_listing.shelter,
+            message=notification_message,
+            related_link=application_url)
 
-        # seeker_notification_message = f"Your submission on the pet listing: {pet_listing.name} is successful and under reviewing."
+        seeker_notification_message = f"Your submission on the pet listing: {pet_listing.name} is successful and under reviewing."
 
-        # Notification.objects.create(
-        #     user_id=self.request.user,
-        #     message=seeker_notification_message,
-        #     related_link=application_url  # Optional, can provide a link to view the application
-        # )
+        Notification.objects.create(
+            user=self.request.user,
+            message=seeker_notification_message,
+            related_link=application_url  # Optional, can provide a link to view the application
+        )
 
     def post(self, request, *args, **kwargs):
         try:
