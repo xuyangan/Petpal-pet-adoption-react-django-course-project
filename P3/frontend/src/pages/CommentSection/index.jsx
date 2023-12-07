@@ -8,9 +8,12 @@ const CommentSection = () => {
     const [comments, setComments] = useState([]);
     const { authToken } = useContext(AuthContext);
     const { sheltername } = useParams();
+    const [currentPageUrl, setCurrentPageUrl] = useState(`http://localhost:8000/comments/${sheltername}/`);
+    const [nextPageUrl, setNextPageUrl] = useState(null);
+    const [prevPageUrl, setPrevPageUrl] = useState(null);
 
-    const fetchComments = () => {
-        fetch(`http://localhost:8000/comments/${sheltername}/`, {
+    const fetchComments = (url = currentPageUrl) => {
+        fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,13 +31,15 @@ const CommentSection = () => {
                 return new Date(b.create_time) - new Date(a.create_time);
             });
             setComments(sortedComments);
+            setNextPageUrl(data.next);
+            setPrevPageUrl(data.previous);
         })
         .catch(error => console.error('Error fetching comments', error));
     };
 
     useEffect(() => {
         fetchComments();
-    }, [sheltername, authToken]);
+    }, [sheltername, authToken,currentPageUrl]);
 
     const handleCommentAdded = (newComment) => {
         setComments(prevComments => [newComment, ...prevComments]);
@@ -45,10 +50,28 @@ const CommentSection = () => {
         fetchComments(); // Re-fetch comments to include the new reply
     };
 
+    const handleNextPage = () => {
+        if (nextPageUrl) {
+            setCurrentPageUrl(nextPageUrl);
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (prevPageUrl) {
+            setCurrentPageUrl(prevPageUrl);
+        }
+    };
+
     return (
         <div>
             <h2>Shelter Details</h2>
-            <CommentList comments={comments} onReplyAdded={handleReplyAdded} />
+            <CommentList 
+            comments={comments} 
+            onReplyAdded={handleReplyAdded}
+            nextPageUrl={nextPageUrl}
+            prevPageUrl={prevPageUrl}
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage} />
             <CommentForm onCommentAdded={handleCommentAdded} />
         </div>
     );
