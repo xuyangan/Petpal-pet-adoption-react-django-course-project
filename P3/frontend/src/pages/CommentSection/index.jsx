@@ -4,11 +4,13 @@ import CommentList from '../../components/comments/CommentList';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useParams } from 'react-router-dom';
 
-const CommentSection = () => {
+const CommentSection = ({sheltername}) => {
     const [comments, setComments] = useState([]);
     const { authToken } = useContext(AuthContext);
-    const { sheltername } = useParams();
-    const [currentPageUrl, setCurrentPageUrl] = useState(`http://localhost:8000/comments/${sheltername}/`);
+    // const { sheltername } = useParams();
+    console.log(sheltername);
+    const [currentPageUrl, setCurrentPageUrl] = useState(`http://localhost:8000/comments/` + sheltername + "/");
+    console.log(currentPageUrl)
     const [nextPageUrl, setNextPageUrl] = useState(null);
     const [prevPageUrl, setPrevPageUrl] = useState(null);
 
@@ -72,7 +74,9 @@ const CommentSection = () => {
             prevPageUrl={prevPageUrl}
             handleNextPage={handleNextPage}
             handlePrevPage={handlePrevPage} />
-            <CommentForm onCommentAdded={handleCommentAdded} />
+            <CommentForm onCommentAdded={
+                handleCommentAdded}
+                sheltername ={sheltername} />
         </div>
     );
 };

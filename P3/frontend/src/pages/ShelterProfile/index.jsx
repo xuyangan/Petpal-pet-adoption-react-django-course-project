@@ -86,8 +86,12 @@ function ShelterProfile() {
                     isSeeker={isSeeker}
                 />
             </div>
-            <PetDisplay />
-            <CommentSection />
+            <PetDisplay 
+                username={username}
+            />
+            <CommentSection 
+                sheltername={username}
+            />
         </div>
     )
 }

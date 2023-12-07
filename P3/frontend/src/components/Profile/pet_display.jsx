@@ -9,7 +9,7 @@ function PetDisplay({username}) {
 
     useEffect(() => {
         getDisplay();
-    })
+    }, [])
 
     const getDisplay = async() => {
         const url = "http://localhost:8000/pet_listings/"+ username + "/";

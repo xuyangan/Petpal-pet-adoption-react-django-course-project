@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import '../../style.css';
 
-const CommentForm = ({ onCommentAdded }) => {
+const CommentForm = ({ sheltername, onCommentAdded }) => {
     const [commentText, setCommentText] = useState('');
     const [rating, setRating] = useState(0);  // State for rating
     const { authToken } = useContext(AuthContext);
-    const { sheltername } = useParams();
+    // const { sheltername } = useParams();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,7 +18,7 @@ const CommentForm = ({ onCommentAdded }) => {
             rating: rating  // Include rating in the payload
         };
 
-        fetch(`http://localhost:8000/comments/${sheltername}/`, {
+        fetch(`http://localhost:8000/comments/` + sheltername+ "/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
