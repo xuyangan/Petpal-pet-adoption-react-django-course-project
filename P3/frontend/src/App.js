@@ -10,8 +10,11 @@ import SignupSeeker from './pages/SignupSeeker';
 import SignupShelter from './pages/SignupShelter';
 import ApplicationForm from './pages/ApplicationForm';
 import PetListings from './pages/PetListings/pet_listings';
-import { PetListingContext } from './contexts/PetListingContext';
-import { PetListingContextProvider } from './contexts/PetListingContext';
+import { PetListingsContext } from './contexts/PetListingsContext';
+import { PetListingsContextProvider } from './contexts/PetListingsContext';
+import PetInformation from './components/CompoundComponents/PetInformation/pet_information';
+import PetGallery from './components/CompoundComponents/PetGallery/pet_gallery';
+import ShelterManagement from './pages/ShelterManagement/shelter_management';
 
 function App() {
   const [authToken, setAuthToken] = useState("");
@@ -21,7 +24,7 @@ function App() {
 
   return (
     <AuthContext.Provider value={value}>
-      <PetListingContextProvider value={value}>
+      <PetListingsContextProvider value={value}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -33,12 +36,14 @@ function App() {
               <Route path="applications" element={<ApplicationForm />} />
             </Route>
 
-            <Route path="/pet_listings" element={<Layout />}>
-              <Route index element={<PetListings />} />
+            <Route path="/pet_listings/" element={<Layout />}>
+              <Route index element={<ShelterManagement />} />
+              <Route path="list/" element={<PetGallery />} />
+              <Route path=":petId/" element={<PetInformation />} />
             </Route>
           </Routes>
         </BrowserRouter>
-      </PetListingContextProvider>
+      </PetListingsContextProvider>
     </AuthContext.Provider>
   )
 }

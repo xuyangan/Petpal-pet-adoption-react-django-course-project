@@ -11,11 +11,11 @@ import ReadonlyField from '../../FormComponents/ReadonlyField/readonly_field';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { PetListingContext } from '../../../contexts/PetListingContext';
+import { PetListingsContext } from '../../../contexts/PetListingsContext';
 
 const PetCreationForm = () => {
 
-  const { createPetListing } = useContext(PetListingContext);
+  const { createPetListing } = useContext(PetListingsContext);
   const { authToken, setAuthToken } = useContext(AuthContext);
   // Define the state variables and their setter functions
   const [formData, setFormData] = useState({

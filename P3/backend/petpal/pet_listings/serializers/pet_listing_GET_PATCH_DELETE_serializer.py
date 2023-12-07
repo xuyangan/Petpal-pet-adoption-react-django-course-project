@@ -17,6 +17,9 @@ class PetListingRetrieveUpdateDestroySerializer(BasePetListingSerializer):
 
     images = ListField(child=ImageField(), required=False)
 
+    shelter_name = SerializerMethodField()
+    shelter_username = SerializerMethodField()
+
     def update(self, instance, validated_data):
         images_data = validated_data.pop('images', tuple())
 
@@ -30,3 +33,10 @@ class PetListingRetrieveUpdateDestroySerializer(BasePetListingSerializer):
             image_object.save()
         return super().update(instance, validated_data)
             
+
+    def get_shelter_name(self, obj):
+        return obj.shelter.shelter_name
+    
+    def get_shelter_username(self, obj):
+        return obj.shelter.username
+    

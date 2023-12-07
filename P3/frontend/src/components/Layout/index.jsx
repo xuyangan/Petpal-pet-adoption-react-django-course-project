@@ -9,15 +9,16 @@ import DefaultHeader from '../DefaultHeader/default_header';
 
 function Layout() {
   return (
-    <div>
+    <div className="bg-color-baby-blue-3" 
+    style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* <SeekerHeader /> */}
       <DefaultHeader />
-      <main>
+      <main style={{ flex: 1 }}>
         <Outlet />
       </main>
 
       {/* Your footer component */}
-        <Footer />
+      <Footer />
     </div>
   );
 }
