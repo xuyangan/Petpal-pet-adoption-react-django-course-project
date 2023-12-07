@@ -8,7 +8,6 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SignupSeeker from './pages/SignupSeeker';
 import SignupShelter from './pages/SignupShelter';
-import ApplicationForm from './pages/ApplicationForm';
 import PetListings from './pages/PetListings/pet_listings';
 import { PetListingsContext } from './contexts/PetListingsContext';
 import { PetListingsContextProvider } from './contexts/PetListingsContext';
@@ -16,6 +15,8 @@ import PetInformation from './pages/PetInformation/pet_information';
 import PetGallery from './components/CompoundComponents/PetGallery/pet_gallery';
 import ShelterManagement from './pages/ShelterManagement/shelter_management';
 import PetEditForm from './pages/PetEditingForm/pet_editing_form';
+import ApplicationCreate from './pages/ApplicationCreate';
+import FAQ from './pages/FAQ';
 
 function App() {
   const [authToken, setAuthToken] = useState("");
@@ -34,7 +35,9 @@ function App() {
               <Route path="signup" element={<Signup />} />
               <Route path="signup/seeker" element={<SignupSeeker />} />
               <Route path="signup/shelter" element={<SignupShelter />} />
-              <Route path="applications" element={<ApplicationForm />} />
+              <Route path="applications" element={<ApplicationCreate />} />
+              <Route path="applications/faq" element={<FAQ />} />
+
             </Route>
 
             <Route path="/pet_listings/" element={<Layout />}>
