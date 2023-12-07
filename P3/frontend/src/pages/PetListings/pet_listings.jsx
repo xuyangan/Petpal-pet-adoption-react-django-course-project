@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PetCreationForm from '../../components/CompoundComponents/CreationForm/creation_form';
+import PetCreationForm from '../PetCreationForm/pet_creation_form';
 import PetGallery from '../../components/CompoundComponents/PetGallery/pet_gallery';
 
 const PetListings = () => {

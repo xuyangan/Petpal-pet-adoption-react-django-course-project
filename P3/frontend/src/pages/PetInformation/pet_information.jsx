@@ -1,9 +1,9 @@
 
-import { PetListingsContext } from "../../../contexts/PetListingsContext";
+import { PetListingsContext } from "../../contexts/PetListingsContext";
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import DataComponent from "../../LabeledData/labeled_data";
-import ErrorMessage from "../../ErrorMessage/error_message";
+import DataComponent from "../../components/LabeledData/labeled_data";
+import ErrorMessage from "../../components/ErrorMessage/error_message";
 
 const PetInformation = ({ children }) => {
     // need id from url

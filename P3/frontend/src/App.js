@@ -12,9 +12,10 @@ import ApplicationForm from './pages/ApplicationForm';
 import PetListings from './pages/PetListings/pet_listings';
 import { PetListingsContext } from './contexts/PetListingsContext';
 import { PetListingsContextProvider } from './contexts/PetListingsContext';
-import PetInformation from './components/CompoundComponents/PetInformation/pet_information';
+import PetInformation from './pages/PetInformation/pet_information';
 import PetGallery from './components/CompoundComponents/PetGallery/pet_gallery';
 import ShelterManagement from './pages/ShelterManagement/shelter_management';
+import PetEditForm from './pages/PetEditingForm/pet_editing_form';
 
 function App() {
   const [authToken, setAuthToken] = useState("");
@@ -40,6 +41,7 @@ function App() {
               <Route index element={<ShelterManagement />} />
               <Route path="list/" element={<PetGallery />} />
               <Route path=":petId/" element={<PetInformation />} />
+              <Route path=":petId/edit/" element={<PetEditForm />} />
             </Route>
           </Routes>
         </BrowserRouter>

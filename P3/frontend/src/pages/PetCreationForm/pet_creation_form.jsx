@@ -1,17 +1,17 @@
 import React from 'react';
 
 // Import the components created earlier
-import FileUploadField from '../../FormComponents/FileUploadField/file_upload_field';
-import TextField from '../../FormComponents/TextField/text_field';
-import TextAreaField from '../../FormComponents/TextAreaField/text_area_field';
-import NumberField from '../../FormComponents/NumberField/number_field';
-import RadioButtonGroup from '../../FormComponents/RadioButtonGroupField/radio_button_group_field';
-import CheckboxGroup from '../../FormComponents/CheckboxGroupField/checkbox_group_field';
-import ReadonlyField from '../../FormComponents/ReadonlyField/readonly_field';
+import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
+import TextField from '../../components/FormComponents/TextField/text_field';
+import TextAreaField from '../../components/FormComponents/TextAreaField/text_area_field';
+import NumberField from '../../components/FormComponents/NumberField/number_field';
+import RadioButtonGroup from '../../components/FormComponents/RadioButtonGroupField/radio_button_group_field';
+import CheckboxGroup from '../../components/FormComponents/CheckboxGroupField/checkbox_group_field';
+import ReadonlyField from '../../components/FormComponents/ReadonlyField/readonly_field';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { AuthContext } from '../../../contexts/AuthContext';
-import { PetListingsContext } from '../../../contexts/PetListingsContext';
+import { AuthContext } from '../../contexts/AuthContext';
+import { PetListingsContext } from '../../contexts/PetListingsContext';
 
 const PetCreationForm = () => {
 
@@ -125,33 +125,6 @@ const PetCreationForm = () => {
     // Send FormData to server
     createPetListing(formSubmission);
   };
-
-//   const createPet = async (formData) => {
-    
-//     try {
-//       const response = await fetch("http://localhost:8000/pet_listings/", {
-//         method: "POST",
-//         mode: "cors",
-//         headers: {
-//           "Authorization": `Bearer ${authToken}`
-//         },
-//         body: formData
-//       })
-//       const json = await response.json();
-//     console.log(json);
-
-//     if (!response.ok) {
-//       console.log("There's an error");
-//     } else {
-//       console.log("It worked");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-
-
 
   // ... rest of your component
   return (
