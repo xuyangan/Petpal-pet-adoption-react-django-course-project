@@ -128,8 +128,8 @@ const PetCreationForm = () => {
 
   // ... rest of your component
   return (
-    <div className="col-lg-10 col-md-9">
-      <div className="col-lg-">
+    <div className="container my-3">
+      <div className="">
         <div className="card p-5">
           <h1>New Listing</h1>
           <form className="col-" nonvalidate encType="multipart/form-data" onSubmit={handleSubmit}>

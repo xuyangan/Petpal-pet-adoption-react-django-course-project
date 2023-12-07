@@ -17,6 +17,7 @@ import ShelterManagement from './pages/ShelterManagement/shelter_management';
 import PetEditForm from './pages/PetEditingForm/pet_editing_form';
 import ApplicationCreate from './pages/ApplicationCreate';
 import FAQ from './pages/FAQ';
+import PetCreationForm from './pages/PetCreationForm/pet_creation_form';
 
 function App() {
   const [authToken, setAuthToken] = useState("");
@@ -26,29 +27,30 @@ function App() {
 
   return (
     <AuthContext.Provider value={value}>
-      <PetListingsContextProvider value={value}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Landing />} />
-              <Route path="login" element={<Login />} />
-              <Route path="signup" element={<Signup />} />
-              <Route path="signup/seeker" element={<SignupSeeker />} />
-              <Route path="signup/shelter" element={<SignupShelter />} />
-              <Route path="applications" element={<ApplicationCreate />} />
-              <Route path="applications/faq" element={<FAQ />} />
+        <PetListingsContextProvider value={value}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Landing />} />
+                <Route path="login" element={<Login />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="signup/seeker" element={<SignupSeeker />} />
+                <Route path="signup/shelter" element={<SignupShelter />} />
+                <Route path="applications" element={<ApplicationCreate />} />
+                <Route path="applications/faq" element={<FAQ />} />
 
-            </Route>
+              </Route>
 
-            <Route path="/pet_listings/" element={<Layout />}>
-              <Route index element={<ShelterManagement />} />
-              <Route path="list/" element={<PetGallery />} />
-              <Route path=":petId/" element={<PetInformation />} />
-              <Route path=":petId/edit/" element={<PetEditForm />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </PetListingsContextProvider>
+              <Route path="/pet_listings/" element={<Layout />}>
+                <Route index element={<ShelterManagement />} />
+                <Route path="create/" element={<PetCreationForm/>} />
+                <Route path="list/" element={<PetListings />} />
+                <Route path=":petId/" element={<PetInformation />} />
+                <Route path=":petId/edit/" element={<PetEditForm />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </PetListingsContextProvider>
     </AuthContext.Provider>
   )
 }

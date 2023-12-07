@@ -4,18 +4,27 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import DataComponent from "../../components/LabeledData/labeled_data";
 import ErrorStatusMessage from "../../components/ErrorStatusMessage/error_status_message";
+import { useNavigate } from "react-router-dom";
 
 const PetInformation = ({ children }) => {
     // need id from url
     const { petId } = useParams();
-    const { petListing, getPetListing, isLoading, isError, errorStatus, errorMessage
-    } = useContext(PetListingsContext);
+    const { petListing, getPetListing, isLoading, isError, errorStatus, errorMessage,
+        deletePetListing } = useContext(PetListingsContext);
+
+    const navigate = useNavigate();
+
+    const handleDelete = () => {
+        deletePetListing(petId);
+        navigate('/pet_listings/');
+    }
+
 
     useEffect(() => {
         getPetListing(petId); // Fetch pet listing when the component mounts
         console.log(petListing);
     }
-    , []); // Empty dependency array ensures this runs once on mount
+        , []); // Empty dependency array ensures this runs once on mount
 
     if (isLoading) {
         return (
@@ -44,6 +53,11 @@ const PetInformation = ({ children }) => {
                         <section className="section about-section gray-bg" id="about">
                             <div className="container">
                                 <div className="row align-items-center">
+                                    <div className="d-flex flex-column text-center">
+                                        <h3 className="dark-color">{petListing.name}</h3>
+                                        <h6 className="theme-color lead">{petListing.shelter_name}</h6>
+                                        <p>{petListing.description}</p>
+                                        </div>
                                     <div className="col-lg-6 py-3">
                                         <div>
                                             <img
@@ -55,9 +69,7 @@ const PetInformation = ({ children }) => {
                                     </div>
                                     <div className="col-lg-6">
                                         <div className="about-text go-to">
-                                            <h3 className="dark-color">{petListing.name}</h3>
-                                            <h6 className="theme-color lead">{petListing.shelter_name}</h6>
-                                            <p>{petListing.description}</p>
+
                                             <div className="row about-list">
                                                 <div className="col-md-6">
                                                     <DataComponent label="Age" value={petListing.age} />
@@ -87,8 +99,11 @@ const PetInformation = ({ children }) => {
                         </section>
 
                         <a href="pet-adoption-page.html" className="btn mx-1 text-white btn-secondary  ">
-                            Apply to Adopt
+                            Check Applications
                         </a>
+                        <button onClick={handleDelete} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>

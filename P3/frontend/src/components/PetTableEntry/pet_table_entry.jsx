@@ -1,8 +1,21 @@
 // TableRow.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { PetListingsContext } from '../../contexts/PetListingsContext';
 
 const PetTableEntry = ({ pet }) => {
+  const { deletePetListing } = useContext(PetListingsContext);
+  const navigate = useNavigate();
+
+  const handleDelete = () => {
+    deletePetListing(pet.id);
+
+    navigate('/pet_listings/');
+  }
+
+
+
   return (
     <tr>
       <td>
@@ -31,9 +44,9 @@ const PetTableEntry = ({ pet }) => {
         <Link to={`/pet_listings/${pet.id}/edit/`} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
             Edit
         </Link>
-        <Link to={`/pet_listings/${pet.id}/delete/`} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
+        {/* <button onClick={handleDelete} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
             Delete
-        </Link>
+        </button> */}
         </div>
       </td>
     </tr>

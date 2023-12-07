@@ -35,3 +35,5 @@ const Profile = ({name, image}) => {
         </div>
     );
 };
+
+export default Profile;
