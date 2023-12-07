@@ -6,6 +6,7 @@ class BasePetListingSerializer(ModelSerializer):
     shelter = PrimaryKeyRelatedField(read_only=True)
     shelter_name = SerializerMethodField()
     pet_images = SerializerMethodField()
+    publication_date = SerializerMethodField()
     class Meta:
         model = PetListing
         fields = '__all__'
@@ -15,3 +16,6 @@ class BasePetListingSerializer(ModelSerializer):
     
     def get_shelter_name(self, obj):
         return obj.shelter.shelter_name
+    
+    def get_publication_date(self, obj):
+        return obj.publication_date.strftime('%Y-%m-%d %H:%M:%S')

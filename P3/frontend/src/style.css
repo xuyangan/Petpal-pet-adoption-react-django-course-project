@@ -674,3 +674,70 @@
   .form-error-message::after {
     content: "!";
   }
+
+  /* style.css */
+.comment-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.comment-content {
+  flex-grow: 1;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-container .comment-content .comment-text-reply {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-container .comment-content .reply-button {
+  margin-left: auto; /* Pushes the button to the right */
+}
+
+.comment-form-textarea {
+  flex-grow: 1;
+  margin-right: 10px; /* Adjust spacing */
+}
+
+.comment-form-rating {
+  width: 150px; /* Adjust width */
+}
+
+.notification-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-card-actions {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: center;
+  margin-top: 10px; /* Optional, for spacing */
+}
+
+.notification-card-actions .btn, .notification-card-actions a {
+  margin-left: 10px; /* Spacing between elements */
+}
+
+.custom-button {
+  background-color: #008CBA; 
+  color: white;
+}
+
+.custom-button:hover {
+  background-color: #005f73; 
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+

@@ -13,28 +13,6 @@ class NotificationSetPagination(PageNumberPagination):
     page_size_query_param = 'page_size'
     max_page_size = 100
 
-# Notification List View
-# # class NotificationListView(APIView):
-#     permission_classes = [IsAuthenticated]
-
-#     def get(self, request, format=None):
-#         # Retrieve the query parameter for filtering (e.g., ?is_read=true)
-#         is_read_param = request.query_params.get('is_read')
-
-#         # Build the base queryset
-#         notifications = Notification.objects.filter(user_id=request.user)
-
-#         # Apply the filter if the 'is_read' parameter is provided
-#         if is_read_param is not None:
-#             is_read = is_read_param.lower() == 'true'
-#             notifications = notifications.filter(is_read=is_read)
-
-#         # Order the notifications
-#         notifications = notifications.order_by('-created_at')
-
-#         # Serialize and return the notifications
-#         serializer = NotificationSerializer(notifications, many=True)
-#         return Response(serializer.data)
 class NotificationListView(ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = NotificationSerializer
@@ -57,11 +35,20 @@ class NotificationUpdateView(UpdateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Notification.objects.filter(pk=self.kwargs.get('pk'), user_id=self.request.user)
-    def perform_update(self, serializer):
-        serializer.save(is_read=True)
+        return Notification.objects.filter(pk=self.kwargs.get('pk'), user=self.request.user)
 
-# Notification Delete View
+    def perform_update(self, serializer):
+        # Get the 'is_read' status from the request data
+        is_read_status = serializer.validated_data.get('is_read')
+        if is_read_status is not None:
+            # Update the notification's 'is_read' status based on the request
+            serializer.save(is_read=is_read_status)
+        else:
+            # If 'is_read' is not provided in the request, do not change it
+            serializer.save()
+
+
+# Notification Delete View 
 class NotificationDeleteView(DestroyAPIView):
     permission_classes = [IsAuthenticated]
 

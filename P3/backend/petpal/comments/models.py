@@ -13,7 +13,7 @@ class Comment(models.Model):
 
 class ShelterComment(Comment):
     user = models.ForeignKey(PetUser, on_delete=models.CASCADE, related_name='shelterComments')
-    rating = models.IntegerField(null=True, blank=True)
+    rating = models.IntegerField(default=0, blank=True)
 
     shelter = models.ForeignKey(
         PetUser,

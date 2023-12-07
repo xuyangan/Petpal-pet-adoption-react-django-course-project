@@ -29,7 +29,7 @@ class MessageCreateAPIView(CreateAPIView):
             message_list_url = reverse(
                 'applications:message-list', kwargs={'pk': application_id})
             Notification.objects.create(
-                user_id=receiver,
+                user=receiver,
                 message=f"New message from {self.request.user.username} for application {application_id}",
                 related_link=message_list_url
             )
