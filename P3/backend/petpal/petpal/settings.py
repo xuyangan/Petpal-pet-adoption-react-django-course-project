@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'comments',
     'applications',
     'notifications',
+    'analytics',
+    'shelter_analytics',
 ]
 
 REST_FRAMEWORK = {
