@@ -31,7 +31,7 @@ class ShelterCommentListCreate(ListCreateAPIView):
                 reply_text = comment.text[:10] + '...' if len(comment.text) > 10 else comment.text
                 Notification.objects.create(
                     user=shelter,  # Pass the PetUser instance, not the username
-                    message=f'New comment on your shelter by {self.request.user.username}: {reply_text}',
+                    message=f'New comment on your shelter: by {self.request.user.username}: {reply_text}',
                     related_link=comment_url
                 )
     
@@ -61,7 +61,7 @@ class ReplyCreate(CreateAPIView):
             reply_text = reply.text[:10] + '...' if len(reply.text) > 10 else reply.text
             Notification.objects.create(
                 user=notify_user,
-                message=f'New reply to your comment from {self.request.user.username}: {reply_text}',  # Truncate the reply text if it's too long
+                message=f'New reply to your comment: from {self.request.user.username}: {reply_text}',  # Truncate the reply text if it's too long
                 related_link=f'/path/to/comment/{parent_comment.id}'  # Adjust the URL to the correct path
             )
         
