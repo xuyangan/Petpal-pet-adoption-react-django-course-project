@@ -3,12 +3,13 @@ import { PetListingsContext } from "../../contexts/PetListingsContext";
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import DataComponent from "../../components/LabeledData/labeled_data";
-import ErrorMessage from "../../components/ErrorMessage/error_message";
+import ErrorStatusMessage from "../../components/ErrorStatusMessage/error_status_message";
 
 const PetInformation = ({ children }) => {
     // need id from url
     const { petId } = useParams();
-    const { petListing, getPetListing, isLoading, error } = useContext(PetListingsContext);
+    const { petListing, getPetListing, isLoading, isError, errorStatus, errorMessage
+    } = useContext(PetListingsContext);
 
     useEffect(() => {
         getPetListing(petId); // Fetch pet listing when the component mounts
@@ -18,14 +19,20 @@ const PetInformation = ({ children }) => {
 
     if (isLoading) {
         return (
-            <ErrorMessage error={"Loading ..."} />
+            <ErrorStatusMessage
+                errorStatus={""}
+                errorMessage={"Loading ..."}
+            />
         ); // Show loading state
 
     }
 
-    if (error || !petListing || petListing == {}) {
+    if (isError || !petListing || petListing == {}) {
         return (
-            <ErrorMessage error={error} />
+            <ErrorStatusMessage
+                errorStatus={errorStatus}
+                errorMessage={errorMessage}
+            />
         ); // Show error state
     }
 
@@ -67,7 +74,7 @@ const PetInformation = ({ children }) => {
                                                 <div className="col-md-6">
                                                     <DataComponent label="Behaviour" value={petListing.behaviour} />
                                                     <DataComponent label="Requirements" value={petListing.requirements} />
-                                                    <DataComponent label="Medical History" value={petListing.medical_history} />
+                                                    <DataComponent label="Mefdical History" value={petListing.medical_history} />
                                                     <DataComponent label="Location" value={petListing.location} />
                                                     <DataComponent label="Publication Date" value={petListing.publication_date} />
                                                     {/* ... more data components if needed */}
@@ -79,7 +86,7 @@ const PetInformation = ({ children }) => {
                             </div>
                         </section>
 
-                        <a href="pet-adoption-page.html" className="btn btn-primary">
+                        <a href="pet-adoption-page.html" className="btn mx-1 text-white btn-secondary  ">
                             Apply to Adopt
                         </a>
                     </div>

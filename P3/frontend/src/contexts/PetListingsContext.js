@@ -6,15 +6,19 @@ export const PetListingsContext = createContext();
 export const PetListingsContextProvider = ({ children }) => {
     const [petListings, setPetListings] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [isError, setIsError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState([]); // error messages from the backend
+    const [errorStatus, setErrorStatus] = useState(null);
     const { authToken } = React.useContext(AuthContext);
     const [nextPage, setNextPage] = useState(null);
     const [previousPage, setPreviousPage] = useState(null);
     const [petListing, setPetListing] = useState(null);
+    const [wasSuccessful, setWasSuccessful] = useState(false);
+    const [successMessage, setSuccessMessage] = useState([]); // success messages from the backend
 
 
     // Function to fetch all pet listings from the backend
-    const getPetListings = async (page=1) => {
+    const getPetListings = async (page = 1) => {
         setIsLoading(true);
         try {
             const response = await fetch('http://localhost:8000/pet_listings/list/?page=' + page,
@@ -25,25 +29,30 @@ export const PetListingsContextProvider = ({ children }) => {
                         "Authorization": `Bearer ${authToken}`
                     }
                 });
-
-            if (!response.ok) {
-                throw new Error('Something went wrong!');
+            
+            if (response.ok) {
+                const data = await response.json();
+                setNextPage(data.next);
+                setPreviousPage(data.previous);
+                // the actual list of pet listings is under the "results" key
+                setPetListings(data.results);
+                // change the date
+                setIsError(false);
+            } else {
+                setErrorStatus(response.status);
+                setErrorMessage(response.statusText);
+                setIsError(true);
             }
-            const data = await response.json();
-            setNextPage(data.next);
-            setPreviousPage(data.previous);
-            // the actual list of pet listings is under the "results" key
-            setPetListings(data.results);
-            // change the date
-            setError(null);
+
         } catch (err) {
-            setError(err.message);
+            setErrorMessage(err.message);
+            setIsError(true);
         }
         setIsLoading(false);
     };
 
 
-    
+
 
     const createPetListing = async (formData) => {
         setIsLoading(true);
@@ -59,14 +68,19 @@ export const PetListingsContextProvider = ({ children }) => {
             const json = await response.json();
             // call getPetListings to update the petListings state
             getPetListings();
-            if (!response.ok) {
-                console.log("There's an error");
+
+            if (response.ok) {
+                setIsError(false);
+                setWasSuccessful(true);
             } else {
-                console.log("It worked");
+                setErrorStatus(response.status);
+                setErrorMessage(response.statusText);
+                setIsError(true);
             }
-            setError(null);
         } catch (error) {
-            setError(error.message);
+            setErrorMessage(error.message);
+            setIsError(true);
+
         }
         setIsLoading(false);
     };
@@ -74,7 +88,7 @@ export const PetListingsContextProvider = ({ children }) => {
     const editPetListing = async (formData, id) => {
         setIsLoading(true);
         try {
-            const response = await fetch("http://localhost:8000/pet_listings/"+id+"/", {
+            const response = await fetch("http://localhost:8000/pet_listings/" + id + "/", {
                 method: "PATCH",
                 mode: "cors",
                 headers: {
@@ -85,12 +99,18 @@ export const PetListingsContextProvider = ({ children }) => {
             const json = await response.json();
             // call getPetListings to update the petListings state
             getPetListings();
-            if (!response.ok) {
-                setError(response.statusText);
+            if (response.ok) {
+                setIsError(false);
+                setWasSuccessful(true);
+            } else {
+                setErrorStatus(response.status);
+                setErrorMessage(response.statusText);
+                setIsError(true);
             }
-            setError(null);
         } catch (error) {
-            setError(error.message);
+            setErrorMessage(error.message);
+            setIsError(true);
+
         }
         setIsLoading(false);
     };
@@ -107,19 +127,24 @@ export const PetListingsContextProvider = ({ children }) => {
                     }
                 });
 
-            if (!response.ok) {
-                throw new Error('Something went wrong!');
-            }
+            if (response.ok) {
+
             const data = await response.json();
             setPetListing(data);
             // the actual list of pet listings is under the "results" key
-            setError(null);
+            setIsError(false);
+            } else {
+                setErrorStatus(response.status);
+                setErrorMessage(response.statusText);
+                setIsError(true);
+            }
         } catch (err) {
-            setError(err.message);
+            setErrorMessage(err.message);
+            setIsError(true);
         }
         setIsLoading(false);
     };
-        
+
 
     // Fetch pet listings on component mount
     useEffect(() => {
@@ -127,8 +152,12 @@ export const PetListingsContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <PetListingsContext.Provider value={{ petListings, isLoading, error, getPetListings, createPetListing,
-        getPetListing, petListing, editPetListing, nextPage, previousPage }}>
+        <PetListingsContext.Provider value={{
+            petListings, isLoading, getPetListings, createPetListing,
+            getPetListing, petListing, editPetListing, nextPage, previousPage,
+            errorStatus, setPetListing, setPetListings, errorMessage, isError,
+            wasSuccessful, setWasSuccessful, successMessage, setSuccessMessage
+        }}>
             {children}
         </PetListingsContext.Provider>
     );

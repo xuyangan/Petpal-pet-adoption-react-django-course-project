@@ -35,9 +35,12 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="#" className="nav-link px-0 align-middle" data-bs-toggle="collapse">
-              <i className="fs-4 bi-speedometer2"></i> <span className="fs-5 text-color-baby-blue bold">Listings</span>
+            <Link to="/pet_listings/list/" className="btn-link text-color-baby-blue bold text-decoration-none px-0">
+              <i className="fs-4 bi-house"></i> <span className="fs-5 bold">Listings</span>
             </Link>
+            {/* <Link to="/shelter-detail-page" className="btn-link text-color-baby-blue bold text-decoration-none px-0">
+              <i className="fs-4 bi-house"></i> <span className="fs-auto">Back To Profile</span>
+            </Link> */}
             <ul className="collapse show nav flex-column ms-3" id="submenu1" data-bs-parent="#menu">
               <li className="w-100 mb-2">
                 <Link to="/shelter-management-page-active" className="btn-link text-color-baby-blue text-decoration-none">

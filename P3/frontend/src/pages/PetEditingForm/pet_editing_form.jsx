@@ -13,13 +13,15 @@ import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { PetListingsContext } from '../../contexts/PetListingsContext';
 import { useParams } from 'react-router-dom';
-import ErrorMessage from '../../components/ErrorMessage/error_message';
-
+import ErrorStatusMessage from '../../components/ErrorStatusMessage/error_status_message';
+import { useNavigate } from 'react-router-dom';
 
 const PetEditForm = ({ children }) => {
+    const navigate = useNavigate();
     const { petId } = useParams();
-    const { getPetListing, editPetListing, petListing, setPetListing, isLoading, error} = useContext(PetListingsContext);
-    const { authToken, setAuthToken } = useContext(AuthContext);
+    const { getPetListing, editPetListing, petListing, isLoading, isError,
+         errorMessage, errorStatus, wasSuccessful, setSuccessMessage } = useContext(PetListingsContext);
+    const [ready, setReady] = useState(false);
     // Define the state variables and their setter functions
     const [formData, setFormData] = useState({
         name: '',
@@ -61,15 +63,15 @@ const PetEditForm = ({ children }) => {
 
     useEffect(() => {
         getPetListing(petId); // Fetch pet listing when the component mounts
-        console.log(petListing);
         // fill in the form data
-    
+        setReady(true);
+
     }, []); // Empty dependency array ensures this runs once on mount
 
     useEffect(() => {
         // change size to string
         const sizeMapping = { 1: 'small', 2: 'medium', 3: 'large' };
-
+        if (!isError && petListing) {
         setFormData({
             name: petListing.name,
             breed: petListing.breed,
@@ -84,19 +86,28 @@ const PetEditForm = ({ children }) => {
             requirements: petListing.requirements,
             medical_history: petListing.medical_history,
         });
-    }, [petListing]);
+    }
+    }, [isError, petListing]);
+
 
     if (isLoading) {
         return (
-            <ErrorMessage error={"Loading ..."} />
+            <ErrorStatusMessage
+                errorStatus={""}
+                errorMessage={"Loading ..."}
+            />
         ); // Show loading state
+    }
 
-    } 
-    if (error || !petListing || petListing == {}) {
+    if (isError || !petListing || petListing == {}) {
         return (
-            <ErrorMessage error={error} />
+            <ErrorStatusMessage
+                errorStatus={errorStatus}
+                errorMessage={errorMessage}
+            />
         ); // Show error state
-    } 
+    }
+
 
 
     const handleChange = (field) => (value) => {
@@ -113,6 +124,12 @@ const PetEditForm = ({ children }) => {
 
         return ''; // No error
     };
+
+    const handleFileEvent = (e) => {
+        const chosenFiles = Array.prototype.slice.call(e.target.files)
+        console.log(chosenFiles);
+        handleUploadFiles(chosenFiles);
+    }
 
     const handleUploadFiles = files => {
         //empty array to store uploaded files
@@ -162,7 +179,9 @@ const PetEditForm = ({ children }) => {
         }
         
         // Send FormData to server
+        setSuccessMessage("Listing successfully updated!")
         editPetListing(formSubmission, petId);
+        navigate("/pet_listings/");
     };
 
     // ... rest of your component
@@ -171,6 +190,11 @@ const PetEditForm = ({ children }) => {
             <div className="">
                 <div className="card p-5">
                     <h1>EditListing</h1>
+                    {wasSuccessful && (
+                        <div className="alert alert-info bg-color-baby-blue-3" role="alert">
+                            Listing successfully updated!
+                        </div>
+                    )}
                     <form className="col-" nonvalidate encType="multipart/form-data" onSubmit={handleSubmit}>
 
                         <TextField
@@ -286,6 +310,7 @@ const PetEditForm = ({ children }) => {
                         </div>
 
                         <button type="submit" className="btn btn-primary">Create New Listing</button>
+
                         {formErrors.length > 0 && (
                             <lu>
                                 {formErrors.map((error, index) => (

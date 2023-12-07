@@ -1,13 +1,13 @@
 
 
-const ErrorStatusMessge = ({ errorStatus, errorMessage }) => {
+const ErrorStatusMessage = ({ errorStatus, errorMessage }) => {
 
     return(
         <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
             <div className="text-center">
                 <div className="card border-0 mb-4 ">
                     <div className="card-body bg-color-baby-blue-3">
-                        <h1 className="display-4 text-color-baby-blue">Error {errorStatus}: {errorMessage}</h1>
+                        <h1 className="display-4 text-color-baby-blue">{errorStatus} {errorMessage}</h1>
                     </div>
                 </div>
             </div>
@@ -15,4 +15,4 @@ const ErrorStatusMessge = ({ errorStatus, errorMessage }) => {
     );
 }
 
-export default ErrorStatusMessge;
+export default ErrorStatusMessage;

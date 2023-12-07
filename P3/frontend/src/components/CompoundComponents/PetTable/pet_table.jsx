@@ -2,18 +2,18 @@
 import React, { useContext } from 'react';
 import PetTableEntry from '../../PetTableEntry/pet_table_entry';
 import { PetListingsContext } from '../../../contexts/PetListingsContext';
-import ErrorMessage from '../../ErrorMessage/error_message';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
 const PetTable = () => {
-    const { petListings, getPetListings, nextPage, previousPage } = useContext(PetListingsContext);
+    const { petListings, getPetListings, nextPage, previousPage, wasSuccessful,
+        setWasSuccessful, successMessage } = useContext(PetListingsContext);
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        console.log(currentPage);   
+        console.log(currentPage);
         getPetListings(currentPage); // Fetch pet listings when the component mounts
-    }, [currentPage]); 
+    }, [currentPage]);
 
     const handlePrevious = () => {
         if (previousPage) {
@@ -27,11 +27,32 @@ const PetTable = () => {
         }
     };
 
+    useEffect(() => {
+
+        //set timer to set success message to false
+        setTimeout(() => {
+            setWasSuccessful(false);
+        }
+            , 5000);
+
+    }, []);
+
+
     return (
         <div className="col-lg-10 col-md-9 border-0">
-            <div className="table-responsive rounded min-vh-100 d-flex flex-column bg-light shadow justify-content-between">
+            {wasSuccessful ? (
+                <div className="alert alert-info bg-color-baby-blue-3 text-info" role="alert">
+                    {successMessage}
+                </div>
+            ) : (
+                <div></div>
+            )
+            }
+            <div className="table-responsive rounded  d-flex flex-column bg-light shadow justify-content-between">
+
                 <table className="table w-100">
                     <thead>
+                        <tr> </tr>
                         <tr>
                             <th>Name</th>
                             <th>Type</th>
@@ -48,7 +69,13 @@ const PetTable = () => {
                                 />
                             ))
                         ) : (
-                            <div>No pets found!</div>
+                            <tr>
+                                <td colSpan={5}>
+                                    <div className="alert alert-info bg-color-baby-blue-3 text-info" role="alert">
+                                        No pets found!
+                                    </div>
+                                </td>
+                            </tr>
                         )}
                     </tbody>
                 </table>

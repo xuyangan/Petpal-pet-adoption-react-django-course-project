@@ -25,13 +25,13 @@ const PetTableEntry = ({ pet }) => {
       </td>
       <td>
       <div className="d-flex ">
-        <Link to="/pet_listings/${pet.id}/" className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
+        <Link to={`/pet_listings/${pet.id}/`} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
             View
         </Link>
-        <Link to="/pet_listings/${pet.id}/edit/" className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
+        <Link to={`/pet_listings/${pet.id}/edit/`} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
             Edit
         </Link>
-        <Link to="/pet_listings/${pet.id}/delete/" className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
+        <Link to={`/pet_listings/${pet.id}/delete/`} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
             Delete
         </Link>
         </div>

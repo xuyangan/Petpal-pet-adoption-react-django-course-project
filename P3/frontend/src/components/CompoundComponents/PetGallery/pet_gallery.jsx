@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { PetListingsContext } from '../../../contexts/PetListingsContext';
 import PetCard from '../../Cards/ImageCard/pet_card';
-import ErrorMessage from '../../ErrorMessage/error_message';
+import ErrorStatusMessage from '../../ErrorStatusMessage/error_status_message';
 
 const PetGallery = ({ children }) => {
-    const { petListings, getPetListings, isLoading, error } = useContext(PetListingsContext);
+    const { petListings, getPetListings, isLoading, isError, errorStatus, errorMessage
+     } = useContext(PetListingsContext);
 
     useEffect(() => {
         getPetListings(); // Fetch pet listings when the component mounts
@@ -13,15 +14,20 @@ const PetGallery = ({ children }) => {
 
     if (isLoading) {
         return (
-            <ErrorMessage error={"Loading ..."} />
+            <ErrorStatusMessage
+                errorStatus={""}
+                errorMessage={"Loading ..."}
+            />
         ); // Show loading state
-
     }
 
-    if (error) {
-        return(
-            <ErrorMessage error={error} />
-        );
+    if (isError || !petListings || petListings == []) {
+        return (
+            <ErrorStatusMessage 
+                errorStatus={errorStatus}
+                errorMessage={errorMessage}
+            />
+        ); // Show error state
     }
 
     return (
