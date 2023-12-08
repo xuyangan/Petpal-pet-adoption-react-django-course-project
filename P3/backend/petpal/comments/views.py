@@ -27,7 +27,7 @@ class ShelterCommentListCreate(ListCreateAPIView):
         comment = serializer.save(user=self.request.user, shelter=shelter)
 
         if shelter != self.request.user:
-                comment_url = reverse('comments:shelter_comment_retrieve', args=[shelter_name, comment.id])
+                comment_url = reverse('accounts:pet_shelter_profile', args=[shelter_name])
                 reply_text = comment.text[:10] + '...' if len(comment.text) > 10 else comment.text
                 Notification.objects.create(
                     user=shelter,  # Pass the PetUser instance, not the username
@@ -62,6 +62,7 @@ class ReplyCreate(CreateAPIView):
             Notification.objects.create(
                 user=notify_user,
                 message=f'New reply to your comment: from {self.request.user.username}: {reply_text}',  # Truncate the reply text if it's too long
-                related_link=f'/path/to/comment/{parent_comment.id}'  # Adjust the URL to the correct path
+                # related_link=f'/path/to/comment/{parent_comment.id}'  # Adjust the URL to the correct path
+                related_link = reverse('accounts:pet_shelter_profile', args=[parent_comment.shelter.username])
             )
         

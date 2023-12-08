@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const ApplicationCreate = () => {
@@ -19,8 +19,35 @@ const ApplicationCreate = () => {
         postal_code: "",
     });
 
-    const { id } = useParams(); 
+    const { application_id } = useParams();
     const { authToken } = useContext(AuthContext);
+    const [petName, setPetName] = useState("");
+
+    useEffect(() => {
+        const fetchPetDetails = async () => {
+        try {
+            const response = await fetch(`http://localhost:8000/pet_listings/${application_id}`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                Authorization: `Bearer ${authToken}`,
+                "Content-Type": "application/json",
+            },
+            });
+
+            if (response.ok) {
+            const petData = await response.json();
+            setPetName(petData.name);
+            } else {
+            console.error("Failed to fetch pet details");
+            }
+        } catch (error) {
+            console.error("Error fetching pet details", error);
+        }
+        };
+
+        fetchPetDetails();
+    }, [application_id, authToken]);
 
     const handleChange = (e) => {
         const { name, value, type } = e.target;
@@ -31,18 +58,17 @@ const ApplicationCreate = () => {
             [name]: type === "checkbox" ? [...prevData[name], value] : numericValue,
         }));
     };
+
     const submitApplication = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    console.log(JSON.stringify(formData));
-
-    try {
-        const response = await fetch("http://localhost:8000/applications/create/26/", {
+        try {
+        const response = await fetch(`http://localhost:8000/applications/create/${application_id}/`, {
             method: "POST",
             mode: "cors",
             headers: {
-                "Authorization": `Bearer ${authToken}`, 
-                'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
         });
@@ -56,10 +82,10 @@ const ApplicationCreate = () => {
             // Handle submission error
             console.error("Failed to submit application");
         }
-    } catch (error) {
+        } catch (error) {
         console.error("Error submitting application", error);
-    }
-};
+        }
+    };
 
 
 
@@ -68,9 +94,9 @@ const ApplicationCreate = () => {
             <div className="min-vh-100 d-flex flex-column justify-content-between">
                 <section className="container py-5">
                     <div className="header-line">
-                        <h2 className="mb-4">Pet Adoption Application</h2>
-                        <p>Pet ID: {id}</p> {/* Display the dynamic parameter */}
-                        <a href="fqa-page.html">Got a question? Check out our FQA page first!</a>
+                        <h2 className="mb-4">Pet Adoption Application for: {petName}</h2>
+                        <p>Pet ID: {application_id}</p> {/* Display the dynamic parameter */}
+                        <Link to="/applications/faq">Got a question? Check out our FQA page first!</Link>
                     </div>
                     <form onSubmit={submitApplication}>
                         <h5 className="mt-4">Pet Preferences</h5>
@@ -240,10 +266,15 @@ const ApplicationCreate = () => {
                             >
                                 <option selected>Choose...</option>
                                 <option>Detached House</option>
-                                <option>25-30</option>
-                                <option>30-40</option>
-                                <option>40-50</option>
-                                <option>50+</option>
+                                <option>Townhouse</option>
+                                <option>Apartment/Condo</option>
+                                <option>With outdoor space (fenced)</option>
+                                <option>With outdoor space (unfenced)</option>
+                                <option>No outdoor space</option>
+                                <option>I live alone</option>
+                                <option>I share a space with roommates/family</option>
+                                <option>I rent my home</option>
+                                <option>I own my home</option>
                             </select>
                             </div>
                         </div>
@@ -330,9 +361,9 @@ const ApplicationCreate = () => {
                             />
                         </div>
                         <div className="mt-4">
-                            <button type="submit" className="btn btn-primary">
+                            <Link to="/applications/dashboard/seeker" type="submit" className="btn btn-primary">
                                 Submit Application
-                            </button>
+                            </Link>
                         </div>
                     </form>
                 </section>

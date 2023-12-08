@@ -18,12 +18,17 @@ import ShelterManagement from './pages/ShelterManagement/shelter_management';
 import PetEditForm from './pages/PetEditingForm/pet_editing_form';
 import ApplicationCreate from './pages/ApplicationCreate';
 import FAQ from './pages/FAQ';
+import ApplicationViewUpdateSeeker from './pages/ApplicationGetUpdateSeekerPOV';
+import ApplicationViewUpdateShelter from './pages/ApplicationGetUpdateShelterPOV';
+import ApplicationsDashboardSeeker from './pages/ApplicationListSeekerPOV';
 import SeekerProfile from './pages/SeekerProfile';
 import ShelterProfile from './pages/ShelterProfile';
 import UpdateSeeker from './pages/UpdateSeeker';
 import UpdateShelter from './pages/UpdateShelter';
 import ShelterList from './pages/ShelterList';
 import PetCreationForm from './pages/PetCreationForm/pet_creation_form';
+import ApplicationsDashboardShelter from './pages/ApplicationListShelterPOV';
+import ApplicationMessages from './pages/ApplicationMessage';
 import SearchPage from './pages/SearchPage/search_page';
 
 function App() {
@@ -47,13 +52,19 @@ function App() {
                 <Route path="signup" element={<Signup />} />
                 <Route path="signup/seeker" element={<SignupSeeker />} />
                 <Route path="signup/shelter" element={<SignupShelter />} />
-                <Route path="applications/:id/" element={<ApplicationCreate />} />
                 <Route path="profile/seeker/:username" element={<SeekerProfile />} />
                 <Route path="profile/shelter/:username" element={<ShelterProfile />} />
                 <Route path="profile/update/seeker" element={<UpdateSeeker />} />
                 <Route path="profile/update/shelter" element={<UpdateShelter />} />
                 <Route path="shelters" element={<ShelterList />} />
+                <Route path="applications/:application_id/" element={<ApplicationCreate />} />
+                <Route path="applications/view/:application_id/seeker" element={<ApplicationViewUpdateSeeker />} />
+                <Route path="applications/view/:application_id/shelter" element={<ApplicationViewUpdateShelter />} />
                 <Route path="applications/faq/" element={<FAQ />} />
+                <Route path="applications/dashboard/seeker" element={<ApplicationsDashboardSeeker/>} />
+                <Route path="applications/dashboard/shelter" element={<ApplicationsDashboardShelter/>} />
+                <Route path="/applications/:application_id/messages" element={<ApplicationMessages />} />
+
               </Route>
 
               <Route path="/pet_listings/" element={<Layout />}>
