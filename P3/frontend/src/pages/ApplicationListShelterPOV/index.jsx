@@ -125,7 +125,10 @@ const ApplicationsDashboardShelter = () => {
                       </div>
                       {/* Right column */}
                       <div>
-                        <Link to={`/applications/view/${application.id}/shelter`} className="btn btn-primary">
+                        <Link to={`/applications/${application.id}/messages`} className="btn btn-outline-primary m-3">
+                          Message
+                        </Link>
+                        <Link to={`/applications/view/${application.id}/seeker`} className="btn btn-primary">
                           View Application
                         </Link>
                       </div>
