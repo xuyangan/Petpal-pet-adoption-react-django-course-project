@@ -47,7 +47,7 @@ function Profile({firstName, lastName, email, phone, location, prefMission, prof
                     //   style="width: 150px"
                     >
                       <img
-                        src={profile}
+                        src={"http://localhost:8000" + profile}
                         className="img-fluid img-thumbnail mt-4 mb-2"
                         style={{"width": "150px", "height": "150px", "z-index": "1"}}
                       />

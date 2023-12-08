@@ -11,11 +11,26 @@ function SignupSeeker() {
     const [phone, setPhone] = useState();
     const [location, setLocation] = useState();
     const [preferences, setPreferences] = useState();
-    const [profile, setProfile] = useState("");
+    const [profile, setProfile] = useState([]);
+
 
     const submitSeeker = async (e) => {
         e.preventDefault();
-        
+
+        const formSubmission = new FormData();
+        formSubmission.append("first_name", firstName);
+        formSubmission.append("last_name", lastName);
+        formSubmission.append("email", email);
+        formSubmission.append("username", username);
+        formSubmission.append("password", password1);
+        formSubmission.append("phone_number", phone);
+        formSubmission.append("location", location);
+        formSubmission.append("preferences", preferences);
+        profile.forEach((file, index) => {
+            formSubmission.append("profile", file, file.name);
+        });
+
+
         try {
             console.log("inside submit seeker");
             console.log(firstName, lastName, email, username, password1, phone, location, preferences, profile);
@@ -23,23 +38,12 @@ function SignupSeeker() {
                 method: "POST",
                 mode: "cors",
                 headers: {
-                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    first_name: firstName,
-                    last_name: lastName,
-                    email: email,
-                    username: username,
-                    password: password1,
-                    phone_number: phone,
-                    location: location,
-                    preferences: preferences,
-                    profile_picture: profile,
-                })
+                body: formSubmission,
             })
-    
+
             const json = await response.json();
-    
+
             if (!response.ok) {
                 console.log("there's an error");
             }
@@ -143,8 +147,17 @@ function SignupSeeker() {
                         <div className="form-group">
                             <label htmlFor="seeker-profile-input">Profile Picture</label>
                             <input
-                                value={profile}
-                                onChange={(e) => setProfile(URL.createObjectURL(e.target.files[0]))}
+                                onChange={(e) => {
+                                    const files = Array.prototype.slice.call(e.target.files);
+                                    const uploaded = [];
+                                    files.some((file) => {
+                                        if (uploaded.findIndex((f) => f.name === file.name) === -1) {
+                                            uploaded.push(file);
+                                        }
+                                    });
+                                    setProfile(uploaded);
+                                }}
+                                // onChange={(e) => setProfile(URL.createObjectURL(e.target.files[0]))}
                                 type="file" className="form-control" id="seeker-profile-input" />
                         </div>
                         <div className="form-group text-center">

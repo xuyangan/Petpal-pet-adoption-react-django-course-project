@@ -81,6 +81,7 @@ function Login() {
                     <Link to="/profile/shelter/s1" className="link-primary">test</Link>
                     <Link to="/notifications" className="link-primary">test2</Link>
                     <Link to="/applications/1/messages" className="link-primary">test3p</Link>
+                    <Link to="/profile/seeker/zippy" className="link-primary">test3p</Link>
                 </div>
             </div>
         </body>
