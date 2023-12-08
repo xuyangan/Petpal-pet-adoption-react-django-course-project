@@ -5,6 +5,8 @@ from accounts.models import PetUser
 from notifications.models import Notification
 import json
 from django.urls import reverse
+from analytics.models import Analytics
+from shelter_analytics.models import ShelterAnalytics
 
 
 class PetListingCreateSerializer(BasePetListingSerializer):
@@ -22,7 +24,13 @@ class PetListingCreateSerializer(BasePetListingSerializer):
             image_object.save()
 
         self.send_notifications_to_interested_seekers(pet_listing)
+        analytics, _ = Analytics.objects.get_or_create(id=1)
+        analytics.tot_pet_listings += 1
+        analytics.save()
 
+        shelterAnalytics = ShelterAnalytics.objects.get(shelter=self.context['request'].user)
+        shelterAnalytics.num_pet_listings +=1
+        shelterAnalytics.save()
         return pet_listing
 
     def send_notifications_to_interested_seekers(self, pet_listing):

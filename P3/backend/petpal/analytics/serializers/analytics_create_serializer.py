@@ -4,3 +4,4 @@ from ..models import Analytics
 class AnalyticsSerializer(ModelSerializer):
     class Meta:
         model = Analytics
+        fields = '__all__'

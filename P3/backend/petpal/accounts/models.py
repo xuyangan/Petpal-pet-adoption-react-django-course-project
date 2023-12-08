@@ -19,7 +19,7 @@ class PetUser(AbstractUser):
     )
     preferences = models.TextField(null=True, blank=True)
     mission_statement = models.TextField(null=True, blank=True)
-    profile_picture = models.ImageField(null=True, blank=True)
+    profile_picture = models.ImageField(null=True, blank=True, upload_to='pet_images')
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']

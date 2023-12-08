@@ -1,1 +1,1 @@
-from shelter_analytics_create_serializer import ShelterAnalytics
+from .shelter_analytics_create_serializer import ShelterAnalyticsSerializer

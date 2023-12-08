@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Analytics(models.Model):
-    num_pet_listings = models.PositiveIntegerField(
+    tot_pet_listings = models.PositiveIntegerField(
         default=0,
         null=False,
         blank=False,
