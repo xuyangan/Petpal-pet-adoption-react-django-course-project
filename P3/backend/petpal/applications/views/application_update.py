@@ -8,6 +8,8 @@ from applications.permissions import IsSeeker, IsShelter
 from datetime import datetime
 from notifications.models import Notification
 from django.urls import reverse
+from analytics.models import Analytics
+from shelter_analytics.models import ShelterAnalytics
 
 
 class SeekerUpdateApplicationView(generics.UpdateAPIView):
@@ -114,6 +116,14 @@ class ShelterUpdateApplicationView(generics.UpdateAPIView):
                 instance.save()
 
                 # Check if the status has changed
+                if new_status == "accepted":
+                    analytics, _ = Analytics.objects.get_or_create(id=1)
+                    analytics.accepted_pets += 1
+                    analytics.save()
+
+                    shelterAnalytics = ShelterAnalytics.objects.get(pk=self.context['request'].user)
+                    shelterAnalytics.num_pet_listings +=1
+                    shelterAnalytics.save()
                 if new_status != original_status:
                     # Notify the pet seeker
                     seeker_notification_message = f"Your application status for {instance.pet_listing.name} has been changed to {new_status}."

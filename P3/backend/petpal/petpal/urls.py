@@ -26,4 +26,6 @@ urlpatterns = [
     path('comments/', include('comments.urls', namespace='comments')),
     path('applications/', include('applications.urls', namespace='applications')),
     path('notifications/', include('notifications.urls', namespace='notifications')),
+    path('analytics/' , include('analytics.urls', namespace='analytics')),
+    path('shelter_analytics/' , include('shelter_analytics.urls', namespace='shelter_analytics'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
