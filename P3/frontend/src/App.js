@@ -24,6 +24,7 @@ import UpdateSeeker from './pages/UpdateSeeker';
 import UpdateShelter from './pages/UpdateShelter';
 import ShelterList from './pages/ShelterList';
 import PetCreationForm from './pages/PetCreationForm/pet_creation_form';
+import SearchPage from './pages/SearchPage/search_page';
 
 function App() {
   const [authToken, setAuthToken] = useState("");
@@ -56,7 +57,7 @@ function App() {
               </Route>
 
               <Route path="/pet_listings/" element={<Layout />}>
-                <Route index element={<ShelterManagement />} />
+                <Route index element={<SearchPage />} />
                 <Route path="create/" element={<PetCreationForm />} />
                 <Route path="list/" element={<PetListings />} />
                 <Route path=":petId/" element={<PetInformation />} />

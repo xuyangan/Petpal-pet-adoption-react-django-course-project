@@ -6,8 +6,6 @@ import TextField from '../../components/FormComponents/TextField/text_field';
 import TextAreaField from '../../components/FormComponents/TextAreaField/text_area_field';
 import NumberField from '../../components/FormComponents/NumberField/number_field';
 import RadioButtonGroup from '../../components/FormComponents/RadioButtonGroupField/radio_button_group_field';
-import CheckboxGroup from '../../components/FormComponents/CheckboxGroupField/checkbox_group_field';
-import ReadonlyField from '../../components/FormComponents/ReadonlyField/readonly_field';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';

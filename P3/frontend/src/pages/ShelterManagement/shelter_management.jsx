@@ -5,24 +5,56 @@ import PetTableEntry from '../../components/PetTableEntry/pet_table_entry';
 import { PetListingsContext } from '../../contexts/PetListingsContext';
 import { useContext } from 'react';
 import ProfilePicture from '../../components/ProfilePicture/profile_picture';
+import ErrorStatusMessage from '../../components/ErrorStatusMessage/error_status_message';
+
 
 
 const ShelterManagement = () => {
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const { petListings, getPetListings, nextPage, previousPage, wasSuccessful,
         setWasSuccessful, successMessage, filters, setIsFiltering, isFiltering,
-        getAllPetListings, deletePetListing } = useContext(PetListingsContext);
+        getAllPetListings, isError, isLoading, errorStatus, errorMessage } = useContext(PetListingsContext);
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         console.log(currentPage);
-         // Fetch pet listings when the component mounts
+        // Fetch pet listings when the component mounts
         if (isFiltering) {
             getPetListings(currentPage);
         } else {
             getAllPetListings(currentPage);
         }
     }, [currentPage, isFiltering]);
+
+
+    useEffect(() => {
+
+        //set timer to set success message to false
+        setTimeout(() => {
+            setWasSuccessful(false);
+        }
+            , 5000);
+
+    }, []);
+
+    if (isLoading) {
+        return (
+            <ErrorStatusMessage
+                errorStatus={""}
+                errorMessage={"Loading ..."}
+            />
+        ); // Show loading state
+
+    }
+
+    if (isError || !petListings) {
+        return (
+            <ErrorStatusMessage
+                errorStatus={errorStatus}
+                errorMessage={errorMessage}
+            />
+        ); // Show error state
+    }
 
     const handlePrevious = () => {
         if (previousPage) {
@@ -35,16 +67,6 @@ const ShelterManagement = () => {
             setCurrentPage(currentPage + 1);
         }
     };
-
-    useEffect(() => {
-
-        //set timer to set success message to false
-        setTimeout(() => {
-            setWasSuccessful(false);
-        }
-            , 5000);
-
-    }, []);
     const getActiveListings = () => {
         console.log("get active listings");
         filters.status = "available";
@@ -109,11 +131,11 @@ const ShelterManagement = () => {
                         </div>
                         <div className={`${isSettingsOpen ? 'd-block' : 'd-none'} d-md-block`}>
                             <ul className="nav nav-pills flex-column mb-0 align-items-sm-start" id="menu">
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <Link to="/shelter-account-update-page" className="btn-link text-color-baby-blue text-decoration-none px-0">
                                         <i className="fs-4 bi-house"></i> <span className="fs-5">Edit Profile</span>
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li className="nav-item">
                                     <Link to="/pet_listings/create/" className="btn-link text-color-baby-blue text-decoration-none px-0">
                                         <i className="fs-4 bi-house"></i> <span className="fs-5">Create Listing</span>

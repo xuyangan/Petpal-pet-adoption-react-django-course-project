@@ -32,12 +32,6 @@ export const PetListingsContextProvider = ({ children }) => {
     const [isFiltering, setIsFiltering] = useState(false);
 
 
-    const formatSize = () => {
-        const sizeMapping = { 1: 'small', 2: 'medium', 3: 'large' };
-        if (filters.size !== "")
-            filters.size = sizeMapping[filters.size];
-    }
-
     const parseAge = () => {
         if (filters.min_age !== "")
             filters.min_age = parseInt(filters.min_age);
@@ -62,6 +56,7 @@ export const PetListingsContextProvider = ({ children }) => {
                 setPreviousPage(data.previous);
                 // the actual list of pet listings is under the "results" key
                 setPetListings(data.results);
+                
                 // change the date
                 setIsError(false);
             } else {
@@ -81,7 +76,6 @@ export const PetListingsContextProvider = ({ children }) => {
     const getPetListings = async (page = 1) => {
         setIsLoading(true);
         try {
-            formatSize();
             parseAge();
             const params = new URLSearchParams(filters);
             console.log(params.toString());
@@ -98,9 +92,11 @@ export const PetListingsContextProvider = ({ children }) => {
             if (response.ok) {
                 const data = await response.json();
                 setNextPage(data.next);
-                setPreviousPage(data.previous);
+                console.log("next", data.next);
+                setPreviousPage("previous", data.previous);
                 // the actual list of pet listings is under the "results" key
                 setPetListings(data.results);
+                console.log(data.results);
                 // change the date
                 setIsError(false);
             } else {
@@ -239,9 +235,9 @@ export const PetListingsContextProvider = ({ children }) => {
 
 
     // Fetch pet listings on component mount
-    useEffect(() => {
-        getPetListings();
-    }, []);
+    // useEffect(() => {
+    //     getPetListings();
+    // }, []);
 
     return (
         <PetListingsContext.Provider value={{
@@ -249,7 +245,7 @@ export const PetListingsContextProvider = ({ children }) => {
             getPetListing, petListing, editPetListing, nextPage, previousPage,
             errorStatus, setPetListing, setPetListings, errorMessage, isError,
             wasSuccessful, setWasSuccessful, successMessage, setSuccessMessage,
-            filters, setFilters, isFiltering, setIsFiltering, formatSize, parseAge,
+            filters, setFilters, isFiltering, setIsFiltering, parseAge,
             getAllPetListings, deletePetListing
         }}>
             {children}
