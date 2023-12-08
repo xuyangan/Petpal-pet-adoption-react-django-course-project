@@ -25,12 +25,15 @@ class MessageCreateAPIView(CreateAPIView):
 
             receiver = application.pet_shelter if self.request.user == application.pet_seeker else application.pet_seeker
 
+            # Truncate the message content to a certain length for the notification
+            truncated_message = (message.content[:50] + '...') if len(message.content) > 50 else message.content
+
             # Create a notification for the receiver
             message_list_url = reverse(
                 'applications:message-list', kwargs={'pk': application_id})
             Notification.objects.create(
                 user=receiver,
-                message=f"New message from {self.request.user.username} for application {application_id}",
+                message=f"New message from {self.request.user.username}: '{truncated_message}'",
                 related_link=message_list_url
             )
         else:

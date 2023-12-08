@@ -19,5 +19,5 @@ urlpatterns = [
      path('get/<int:pk>/', ApplicationRetrieveAPIView.as_view(),
          name='application-detail'),
      path('<int:pk>/messages/', MessageListAPIView.as_view(), name='message-list'),
-     path('<int:pk>/send-message/', MessageCreateAPIView.as_view(), name='send-message'),
+     path('<int:pk>/message/', MessageCreateAPIView.as_view(), name='message'),
 ]

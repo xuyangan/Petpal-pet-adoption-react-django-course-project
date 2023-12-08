@@ -78,9 +78,9 @@ function Login() {
                         </div>
                     </form>
                     <Link to="/signup" className="link-primary">Don't have an account? Sign up</Link>
-                    {/* <Link to="/profile/seeker/seeker1">temp profile</Link>
-                    <Link to="/profile/shelter/shelter1">shelter</Link>
-                    <Link to="/shelters">shelter list</Link> */}
+                    <Link to="/profile/shelter/s1" className="link-primary">test</Link>
+                    <Link to="/notifications" className="link-primary">test2</Link>
+                    <Link to="/applications/1/messages" className="link-primary">test3p</Link>
                 </div>
             </div>
         </body>
