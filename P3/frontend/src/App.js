@@ -49,7 +49,6 @@ function App() {
                 <Route path="signup" element={<Signup />} />
                 <Route path="signup/seeker" element={<SignupSeeker />} />
                 <Route path="signup/shelter" element={<SignupShelter />} />
-                <Route path="applications/:id/" element={<ApplicationCreate />} />
                 <Route path="profile/seeker/:username" element={<SeekerProfile />} />
                 <Route path="profile/shelter/:username" element={<ShelterProfile />} />
                 <Route path="profile/update/seeker" element={<UpdateSeeker />} />
