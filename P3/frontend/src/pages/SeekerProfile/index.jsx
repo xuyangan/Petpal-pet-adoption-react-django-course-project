@@ -66,7 +66,7 @@ function SeekerProfile() {
         }
         fetchData();
 
-    });
+    }, []);
         
 
     return (

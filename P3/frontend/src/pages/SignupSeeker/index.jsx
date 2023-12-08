@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
 
 function SignupSeeker() {
     const [firstName, setFirstName] = useState("");
@@ -13,7 +14,35 @@ function SignupSeeker() {
     const [preferences, setPreferences] = useState();
     const [profile, setProfile] = useState([]);
 
+    // const handleUploadFiles = files => {
+    //     //empty array to store uploaded files
+    //     const uploaded = [];
+    //     files.some((file) => {
+    //         if (profile.findIndex((f) => f.name === file.name) === -1) {
+    //             profile.push(file);
+    //         }
+    //     });
+    //     setProfile(uploaded);
+    // };
+    const handleUploadFiles = files => {
+        //empty array to store uploaded files
+        const uploaded = [];
+        files.some((file) => {
+          if (uploaded.findIndex((f) => f.name === file.name) === -1) {
+            uploaded.push(file);
+          }
+        });
+        setProfile(uploaded);
+      };
+    const handleFileEvent = (e) => {
+        const chosenFiles = Array.prototype.slice.call(e.target.files)
+        console.log(chosenFiles);
+        handleUploadFiles(chosenFiles);
+    };
+    const validateField = (field, value) => {
 
+        return ''; // No error
+    };
     const submitSeeker = async (e) => {
         e.preventDefault();
 
@@ -27,28 +56,35 @@ function SignupSeeker() {
         formSubmission.append("location", location);
         formSubmission.append("preferences", preferences);
         profile.forEach((file, index) => {
-            formSubmission.append("profile", file, file.name);
+            console.log(file);
+            formSubmission.append("profile_picture", file, file.name);
         });
-
+        // console.log(profile);
+        // if (profile) {
+        //     console.log("inside if");
+        //     formSubmission.append("profile_picture", profile);
+        // }
 
         try {
-            console.log("inside submit seeker");
-            console.log(firstName, lastName, email, username, password1, phone, location, preferences, profile);
+            // console.log("inside submit seeker");
+            // console.log("sumbission", firstName, lastName, email, username, password1, phone, location, preferences, profile);
             const response = await fetch("http://localhost:8000/accounts/signup/seeker/", {
                 method: "POST",
                 mode: "cors",
                 headers: {
+                    "Authorization": "No Auth"
                 },
                 body: formSubmission,
             })
 
             const json = await response.json();
 
+            // console.log(json);
             if (!response.ok) {
                 console.log("there's an error");
             }
             if (response.ok) {
-                console.log("it worked");
+                // console.log("it worked");
                 setFirstName("");
                 setLastName("");
                 setEmail("");
@@ -144,7 +180,7 @@ function SignupSeeker() {
                                 type="text" className="form-control" id="seeker-preferences-input"
                                 placeholder="Enter preferences" />
                         </div>
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label htmlFor="seeker-profile-input">Profile Picture</label>
                             <input
                                 onChange={(e) => {
@@ -159,7 +195,14 @@ function SignupSeeker() {
                                 }}
                                 // onChange={(e) => setProfile(URL.createObjectURL(e.target.files[0]))}
                                 type="file" className="form-control" id="seeker-profile-input" />
-                        </div>
+                        </div> */}
+                        <div className="form-group">
+                            <FileUploadField
+                                label="Profile Picture"
+                                id="file-upload"
+                                onChange={handleUploadFiles}
+                                validate={validateField}
+                            /></div>
                         <div className="form-group text-center">
                             <button type="submit" className="btn btn-primary">Sign Up</button>
                         </div>

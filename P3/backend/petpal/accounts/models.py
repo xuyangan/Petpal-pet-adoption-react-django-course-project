@@ -19,7 +19,7 @@ class PetUser(AbstractUser):
     )
     preferences = models.TextField(null=True, blank=True)
     mission_statement = models.TextField(null=True, blank=True)
-    profile_picture = models.ImageField(null=True, blank=True, upload_to='pet_images')
+    # profile_picture = models.ImageField(null=True, blank=True, upload_to='pet_images')
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
@@ -29,3 +29,19 @@ class PetUser(AbstractUser):
     
     def is_preference(self, preference) -> bool:
         return preference in self.preferences
+    
+
+class UserImage(models.Model):
+    user = models.ForeignKey(
+        PetUser, 
+        on_delete=models.CASCADE, 
+        related_name='profile_picture'
+        )
+    image = models.ImageField(
+        upload_to='user_images',
+        null=True,
+        blank=True,
+        )
+    
+    def __str__(self):
+        return 'User Image: {}'.format(self.user.username)

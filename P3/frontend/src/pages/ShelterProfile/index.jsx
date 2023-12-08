@@ -68,7 +68,7 @@ function ShelterProfile() {
         }
         fetchData();
 
-    });
+    }, []);
         
 
     return (

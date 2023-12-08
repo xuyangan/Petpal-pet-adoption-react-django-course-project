@@ -14,6 +14,7 @@ class PetListingCreateSerializer(BasePetListingSerializer):
     images = ListField(child=ImageField(), required=False)
 
     def create(self, validated_data):
+        print(validated_data)
         images_data = validated_data.pop('images', tuple())
         pet_listing = PetListing.objects.create(
             **validated_data, shelter=self.context['request'].user)
