@@ -30,6 +30,7 @@ import PetCreationForm from './pages/PetCreationForm/pet_creation_form';
 import ApplicationsDashboardShelter from './pages/ApplicationListShelterPOV';
 import ApplicationMessages from './pages/ApplicationMessage';
 import SearchPage from './pages/SearchPage/search_page';
+import Analytics from './pages/Analytics';
 
 function App() {
   const [authToken, setAuthToken] = useState("");
@@ -64,6 +65,8 @@ function App() {
                 <Route path="applications/dashboard/seeker" element={<ApplicationsDashboardSeeker/>} />
                 <Route path="applications/dashboard/shelter" element={<ApplicationsDashboardShelter/>} />
                 <Route path="/applications/:application_id/messages" element={<ApplicationMessages />} />
+                <Route path="analytics" element={<Analytics />} />
+
 
               </Route>
 

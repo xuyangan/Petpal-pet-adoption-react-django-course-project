@@ -1,0 +1,12 @@
+/* Custom CSS for adjusting card margins */
+.card.pet-listings,
+.card.adopted,
+.card.shelters,
+.card.seekers {
+  margin-bottom: 60px; /* You can adjust this value as needed */
+}
+
+.stylish-text {
+    font-family: 'Verdana', sans-serif; /* Replace 'YourChosenFont' with the desired font name */
+    /* Add more styling properties as desired */
+  }
