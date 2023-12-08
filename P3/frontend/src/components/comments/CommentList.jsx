@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import ReplyForm from './ReplyForm';
 
-const CommentList = ({ comments, onReplyAdded }) => {
+const CommentList = ({ comments, onReplyAdded, nextPageUrl, prevPageUrl, handleNextPage, handlePrevPage }) => {
     const [activeReply, setActiveReply] = useState(null);
 
     const handleReplyClick = (commentId) => {
@@ -26,8 +26,8 @@ const CommentList = ({ comments, onReplyAdded }) => {
                         />
                         <div className="flex-grow-1 flex-shrink-1">
                             <div className="comment-content">
-                                {/* ... existing elements like username, text ... */}
-                                <p className="mb-1">
+                            <div className="comment-header d-flex justify-content-between">
+                            <p className="mb-1">
                                         {comment.user.username}
                                         <span className=" gig-rating text-body-2">
                                     <svg
@@ -45,6 +45,12 @@ const CommentList = ({ comments, onReplyAdded }) => {
                                     </span>
                                     <span className="small"> - {comment.time_since_posted} </span>
                                     </p>
+                                    {activeReply !== comment.id && (
+                                            <button className="btn  btn-outline-primary btn-sm reply-button" onClick={() => handleReplyClick(comment.id)}>Reply</button>
+                                        )}
+                            </div>
+                                    
+                                        
                                 {/* Container for comment text and reply button */}
                                 <div className="comment-text-reply">
                                 <p className="small mb-0">{comment.text}</p>
@@ -55,11 +61,7 @@ const CommentList = ({ comments, onReplyAdded }) => {
                                         <span className="small"> - {comment.time_since_posted} </span>
                                     </div>
                                 ))}
-                                <div className="comment-text-reply">
-                                        {activeReply !== comment.id && (
-                                            <button className="btn  btn-outline-primary btn-sm reply-button" onClick={() => handleReplyClick(comment.id)}>Reply</button>
-                                        )}
-                                </div>
+                                
                                 {activeReply === comment.id && (
                                     <ReplyForm 
                                         commentId={comment.id} 
@@ -75,6 +77,20 @@ const CommentList = ({ comments, onReplyAdded }) => {
                         </div>
                     </div>
                 ))}
+
+                {/* Pagination Controls */}
+                <div className="pagination-controls">
+                    {prevPageUrl && (
+                        <button onClick={handlePrevPage} className="btn custom-button">
+                            Previous
+                        </button>
+                    )}
+                    {nextPageUrl && (
+                        <button onClick={handleNextPage} className="btn custom-button">
+                            Next
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

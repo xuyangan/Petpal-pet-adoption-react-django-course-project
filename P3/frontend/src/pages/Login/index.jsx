@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Link, redirect } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { IdContext } from "../../contexts/IdContext";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -9,6 +10,7 @@ function Login() {
     const navigate = useNavigate();
 
     const { authToken, setAuthToken } = useContext(AuthContext);
+    const { id, setId } = useContext(IdContext);
 
     const getLogin = async (e) => {
         e.preventDefault();
@@ -33,6 +35,7 @@ function Login() {
             }
             if (response.ok) {
                 console.log("it worked");
+                setId(username)
                 setUsername("");
                 setPassword("");
                 const access = await json["access"];
@@ -75,6 +78,9 @@ function Login() {
                         </div>
                     </form>
                     <Link to="/signup" className="link-primary">Don't have an account? Sign up</Link>
+                    {/* <Link to="/profile/seeker/seeker1">temp profile</Link>
+                    <Link to="/profile/shelter/shelter1">shelter</Link>
+                    <Link to="/shelters">shelter list</Link> */}
                 </div>
             </div>
         </body>

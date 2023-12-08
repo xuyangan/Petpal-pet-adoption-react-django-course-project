@@ -9,6 +9,7 @@ from datetime import datetime
 from notifications.models import Notification
 from django.urls import reverse
 
+
 class SeekerUpdateApplicationView(generics.UpdateAPIView):
     queryset = Application.objects.all()
     serializer_class = SeekerUpdateApplicationSerializer
@@ -38,7 +39,8 @@ class SeekerUpdateApplicationView(generics.UpdateAPIView):
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer = self.get_serializer(
+            instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
 
         if 'status' in serializer.validated_data and serializer.validated_data['status'] == 'withdrawn':
@@ -50,10 +52,11 @@ class SeekerUpdateApplicationView(generics.UpdateAPIView):
             if instance.status != original_status:
                 # Notify the shelter
                 shelter_notification_message = f"{instance.pet_seeker.username} has withdrawn the application for {instance.pet_listing.name}."
-                application_url = reverse('applications:application-detail', args=[instance.id])
+                application_url = reverse(
+                    'applications:application-detail', args=[instance.id])
 
                 Notification.objects.create(
-                    user_id=instance.pet_shelter,
+                    user=instance.pet_shelter,
                     message=shelter_notification_message,
                     related_link=application_url
                 )
@@ -61,6 +64,8 @@ class SeekerUpdateApplicationView(generics.UpdateAPIView):
             return Response({'status': 'withdrawn'})
 
         return Response({'detail': 'Invalid operation'}, status=status.HTTP_400_BAD_REQUEST)
+
+
 class ShelterUpdateApplicationView(generics.UpdateAPIView):
     queryset = Application.objects.all()
     serializer_class = ShelterUpdateApplicationSerializer
@@ -96,7 +101,8 @@ class ShelterUpdateApplicationView(generics.UpdateAPIView):
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer = self.get_serializer(
+            instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
 
         if 'status' in serializer.validated_data:
@@ -111,10 +117,11 @@ class ShelterUpdateApplicationView(generics.UpdateAPIView):
                 if new_status != original_status:
                     # Notify the pet seeker
                     seeker_notification_message = f"Your application status for {instance.pet_listing.name} has been changed to {new_status}."
-                    application_url = reverse('applications:application-detail', args=[instance.id])
+                    application_url = reverse(
+                        'applications:application-detail', args=[instance.id])
 
                     Notification.objects.create(
-                        user_id=instance.pet_seeker,
+                        user=instance.pet_seeker,
                         message=seeker_notification_message,
                         related_link=application_url
                     )
@@ -124,4 +131,3 @@ class ShelterUpdateApplicationView(generics.UpdateAPIView):
                 return Response({'detail': 'Invalid status or application is not pending'}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response({'detail': 'Invalid operation'}, status=status.HTTP_400_BAD_REQUEST)
-    
