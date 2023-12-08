@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const ApplicationCreate = () => {
@@ -19,7 +19,7 @@ const ApplicationCreate = () => {
         postal_code: "",
     });
 
-    const { id: application_id } = useParams();
+    const { application_id } = useParams();
     const { authToken } = useContext(AuthContext);
     const [petName, setPetName] = useState("");
 
@@ -96,7 +96,7 @@ const ApplicationCreate = () => {
                     <div className="header-line">
                         <h2 className="mb-4">Pet Adoption Application for: {petName}</h2>
                         <p>Pet ID: {application_id}</p> {/* Display the dynamic parameter */}
-                        <a href="fqa-page.html">Got a question? Check out our FQA page first!</a>
+                        <Link to="/applications/faq">Got a question? Check out our FQA page first!</Link>
                     </div>
                     <form onSubmit={submitApplication}>
                         <h5 className="mt-4">Pet Preferences</h5>
@@ -266,10 +266,15 @@ const ApplicationCreate = () => {
                             >
                                 <option selected>Choose...</option>
                                 <option>Detached House</option>
-                                <option>25-30</option>
-                                <option>30-40</option>
-                                <option>40-50</option>
-                                <option>50+</option>
+                                <option>Townhouse</option>
+                                <option>Apartment/Condo</option>
+                                <option>With outdoor space (fenced)</option>
+                                <option>With outdoor space (unfenced)</option>
+                                <option>No outdoor space</option>
+                                <option>I live alone</option>
+                                <option>I share a space with roommates/family</option>
+                                <option>I rent my home</option>
+                                <option>I own my home</option>
                             </select>
                             </div>
                         </div>
@@ -356,9 +361,9 @@ const ApplicationCreate = () => {
                             />
                         </div>
                         <div className="mt-4">
-                            <button type="submit" className="btn btn-primary">
+                            <Link to="/applications/dashboard/seeker" type="submit" className="btn btn-primary">
                                 Submit Application
-                            </button>
+                            </Link>
                         </div>
                     </form>
                 </section>

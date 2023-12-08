@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate} from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const ApplicationViewUpdateShelter = () => {
     const [formData, setFormData] = useState({
+        status: "",
         pet_name: "",
         all_agree: 0,
         considerate: 0,
@@ -20,7 +21,8 @@ const ApplicationViewUpdateShelter = () => {
         postal_code: "",
     });
 
-    const { id: application_id } = useParams();
+    const navigate = useNavigate();
+    const { application_id } = useParams();
     const { authToken } = useContext(AuthContext);
 
     useEffect(() => {
@@ -65,7 +67,7 @@ const ApplicationViewUpdateShelter = () => {
     
           if (response.ok) {
             console.log("Application accepted!");
-            // Optionally, you can update the local state or redirect the user
+            navigate('/applications/dashboard/shelter/')
           } else {
             console.error("Failed to accept application");
           }
@@ -90,7 +92,7 @@ const ApplicationViewUpdateShelter = () => {
 
         if (response.ok) {
         console.log("Application rejected!");
-        // Optionally, you can update the local state or redirect the user
+        navigate('/applications/dashboard/shelter/')
         } else {
         console.error("Failed to reject application");
         }
@@ -104,10 +106,17 @@ const ApplicationViewUpdateShelter = () => {
         <div className="bg-color-baby-blue-3">
             <div className="min-vh-100 d-flex flex-column justify-content-between">
                 <section className="container py-5">
+                <div className="mb-5">
+                            <Link
+                            to="/applications/dashboard/seeker/"
+                            className="btn btn-primary"
+                            >
+                                &#8592; Back to Dashboard
+                            </Link>
+                        </div>
                     <div className="header-line">
                         <h2 className="mb-4">Pet Adoption Application for:  {formData.pet_name} </h2>
-                        <a href="fqa-page.html">Got a question? Check out our FQA page first!</a>
-                    </div>
+                        <Link to="/applications/faq">Got a question? Check out our FQA page first!</Link>                    </div>
                     <form>
                         <fieldset disabled="disabled">
                             <h5 className="mt-4">Pet Preferences</h5>
@@ -277,10 +286,15 @@ const ApplicationViewUpdateShelter = () => {
                                 >
                                     <option selected>Choose...</option>
                                     <option>Detached House</option>
-                                    <option>25-30</option>
-                                    <option>30-40</option>
-                                    <option>40-50</option>
-                                    <option>50+</option>
+                                    <option>Townhouse</option>
+                                    <option>Apartment/Condo</option>
+                                    <option>With outdoor space (fenced)</option>
+                                    <option>With outdoor space (unfenced)</option>
+                                    <option>No outdoor space</option>
+                                    <option>I live alone</option>
+                                    <option>I share a space with roommates/family</option>
+                                    <option>I rent my home</option>
+                                    <option>I own my home</option>
                                 </select>
                                 </div>
                             </div>
@@ -374,6 +388,7 @@ const ApplicationViewUpdateShelter = () => {
                                 type="button"
                                 className="btn btn-success m-3"
                                 onClick={acceptApplication}
+                                disabled={formData.status != "pending"}
                                 >
                                 Accept Application
                             </button>
@@ -383,6 +398,7 @@ const ApplicationViewUpdateShelter = () => {
                                 type="button"
                                 className="btn btn-danger"
                                 onClick={rejectApplication}
+                                disabled={formData.status != "pending"}
                                 >
                                 Reject Application
                             </button>

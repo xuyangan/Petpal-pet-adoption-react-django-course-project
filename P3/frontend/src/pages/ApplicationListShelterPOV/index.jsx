@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-router-dom";
 
-const ApplicationsDashboardSeeker = () => {
+const ApplicationsDashboardShelter = () => {
   const [applications, setApplications] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -82,6 +82,7 @@ const ApplicationsDashboardSeeker = () => {
   return (
     <section className="container py-5">
       <div className="mt-5">
+        
         <h1>My Applications</h1>
         <form onSubmit={handleSearchSubmit}>
           <div className="d-flex justify-content-between align-items-center mb-3">
@@ -120,11 +121,11 @@ const ApplicationsDashboardSeeker = () => {
                       {/* Left column */}
                       <div>
                         <h5 className="card-title">{application.pet_name}</h5>
-                        <p className="card-text mb-1">Submitted {getTimeDifference(application.created_at)}</p>
+                        <p className="card-text mb-1">Submitted {getTimeDifference(application.created_at)} by {application.full_name}</p>
                       </div>
                       {/* Right column */}
                       <div>
-                        <Link to={`/applications/view/${application.id}/seeker`} className="btn btn-primary">
+                        <Link to={`/applications/view/${application.id}/shelter`} className="btn btn-primary">
                           View Application
                         </Link>
                       </div>
@@ -158,4 +159,4 @@ const ApplicationsDashboardSeeker = () => {
   );
 };
 
-export default ApplicationsDashboardSeeker;
+export default ApplicationsDashboardShelter;

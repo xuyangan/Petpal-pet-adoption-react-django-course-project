@@ -6,36 +6,6 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class ApplicationListView(generics.ListAPIView):
-    # serializer_class = ApplicationListSerializer
-    # pagination_class = CustomPageNumberPagination
-    # permission_classes = [IsShelter]
-
-    # def get_queryset(self):
-    #     queryset = self.get_shelter_queryset()
-
-    #     status = self.request.query_params.get('status')
-    #     sort_by_creation_time = self.request.query_params.get(
-    #         'sort_by_creation_time', 'false').lower() == 'true'
-    #     sort_by_last_update_time = self.request.query_params.get(
-    #         'sort_by_last_update_time', 'false').lower() == 'true'
-
-    #     if status in ['pending', 'accepted', 'denied', 'withdrawn']:
-    #         queryset = queryset.filter(status=status)
-
-    #     if sort_by_creation_time:
-    #         queryset = queryset.order_by('-created_at')
-
-    #     if sort_by_last_update_time:
-    #         queryset = queryset.order_by('-updated_at')
-
-    #     return queryset
-
-    # def get_shelter_queryset(self):
-    #     pet_shelter_user = self.request.user
-    #     if pet_shelter_user.is_shelter():
-    #         return Application.objects.filter(pet_shelter=pet_shelter_user)
-    #     else:
-    #         return Application.objects.all()
     serializer_class = ApplicationListSerializer
     pagination_class = CustomPageNumberPagination
     permission_classes = [IsAuthenticated]
@@ -47,6 +17,7 @@ class ApplicationListView(generics.ListAPIView):
             'sort_by_creation_time', 'false').lower() == 'true'
         sort_by_last_update_time = self.request.query_params.get(
             'sort_by_last_update_time', 'false').lower() == 'true'
+        pet_name = self.request.query_params.get('pet_name', '')
 
         if user.is_shelter():
             queryset = Application.objects.filter(pet_shelter=user)
@@ -55,6 +26,9 @@ class ApplicationListView(generics.ListAPIView):
 
         if status in ['pending', 'accepted', 'denied', 'withdrawn']:
             queryset = queryset.filter(status=status)
+
+        if pet_name:
+            queryset = queryset.filter(pet_name__icontains=pet_name)
 
         if sort_by_creation_time:
             queryset = queryset.order_by('-created_at')

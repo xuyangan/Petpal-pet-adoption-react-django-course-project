@@ -115,7 +115,7 @@ class ApplicationListSerializer(serializers.ModelSerializer):
 
 
 class CustomPageNumberPagination(PageNumberPagination):
-    page_size = 10  # You can adjust the number of items per page as needed
+    page_size = 5  # You can adjust the number of items per page as needed
     page_size_query_param = 'page_size'
     max_page_size = 100
 
@@ -127,6 +127,7 @@ class GetApplicationSerializer(serializers.ModelSerializer):
         model = Application
         fields = '__all__'
 
+
 class MessageCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
@@ -135,8 +136,10 @@ class MessageCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return Message.objects.create(**validated_data)
 
+
 class MessageListSerializer(serializers.ModelSerializer):
-    sender_name = serializers.CharField(source='sender.username', read_only=True)
+    sender_name = serializers.CharField(
+        source='sender.username', read_only=True)
 
     class Meta:
         model = Message

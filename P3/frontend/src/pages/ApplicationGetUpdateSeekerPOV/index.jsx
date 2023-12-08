@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate} from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const ApplicationViewUpdateSeeker = () => {
     const [formData, setFormData] = useState({
         pet_name: "",
+        status:"",
         all_agree: 0,
         considerate: 0,
         medical: 0,
@@ -19,14 +20,14 @@ const ApplicationViewUpdateSeeker = () => {
         province: "",
         postal_code: "",
     });
-
-    const { id: application_id } = useParams();
+    const navigate = useNavigate();
+    const { application_id } = useParams();
     const { authToken } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchApplicationDetails = async () => {
         try {
-            const response = await fetch(`http://localhost:8000/applications/get/${application_id}/`, {
+            const response = await fetch(`http://localhost:8000/applications/get/${application_id}`, {
             method: "GET",
             mode: "cors",
             headers: {
@@ -66,6 +67,8 @@ const ApplicationViewUpdateSeeker = () => {
           if (response.ok) {
             console.log("Application withdrawn successfully!");
             // Optionally, you can update the local state or redirect the user
+
+            navigate('/applications/dashboard/seeker/')
           } else {
             console.error("Failed to withdraw application");
           }
@@ -73,40 +76,25 @@ const ApplicationViewUpdateSeeker = () => {
           console.error("Error withdrawing application", error);
         }
       };
-    
 
     return (
         <div className="bg-color-baby-blue-3">
             <div className="min-vh-100 d-flex flex-column justify-content-between">
                 <section className="container py-5">
-                    <div className="mt-4">
-                            <button
-                            type="button"
-                            className="btn btn-danger"
-                            onClick={withdrawApplication}
+                    <div className="mb-5">
+                            <Link
+                            to="/applications/dashboard/seeker/"
+                            className="btn btn-primary"
                             >
-                            Withdraw Application
-                            </button>
+                                &#8592; Back to Dashboard
+                            </Link>
                         </div>
                     <div className="header-line">
-                        <h2 className="mb-4">Pet Adoption Application for:  {formData.pet_name} </h2>
-                        <a href="fqa-page.html">Got a question? Check out our FQA page first!</a>
-                    </div>
+                        <h2 className="mb-4">Pet Adoption Application for: {formData.pet_name} </h2>
+                        <Link to="/applications/faq">Got a question? Check out our FQA page first!</Link>                    </div>
                     <form>
                         <fieldset disabled="disabled">
                             <h5 className="mt-4">Pet Preferences</h5>
-                            {/* <div className="mb-3">
-                                <label htmlFor="petName" className="form-label">
-                                    Name of the pet that prompted you to apply*
-                                </label>
-                                <input
-                                    className="form-control"
-                                    type="text"
-                                    name="petName"
-                                    value={formData.petName}
-                                    onChange={handleChange}
-                                />
-                            </div> */}
                             <h5>Adoption Checklist</h5>
                             <div className="option-section">
                                 <p className="description">
@@ -261,10 +249,15 @@ const ApplicationViewUpdateSeeker = () => {
                                 >
                                     <option selected>Choose...</option>
                                     <option>Detached House</option>
-                                    <option>25-30</option>
-                                    <option>30-40</option>
-                                    <option>40-50</option>
-                                    <option>50+</option>
+                                    <option>Townhouse</option>
+                                    <option>Apartment/Condo</option>
+                                    <option>With outdoor space (fenced)</option>
+                                    <option>With outdoor space (unfenced)</option>
+                                    <option>No outdoor space</option>
+                                    <option>I live alone</option>
+                                    <option>I share a space with roommates/family</option>
+                                    <option>I rent my home</option>
+                                    <option>I own my home</option>
                                 </select>
                                 </div>
                             </div>
@@ -354,11 +347,12 @@ const ApplicationViewUpdateSeeker = () => {
                     </form>
                     <div className="mt-4">
                         <button
-                        type="button"
-                        className="btn btn-danger"
-                        onClick={withdrawApplication}
+                            type="button"
+                            className="btn btn-danger"
+                            onClick={withdrawApplication}
+                            disabled={formData.status === "withdrawn"}
                         >
-                        Withdraw Application
+                            Withdraw Application
                         </button>
                     </div>
                 </section>

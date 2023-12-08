@@ -27,6 +27,7 @@ import UpdateSeeker from './pages/UpdateSeeker';
 import UpdateShelter from './pages/UpdateShelter';
 import ShelterList from './pages/ShelterList';
 import PetCreationForm from './pages/PetCreationForm/pet_creation_form';
+import ApplicationsDashboardShelter from './pages/ApplicationListShelterPOV';
 
 function App() {
   const [authToken, setAuthToken] = useState("");
@@ -59,6 +60,7 @@ function App() {
                 <Route path="applications/view/:application_id/shelter" element={<ApplicationViewUpdateShelter />} />
                 <Route path="applications/faq/" element={<FAQ />} />
                 <Route path="applications/dashboard/seeker" element={<ApplicationsDashboardSeeker/>} />
+                <Route path="applications/dashboard/shelter" element={<ApplicationsDashboardShelter/>} />
 
               </Route>
 
