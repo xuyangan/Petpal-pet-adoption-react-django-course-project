@@ -18,6 +18,9 @@ import ShelterManagement from './pages/ShelterManagement/shelter_management';
 import PetEditForm from './pages/PetEditingForm/pet_editing_form';
 import ApplicationCreate from './pages/ApplicationCreate';
 import FAQ from './pages/FAQ';
+import ApplicationViewUpdateSeeker from './pages/ApplicationGetUpdateSeekerPOV';
+import ApplicationViewUpdateShelter from './pages/ApplicationGetUpdateShelterPOV';
+import ApplicationsDashboardSeeker from './pages/ApplicationListSeekerPOV';
 import SeekerProfile from './pages/SeekerProfile';
 import ShelterProfile from './pages/ShelterProfile';
 import UpdateSeeker from './pages/UpdateSeeker';
@@ -52,7 +55,12 @@ function App() {
                 <Route path="profile/update/seeker" element={<UpdateSeeker />} />
                 <Route path="profile/update/shelter" element={<UpdateShelter />} />
                 <Route path="shelters" element={<ShelterList />} />
+                <Route path="applications/:application_id/" element={<ApplicationCreate />} />
+                <Route path="applications/view/:application_id/seeker" element={<ApplicationViewUpdateSeeker />} />
+                <Route path="applications/view/:application_id/shelter" element={<ApplicationViewUpdateShelter />} />
                 <Route path="applications/faq/" element={<FAQ />} />
+                <Route path="applications/dashboard/seeker" element={<ApplicationsDashboardSeeker/>} />
+
               </Route>
 
               <Route path="/pet_listings/" element={<Layout />}>
