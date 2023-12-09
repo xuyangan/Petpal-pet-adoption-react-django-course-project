@@ -14,7 +14,7 @@ class PetShelterSerializer(ModelSerializer):
         fields = ['id', 'username', 'email', 'password', 'shelter_name', 'phone_number', 'location', 'mission_statement', 'profile_picture']
 
     def create(self, validated_data):
-        images = validated_data.pop('profile_picture', None)
+        images = validated_data.pop('profile_picture', tuple())
         
         user = super(PetShelterSerializer, self).create(validated_data)
         user.set_password(validated_data['password'])
@@ -45,7 +45,6 @@ class PetSeekerSerializer(ModelSerializer):
     def create(self, validated_data):
         print(validated_data)
         images = validated_data.pop('profile_picture',tuple())
-        print(images)
         
         user = super(PetSeekerSerializer, self).create(validated_data)
         user.set_password(validated_data['password'])

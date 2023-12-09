@@ -8,18 +8,18 @@ function Profile({firstName, lastName, email, phone, location, prefMission, prof
         if (isSame) {
             if (isSeeker) {
                 return <div className="mb-5">
-                  <div className="text-center">
+                  <div className="text-end ">
                     <Link to="/profile/update/seeker" className="btn btn-outline-primary"
                     style={{"z-index": "1"}}>Edit Profile</Link>
                   </div>
-                  <div className="text-center">
+                  <div className="text-end my-3">
                     <DeleteButton
                       isSeeker={isSeeker} />
                   </div>
                 </div>;
             } else {
               return <div className="mb-5">
-                <div className="text-center">
+                <div className="text-end my-3">
                   <Link to="/profile/update/shelter" className="btn btn-outline-primary"
                   style={{"z-index": "1"}}>Edit Profile</Link>
                 </div>

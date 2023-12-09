@@ -2,6 +2,8 @@ import { useContext, useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { IdContext } from "../../contexts/IdContext";
 import { AuthContext } from "../../contexts/AuthContext";
+import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
+
 
 function UpdateSeeker() {
     const [firstName, setFirstName] = useState("");
@@ -12,7 +14,7 @@ function UpdateSeeker() {
     const [phone, setPhone] = useState("");
     const [location, setLocation] = useState("");
     const [preferences, setPreferences] = useState("");
-    const [profile, setProfile] = useState("");
+    const [profile, setProfile] = useState([]);
     const [profileUrl, setProfileUrl] = useState("");
 
     const { id, setId } = useContext(IdContext);
@@ -51,9 +53,6 @@ function UpdateSeeker() {
                     if (await json["preferences"]) {
                         setPreferences(await json["preferences"]);
                     }
-                    if (await json["profile_picture"]) {
-                        setProfile(await json["profile_picture"]);
-                    }
                 }
 
             } catch(error) {
@@ -65,6 +64,21 @@ function UpdateSeeker() {
 
     const updateSeeker = async (e) => {
         e.preventDefault();
+        
+        const formSubmission = new FormData();
+        formSubmission.append("first_name", firstName);
+        formSubmission.append("last_name", lastName);
+        formSubmission.append("email", email);
+        if (password1 !== "" && password2 !== "" && password1 === password2) {
+            formSubmission.append("password", password1);
+        }
+        formSubmission.append("phone_number", phone);
+        formSubmission.append("location", location);
+        formSubmission.append("preferences", preferences);
+        profile.forEach((file) => {
+            formSubmission.append("profile_picture", file);
+        });
+
         
         try {
             console.log("inside update seeker");
@@ -104,26 +118,23 @@ function UpdateSeeker() {
             } else {
                 data.preferences = preferences;
             }
-            if (profile === "") {
-                console.log("empty")
-            } else {
-                data.profile_picture = profile;
-            }
-            console.log(data);
+            formSubmission.forEach((value, key) => {
+                data[key] = value;
+            })
 
             const response = await fetch("http://localhost:8000/accounts/update/seeker/", {
                 method: "PATCH",
                 mode: "cors",
                 headers: {
-                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${authToken}`,
                 },
-                body: JSON.stringify(data),
+                body: formSubmission,
             })
     
             const json = await response.json();
     
             if (!response.ok) {
+                console.log(response.message)
                 console.log("there's an error");
             }
             if (response.ok) {
@@ -136,13 +147,32 @@ function UpdateSeeker() {
                 setPhone("");
                 setLocation("");
                 setPreferences("");
-                setProfile("");
+                setProfile([]);
             }
         } catch (error) {
             console.log(error)
         }
     }
 
+    const handleUploadFiles = files => {
+        //empty array to store uploaded files
+        const uploaded = [];
+        files.some((file) => {
+          if (uploaded.findIndex((f) => f.name === file.name) === -1) {
+            uploaded.push(file);
+          }
+        });
+        setProfile(uploaded);
+      };
+    const handleFileEvent = (e) => {
+        const chosenFiles = Array.prototype.slice.call(e.target.files)
+        console.log(chosenFiles);
+        handleUploadFiles(chosenFiles);
+    };
+    const validateField = (field, value) => {
+
+        return ''; // No error
+    };
 
     return (
         <body className="bg-color-gradient">
@@ -215,12 +245,12 @@ function UpdateSeeker() {
                                 placeholder="Enter preferences" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="seeker-profile-input">Profile Picture</label>
-                            <input
-                                value={profile}
-                                onChange={(e) => setProfile(URL.createObjectURL(e.target.files[0]))}
-                                type="file" className="form-control" id="seeker-profile-input" />
-                        </div>
+                            <FileUploadField
+                                label="Profile Picture"
+                                id="file-upload"
+                                onChange={handleUploadFiles}
+                                validate={validateField}
+                            /></div>
                         <div className="form-group text-center">
                             <button type="submit" className="btn btn-primary">Update</button>
                         </div>
