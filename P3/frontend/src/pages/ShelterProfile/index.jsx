@@ -6,6 +6,7 @@ import { useState } from "react";
 import Profile from "../../components/Profile/profile_page";
 import PetDisplay from "../../components/Profile/pet_display";
 import CommentSection from "../CommentSection";
+import ShelterAnalytics from "../ShelterAnalytics";
 
 function ShelterProfile() {
     const [shelterName, setShelterName] = useState("");
@@ -86,6 +87,9 @@ function ShelterProfile() {
                     isSeeker={isSeeker}
                 />
             </div>
+            <ShelterAnalytics
+                sheltername={username}
+            />
             <PetDisplay 
                 username={username}
             />
