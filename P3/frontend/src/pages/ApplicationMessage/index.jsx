@@ -80,16 +80,11 @@ const ApplicationMessages = () => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json();
-        })
-        .then(() => {
             setNewMessage('');
-            fetchMessages();
+            fetchMessages(); // Fetch the updated messages list
         })
-        .then(response => response.json())
-        .then(data => setMessages(data.results))
         .catch(error => console.error('Error:', error));
-    };
+    };    
 
     const handleNextPage = () => {
         if (nextPageUrl) {

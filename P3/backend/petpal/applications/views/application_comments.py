@@ -7,7 +7,7 @@ from applications.serializers.application_serializer import MessageCreateSeriali
 from applications.permissions import IsRelatedToApplication
 from notifications.models import Notification
 from django.shortcuts import get_object_or_404
-from applications.serializers.application_serializer import CustomPageNumberPagination
+from applications.serializers.application_serializer import MessagePageNumberPagination
 
 
 class MessageCreateAPIView(CreateAPIView):
@@ -42,7 +42,7 @@ class MessageCreateAPIView(CreateAPIView):
 
 
 class MessageListAPIView(ListAPIView):
-    pagination_class = CustomPageNumberPagination
+    pagination_class = MessagePageNumberPagination
     serializer_class = MessageListSerializer
     permission_classes = [IsAuthenticated, IsRelatedToApplication]
 
