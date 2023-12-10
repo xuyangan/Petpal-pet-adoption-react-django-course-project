@@ -19,7 +19,7 @@ from django.urls import path, include
 from petpal import settings
 from django.conf.urls.static import static
 
-admin.site.site_header = "Mini_blog_header"
+# admin.site.site_header = "Mini_blog_header"
 
 urlpatterns = [
     path('admin/', admin.site.urls),

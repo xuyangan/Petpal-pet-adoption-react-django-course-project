@@ -1,13 +1,23 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/change_list.html" %}
 {% block content %}
+{{ block.super }}
     <!-- Existing admin content -->
-    <h2>Top Breeds Chart</h2>
+    <h2>Dashboards</h2>
     <div>
         <canvas id="breedChart" width="400" height="400"></canvas>
     </div>
+    <!-- <select id="timeAggregationSelect">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+    </select>
+     -->
+    <div>
+        <h2>Creation Stats</h2>
+        <canvas id="creationChart" width="400" height="400"></canvas>
+    </div>
     <!-- Include Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
+    <script type="text/javascript">
         function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -25,16 +35,19 @@
 
         const csrftoken = getCookie('csrftoken');
 
-        fetch('http://127.0.0.1:8000/pet_listings/top-breeds-chart/', {
+    // Function to generate random colors
+    var randomColorGenerator = function() {
+            return '#' + (Math.random().toString(16) + '0000000').slice(2,8);
+        };
+
+        // Fetch and display top breeds data
+        fetch('http://127.0.0.1:8000/pet_listings/list/?top_breeds=true', {
             method: 'GET',
-            mode:"same-origin",
-            headers: {
-                'X-CSRFToken': csrftoken,
-            },
+            mode: "same-origin",
+            headers: { 'X-CSRFToken': csrftoken },
             credentials: 'include',
-            
         })
-        .then((response) => {return response.json();})
+        .then((response) => response.json())
         .then((data) => {
             console.log(data)
 
@@ -68,7 +81,7 @@
 
             const ctx = document.getElementById('breedChart').getContext('2d');
             const breedChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     labels: final.map(item => item.breed),
                     datasets: [{
@@ -91,6 +104,45 @@
                             display: true,
                             text: 'Top Breeds Chart'
                         }
+                    }
+                },
+            });
+        });
+        fetch('http://127.0.0.1:8000/pet_listings/list/?creation_stats=true', {
+        method: 'GET',
+        mode: "same-origin",
+        headers: { 'X-CSRFToken': csrftoken },
+        credentials: 'include',
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            const creationStats = data.creation_stats;
+
+            // Prepare data for the line chart
+            const labels = creationStats.map(item => item.date);
+            const counts = creationStats.map(item => item.count);
+
+            // Create the line chart
+            const ctxCreation = document.getElementById('creationChart').getContext('2d');
+            const creationChart = new Chart(ctxCreation, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'New Pet Listings',
+                        data: counts,
+                        backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                        borderColor: 'rgba(0, 123, 255, 1)',
+                        borderWidth: 1,
+                        fill: false,
+                    }]
+                },
+                options: {
+                    scales: { y: { beginAtZero: true } },
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Pet Listings Creation Stats' }
                     }
                 },
             });

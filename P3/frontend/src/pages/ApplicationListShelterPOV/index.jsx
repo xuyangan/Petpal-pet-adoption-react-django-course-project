@@ -110,6 +110,7 @@ const ApplicationsDashboardShelter = () => {
             <option value="pending">Pending</option>
             <option value="withdrawn">Withdrawn</option>
             <option value="accepted">Accepted</option>
+            <option value="denied">Rejected</option>
           </select>
         </div>
         <div className="row">
