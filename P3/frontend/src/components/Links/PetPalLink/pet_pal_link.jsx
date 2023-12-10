@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 
-const NavbarBrand = ({ href }) => {
+const NavbarBrand = ({ redirect }) => {
   return (
-    <a className="navbar-brand" href={href}>
+    <Link className="navbar-brand" to={redirect}>
       PetPal
-    </a>
+    </Link>
   );
 };
 

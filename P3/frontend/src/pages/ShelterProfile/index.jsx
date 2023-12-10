@@ -6,6 +6,8 @@ import { useState } from "react";
 import Profile from "../../components/Profile/profile_page";
 import PetDisplay from "../../components/Profile/pet_display";
 import CommentSection from "../CommentSection";
+import ShelterAnalytics from "../ShelterAnalytics";
+import MorePetListings from "../MorePetListings/more_pet_listings";
 
 function ShelterProfile() {
     const [shelterName, setShelterName] = useState("");
@@ -32,7 +34,7 @@ function ShelterProfile() {
                 const response = await fetch(url, {
                     method: "GET",
                     mode: "cors",
-                    headers: { "Authorization": `Bearer ${authToken}`}
+                    headers: { "Authorization": `Bearer ${authToken}` }
                 })
 
                 const json = await response.json();
@@ -62,36 +64,44 @@ function ShelterProfile() {
                     }
                 }
 
-            } catch(error) {
+            } catch (error) {
                 console.log(error);
             }
         }
         fetchData();
 
-    });
-        
+    }, []);
+
 
     return (
-        <div className="bg-color-baby-blue-3">
-            <div className="min-vh-100 d-flex flex-column justify-content-between">
-                <Profile 
-                    firstName={shelterName}
-                    lastName={lastName}
-                    email={email}
-                    phone={phone}
-                    location={location}
-                    prefMission={prefMission}
-                    profile={profile}
-                    isSame={isSame}
-                    isSeeker={isSeeker}
+        <div className="container py-3">
+            <div className="bg-color-baby-blue-3">
+                <div className=" d-flex flex-column justify-content-between">
+                    <Profile
+                        firstName={shelterName}
+                        lastName={lastName}
+                        email={email}
+                        phone={phone}
+                        location={location}
+                        prefMission={prefMission}
+                        profile={profile}
+                        isSame={isSame}
+                        isSeeker={isSeeker}
+                    />
+                </div>
+                <ShelterAnalytics
+                    sheltername={username}
+                />
+                <PetDisplay
+                    username={username}
+                />
+                {/* <MorePetListings
+                    username={username}
+                /> */}
+                <CommentSection
+                    sheltername={username}
                 />
             </div>
-            <PetDisplay 
-                username={username}
-            />
-            <CommentSection 
-                sheltername={username}
-            />
         </div>
     )
 }

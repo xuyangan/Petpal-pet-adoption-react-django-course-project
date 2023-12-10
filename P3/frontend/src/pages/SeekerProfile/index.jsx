@@ -18,7 +18,7 @@ function SeekerProfile() {
 
     const { id, setId } = useContext(IdContext);
     const { username } = useParams();
-    const { authToken, setAuthToken }= useContext(AuthContext);
+    const { authToken, setAuthToken } = useContext(AuthContext);
 
     useEffect(() => {
         async function fetchData() {
@@ -29,7 +29,7 @@ function SeekerProfile() {
                 const response = await fetch(url, {
                     method: "GET",
                     mode: "cors",
-                    headers: { "Authorization": `Bearer ${authToken}`}
+                    headers: { "Authorization": `Bearer ${authToken}` }
                 })
 
                 const json = await response.json();
@@ -60,29 +60,31 @@ function SeekerProfile() {
                     }
                 }
 
-            } catch(error) {
+            } catch (error) {
                 console.log(error);
             }
         }
         fetchData();
 
-    });
-        
+    }, []);
+
 
     return (
         <div className="bg-color-baby-blue-3">
-            <div className="min-vh-100 d-flex flex-column justify-content-between">
-                <Profile 
-                    firstName={firstName}
-                    lastName={lastName}
-                    email={email}
-                    phone={phone}
-                    location={location}
-                    prefMission={prefMission}
-                    profile={profile}
-                    isSame={isSame}
-                    isSeeker={isSeeker}
-                />
+            <div className="container py-3">
+                <div className="min-vh-100 d-flex flex-column justify-content-between">
+                    <Profile
+                        firstName={firstName}
+                        lastName={lastName}
+                        email={email}
+                        phone={phone}
+                        location={location}
+                        prefMission={prefMission}
+                        profile={profile}
+                        isSame={isSame}
+                        isSeeker={isSeeker}
+                    />
+                </div>
             </div>
         </div>
     )

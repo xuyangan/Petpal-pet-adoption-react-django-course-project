@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 
 const NavLink = ({ to, label }) => {
     return (
         <li className="nav-item">
-            <a href={to} className="nav-link active" aria-current="page">
+            <Link to={to} className="nav-link active" aria-current="page">
                 {label}
-            </a>
+            </Link>
         </li>
     );
 }

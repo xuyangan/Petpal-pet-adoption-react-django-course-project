@@ -10,11 +10,12 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { PetListingsContext } from '../../contexts/PetListingsContext';
+import { useNavigate } from 'react-router-dom';
 
 const PetCreationForm = () => {
-
   const { createPetListing } = useContext(PetListingsContext);
   const { authToken, setAuthToken } = useContext(AuthContext);
+  const navigate = useNavigate();
   // Define the state variables and their setter functions
   const [formData, setFormData] = useState({
     name: '',
@@ -122,6 +123,7 @@ const PetCreationForm = () => {
 
     // Send FormData to server
     createPetListing(formSubmission);
+    navigate("/shelter_management/");
   };
 
   // ... rest of your component

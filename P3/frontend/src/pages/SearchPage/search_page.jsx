@@ -13,7 +13,7 @@ import CheckboxGroup from '../../components/FormComponents/CheckboxGroupField/ch
 const SearchPage = () => {
     const {
         petListings, getPetListings, isLoading, isError, errorMessage,
-        errorStatus, wasSuccessful, setIsError, setIsLoading, setErrorMessage,
+        errorStatus, wasSuccessful, setIsError, setIsLoading, resetFilters,
         setErrorStatus, setWasSuccessful, filters, setIsFiltering, nextPage, previousPage,
     } = useContext(PetListingsContext);
     const [currentPage, setCurrentPage] = useState(1);
@@ -59,6 +59,10 @@ const SearchPage = () => {
         { id: 'sort_by_size', label: 'Size', value: 'sort_by_size' },
         { id: 'sort_in_desc', label: 'Descending', value: 'sort_in_desc' }
     ];
+
+    useEffect(() => {
+        resetFilters();
+    }, []);
 
     useEffect(() => {
         getPetListings(currentPage); // Fetch pet listings when the component mounts
@@ -143,23 +147,6 @@ const SearchPage = () => {
 
     };
 
-    const resetFilters = () => {
-
-        filters.shelter_name = '';
-        filters.breed = '';
-        filters.status = 'available';
-        filters.size = '';
-        filters.max_age = '';
-        filters.min_age = '';
-        filters.colour = '';
-        filters.gender = '';
-        filters.sort_by_age = false;
-        filters.sort_by_name = false;
-        filters.sort_by_size = false;
-        filters.sort_in_desc = false;
-
-    }
-
 
     return (
         <div className="container my-3">
@@ -168,8 +155,8 @@ const SearchPage = () => {
                     <h1> Search PetListings</h1>
                     <form className="" nonvalidate encType="multipart/form-data" onSubmit={handleSubmit}>
                         <button type="submit" className="btn btn-primary">Search</button>
-                        <div className='d-flex flex-row gap-3'>
-                            <div>
+                        <div className='row'>
+                            <div className='col-md-2'>
                                 <TextField
                                     label="Shelter Name"
                                     name="shelter_name"
@@ -180,7 +167,7 @@ const SearchPage = () => {
                                     validate={(value) => validateField('Bhelter_name', value)}
                                 />
                             </div>
-                            <div>
+                            <div className='col-md-2'>
                                 <TextField
                                     label="Breed"
                                     name="breed"
@@ -200,7 +187,7 @@ const SearchPage = () => {
                                     validate={(value) => validateField('Colour', value)}
                                 />
                             </div>
-                            <div>
+                            <div  className='col-md-2'>
                                 <NumberField label="Min age"
                                     id="min_age"
                                     value={formData.min_age}
@@ -214,6 +201,7 @@ const SearchPage = () => {
                                     validate={(value) => validateField('max_age', value)}
                                 />
                             </div>
+                            <div className='col-md-2'>
                             <RadioButtonGroup
                                 label="Size"
                                 name="size"
@@ -228,6 +216,8 @@ const SearchPage = () => {
                                 value={formData.gender}
                                 onChange={handleChange('gender')}
                             />
+                            </div>
+                            <div className='col-md-2'>
                             <RadioButtonGroup
                                 label="Status"
                                 name="status"
@@ -235,7 +225,8 @@ const SearchPage = () => {
                                 value={formData.status}
                                 onChange={handleChange('status')}
                             />
-                            <div>
+                            </div>
+                            <div className='col-md-2'>
                                 <CheckboxGroup
                                     label="Sorting by:"
                                     options={sort_options.map(option => ({
@@ -251,7 +242,7 @@ const SearchPage = () => {
                     </form>
                 </div>
                 <div>
-                    <div className="card border-1 my-4 shadow">
+                    <div className="card border-1 my-4 shadow p-2">
                         {petListings.length === 0 && (<div className="alert alert-info bg-color-baby-blue-3 text-info" role="alert">
                             No pets found!
                         </div>)}
@@ -264,7 +255,7 @@ const SearchPage = () => {
                                             name={petListing.name}
                                             status={petListing.status} // Assuming status is a property of petListing
                                             imageSrc={"http://localhost:8000" + petListing.pet_images[0]} // Assuming image is a property of petListing
-                                            detailLink={`/pet_listings/${petListing.id}/`} // Assuming you want to create a link to the detail page for each pet listing
+                                            detailLink={`/pet_listings/information/${petListing.id}`} // Assuming you want to create a link to the detail page for each pet listing
                                             width={300}
                                             height={300}
                                         />
@@ -276,7 +267,7 @@ const SearchPage = () => {
                             <button
                                 className={`btn mx-1 text-color-baby-blue btn-secondary bg-white  ${previousPage ? '' : 'disabled'}`}
                                 onClick={handlePrevious}
-                                disabled={currentPage === 1}
+                                // disabled={currentPage === 1}
                             >
                                 Previous
                             </button>
@@ -286,7 +277,7 @@ const SearchPage = () => {
                             <button
                                 className={`btn mx-1 text-color-baby-blue btn-secondary bg-white ${nextPage ? '' : 'disabled'}`}
                                 onClick={handleNext}
-                                disabled={petListings.length === 0}
+                                // disabled={petListings.length === 0}
                             >
                                 Next
                             </button>

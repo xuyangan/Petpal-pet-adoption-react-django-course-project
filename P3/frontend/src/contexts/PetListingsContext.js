@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { AuthContext } from './AuthContext';
 
 export const PetListingsContext = createContext();
@@ -7,14 +7,16 @@ export const PetListingsContextProvider = ({ children }) => {
     const [petListings, setPetListings] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState([]); // error messages from the backend
-    const [errorStatus, setErrorStatus] = useState(null);
-    const { authToken } = React.useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState("");
+    // const [errorMessage, setErrorMessage] = useState([]);
+
+    const [errorStatus, setErrorStatus] = useState("");
+    const { authToken } = useContext(AuthContext);
     const [nextPage, setNextPage] = useState(null);
     const [previousPage, setPreviousPage] = useState(null);
     const [petListing, setPetListing] = useState(null);
     const [wasSuccessful, setWasSuccessful] = useState(false);
-    const [successMessage, setSuccessMessage] = useState([]); // success messages from the backend
+    const [successMessage, setSuccessMessage] = useState(""); // success messages from the backend
     const [filters, setFilters] = useState({
         shelter_name: "",
         breed: "",
@@ -49,25 +51,24 @@ export const PetListingsContextProvider = ({ children }) => {
                         "Authorization": `Bearer ${authToken}`
                     }
                 });
-
+            const json = await response.json();
             if (response.ok) {
-                const data = await response.json();
-                setNextPage(data.next);
-                setPreviousPage(data.previous);
-                // the actual list of pet listings is under the "results" key
-                setPetListings(data.results);
-                
-                // change the date
-                setIsError(false);
+
+                setNextPage(json.next);
+                setPreviousPage(json.previous);
+                setPetListings(json.results);
+                setNotErrorAlert();
+
             } else {
-                setErrorStatus(response.status);
-                setErrorMessage(response.statusText);
-                setIsError(true);
+
+                console.log(json);
+                setErrorMessageAlert(response.status, response.statusText + ": " + json["detail"]);
+
             }
 
         } catch (err) {
-            setErrorMessage(err.message);
-            setIsError(true);
+            console.log("error");
+            setErrorMessageAlert("", err.message);
         }
         setIsLoading(false);
     };
@@ -88,21 +89,18 @@ export const PetListingsContextProvider = ({ children }) => {
                         "Authorization": `Bearer ${authToken}`
                     }
                 });
-
+            const json = await response.json();
             if (response.ok) {
-                const data = await response.json();
-                setNextPage(data.next);
-                console.log("next", data.next);
-                setPreviousPage("previous", data.previous);
-                // the actual list of pet listings is under the "results" key
-                setPetListings(data.results);
-                console.log(data.results);
-                // change the date
-                setIsError(false);
+
+                setNextPage(json.next);
+                setPreviousPage(json.previous);
+                setPetListings(json.results);
+                setNotErrorAlert();
+
             } else {
-                setErrorStatus(response.status);
-                setErrorMessage(response.statusText);
-                setIsError(true);
+                console.log(json);
+                setErrorMessageAlert(response.status, response.statusText + ": " + json["detail"]);
+
             }
 
         } catch (err) {
@@ -112,8 +110,54 @@ export const PetListingsContextProvider = ({ children }) => {
         setIsLoading(false);
     };
 
+    const getShelterPetListings = async (username, page = 1) => {
+        try {
+            const response = await fetch("http://localhost:8000/pet_listings/" + username + "/" + "?page=" + page,
+                {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        "Authorization": `Bearer ${authToken}`
+                    }
+                });
+            const json = await response.json();
+            
+            if (response.ok) {
+                const results = await json["results"];
+                setNextPage(json.next);
+                setPreviousPage(json.previous);
+                setPetListings(results);
+                setNotErrorAlert();
 
+            } else {
+                console.log(json);
+                setErrorMessageAlert(response.status, response.statusText + ": " + json["detail"]);
 
+            }
+
+        } catch (err) {
+            setErrorMessage(err.message);
+            setIsError(true);
+        }
+        setIsLoading(false);
+    };
+
+    const resetFilters = () => {
+        setFilters({
+            shelter_name: "",
+            breed: "",
+            status: "available",
+            size: "",
+            max_age: "",
+            min_age: "",
+            gender: "",
+            colour: "",
+            sort_by_age: "",
+            sort_by_name: "",
+            sort_by_size: "",
+            sort_in_desc: ""
+        });
+    }
 
     const createPetListing = async (formData) => {
         setIsLoading(true);
@@ -131,20 +175,18 @@ export const PetListingsContextProvider = ({ children }) => {
             getPetListings();
 
             if (response.ok) {
-                setIsError(false);
-                setWasSuccessful(true);
+                setNotErrorAlert();
+                setSuccessAlert("Successfully created pet listing!");
             } else {
-                setErrorStatus(response.status);
-                setErrorMessage(response.statusText);
-                setIsError(true);
+                setErrorMessageAlert(response.status, response.statusText + ": " + json["detail"]);
             }
         } catch (error) {
-            setErrorMessage(error.message);
-            setIsError(true);
+            setErrorMessageAlert("", error.message);
 
         }
         setIsLoading(false);
     };
+
 
     const editPetListing = async (formData, id) => {
         setIsLoading(true);
@@ -160,17 +202,17 @@ export const PetListingsContextProvider = ({ children }) => {
             const json = await response.json();
             // call getPetListings to update the petListings state
             getPetListings();
+
             if (response.ok) {
-                setIsError(false);
-                setWasSuccessful(true);
+
+                setNotErrorAlert();
+                setSuccessAlert("Successfully updated pet listing!");
+
             } else {
-                setErrorStatus(response.status);
-                setErrorMessage(response.statusText);
-                setIsError(true);
+                setErrorMessageAlert(response.status, response.statusText + ": " + json["detail"]);
             }
         } catch (error) {
-            setErrorMessage(error.message);
-            setIsError(true);
+            setErrorMessageAlert("", error.message);
 
         }
         setIsLoading(false);
@@ -187,21 +229,16 @@ export const PetListingsContextProvider = ({ children }) => {
                         "Authorization": `Bearer ${authToken}`
                     }
                 });
-
+            const json = await response.json();
             if (response.ok) {
+                setPetListing(json);
+                setNotErrorAlert();
 
-                const data = await response.json();
-                setPetListing(data);
-                // the actual list of pet listings is under the "results" key
-                setIsError(false);
             } else {
-                setErrorStatus(response.status);
-                setErrorMessage(response.statusText);
-                setIsError(true);
+                setErrorMessageAlert(response.status, response.statusText + ": " + json["detail"]);
             }
         } catch (err) {
-            setErrorMessage(err.message);
-            setIsError(true);
+            setErrorMessageAlert("", err.message);
         }
         setIsLoading(false);
     };
@@ -217,23 +254,38 @@ export const PetListingsContextProvider = ({ children }) => {
                         "Authorization": `Bearer ${authToken}`
                     }
                 });
+            const json = await response.json();
 
             if (response.ok) {
                 // the actual list of pet listings is under the "results" key
-                setIsError(false);
+                setNotErrorAlert();
+                setSuccessAlert("Successfully deleted pet listing!");
             } else {
-                setErrorStatus(response.status);
-                setErrorMessage(response.statusText);
-                setIsError(true);
+                setErrorMessageAlert(response.status, response.statusText + ": " + json["detail"]);
             }
         } catch (err) {
-            setErrorMessage(err.message);
-            setIsError(true);
+            setErrorMessageAlert("", err.message);
         }
         setIsLoading(false);
+    };
+
+
+    const setSuccessAlert = (message) => {
+        setWasSuccessful(true);
+        setSuccessMessage(message);
     }
 
+    const setErrorMessageAlert = (status, message) => {
+        setIsError(true);
+        setErrorStatus(status);
+        setErrorMessage(message);
+    }
 
+    const setNotErrorAlert = () => {
+        setIsError(false);
+        setErrorStatus("");
+        setErrorMessage("");
+    }
     // Fetch pet listings on component mount
     // useEffect(() => {
     //     getPetListings();
@@ -246,7 +298,8 @@ export const PetListingsContextProvider = ({ children }) => {
             errorStatus, setPetListing, setPetListings, errorMessage, isError,
             wasSuccessful, setWasSuccessful, successMessage, setSuccessMessage,
             filters, setFilters, isFiltering, setIsFiltering, parseAge,
-            getAllPetListings, deletePetListing
+            getAllPetListings, deletePetListing, setSuccessAlert, getShelterPetListings,
+            resetFilters
         }}>
             {children}
         </PetListingsContext.Provider>

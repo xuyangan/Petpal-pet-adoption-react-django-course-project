@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 function PetCard({ name, status, imageSrc, detailLink, width, height }) {
   const cardStyle = {
     width: `${width}px`,
@@ -18,7 +19,7 @@ function PetCard({ name, status, imageSrc, detailLink, width, height }) {
           <p className="text-black fs-2 bold">{name}</p>
           <p className="text-body2">Status: {status}</p>
         </div>
-        <Link to={detailLink} className="btn btn-outline-primary card-button2">
+        <Link to={detailLink} className="btn card-button2 btn-outline-primary">
           More info</Link>
       </div>
     // </div>

@@ -119,6 +119,10 @@ class CustomPageNumberPagination(PageNumberPagination):
     page_size_query_param = 'page_size'
     max_page_size = 100
 
+class MessagePageNumberPagination(PageNumberPagination):
+    page_size = 3
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
 class GetApplicationSerializer(serializers.ModelSerializer):
     messages = MessageSerializer(many=True, read_only=True)

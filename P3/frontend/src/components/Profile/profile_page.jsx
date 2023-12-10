@@ -8,18 +8,18 @@ function Profile({firstName, lastName, email, phone, location, prefMission, prof
         if (isSame) {
             if (isSeeker) {
                 return <div className="mb-5">
-                  <div className="text-center">
+                  <div className="text-end ">
                     <Link to="/profile/update/seeker" className="btn btn-outline-primary"
                     style={{"z-index": "1"}}>Edit Profile</Link>
                   </div>
-                  <div className="text-center">
+                  <div className="text-end my-3">
                     <DeleteButton
                       isSeeker={isSeeker} />
                   </div>
                 </div>;
             } else {
               return <div className="mb-5">
-                <div className="text-center">
+                <div className="text-end my-3">
                   <Link to="/profile/update/shelter" className="btn btn-outline-primary"
                   style={{"z-index": "1"}}>Edit Profile</Link>
                 </div>
@@ -33,10 +33,9 @@ function Profile({firstName, lastName, email, phone, location, prefMission, prof
     }
 
     return (
-        <div className="container py-3">
           <div className="row">
             <div className="col-lg-8">
-              <div className="card mb-4 border-0 default-shadow">
+              <div className="card mb-4 border-0 shadow">
                 <div className="card-body text-center">
                   <div
                     className="rounded-top bg-color-baby-blue-3 d-flex flex-row"
@@ -47,7 +46,7 @@ function Profile({firstName, lastName, email, phone, location, prefMission, prof
                     //   style="width: 150px"
                     >
                       <img
-                        src={profile}
+                        src={"http://localhost:8000" + profile}
                         className="img-fluid img-thumbnail mt-4 mb-2"
                         style={{"width": "150px", "height": "150px", "z-index": "1"}}
                       />
@@ -117,7 +116,6 @@ function Profile({firstName, lastName, email, phone, location, prefMission, prof
               </div>
             </div>
           </div>
-        </div>
     )
 }
 

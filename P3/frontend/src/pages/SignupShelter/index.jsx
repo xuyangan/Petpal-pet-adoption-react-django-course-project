@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
+
 
 function SignupShelter() {
     const [shelterName, setShelterName] = useState("");
@@ -10,28 +12,53 @@ function SignupShelter() {
     const [phone, setPhone] = useState();
     const [location, setLocation] = useState();
     const [missionStatement, setMissionStatement] = useState();
-    const [profile, setProfile] = useState("");
+    const [profile, setProfile] = useState([]);
+
+
+    const handleUploadFiles = files => {
+        //empty array to store uploaded files
+        const uploaded = [];
+        files.some((file) => {
+            if (uploaded.findIndex((f) => f.name === file.name) === -1) {
+                uploaded.push(file);
+            }
+        });
+        setProfile(uploaded);
+    };
+    const handleFileEvent = (e) => {
+        const chosenFiles = Array.prototype.slice.call(e.target.files)
+        console.log(chosenFiles);
+        handleUploadFiles(chosenFiles);
+    };
+    const validateField = (field, value) => {
+        return ''; // No error
+    };
+
 
     const submitShelter = async (e) => {
         e.preventDefault();
+
+        const formSubmission = new FormData();
+        formSubmission.append("shelter_name", shelterName);
+        formSubmission.append("email", email);
+        formSubmission.append("username", username);
+        formSubmission.append("password", password1);
+        formSubmission.append("phone_number", phone);
+        formSubmission.append("location", location);
+        formSubmission.append("mission_statement", missionStatement);
+        profile.forEach((file) => {
+            formSubmission.append("profile_picture", file);
+        });
+
+
 
         try {
             const response = await fetch("http://localhost:8000/accounts/signup/shelter/", {
                 method: "POST",
                 mode: "cors",
                 headers: {
-                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    shelter_name: shelterName,
-                    email: email,
-                    username: username,
-                    password: password1,
-                    phone_number: phone,
-                    location: location,
-                    mission_statement: missionStatement,
-                    profile_picture: profile,
-                })
+                body: formSubmission
             })
 
             const json = await response.json();
@@ -128,12 +155,12 @@ function SignupShelter() {
                                 placeholder="Enter mission statement" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="shelter-profile-input">Profile Picture</label>
-                            <input
-                                value={profile}
-                                onChange={(e) => setProfile(URL.createObjectURL(e.target.files[0]))}
-                                type="file" className="form-control" id="shelter-profile-input" />
-                        </div>
+                            <FileUploadField
+                                label="Profile Picture"
+                                id="file-upload"
+                                onChange={handleUploadFiles}
+                                validate={validateField}
+                            /></div>
                         <div className="form-group text-center">
                             <button type="submit" className="btn btn-primary">Sign Up</button>
                         </div>

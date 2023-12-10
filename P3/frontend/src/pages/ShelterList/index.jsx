@@ -3,8 +3,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 import ShelterCard from "../../components/ShelterList/shelter_card";
 
 function ShelterList() {
-    const [nextUrl, setNextUrl] = useState("");
-    const [prevUrl, setPrevUrl] = useState("");
+    const [nextUrl, setNextUrl] = useState(null);
+    const [prevUrl, setPrevUrl] = useState(null);
     const [data, setData] = useState([]);
 
     const { authToken, setAuthToken } = useContext(AuthContext);
@@ -51,10 +51,14 @@ function ShelterList() {
             if (await json["next"]) {
                 console.log(await json["next"])
                 setNextUrl(await json["next"]);
+            } else {
+                setNextUrl(null);
             }
             if (await json["previous"]) {
                 console.log(await json["previous"]);
                 setPrevUrl(await json["previous"]);
+            } else {
+                setPrevUrl(null);
             }
             const result = await json["results"];
 
@@ -135,16 +139,18 @@ function ShelterList() {
 
     return (
         <div className="bg-color-baby-blue-3">
+            <div className="container my-3">
             <div className="vstack gap-3">
                 <List />
-                <div className="btn-toolbar" role="toolbar">
-                    <div className="btn-group" role="group">
-                        <button type="button" className="btn btn-secondary" onClick={() => getBackShelterListings()}>Back</button>
+                <div className="text-center">
+                    <div className="btn-group mx-2" role="group">
+                        <button type="button" className="btn btn-secondary " disabled={!prevUrl} onClick={() => getBackShelterListings()} >Back</button>
                     </div>
-                    <div className="btn-group" role="group">
-                        <button type="button" className="btn btn-secondary" onClick={() => getNextShelterListings()}>Next</button>
+                    <div className="btn-group mx-2" role="group">
+                        <button type="button" className="btn btn-secondary" disabled={!nextUrl} onClick={() => getNextShelterListings()}>Next</button>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     )
