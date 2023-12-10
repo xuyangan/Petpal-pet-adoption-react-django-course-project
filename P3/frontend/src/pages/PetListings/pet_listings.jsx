@@ -8,11 +8,8 @@ const PetListings = () => {
     
 
     return (
-        <div className='container'>
+        <div className='container my-3'>
             <PetGallery />
-            <hr/>
-            <h1>These pets are looking for a good home</h1>
-
         </div>
     )
 }

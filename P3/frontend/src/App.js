@@ -34,6 +34,8 @@ import Analytics from './pages/Analytics';
 import { ShelterSeekerContextProvider } from './contexts/ShelterSeekerContext';
 import LayoutLoggedOut from './components/LayoutLoggedOut';
 import MorePetListings from './pages/MorePetListings/more_pet_listings';
+import NotificationCenter from './pages/NotificationCenter';
+
 
 function App() {
   const [authToken, setAuthToken] = useState("a");
@@ -52,10 +54,6 @@ function App() {
               <Routes>
                 <Route path="/" element={<Layout />}>
                   <Route index element={<Landing />} />
-                  <Route path="login" element={<Login />} />
-                  <Route path="signup" element={<Signup />} />
-                  <Route path="signup/seeker" element={<SignupSeeker />} />
-                  <Route path="signup/shelter" element={<SignupShelter />} />
                   <Route path="profile/seeker/:username" element={<SeekerProfile />} />
                   <Route path="profile/shelter/:username" element={<ShelterProfile />} />
                   <Route path="profile/update/seeker" element={<UpdateSeeker />} />
@@ -67,7 +65,8 @@ function App() {
                   <Route path="applications/faq/" element={<FAQ />} />
                   <Route path="applications/dashboard/seeker" element={<ApplicationsDashboardSeeker />} />
                   <Route path="applications/dashboard/shelter" element={<ApplicationsDashboardShelter />} />
-                  <Route path="/applications/:application_id/messages" element={<ApplicationMessages />} />
+                  <Route path="applications/:application_id/messages" element={<ApplicationMessages />} />
+                  <Route path="notifications" element={<NotificationCenter />} />
                   <Route path="analytics" element={<Analytics />} />
                   <Route path="shelter_management" element={<ShelterManagement />} />
                   <Route path="pet_listings" element={<PetListings />} />
@@ -79,14 +78,14 @@ function App() {
                 </Route>
 
 
-
-                <Route path="/pet_listings/" element={<Layout />}>
-                  <Route index element={<SearchPage />} />
-                  {/* <Route path="create/" element={<PetCreationForm />} /> */}
-                  <Route path="list/" element={<PetListings />} />
-                  {/* <Route path=":petId/" element={<PetInformation />} />
-                  <Route path=":petId/edit/" element={<PetEditForm />} /> */}
+                <Route path="/" element={<LayoutLoggedOut />}>
+                  <Route path="login" element={<Login />} />
+                  <Route path="signup" element={<Signup />} />
+                  <Route path="signup/seeker" element={<SignupSeeker />} />
+                  <Route path="signup/shelter" element={<SignupShelter />} />
                 </Route>
+
+              
               </Routes>
             </BrowserRouter>
           </PetListingsContextProvider>

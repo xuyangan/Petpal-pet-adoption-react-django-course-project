@@ -32,17 +32,23 @@ const PetInformation = ({ children }) => {
                     Delete
                 </button></>
             )
-        } else if (isSeeker) {
-            return (<Link to="pet-adoption-page.html" className="btn mx-1 text-white btn-secondary  ">
+        } else if (isSeeker && petListing.status === "available") {
+            console.log(petListing.status);
+            return (<Link 
+                to={`/applications/${petId}`} 
+                className="btn mx-1 text-white btn-secondary">
                 Apply
             </Link>)
+        } else if (isSeeker) {
+            console.log(petListing.status);
+            return (<>
+            </>);
         }
     };
 
 
         useEffect(() => {
             getPetListing(petId); // Fetch pet listing when the component mounts
-            console.log(petListing);
         }
             , []); // Empty dependency array ensures this runs once on mount
 

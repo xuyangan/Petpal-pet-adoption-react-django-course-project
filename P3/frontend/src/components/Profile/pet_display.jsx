@@ -13,7 +13,9 @@ function PetDisplay({ username }) {
         getDisplay();
     }, [])
 
-    const getDisplay = async () => {
+    
+
+    const getDisplay = async () => {  
         const url = "http://localhost:8000/pet_listings/" + username + "/";
         const response = await fetch(url, {
             method: "GET",
@@ -25,12 +27,12 @@ function PetDisplay({ username }) {
         const result = await json["results"]
         console.log(json);
         console.log(result);
-        const slicedResult = await result.slice(0, 3);
-        setData(slicedResult);
+        // const slicedResult = await result.slice(0, 3);
+        setData(result);
     }
 
     function List() {
-        if (data.length === 0) {
+        if (data === undefined || data.length === 0) {
             return (
                 <div className="alert alert-info bg-color-baby-blue-3 text-info ">
                     No pets found
@@ -45,7 +47,7 @@ function PetDisplay({ username }) {
                     name={petListing.name}
                     status={petListing.status}
                     imageSrc={"http://localhost:8000" + petListing.pet_images[0]}
-                    detailLink={`/pet_listings/${petListing.id}/`}
+                    detailLink={`/pet_listings/information/${petListing.id}/`}
                     width={300}
                     height={300}
                 />

@@ -7,6 +7,7 @@ import Profile from "../../components/Profile/profile_page";
 import PetDisplay from "../../components/Profile/pet_display";
 import CommentSection from "../CommentSection";
 import ShelterAnalytics from "../ShelterAnalytics";
+import MorePetListings from "../MorePetListings/more_pet_listings";
 
 function ShelterProfile() {
     const [shelterName, setShelterName] = useState("");
@@ -94,6 +95,9 @@ function ShelterProfile() {
                 <PetDisplay
                     username={username}
                 />
+                {/* <MorePetListings
+                    username={username}
+                /> */}
                 <CommentSection
                     sheltername={username}
                 />
