@@ -3,13 +3,14 @@ import NavLink from '../Links/NavLink/nav_link';
 import Dropdown from '../Dropdown/dropdown';
 
 
-const DefaultHeader = () => {
+const NotLoggedInHeader = () => {
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-color-baby-blue default-shadow" data-bs-theme="dark">
                 <div className="container">
-                    <PetPalLink href="/" />
-                    <button
+                    <PetPalLink redirect="/" />
+                    {/* <button
                         className="navbar-toggler border-0"
                         type="button"
                         data-bs-toggle="collapse"
@@ -23,10 +24,8 @@ const DefaultHeader = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <NavLink to="/" label="Home" />
-                            {/* <NavLink to="/applications" label="Applications" /> */}
-                            {/* <NavLink to="/explore" label="Explore" /> */}
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
                 {/* <Dropdown /> */}
             </nav>
@@ -36,4 +35,4 @@ const DefaultHeader = () => {
     );
 }
 
-export default DefaultHeader;
+export default NotLoggedInHeader;

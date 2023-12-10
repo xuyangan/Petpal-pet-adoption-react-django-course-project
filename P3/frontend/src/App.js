@@ -31,55 +31,64 @@ import ApplicationsDashboardShelter from './pages/ApplicationListShelterPOV';
 import ApplicationMessages from './pages/ApplicationMessage';
 import SearchPage from './pages/SearchPage/search_page';
 import Analytics from './pages/Analytics';
+import { ShelterSeekerContextProvider } from './contexts/ShelterSeekerContext';
+import LayoutLoggedOut from './components/LayoutLoggedOut';
 
 function App() {
-  const [authToken, setAuthToken] = useState("");
+  const [authToken, setAuthToken] = useState("a");
   const value = { authToken, setAuthToken };
 
   const [id, setId] = useState("");
   const idValue = { id, setId };
 
-  console.log("check auth", authToken);
 
   return (
     <AuthContext.Provider value={value}>
       <IdContext.Provider value={idValue}>
-        <PetListingsContextProvider value={value}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Landing />} />
-                <Route path="login" element={<Login />} />
-                <Route path="signup" element={<Signup />} />
-                <Route path="signup/seeker" element={<SignupSeeker />} />
-                <Route path="signup/shelter" element={<SignupShelter />} />
-                <Route path="profile/seeker/:username" element={<SeekerProfile />} />
-                <Route path="profile/shelter/:username" element={<ShelterProfile />} />
-                <Route path="profile/update/seeker" element={<UpdateSeeker />} />
-                <Route path="profile/update/shelter" element={<UpdateShelter />} />
-                <Route path="shelters" element={<ShelterList />} />
-                <Route path="applications/:application_id/" element={<ApplicationCreate />} />
-                <Route path="applications/view/:application_id/seeker" element={<ApplicationViewUpdateSeeker />} />
-                <Route path="applications/view/:application_id/shelter" element={<ApplicationViewUpdateShelter />} />
-                <Route path="applications/faq/" element={<FAQ />} />
-                <Route path="applications/dashboard/seeker" element={<ApplicationsDashboardSeeker/>} />
-                <Route path="applications/dashboard/shelter" element={<ApplicationsDashboardShelter/>} />
-                <Route path="/applications/:application_id/messages" element={<ApplicationMessages />} />
-                <Route path="analytics" element={<Analytics />} />
+        <ShelterSeekerContextProvider value={{}}>
+          <PetListingsContextProvider value={{}}>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Landing />} />
+                  <Route path="login" element={<Login />} />
+                  <Route path="signup" element={<Signup />} />
+                  <Route path="signup/seeker" element={<SignupSeeker />} />
+                  <Route path="signup/shelter" element={<SignupShelter />} />
+                  <Route path="profile/seeker/:username" element={<SeekerProfile />} />
+                  <Route path="profile/shelter/:username" element={<ShelterProfile />} />
+                  <Route path="profile/update/seeker" element={<UpdateSeeker />} />
+                  <Route path="profile/update/shelter" element={<UpdateShelter />} />
+                  <Route path="shelters" element={<ShelterList />} />
+                  <Route path="applications/:application_id/" element={<ApplicationCreate />} />
+                  <Route path="applications/view/:application_id/seeker" element={<ApplicationViewUpdateSeeker />} />
+                  <Route path="applications/view/:application_id/shelter" element={<ApplicationViewUpdateShelter />} />
+                  <Route path="applications/faq/" element={<FAQ />} />
+                  <Route path="applications/dashboard/seeker" element={<ApplicationsDashboardSeeker />} />
+                  <Route path="applications/dashboard/shelter" element={<ApplicationsDashboardShelter />} />
+                  <Route path="/applications/:application_id/messages" element={<ApplicationMessages />} />
+                  <Route path="analytics" element={<Analytics />} />
+                  <Route path="shelter_management" element={<ShelterManagement />} />
+                  <Route path="pet_listings" element={<PetListings />} />
+                  <Route path="pet_listings/information/:petId" element={<PetInformation />} />
+                  <Route path="pet_listings/edit/:petId" element={<PetEditForm />} />
+                  <Route path="pet_listings/create" element={<PetCreationForm />} />
+                  <Route path="pet_listings/search" element={<SearchPage />} />
+                </Route>
 
 
-              </Route>
 
-              <Route path="/pet_listings/" element={<Layout />}>
-                <Route index element={<SearchPage />} />
-                <Route path="create/" element={<PetCreationForm />} />
-                <Route path="list/" element={<PetListings />} />
-                <Route path=":petId/" element={<PetInformation />} />
-                <Route path=":petId/edit/" element={<PetEditForm />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </PetListingsContextProvider>
+                <Route path="/pet_listings/" element={<Layout />}>
+                  <Route index element={<SearchPage />} />
+                  {/* <Route path="create/" element={<PetCreationForm />} /> */}
+                  <Route path="list/" element={<PetListings />} />
+                  <Route path=":petId/" element={<PetInformation />} />
+                  <Route path=":petId/edit/" element={<PetEditForm />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </PetListingsContextProvider>
+        </ShelterSeekerContextProvider>
       </IdContext.Provider>
     </AuthContext.Provider>
   )

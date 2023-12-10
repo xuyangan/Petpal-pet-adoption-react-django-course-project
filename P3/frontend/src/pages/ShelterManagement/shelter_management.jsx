@@ -177,13 +177,7 @@ const ShelterManagement = () => {
 
                 </div>
                 <div className="col-lg-10 col-md-9 border-0">
-                    {wasSuccessful ? (
-                        <div className="alert alert-info bg-color-baby-blue-3 text-info" role="alert">
-                            {successMessage}
-                        </div>
-                    ) : (
-                        <div></div>
-                    )
+                    {
                     }
                     <div className="table-responsive rounded  d-flex flex-column bg-light shadow justify-content-between">
 

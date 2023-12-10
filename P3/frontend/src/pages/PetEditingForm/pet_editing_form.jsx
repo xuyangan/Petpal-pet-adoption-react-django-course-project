@@ -181,7 +181,7 @@ const PetEditForm = ({ children }) => {
         // Send FormData to server
         setSuccessMessage("Listing successfully updated!")
         editPetListing(formSubmission, petId);
-        navigate("/pet_listings/");
+        navigate("/shelter_management/");
     };
 
     // ... rest of your component
@@ -190,11 +190,7 @@ const PetEditForm = ({ children }) => {
             <div className="">
                 <div className="card p-5">
                     <h1>EditListing</h1>
-                    {wasSuccessful && (
-                        <div className="alert alert-info bg-color-baby-blue-3" role="alert">
-                            Listing successfully updated!
-                        </div>
-                    )}
+                    
                     <form className="col-" nonvalidate encType="multipart/form-data" onSubmit={handleSubmit}>
 
                         <TextField

@@ -168,8 +168,8 @@ const SearchPage = () => {
                     <h1> Search PetListings</h1>
                     <form className="" nonvalidate encType="multipart/form-data" onSubmit={handleSubmit}>
                         <button type="submit" className="btn btn-primary">Search</button>
-                        <div className='d-flex flex-row gap-3'>
-                            <div>
+                        <div className='row'>
+                            <div className='col-md-2'>
                                 <TextField
                                     label="Shelter Name"
                                     name="shelter_name"
@@ -180,7 +180,7 @@ const SearchPage = () => {
                                     validate={(value) => validateField('Bhelter_name', value)}
                                 />
                             </div>
-                            <div>
+                            <div className='col-md-2'>
                                 <TextField
                                     label="Breed"
                                     name="breed"
@@ -200,7 +200,7 @@ const SearchPage = () => {
                                     validate={(value) => validateField('Colour', value)}
                                 />
                             </div>
-                            <div>
+                            <div  className='col-md-2'>
                                 <NumberField label="Min age"
                                     id="min_age"
                                     value={formData.min_age}
@@ -214,6 +214,7 @@ const SearchPage = () => {
                                     validate={(value) => validateField('max_age', value)}
                                 />
                             </div>
+                            <div className='col-md-2'>
                             <RadioButtonGroup
                                 label="Size"
                                 name="size"
@@ -228,6 +229,8 @@ const SearchPage = () => {
                                 value={formData.gender}
                                 onChange={handleChange('gender')}
                             />
+                            </div>
+                            <div className='col-md-2'>
                             <RadioButtonGroup
                                 label="Status"
                                 name="status"
@@ -235,7 +238,8 @@ const SearchPage = () => {
                                 value={formData.status}
                                 onChange={handleChange('status')}
                             />
-                            <div>
+                            </div>
+                            <div className='col-md-2'>
                                 <CheckboxGroup
                                     label="Sorting by:"
                                     options={sort_options.map(option => ({
@@ -251,7 +255,7 @@ const SearchPage = () => {
                     </form>
                 </div>
                 <div>
-                    <div className="card border-1 my-4 shadow">
+                    <div className="card border-1 my-4 shadow p-2">
                         {petListings.length === 0 && (<div className="alert alert-info bg-color-baby-blue-3 text-info" role="alert">
                             No pets found!
                         </div>)}
@@ -264,7 +268,7 @@ const SearchPage = () => {
                                             name={petListing.name}
                                             status={petListing.status} // Assuming status is a property of petListing
                                             imageSrc={"http://localhost:8000" + petListing.pet_images[0]} // Assuming image is a property of petListing
-                                            detailLink={`/pet_listings/${petListing.id}/`} // Assuming you want to create a link to the detail page for each pet listing
+                                            detailLink={`/pet_listings/information/${petListing.id}`} // Assuming you want to create a link to the detail page for each pet listing
                                             width={300}
                                             height={300}
                                         />
@@ -276,7 +280,7 @@ const SearchPage = () => {
                             <button
                                 className={`btn mx-1 text-color-baby-blue btn-secondary bg-white  ${previousPage ? '' : 'disabled'}`}
                                 onClick={handlePrevious}
-                                disabled={currentPage === 1}
+                                // disabled={currentPage === 1}
                             >
                                 Previous
                             </button>
@@ -286,7 +290,7 @@ const SearchPage = () => {
                             <button
                                 className={`btn mx-1 text-color-baby-blue btn-secondary bg-white ${nextPage ? '' : 'disabled'}`}
                                 onClick={handleNext}
-                                disabled={petListings.length === 0}
+                                // disabled={petListings.length === 0}
                             >
                                 Next
                             </button>

@@ -94,7 +94,8 @@ function SignupSeeker() {
                 setPhone();
                 setLocation();
                 setPreferences();
-                setProfile("");
+                setProfile([]);
+                window.alert("Account created successfully! Please log in to continue.");
             }
         } catch (error) {
             console.log(error)

@@ -89,8 +89,7 @@ const ShelterAnalytics = ({ sheltername }) => {
   }, [authToken, sheltername]); // Include authToken as a dependency to update analytics when the token changes
 
   return (
-    <div className="container">
-      <div className="card analytics-card bg-transparent border-0">
+      <div className="analytics-card bg-transparent border-0 shadow">
         <div className="card-body">
           {/* Adjust the content based on the analytics you want to display */}
           <div className="card pet-listings mb-3">
@@ -105,7 +104,6 @@ const ShelterAnalytics = ({ sheltername }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

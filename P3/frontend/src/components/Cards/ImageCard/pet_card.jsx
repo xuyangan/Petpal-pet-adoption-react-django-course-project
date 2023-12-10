@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 function PetCard({ name, status, imageSrc, detailLink, width, height }) {
   const cardStyle = {
     width: `${width}px`,

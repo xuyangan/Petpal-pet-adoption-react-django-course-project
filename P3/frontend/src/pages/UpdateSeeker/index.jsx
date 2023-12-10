@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
 
 
-function UpdateSeeker() {
+function  UpdateSeeker() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");

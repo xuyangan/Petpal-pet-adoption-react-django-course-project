@@ -33,10 +33,9 @@ function Profile({firstName, lastName, email, phone, location, prefMission, prof
     }
 
     return (
-        <div className="container py-3">
           <div className="row">
             <div className="col-lg-8">
-              <div className="card mb-4 border-0 default-shadow">
+              <div className="card mb-4 border-0 shadow">
                 <div className="card-body text-center">
                   <div
                     className="rounded-top bg-color-baby-blue-3 d-flex flex-row"
@@ -117,7 +116,6 @@ function Profile({firstName, lastName, email, phone, location, prefMission, prof
               </div>
             </div>
           </div>
-        </div>
     )
 }
 
