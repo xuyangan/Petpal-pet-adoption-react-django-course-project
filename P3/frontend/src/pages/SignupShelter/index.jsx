@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
 
 
@@ -13,6 +13,7 @@ function SignupShelter() {
     const [location, setLocation] = useState("");
     const [missionStatement, setMissionStatement] = useState("");
     const [profile, setProfile] = useState([]);
+    const navigate = useNavigate();
 
 
     const handleUploadFiles = files => {
@@ -192,6 +193,7 @@ function SignupShelter() {
                 setMissionStatement();
                 setProfile([]);
                 window.alert("Account created successfully! Please log in to continue.");
+                navigate("/login");
             }
         } catch (error) {
             console.log(error);

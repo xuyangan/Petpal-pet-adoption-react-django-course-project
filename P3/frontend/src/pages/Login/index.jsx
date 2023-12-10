@@ -97,10 +97,10 @@ function Login() {
                         </div>
                     </form>
                     <Link to="/signup" className="link-primary">Don't have an account? Sign up</Link>
-                    <Link to="/profile/shelter/s1" className="link-primary">test</Link>
+                    {/* <Link to="/profile/shelter/s1" className="link-primary">test</Link>
                     <Link to="/notifications" className="link-primary">test2</Link>
                     <Link to="/applications/1/messages" className="link-primary">test3p</Link>
-                    <Link to="/pet_listings/search" className="link-primary">search</Link>
+                    <Link to="/pet_listings/search" className="link-primary">search</Link> */}
                 </div>
             </div>
         </body>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
 
 function SignupSeeker() {
@@ -13,6 +13,7 @@ function SignupSeeker() {
     const [location, setLocation] = useState("");
     const [preferences, setPreferences] = useState("");
     const [profile, setProfile] = useState([]);
+    const navigate = useNavigate();
 
     const handleFileEvent = (e) => {
         const chosenFiles = Array.prototype.slice.call(e.target.files)
@@ -220,6 +221,7 @@ function SignupSeeker() {
                     password2: null,
                 });
                 window.alert("Account created successfully! Please log in to continue.");
+                navigate("/login");
             }
         } catch (error) {
             console.log(error)

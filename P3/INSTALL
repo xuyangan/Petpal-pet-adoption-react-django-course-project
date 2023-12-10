@@ -4,3 +4,27 @@
 
 # 1. All the packages you need to install
 # 2. How to configure various servers (e.g., Nginx, Apache, etc)
+Required packages:
+In backend
+- Django==4.2.7
+- Pillow==10.1.0
+- djangorestframework==3.14.0
+- djangorestframework_simplejwt==4.7.2
+- django-cors-headers==4.3.1
+- django-admin-tools-stats==0.9.0
+- django-admin-charts==1.3.0
+- django-admin-tools==0.9.3
+
+In frontend
+- Node
+- react-router-dom
+
+How to setup:
+In backend
+To start with a blank model
+- Create a virtual environment by running virtualenv venv
+- Run pip install on all of the required backend packages
+
+In frontend
+- Install Node (download from the website or on Mac using Homebrew run brew install node)
+- Using npm, run npm react-router-dom
