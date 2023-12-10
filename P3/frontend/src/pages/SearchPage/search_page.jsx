@@ -13,7 +13,7 @@ import CheckboxGroup from '../../components/FormComponents/CheckboxGroupField/ch
 const SearchPage = () => {
     const {
         petListings, getPetListings, isLoading, isError, errorMessage,
-        errorStatus, wasSuccessful, setIsError, setIsLoading, setErrorMessage,
+        errorStatus, wasSuccessful, setIsError, setIsLoading, resetFilters,
         setErrorStatus, setWasSuccessful, filters, setIsFiltering, nextPage, previousPage,
     } = useContext(PetListingsContext);
     const [currentPage, setCurrentPage] = useState(1);
@@ -59,6 +59,10 @@ const SearchPage = () => {
         { id: 'sort_by_size', label: 'Size', value: 'sort_by_size' },
         { id: 'sort_in_desc', label: 'Descending', value: 'sort_in_desc' }
     ];
+
+    useEffect(() => {
+        resetFilters();
+    }, []);
 
     useEffect(() => {
         getPetListings(currentPage); // Fetch pet listings when the component mounts
@@ -142,23 +146,6 @@ const SearchPage = () => {
         
 
     };
-
-    const resetFilters = () => {
-
-        filters.shelter_name = '';
-        filters.breed = '';
-        filters.status = 'available';
-        filters.size = '';
-        filters.max_age = '';
-        filters.min_age = '';
-        filters.colour = '';
-        filters.gender = '';
-        filters.sort_by_age = false;
-        filters.sort_by_name = false;
-        filters.sort_by_size = false;
-        filters.sort_in_desc = false;
-
-    }
 
 
     return (

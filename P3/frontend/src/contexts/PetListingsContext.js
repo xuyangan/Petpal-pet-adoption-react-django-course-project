@@ -110,8 +110,54 @@ export const PetListingsContextProvider = ({ children }) => {
         setIsLoading(false);
     };
 
+    const getShelterPetListings = async (username, page = 1) => {
+        try {
+            const response = await fetch("http://localhost:8000/pet_listings/" + username + "/" + "?page=" + page,
+                {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        "Authorization": `Bearer ${authToken}`
+                    }
+                });
+            const json = await response.json();
+            
+            if (response.ok) {
+                const results = await json["results"];
+                setNextPage(json.next);
+                setPreviousPage(json.previous);
+                setPetListings(results);
+                setNotErrorAlert();
 
+            } else {
+                console.log(json);
+                setErrorMessageAlert(response.status, response.statusText + ": " + json["detail"]);
 
+            }
+
+        } catch (err) {
+            setErrorMessage(err.message);
+            setIsError(true);
+        }
+        setIsLoading(false);
+    };
+
+    const resetFilters = () => {
+        setFilters({
+            shelter_name: "",
+            breed: "",
+            status: "available",
+            size: "",
+            max_age: "",
+            min_age: "",
+            gender: "",
+            colour: "",
+            sort_by_age: "",
+            sort_by_name: "",
+            sort_by_size: "",
+            sort_in_desc: ""
+        });
+    }
 
     const createPetListing = async (formData) => {
         setIsLoading(true);
@@ -252,7 +298,8 @@ export const PetListingsContextProvider = ({ children }) => {
             errorStatus, setPetListing, setPetListings, errorMessage, isError,
             wasSuccessful, setWasSuccessful, successMessage, setSuccessMessage,
             filters, setFilters, isFiltering, setIsFiltering, parseAge,
-            getAllPetListings, deletePetListing, setSuccessAlert
+            getAllPetListings, deletePetListing, setSuccessAlert, getShelterPetListings,
+            resetFilters
         }}>
             {children}
         </PetListingsContext.Provider>

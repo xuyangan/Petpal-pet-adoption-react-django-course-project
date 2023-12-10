@@ -305,7 +305,7 @@ const PetEditForm = ({ children }) => {
                             ))}
                         </div>
 
-                        <button type="submit" className="btn btn-primary">Create New Listing</button>
+                        <button type="submit" className="btn btn-primary">Edit Listing</button>
 
                         {formErrors.length > 0 && (
                             <lu>

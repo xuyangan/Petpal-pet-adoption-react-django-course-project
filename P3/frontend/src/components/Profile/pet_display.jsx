@@ -63,9 +63,9 @@ function PetDisplay({ username }) {
         <div className="card shadow p-2 d-flex flex-column justify-content-between" >
             <List />
             <div className="text-center mt-5 mb-3">
-                <button className="btn btn-outline-primary mx-2">
+                <Link to={"/pet_listings/" + username} className="btn btn-outline-primary mx-2">
                     See More
-                </button>
+                </Link>
                 { isShelter && <Link to="/shelter_management" className="btn btn-outline-primary mx-2">
                     Manage Listings
                 </Link>}

@@ -33,6 +33,7 @@ import SearchPage from './pages/SearchPage/search_page';
 import Analytics from './pages/Analytics';
 import { ShelterSeekerContextProvider } from './contexts/ShelterSeekerContext';
 import LayoutLoggedOut from './components/LayoutLoggedOut';
+import MorePetListings from './pages/MorePetListings/more_pet_listings';
 
 function App() {
   const [authToken, setAuthToken] = useState("a");
@@ -74,6 +75,7 @@ function App() {
                   <Route path="pet_listings/edit/:petId" element={<PetEditForm />} />
                   <Route path="pet_listings/create" element={<PetCreationForm />} />
                   <Route path="pet_listings/search" element={<SearchPage />} />
+                  <Route path="pet_listings/:username" element={<MorePetListings />} />
                 </Route>
 
 
@@ -82,8 +84,8 @@ function App() {
                   <Route index element={<SearchPage />} />
                   {/* <Route path="create/" element={<PetCreationForm />} /> */}
                   <Route path="list/" element={<PetListings />} />
-                  <Route path=":petId/" element={<PetInformation />} />
-                  <Route path=":petId/edit/" element={<PetEditForm />} />
+                  {/* <Route path=":petId/" element={<PetInformation />} />
+                  <Route path=":petId/edit/" element={<PetEditForm />} /> */}
                 </Route>
               </Routes>
             </BrowserRouter>

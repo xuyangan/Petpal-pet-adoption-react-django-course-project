@@ -20,7 +20,7 @@ const PetInformation = ({ children }) => {
 
     const handleDelete = () => {
         deletePetListing(petId);
-        navigate('/pet_listings/');
+        navigate('/shelter_management/');
     }
 
     const buttonOptions = () => {

@@ -6,15 +6,21 @@ import { PetListingsContext } from '../../contexts/PetListingsContext';
 import { useContext } from 'react';
 import ProfilePicture from '../../components/ProfilePicture/profile_picture';
 import ErrorStatusMessage from '../../components/ErrorStatusMessage/error_status_message';
-
+import { IdContext } from '../../contexts/IdContext';
 
 
 const ShelterManagement = () => {
+    const {id, setId} = useContext(IdContext);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const { petListings, getPetListings, nextPage, previousPage, wasSuccessful,
         setWasSuccessful, successMessage, filters, setIsFiltering, isFiltering,
-        getAllPetListings, isError, isLoading, errorStatus, errorMessage } = useContext(PetListingsContext);
+        getAllPetListings, isError, isLoading, errorStatus, errorMessage, resetFilters
+     } = useContext(PetListingsContext);
     const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        resetFilters();
+    }, []);
 
     useEffect(() => {
         console.log(currentPage);
@@ -142,9 +148,9 @@ const ShelterManagement = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <button onClick={getAllListings} className="btn btn-link text-color-baby-blue bold text-decoration-none px-0">
+                                    <p  className="nav nav-pills text-color-baby-blue bold text-decoration-none py-2">
                                         <i className="fs-4 bi-house"></i> <span className="fs-5 bold">Listings</span>
-                                    </button>
+                                    </p>
                                     <ul className="collapse show nav flex-column ms-3" id="submenu1" data-bs-parent="#menu">
                                         <li className="w-100 mb-2">
                                             <button onClick={getActiveListings} className="btn btn-link text-color-baby-blue text-decoration-none">
@@ -169,7 +175,7 @@ const ShelterManagement = () => {
                                     </ul>
                                 </li>
                             </ul>
-                            <Link to="/shelter-detail-page" className="btn-link text-color-baby-blue bold text-decoration-none px-0">
+                            <Link to={`/profile/shelter/${id}`} className="btn-link text-color-baby-blue bold text-decoration-none px-0">
                                 <i className="fs-4 bi-house"></i> <span className="fs-auto">Back To Profile</span>
                             </Link>
                         </div>
@@ -177,7 +183,12 @@ const ShelterManagement = () => {
 
                 </div>
                 <div className="col-lg-10 col-md-9 border-0">
-                    {
+                    { wasSuccessful && (
+                        <div className="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>{successMessage}</strong>
+                            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={() => setWasSuccessful(false)}></button>
+                        </div>
+                    )
                     }
                     <div className="table-responsive rounded  d-flex flex-column bg-light shadow justify-content-between">
 
