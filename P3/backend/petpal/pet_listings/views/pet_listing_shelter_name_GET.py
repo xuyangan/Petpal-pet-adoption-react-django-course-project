@@ -12,6 +12,9 @@ class PetListingShelterList(ListAPIView):
 
 
     def get_queryset(self):
+        curr_user = self.request.user
+        if curr_user.is_superuser:
+            return PetListing.objects.all()
         shelter = self.kwargs.get('shelter_name')
         user = PetUser.objects.get(username=shelter)
         return user.pet_listings.all()

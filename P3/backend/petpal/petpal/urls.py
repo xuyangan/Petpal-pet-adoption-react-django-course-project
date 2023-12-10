@@ -19,8 +19,11 @@ from django.urls import path, include
 from petpal import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "Mini_blog_header"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin_tools_stats/', include('admin_tools_stats.urls')),
     path('pet_listings/', include('pet_listings.urls', namespace='pet_listings')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('comments/', include('comments.urls', namespace='comments')),

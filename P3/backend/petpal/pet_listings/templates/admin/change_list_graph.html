@@ -1,0 +1,99 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+    <!-- Existing admin content -->
+    <h2>Top Breeds Chart</h2>
+    <div>
+        <canvas id="breedChart" width="400" height="400"></canvas>
+    </div>
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        const csrftoken = getCookie('csrftoken');
+
+        fetch('http://127.0.0.1:8000/pet_listings/top-breeds-chart/', {
+            method: 'GET',
+            mode:"same-origin",
+            headers: {
+                'X-CSRFToken': csrftoken,
+            },
+            credentials: 'include',
+            
+        })
+        .then((response) => {return response.json();})
+        .then((data) => {
+            console.log(data)
+
+            var parsed_data = {}
+
+            for (var i=0; i < data.results.length; i++) {
+                if (!(data.results[i].breed in parsed_data)) {
+                    parsed_data[data.results[i].breed] = 0
+                }
+                parsed_data[data.results[i].breed] = parsed_data[data.results[i].breed] + 1
+            };
+            console.log(parsed_data);
+
+            var final = []
+
+            var colors = []
+
+            var randomColorGenerator = function() {
+                return '#' + (Math.random().toString(16) + '0000000').slice(2,8);
+            }
+
+            Object.keys(parsed_data).forEach(function(key) {
+                var temp = {};
+                temp.breed = key;
+                temp.count = parsed_data[key];
+                final.push(temp);
+                colors.push(randomColorGenerator())
+            });
+
+            console.log(final)
+
+            const ctx = document.getElementById('breedChart').getContext('2d');
+            const breedChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: final.map(item => item.breed),
+                    datasets: [{
+                        label: '# of Pets',
+                        data: final.map(item => item.count),
+                        backgroundColor: colors,
+                        borderColor: [
+                            // ... your border colors
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Top Breeds Chart'
+                        }
+                    }
+                },
+            });
+        });
+    </script>
+{% endblock %}
