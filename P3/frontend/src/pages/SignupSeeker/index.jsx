@@ -82,6 +82,10 @@ function SignupSeeker() {
             // console.log(json);
             if (!response.ok) {
                 console.log("there's an error");
+                if (json["username"]) {
+                    window.alert(response.status + " " + response.statusText + ": " + json["username"]);
+                }
+                window.alert(response.status + " " + response.statusText)
             }
             if (response.ok) {
                 // console.log("it worked");

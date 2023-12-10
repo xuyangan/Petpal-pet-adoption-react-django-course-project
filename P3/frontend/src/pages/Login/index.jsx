@@ -41,6 +41,7 @@ function Login() {
 
             if (!response.ok) {
                 console.log("there's an error");
+                window.alert(response.status + " " + response.statusText)
             }
             if (response.ok) {
                 console.log("it worked");
@@ -53,6 +54,7 @@ function Login() {
                 // console.log("login", authToken);
                 setAuthToken(access);
                 await new Promise(resolve => setTimeout(resolve, 0));
+                window.alert("Successfully logged in!")
                 // await userType();
                 // setUsername("");
                 // setPassword("");
