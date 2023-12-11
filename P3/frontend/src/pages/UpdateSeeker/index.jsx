@@ -1,9 +1,9 @@
 import { useContext, useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { IdContext } from "../../contexts/IdContext";
 import { AuthContext } from "../../contexts/AuthContext";
 import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
-
+import { ShelterSeekerContext } from "../../contexts/ShelterSeekerContext";
 
 function  UpdateSeeker() {
     const [firstName, setFirstName] = useState("");
@@ -16,9 +16,11 @@ function  UpdateSeeker() {
     const [preferences, setPreferences] = useState("");
     const [profile, setProfile] = useState([]);
     const [profileUrl, setProfileUrl] = useState("");
-
+    const {userType} = useContext(ShelterSeekerContext);
     const { id, setId } = useContext(IdContext);
     const { authToken, setAuthToken} = useContext(AuthContext);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         async function fetchData() {
@@ -148,10 +150,13 @@ function  UpdateSeeker() {
                 setLocation("");
                 setPreferences("");
                 setProfile([]);
+                userType();
             }
         } catch (error) {
             console.log(error)
         }
+
+        navigate('/profile/seeker/' + id);
     }
 
     const handleUploadFiles = files => {

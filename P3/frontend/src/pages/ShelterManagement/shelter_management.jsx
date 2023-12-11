@@ -20,6 +20,9 @@ const ShelterManagement = () => {
 
     useEffect(() => {
         resetFilters();
+        setIsFiltering(false);
+        setCurrentPage(1);
+        getAllPetListings();
     }, []);
 
     useEffect(() => {
@@ -28,13 +31,13 @@ const ShelterManagement = () => {
         if (isFiltering) {
             getPetListings(currentPage);
         } else {
+            resetFilters();
             getAllPetListings(currentPage);
         }
     }, [currentPage, isFiltering]);
 
 
     useEffect(() => {
-
         //set timer to set success message to false
         setTimeout(() => {
             setWasSuccessful(false);
@@ -107,10 +110,11 @@ const ShelterManagement = () => {
 
     const getAllListings = () => {
         console.log("get all listings");
+        resetFilters();
         filters.status = "";
         setIsFiltering(false);
         setCurrentPage(1);
-        getPetListings(currentPage);
+        getAllPetListings(currentPage);
     };
 
     const toggleSettings = () => {
@@ -148,9 +152,12 @@ const ShelterManagement = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <p  className="nav nav-pills text-color-baby-blue bold text-decoration-none py-2">
+                                    {/* <p  className="nav nav-pills text-color-baby-blue bold text-decoration-none py-2">
                                         <i className="fs-4 bi-house"></i> <span className="fs-5 bold">Listings</span>
-                                    </p>
+                                    </p> */}
+                                    <button onClick={getAllListings} className="btn btn-link text-color-baby-blue text-decoration-none px-0">
+                                        <i className="fs-4 bi-house"></i> <span className="fs-5 bold">Listings</span>
+                                    </button>
                                     <ul className="collapse show nav flex-column ms-3" id="submenu1" data-bs-parent="#menu">
                                         <li className="w-100 mb-2">
                                             <button onClick={getActiveListings} className="btn btn-link text-color-baby-blue text-decoration-none">

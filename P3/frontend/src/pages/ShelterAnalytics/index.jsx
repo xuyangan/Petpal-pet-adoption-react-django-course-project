@@ -58,7 +58,7 @@ const ShelterAnalytics = ({ sheltername }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/shelter-analytics/${sheltername}`, {
+        const response = await fetch(`http://localhost:8000/shelter_analytics/${sheltername}/`, {
           method: "GET",
           mode: "cors",
           headers: {

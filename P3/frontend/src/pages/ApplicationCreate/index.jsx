@@ -26,6 +26,7 @@ const ApplicationCreate = () => {
     useEffect(() => {
         const fetchPetDetails = async () => {
         try {
+            console.log("HEHRHSHSFSFDHSFHSFHSF");
             const response = await fetch(`http://localhost:8000/pet_listings/${application_id}`, {
             method: "GET",
             mode: "cors",
@@ -63,6 +64,7 @@ const ApplicationCreate = () => {
         e.preventDefault();
 
         try {
+            console.log("HEHRHSHSFSFDHSFHSFHSF");
         const response = await fetch(`http://localhost:8000/applications/create/${application_id}/`, {
             method: "POST",
             mode: "cors",

@@ -95,9 +95,6 @@ function ShelterProfile() {
                 <PetDisplay
                     username={username}
                 />
-                {/* <MorePetListings
-                    username={username}
-                /> */}
                 <CommentSection
                     sheltername={username}
                 />
