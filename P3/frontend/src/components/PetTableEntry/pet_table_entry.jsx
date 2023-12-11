@@ -5,16 +5,6 @@ import { useContext } from 'react';
 import { PetListingsContext } from '../../contexts/PetListingsContext';
 
 const PetTableEntry = ({ pet }) => {
-  const { deletePetListing } = useContext(PetListingsContext);
-  const navigate = useNavigate();
-
-  const handleDelete = () => {
-    deletePetListing(pet.id);
-
-    navigate('/pet_listings/');
-  }
-
-
 
   return (
     <tr>
@@ -44,9 +34,6 @@ const PetTableEntry = ({ pet }) => {
         <Link to={`/pet_listings/edit/${pet.id}`} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
             Edit
         </Link>
-        {/* <button onClick={handleDelete} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">
-            Delete
-        </button> */}
         </div>
       </td>
     </tr>

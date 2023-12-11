@@ -60,9 +60,7 @@ function Login() {
                 // setPassword("");
                 // if (isShelter) {
                 navigate("/pet_listings/search/");
-                // } else {
-                //     navigate("/pet_listings/");
-                // }
+  
             }
 
         } catch (error) {

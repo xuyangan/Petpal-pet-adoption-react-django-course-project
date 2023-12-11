@@ -10,7 +10,6 @@ import NumberField from '../../components/FormComponents/NumberField/number_fiel
 import RadioButtonGroup from '../../components/FormComponents/RadioButtonGroupField/radio_button_group_field';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
 import { PetListingsContext } from '../../contexts/PetListingsContext';
 import { useParams } from 'react-router-dom';
 import ErrorStatusMessage from '../../components/ErrorStatusMessage/error_status_message';

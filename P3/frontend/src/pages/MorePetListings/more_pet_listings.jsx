@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { PetListingsContext } from '../../contexts/PetListingsContext';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import PetCard from '../../components/Cards/ImageCard/pet_card';
 import ErrorStatusMessage from '../../components/ErrorStatusMessage/error_status_message';
 import { useEffect } from 'react';
@@ -9,9 +9,8 @@ import { useState } from 'react';
 const MorePetListings = () => {
     const { username } = useParams();
     const {
-        petListings, setPetListings, getShelterPetListings, isLoading, isError, errorMessage,
-        errorStatus, wasSuccessful, setIsError, setIsLoading, setErrorMessage,
-        setErrorStatus, setWasSuccessful, filters, setIsFiltering, nextPage, previousPage,
+        petListings, getShelterPetListings, isLoading, isError, errorMessage,
+        errorStatus, nextPage, previousPage,
     } = useContext(PetListingsContext);
     const [currentPage, setCurrentPage] = useState(1);
 
