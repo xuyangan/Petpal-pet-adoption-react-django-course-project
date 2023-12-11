@@ -1,20 +1,29 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, redirect } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { IdContext } from "../../contexts/IdContext";
+import { ShelterSeekerContext } from "../../contexts/ShelterSeekerContext";
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const { userType, setIsSeeker, isShelter } = useContext(ShelterSeekerContext);
 
     const { authToken, setAuthToken } = useContext(AuthContext);
     const { id, setId } = useContext(IdContext);
 
+
+    useEffect(() => {
+
+    }, [id]);
+
     const getLogin = async (e) => {
         e.preventDefault();
-        
+        console.log("inside getlogin");
+        console.log(username);
+
         try {
             const response = await fetch("http://localhost:8000/accounts/token/", {
                 method: "POST",
@@ -36,20 +45,30 @@ function Login() {
             if (response.ok) {
                 console.log("it worked");
                 setId(username)
-                setUsername("");
-                setPassword("");
+
                 const access = await json["access"];
                 // console.log(json);
                 // console.log(json["access"]);
                 // console.log(access);
                 // console.log("login", authToken);
                 setAuthToken(access);
+                await new Promise(resolve => setTimeout(resolve, 0));
+                // await userType();
+                // setUsername("");
+                // setPassword("");
+                // if (isShelter) {
+                    // navigate("/pet_listings/search/");
+                // } else {
+                //     navigate("/pet_listings/");
+                // }
             }
 
-        } catch(error) {
+        } catch (error) {
             console.log(error);
         }
+
     }
+
 
     return (
         <body className="bg-color-gradient">
@@ -81,7 +100,7 @@ function Login() {
                     <Link to="/profile/shelter/s1" className="link-primary">test</Link>
                     <Link to="/notifications" className="link-primary">test2</Link>
                     <Link to="/applications/1/messages" className="link-primary">test3p</Link>
-                    <Link to="/profile/seeker/zippy" className="link-primary">test3p</Link>
+                    <Link to="/pet_listings/search" className="link-primary">search</Link>
                 </div>
             </div>
         </body>

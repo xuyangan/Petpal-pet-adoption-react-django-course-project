@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { IdContext } from "../../contexts/IdContext";
 import { AuthContext } from "../../contexts/AuthContext";
 import FileUploadField from '../../components/FormComponents/FileUploadField/file_upload_field';
-
+import { useNavigate } from "react-router-dom";
+import { ShelterSeekerContext } from "../../contexts/ShelterSeekerContext";
 
 function UpdateShelter() {
     const [shelterName, setShelterName] = useState("");
@@ -15,9 +16,11 @@ function UpdateShelter() {
     const [missionStatement, setMissionStatement] = useState("");
     const [profile, setProfile] = useState([]);
     const [profileUrl, setProfileUrl] = useState("");
-
+    const navigate = useNavigate();
     const { id, setId } = useContext(IdContext);
     const { authToken, setAuthToken } = useContext(AuthContext);
+    const {userType} = useContext(ShelterSeekerContext);
+
 
     useEffect(() => {
         async function fetchData() {
@@ -143,11 +146,13 @@ function UpdateShelter() {
                 setLocation("");
                 setMissionStatement("");
                 setProfile("");
+                userType();
             }
         } catch (error) {
             console.log(error);
         }
-
+        
+        navigate("/profile/shelter/" + id);
     }
 
     const handleUploadFiles = files => {
