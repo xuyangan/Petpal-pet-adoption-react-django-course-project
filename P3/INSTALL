@@ -64,4 +64,6 @@ server {
     try_files $uri /index.html;  
   }
 }
+In /etc/hosts add to 127.0.0.1 localhost petpal
 Finally run sudo systemctl restart nginx
+The site is now accessible on petpal:8080
