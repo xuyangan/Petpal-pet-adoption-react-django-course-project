@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const ApplicationCreate = () => {
@@ -22,11 +22,11 @@ const ApplicationCreate = () => {
     const { application_id } = useParams();
     const { authToken } = useContext(AuthContext);
     const [petName, setPetName] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchPetDetails = async () => {
         try {
-            console.log("HEHRHSHSFSFDHSFHSFHSF");
             const response = await fetch(`http://localhost:8000/pet_listings/${application_id}`, {
             method: "GET",
             mode: "cors",
@@ -64,7 +64,6 @@ const ApplicationCreate = () => {
         e.preventDefault();
 
         try {
-            console.log("HEHRHSHSFSFDHSFHSFHSF");
         const response = await fetch(`http://localhost:8000/applications/create/${application_id}/`, {
             method: "POST",
             mode: "cors",
@@ -80,6 +79,7 @@ const ApplicationCreate = () => {
         if (response.ok) {
             // Handle successful submission
             console.log("Application submitted successfully!");
+            navigate('/applications/dashboard/seeker')
         } else {
             // Handle submission error
             console.error("Failed to submit application");
@@ -363,9 +363,9 @@ const ApplicationCreate = () => {
                             />
                         </div>
                         <div className="mt-4">
-                            <Link to="/applications/dashboard/seeker" type="submit" className="btn btn-primary">
+                            <button type="submit" className="btn btn-primary" onClick={submitApplication}>
                                 Submit Application
-                            </Link>
+                            </button>
                         </div>
                     </form>
                 </section>
