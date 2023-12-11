@@ -4,8 +4,6 @@ import { Outlet } from 'react-router-dom';
 import './layout.css';
 // import footer
 import Footer from '../Footer';
-import SeekerHeader from '../Header';
-import NotLoggedInHeader from '../NotLoggedInHeader/not_logged_in_header';
 import LoggedInHeader from '../LoggedInHeader/logged_in_header';
 
 function Layout() {

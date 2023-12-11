@@ -9,9 +9,9 @@ function SignupShelter() {
     const [username, setUsername] = useState("");
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
-    const [phone, setPhone] = useState();
-    const [location, setLocation] = useState();
-    const [missionStatement, setMissionStatement] = useState();
+    const [phone, setPhone] = useState("");
+    const [location, setLocation] = useState("");
+    const [missionStatement, setMissionStatement] = useState("");
     const [profile, setProfile] = useState([]);
 
 
@@ -33,6 +33,7 @@ function SignupShelter() {
     const validateField = (field, value) => {
         return ''; // No error
     };
+
     const validateShelterName = (value) => {
         return value.trim() === '' ? "Shelter Name cannot be empty." : null;}
 
@@ -62,14 +63,13 @@ function SignupShelter() {
     };
 
     const validatePassword2 = (value) => {
-        if(!(password1 && value.length >= 8)) {
+        if(!(value===password1 && value.length >= 8)) {
             return "Passwords must match."
         }else{
             
             return null;
         }
     };
-    
     
     const handleChange = (fieldName) => (event) => {
         const newValue = event.target.value;
@@ -187,8 +187,8 @@ function SignupShelter() {
                 setUsername("");
                 setPassword1("");
                 setPassword2("");
-                setPhone();
-                setLocation();
+                setPhone("");
+                setLocation("");
                 setMissionStatement();
                 setProfile([]);
                 window.alert("Account created successfully! Please log in to continue.");
@@ -204,7 +204,7 @@ function SignupShelter() {
             <div className="main">
                 <h1 className="display-1">PetPal</h1>
                 <div className="form-bg rounded default-shadow">
-                    <form onSubmit={submitShelter}>
+                    <form onSubmit={submitShelter} noValidate>
                         <div className="form-group">
                             <label htmlFor="shelter-name-input">Shelter Name *</label>
                             <input
@@ -248,7 +248,7 @@ function SignupShelter() {
                                 onChange={handleChange('password2')}
                                 type="password" className="form-control" id="seeker-password-retype-input"
                                 placeholder="Enter password again" required />
-                             {errors.password2 && <div className="error-message">{errors.password2}</div>}
+                                {errors.password2 && <div className="error-message">{errors.password2}</div>}
                         </div>
                         <div className="form-group">
                             <label htmlFor="shelter-phone-input">Phone</label>

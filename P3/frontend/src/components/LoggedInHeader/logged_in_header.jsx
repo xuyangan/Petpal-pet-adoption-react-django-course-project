@@ -15,6 +15,7 @@ const LoggedInHeader = () => {
     const { setAuthToken } = useContext(AuthContext);
     const navigate = useNavigate();
 
+    
     const NavLinks = () => {
         if (isShelter) {
             return (
