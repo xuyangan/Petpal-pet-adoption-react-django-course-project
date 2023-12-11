@@ -11,6 +11,24 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+# settings.py
+
+# Use the session cookie only within the domain and not for subdomains
+SESSION_COOKIE_DOMAIN = None  # Default: use the domain of the request
+
+# Use the session cookie for every path within the domain
+SESSION_COOKIE_PATH = '/'  # Default: use '/' which is the root path
+
+# Use the session cookie only over HTTPS in production
+SESSION_COOKIE_SECURE = False  # Default: False, set True in production if using HTTPS
+
+# Use the CSRF cookie only over HTTPS in production
+CSRF_COOKIE_SECURE = False  # Default: False, set True in production if using HTTPS
+
+# Allow the cookie to be sent with cross-site requests (only set this if necessary)
+CSRF_COOKIE_SAMESITE = 'None'  # Default: 'Lax', can be set to 'None' if using CORS
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +49,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_tools_stats',
+    'django_nvd3',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,6 +74,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -73,9 +94,31 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default authentication backend
+]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
 
 ROOT_URLCONF = 'petpal.urls'
@@ -83,7 +126,7 @@ ROOT_URLCONF = 'petpal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'pet_listings/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
