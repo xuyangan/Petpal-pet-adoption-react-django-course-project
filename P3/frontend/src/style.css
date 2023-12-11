@@ -741,3 +741,14 @@
   padding: 10px 0;
 }
 
+.error-message {
+  color: rgb(219, 4, 4);
+  font-size: 14px;  
+  margin-top: 5px;  
+}
+
+.input-error {
+  border-color: red;
+}
+
+

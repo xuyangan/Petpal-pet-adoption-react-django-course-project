@@ -33,10 +33,120 @@ function SignupShelter() {
     const validateField = (field, value) => {
         return ''; // No error
     };
+    const validateShelterName = (value) => {
+        return value.trim() === '' ? "Shelter Name cannot be empty." : null;}
+
+    const validateEmail = (value) => {
+        if(value.trim() === '') {
+            return "Email cannot be empty."
+        }else if (!(/\S+@\S+\.\S+/.test(value))){
+            return "Invalid email." 
+        }else{
+            return null;
+        }
+    };
+
+    const validateUserName = (value) => {
+        return value.trim() === '' ? "Username cannot be empty." : null;
+    };
+
+    const validatePassword1 = (value) => {
+        if(value.trim() === '') {
+            return "Password cannot be empty."
+        }else{
+            if(!(value.length >= 8)){
+                return "Invalid password."
+            }
+            return null;
+        }
+    };
+
+    const validatePassword2 = (value) => {
+        if(!(password1 && value.length >= 8)) {
+            return "Passwords must match."
+        }else{
+            
+            return null;
+        }
+    };
+    
+    
+    const handleChange = (fieldName) => (event) => {
+        const newValue = event.target.value;
+    
+        if (fieldName === 'shelterName') {
+            setShelterName(newValue);
+            const error = validateShelterName(newValue);
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                [fieldName]: error
+            }));
+        }
+        if (fieldName === 'username') {
+            setUsername(newValue);
+            const error = validateUserName(newValue);
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                [fieldName]: error
+            }));
+        }
+        if (fieldName === 'email') {
+            setEmail(newValue);
+            const error = validateEmail(newValue);
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                [fieldName]: error
+            }));
+        }
+        if (fieldName === 'password1') {
+            setPassword1(newValue);
+            const error = validatePassword1(newValue);
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                [fieldName]: error
+            }));
+        }
+        if (fieldName === 'password2') {
+            setPassword2(newValue);
+            const error = validatePassword2(newValue);
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                [fieldName]: error
+            }));
+        }
+    };
+
+    const [errors, setErrors] = useState({
+        shelterName: null,
+        email: null,
+        username: null,
+        password1: null,
+        password2: null,
+    });
+
+    const validateAllFields = () => {
+        const errors = {
+            shelterName: validateShelterName(shelterName),
+            email: validateEmail(email),
+            username: validateUserName(username),
+            password1: validatePassword1(password1),
+            password2: validatePassword2(password2),
+        };
+        return errors;
+    };
 
 
     const submitShelter = async (e) => {
         e.preventDefault();
+
+        const validationErrors = validateAllFields();
+        setErrors(validationErrors);
+    
+        const hasErrors = Object.values(validationErrors).some(error => error != null);
+        if (hasErrors) {
+            console.log("Validation errors:", validationErrors);
+            return;
+        }
 
         const formSubmission = new FormData();
         formSubmission.append("shelter_name", shelterName);
@@ -99,41 +209,46 @@ function SignupShelter() {
                             <label htmlFor="shelter-name-input">Shelter Name *</label>
                             <input
                                 value={shelterName}
-                                onChange={(e) => setShelterName(e.target.value)}
+                                onChange={handleChange('shelterName')}
                                 type="text" className="form-control" id="shelter-name-input"
                                 placeholder="Enter shelter name" required />
+                                {errors.shelterName && <div className="error-message">{errors.shelterName}</div>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="shelter-email-input">Email Address *</label>
+                            <label htmlFor="seeker-email-input">Email Address *</label>
                             <input
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                type="email" className="form-control" id="shelter-email-input"
+                                onChange={handleChange('email')}
+                                type="email" className="form-control" id="seeker-email-input"
                                 aria-describedby="emailHelp" placeholder="Enter email" required />
+                                {errors.email && <div className="error-message">{errors.email}</div>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="shelter-username-input">Username *</label>
+                            <label htmlFor="seeker-username-input">Username *</label>
                             <input
                                 value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                type="text" className="form-control" id="shelter-username-input"
+                                onChange={handleChange('username')}
+                                type="text" className="form-control" id="seeker-username-input"
                                 placeholder="Enter username" required />
+                            {errors.username && <div className="error-message">{errors.username}</div>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="shelter-password-input">Password *</label>
+                            <label htmlFor="seeker-password-input">Password *</label>
                             <input
                                 value={password1}
-                                onChange={(e) => setPassword1(e.target.value)}
-                                type="password" className="form-control" id="shelter-password-input"
+                                onChange={handleChange('password1')}
+                                type="password" className="form-control" id="seeker-password-input"
                                 placeholder="Enter password" required />
+                                {errors.password1 && <div className="error-message">{errors.password1}</div>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="shelter-password-retype-input">Retype Password *</label>
+                            <label htmlFor="seeker-password-retype-input">Retype Password *</label>
                             <input
                                 value={password2}
-                                onChange={(e) => setPassword2(e.target.value)}
-                                type="password" className="form-control" id="shelter-password-retype-input"
+                                onChange={handleChange('password2')}
+                                type="password" className="form-control" id="seeker-password-retype-input"
                                 placeholder="Enter password again" required />
+                             {errors.password2 && <div className="error-message">{errors.password2}</div>}
                         </div>
                         <div className="form-group">
                             <label htmlFor="shelter-phone-input">Phone</label>
