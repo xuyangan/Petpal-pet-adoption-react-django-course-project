@@ -47,11 +47,17 @@ class NotificationUpdateView(UpdateAPIView):
             # If 'is_read' is not provided in the request, do not change it
             serializer.save()
 
-
-# Notification Delete View 
 class NotificationDeleteView(DestroyAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Notification.objects.filter(pk=self.kwargs.get('pk'), user_id=self.request.user)
+
+class UnreadNotificationCountView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        unread_count = Notification.objects.filter(user=request.user, is_read=False).count()
+        return Response({"unread_count": unread_count})
+
 

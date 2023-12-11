@@ -698,16 +698,16 @@
 }
 
 .comment-container .comment-content .reply-button {
-  margin-left: auto; /* Pushes the button to the right */
+  margin-left: auto; 
 }
 
 .comment-form-textarea {
   flex-grow: 1;
-  margin-right: 10px; /* Adjust spacing */
+  margin-right: 10px; 
 }
 
 .comment-form-rating {
-  width: 150px; /* Adjust width */
+  width: 150px;
 }
 
 .notification-card-body {
@@ -769,5 +769,25 @@
   margin-left: 40px;
 }
 
+.msg-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 12px;
+  position: absolute; 
+  top: -5px;
+  right: -8px;
+}
+
+.msg-count.small {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.msg-count.smaller {
+  font-size: 8px; 
+  font-weight: bold;
+}
 
 

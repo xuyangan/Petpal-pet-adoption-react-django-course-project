@@ -63,7 +63,7 @@ const ReplyForm = ({commentId, onCommentAdded, onCancel }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="card-footer bg-white m-2">
+        <form onSubmit={handleSubmit} className="card-footer bg-white m-2" noValidate>
             <div className="d-flex flex-start w-100">
                 <div className="form-outline w-100">
                     <textarea
