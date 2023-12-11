@@ -55,6 +55,32 @@ const LoggedInHeader = () => {
         if (count > 9) return "msg-count small";
         return "msg-count";
     };
+
+    const PetPalLinkCases = () => {
+        if (isShelter) {
+            return (
+                <>
+                    <PetPalLink redirect="/pet_listings/search/" />
+                </>
+            )
+        }
+        if (isSeeker) {
+            return (
+                <>
+                    <PetPalLink redirect="/pet_listings/search/" />
+                </>
+            )
+        }
+        else {
+            return (
+                <>
+                    <PetPalLink redirect="/" />
+                </>
+            )
+
+        }
+
+    }
   
     
     const NavLinks = () => {
@@ -62,6 +88,7 @@ const LoggedInHeader = () => {
             return (
                 <>
                     <NavLink to="/applications/dashboard/shelter" label="Applications" />
+                    <NavLink to="/analytics" label="About PetPal" />
                 </>
             )
         }
@@ -70,12 +97,14 @@ const LoggedInHeader = () => {
                 <>
                     <NavLink to="/applications/dashboard/seeker" label="Applications" />
                     <NavLink to="/shelters" label="Shelters" />
+                    <NavLink to="/analytics" label="About PetPal" />
                 </>
             )
         }
         else {
             return (
                 <>
+                    <NavLink to="/analytics" label="About PetPal" />
                 </>
             )
 
@@ -177,7 +206,7 @@ const LoggedInHeader = () => {
         <div>
             <nav className="navbar navbar-expand-lg bg-color-baby-blue default-shadow" data-bs-theme="dark">
                 <div className="container">
-                    <PetPalLink redirect="/pet_listings/search" />
+                    {PetPalLinkCases()}
                     <button
                         className="navbar-toggler border-0"
                         type="button"

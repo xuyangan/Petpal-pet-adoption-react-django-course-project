@@ -3,105 +3,140 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const ApplicationCreate = () => {
-    const [formData, setFormData] = useState({
-        all_agree: 0,
-        considerate: 0,
-        medical: 0,
-        full_name: "",
-        email: "",
-        phone_number: "",
-        age_range: "",
-        living_arrangement: "",
-        have_applied: 0,
-        street_address: "",
-        city: "",
-        province: "",
-        postal_code: "",
-    });
+  const [formData, setFormData] = useState({
+    all_agree: 0,
+    considerate: 0,
+    medical: 0,
+    full_name: "",
+    email: "",
+    phone_number: "",
+    age_range: "",
+    living_arrangement: "",
+    have_applied: 0,
+    street_address: "",
+    city: "",
+    province: "",
+    postal_code: "",
+  });
 
-    const { application_id } = useParams();
-    const { authToken } = useContext(AuthContext);
-    const [petName, setPetName] = useState("");
-    const navigate = useNavigate();
+  const [formErrors, setFormErrors] = useState({
+    full_name: "",
+    email: "",
+    phone_number: "",
+    age_range: "",
+    living_arrangement: "",
+    have_applied: "",
+    street_address: "",
+    city: "",
+    province: "",
+    postal_code: "",
+  });
 
-    useEffect(() => {
-        const fetchPetDetails = async () => {
-        try {
-            const response = await fetch(`http://localhost:8000/pet_listings/${application_id}`, {
-            method: "GET",
-            mode: "cors",
-            headers: {
-                Authorization: `Bearer ${authToken}`,
-                "Content-Type": "application/json",
-            },
-            });
+  const { application_id } = useParams();
+  const { authToken } = useContext(AuthContext);
+  const [petName, setPetName] = useState("");
+  const navigate = useNavigate();
 
-            if (response.ok) {
-            const petData = await response.json();
-            setPetName(petData.name);
-            } else {
-            console.error("Failed to fetch pet details");
-            }
-        } catch (error) {
-            console.error("Error fetching pet details", error);
-        }
-        };
-
-        fetchPetDetails();
-    }, [application_id, authToken]);
-
-    const handleChange = (e) => {
-        const { name, value, type } = e.target;
-        const numericValue = type === "radio" ? (value === "yes" ? 1 : 0) : value;
-    
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: type === "checkbox" ? [...prevData[name], value] : numericValue,
-        }));
-    };
-
-    const submitApplication = async (e) => {
-        e.preventDefault();
-
-        try {
-        const response = await fetch(`http://localhost:8000/applications/create/${application_id}/`, {
-            method: "POST",
-            mode: "cors",
-            headers: {
+  useEffect(() => {
+    const fetchPetDetails = async () => {
+      try {
+        const response = await fetch(`http://localhost:8000/pet_listings/${application_id}`, {
+          method: "GET",
+          mode: "cors",
+          headers: {
             Authorization: `Bearer ${authToken}`,
             "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
+          },
         });
 
-        const json = await response.json();
-
         if (response.ok) {
-            // Handle successful submission
-            console.log("Application submitted successfully!");
-            navigate('/applications/dashboard/seeker')
+          const petData = await response.json();
+          setPetName(petData.name);
         } else {
-            // Handle submission error
-            console.error("Failed to submit application");
+          console.error("Failed to fetch pet details");
         }
-        } catch (error) {
-        console.error("Error submitting application", error);
-        }
+      } catch (error) {
+        console.error("Error fetching pet details", error);
+      }
     };
 
+    fetchPetDetails();
+  }, [application_id, authToken]);
 
+  const handleChange = (e) => {
+    const { name, value, type } = e.target;
+    const numericValue = type === "radio" ? (value === "yes" ? 1 : 0) : value;
 
-    return (
-        <div className="bg-color-baby-blue-3">
-            <div className="min-vh-100 d-flex flex-column justify-content-between">
-                <section className="container py-5">
-                    <div className="header-line">
-                        <h2 className="mb-4">Pet Adoption Application for: {petName}</h2>
-                        <p>Pet ID: {application_id}</p> {/* Display the dynamic parameter */}
-                        <Link to="/applications/faq">Got a question? Check out our FQA page first!</Link>
-                    </div>
-                    <form onSubmit={submitApplication}>
-                        <h5 className="mt-4">Pet Preferences</h5>
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === "checkbox" ? [...prevData[name], value] : numericValue,
+    }));
+  };
+
+const validateForm = () => {
+    const errors = {};
+    Object.entries(formData).forEach(([key, value]) => {
+      if (isRequiredField(key) && isFieldEmpty(value)) {
+        errors[key] = `${key.replace('_', ' ')} is required`;
+      }
+    });
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+  
+  const isRequiredField = (fieldName) => {
+    return !["considerate", "medical", "have_applied"].includes(fieldName);
+  };
+  
+  const isFieldEmpty = (value) => {
+    return value === "" || value === null || value === undefined;
+  };
+  
+
+  const submitApplication = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:8000/applications/create/${application_id}/`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Handle successful submission
+        window.alert("Application successfully submitted!");
+        navigate('/applications/dashboard/seeker');
+      } else {
+        // Handle submission error
+        console.error("Failed to submit application");
+        window.alert("You have already submitted an application for this pet.");
+        navigate('/applications/dashboard/seeker');
+      }
+    } catch (error) {
+      console.error("Error submitting application", error);
+    }
+  };
+
+  return (
+    <div className="bg-color-baby-blue-3">
+      <div className="min-vh-100 d-flex flex-column justify-content-between">
+        <section className="container py-5">
+          <div className="header-line">
+            <h2 className="mb-4">Pet Adoption Application for: {petName}</h2>
+            <p>Pet ID: {application_id}</p>
+            <Link to="/applications/faq">Got a question? Check out our FAQ page first!</Link>
+          </div>
+          <form onSubmit={submitApplication}>
+          <h5 className="mt-4">Pet Preferences</h5>
                         {/* <div className="mb-3">
                             <label htmlFor="petName" className="form-label">
                                 Name of the pet that prompted you to apply*
@@ -210,6 +245,7 @@ const ApplicationCreate = () => {
                                 value={formData.full_name}
                                 onChange={handleChange}
                             />
+                            {formErrors.full_name && <div className="text-danger">Full Name is required</div>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">
@@ -223,6 +259,7 @@ const ApplicationCreate = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                             />
+                            {formErrors.email && <div className="text-danger">Email is required</div>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="phone_number" className="form-label">
@@ -236,10 +273,11 @@ const ApplicationCreate = () => {
                                 value={formData.phone_number}
                                 onChange={handleChange}
                             />
+                            {formErrors.phone_number && <div className="text-danger">Phone Number is required</div>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="petType" className="form-label">
-                                Your Age
+                                Your Age*
                             </label>
                             <select
                                 className="form-select"
@@ -255,9 +293,10 @@ const ApplicationCreate = () => {
                                 <option>40-50</option>
                                 <option>50+</option>
                             </select>
+                            {formErrors.age_range && <div className="text-danger">Your Age is Required</div>}
                         </div>
                         <div className="option-section">
-                            <p className="description">What is your living arrangement?</p>
+                            <p className="description">What is your living arrangement?*</p>
                             <div className="options">
                             <select
                                 className="form-select"
@@ -278,6 +317,7 @@ const ApplicationCreate = () => {
                                 <option>I rent my home</option>
                                 <option>I own my home</option>
                             </select>
+                            {formErrors.living_arrangement && <div className="text-danger">Living Arrangement is required</div>}
                             </div>
                         </div>
                         <h6 className="mt-4">Tell Us About Yourself</h6>
@@ -312,7 +352,7 @@ const ApplicationCreate = () => {
                         <h6 className="mt-4">Address</h6>
                         <div className="mb-3">
                             <label htmlFor="street_address" className="form-label">
-                                Street Address
+                                Street Address*
                             </label>
                             <input
                                 type="text"
@@ -322,10 +362,11 @@ const ApplicationCreate = () => {
                                 value={formData.street_address}
                                 onChange={handleChange}
                             />
+                            {formErrors.street_address && <div className="text-danger">Street Address is required</div>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="city" className="form-label">
-                                City
+                                City*
                             </label>
                             <input
                                 type="text"
@@ -335,10 +376,11 @@ const ApplicationCreate = () => {
                                 value={formData.city}
                                 onChange={handleChange}
                             />
+                            {formErrors.city && <div className="text-danger">City is required</div>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="province" className="form-label">
-                                Province
+                                Province*
                             </label>
                             <input
                                 type="text"
@@ -348,10 +390,11 @@ const ApplicationCreate = () => {
                                 value={formData.province}
                                 onChange={handleChange}
                             />
+                            {formErrors.province && <div className="text-danger">Province is required</div>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="postalCode" className="form-label">
-                                Postal Code
+                                Postal Code*
                             </label>
                             <input
                                 type="text"
@@ -361,17 +404,18 @@ const ApplicationCreate = () => {
                                 value={formData.postal_code}
                                 onChange={handleChange}
                             />
+                            {formErrors.postal_code && <div className="text-danger">Postal Code is required</div>}
                         </div>
-                        <div className="mt-4">
-                            <button type="submit" className="btn btn-primary" onClick={submitApplication}>
-                                Submit Application
-                            </button>
-                        </div>
-                    </form>
-                </section>
+            <div className="mt-4">
+              <button type="submit" className="btn btn-primary">
+                Submit Application
+              </button>
             </div>
-        </div>
-    );
+          </form>
+        </section>
+      </div>
+    </div>
+  );
 };
 
 export default ApplicationCreate;

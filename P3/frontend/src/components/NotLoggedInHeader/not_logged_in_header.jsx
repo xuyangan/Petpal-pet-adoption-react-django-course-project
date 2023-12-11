@@ -1,5 +1,5 @@
 import PetPalLink from '../Links/PetPalLink/pet_pal_link';
-
+import NavLink from '../Links/NavLink/nav_link';
 
 
 const NotLoggedInHeader = () => {

@@ -34,26 +34,6 @@ const ShelterAnalytics = ({ sheltername }) => {
   };
 
   // Function to animate counting effect for time since joined
-  const countUp = (target, elementId, duration) => {
-    const element = document.getElementById(elementId);
-    const startTime = new Date().getTime();
-  
-    function update() {
-      const currentTime = new Date().getTime();
-      const progress = (currentTime - startTime) / duration;
-  
-      const currentCount = Math.floor(progress * target);
-      element.textContent = currentCount;
-  
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        element.textContent = target;
-      }
-    }
-  
-    update();
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,12 +51,7 @@ const ShelterAnalytics = ({ sheltername }) => {
           const data = await response.json();
           setFormData(data);
 
-          // Start counting animations after data is fetched
-          countUp(data.num_pet_listings, 'petListings', 2000);
-          countUp(data.accepted_pets, 'adopted', 1500);
-          // Counting for time since joined
           const joinedTimestamp = new Date(data.creation_time).getTime();
-          countUp(joinedTimestamp, 'joinedTime', 1500);
         } else {
           console.error("Failed to fetch shelter analytics");
         }
@@ -98,8 +73,8 @@ const ShelterAnalytics = ({ sheltername }) => {
               <font size="7" className="stylish-text card-text description">Pet Listings</font>
               <p id="adopted" className="big-number display-1">{formData.accepted_pets}</p>
               <font size="7" className="stylish-text card-text description">Accepted pets</font>
-              <p id="joinedTime" className="big-number display-1">0</p>
-              <font size="7" className="stylish-text card-text description">days since joined</font>
+              <p id="joinedTime" className="big-number display-1">{timeAgo(formData.creation_time)}</p>
+              <font size="7" className="stylish-text card-text description"> since joined</font>
             </div>
           </div>
         </div>

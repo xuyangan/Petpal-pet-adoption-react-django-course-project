@@ -35,7 +35,7 @@ const PetInformation = ({ children }) => {
         } else if (isSeeker && petListing.status === "available") {
             return (<Link 
                 to={`/applications/${petId}`} 
-                className="btn mx-1 text-white btn-secondary">
+                className="btn mx-1 text-white btn-primary">
                 Apply
             </Link>)
         } else if (isSeeker) {
