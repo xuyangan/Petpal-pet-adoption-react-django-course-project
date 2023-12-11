@@ -31,24 +31,26 @@ class ApplicationCreateAPIView(CreateAPIView):
                                       pet_seeker=self.request.user, pet_shelter=pet_listing.shelter,
                                       created_at=datetime.now(), updated_at=datetime.now())
 
-        ## LOOOK  HERE ##
 
         # Create a notification for the shelter
-        notification_message = f"Your pet listing: {pet_listing.name} has received an application from seeker: {self.request.user.username}"
+        notification_message = f"New application on your pet listing: {pet_listing.name} has received an application from {self.request.user.firstName}"
         application_url = reverse(
             'applications:application-detail', args=[application.id])
+
+        application_seeker_url = application_url.replace('get', 'view') + 'seeker'
+        application_shelter_url = application_url.replace('get', 'view') + 'shelter'
 
         Notification.objects.create(
             user=pet_listing.shelter,
             message=notification_message,
-            related_link=application_url)
+            related_link=application_shelter_url)
 
         seeker_notification_message = f"Your submission on the pet listing: {pet_listing.name} is successful and under reviewing."
 
         Notification.objects.create(
             user=self.request.user,
             message=seeker_notification_message,
-            related_link=application_url  # Optional, can provide a link to view the application
+            related_link=application_seeker_url
         )
 
     def post(self, request, *args, **kwargs):

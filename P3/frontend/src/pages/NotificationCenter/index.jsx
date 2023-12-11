@@ -149,6 +149,13 @@ const NotificationCenter = () => {
     useEffect(() => {
         fetchNotifications();
     }, [currentPageNumber, isReadFilter, authToken]);
+
+    useEffect(() => {
+        // Interval for fetching new notifications every 10 seconds
+        const intervalId = setInterval(fetchNotifications, 10000); 
+
+        return () => clearInterval(intervalId);
+    }, [currentPageNumber, isReadFilter, authToken]);
     
     const handleNextPage = () => {
         if (nextPageUrl) {

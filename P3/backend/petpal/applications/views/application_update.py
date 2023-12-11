@@ -56,11 +56,12 @@ class SeekerUpdateApplicationView(generics.UpdateAPIView):
                 shelter_notification_message = f"{instance.pet_seeker.username} has withdrawn the application for {instance.pet_listing.name}."
                 application_url = reverse(
                     'applications:application-detail', args=[instance.id])
+                application_shelter_url = application_url.replace('get', 'view') + 'shelter'
 
                 Notification.objects.create(
                     user=instance.pet_shelter,
                     message=shelter_notification_message,
-                    related_link=application_url
+                    related_link=application_shelter_url
                 )
 
             return Response({'status': 'withdrawn'})
@@ -129,11 +130,12 @@ class ShelterUpdateApplicationView(generics.UpdateAPIView):
                     seeker_notification_message = f"Your application status for {instance.pet_listing.name} has been changed to {new_status}."
                     application_url = reverse(
                         'applications:application-detail', args=[instance.id])
+                    application_seeker_url = application_url.replace('get', 'view') + 'seeker'
 
                     Notification.objects.create(
                         user=instance.pet_seeker,
                         message=seeker_notification_message,
-                        related_link=application_url
+                        related_link=application_seeker_url
                     )
 
                 return Response({'status': new_status})

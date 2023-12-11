@@ -38,8 +38,16 @@ class PetListingCreateSerializer(BasePetListingSerializer):
         breed = pet_listing.breed
         potentially_interested_seekers = PetUser.objects.filter(
             preferences__isnull=False)
-        pet_listing_url = reverse(
-            'pet_listings:pet_listing_retrieve_update_destroy', args=[pet_listing.id])
+
+        base_url = reverse('pet_listings:pet_listing_retrieve_update_destroy', args=[pet_listing.id])
+
+
+        url_parts = base_url.rsplit(str(pet_listing.id), 1)
+
+        response_url = url_parts[0] + 'information/' + str(pet_listing.id)
+
+        # pet_listing_url = reverse(
+        #     'pet_listings:pet_listing_retrieve_update_destroy', args=[pet_listing.id])
 
         for seeker in potentially_interested_seekers:
             try:
@@ -47,11 +55,11 @@ class PetListingCreateSerializer(BasePetListingSerializer):
                 print("seeker.preferences = ", seeker.preferences)
                 if breed in seeker.preferences:
 
-                    message = f"{pet_listing.shelter.username} has a new member {pet_listing.name}, come and check it out!"
+                    message = f"A new listing you might be interested in: come and check out {pet_listing.name}!"
                     Notification.objects.create(
                         user=seeker,
                         message=message,
-                        related_link=pet_listing_url
+                        related_link=response_url
                     )
             except json.JSONDecodeError:
                 continue
