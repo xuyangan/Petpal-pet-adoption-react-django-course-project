@@ -108,7 +108,7 @@ const ApplicationViewUpdateShelter = () => {
                 <section className="container py-5">
                 <div className="mb-5">
                             <Link
-                            to="/applications/dashboard/seeker/"
+                            to="/applications/dashboard/shelter/"
                             className="btn btn-primary"
                             >
                                 &#8592; Back to Dashboard
