@@ -18,12 +18,12 @@ class ShelterCommentListCreate(ListCreateAPIView):
 
     def get_queryset(self):
         shelter_name = self.kwargs.get('shelter_name')
-        shelter = get_object_or_404(PetUser, shelter_name=shelter_name)
+        shelter = get_object_or_404(PetUser, username=shelter_name)
         return ShelterComment.objects.filter(shelter=shelter).order_by('-create_time')
     
     def perform_create(self, serializer):
         shelter_name = self.kwargs.get('shelter_name')
-        shelter = get_object_or_404(PetUser, shelter_name=shelter_name)
+        shelter = get_object_or_404(PetUser, username=shelter_name)
         comment = serializer.save(user=self.request.user, shelter=shelter)
 
         if shelter != self.request.user:
@@ -41,7 +41,7 @@ class ShelterCommentRetrieve(RetrieveAPIView):
     serializer_class = ShelterReplySerializer
     def get_queryset(self):
         shelter_name = self.kwargs.get('shelter_name')
-        shelter = get_object_or_404(PetUser, shelter_name=shelter_name)
+        shelter = get_object_or_404(PetUser, username=shelter_name)
         return ShelterComment.objects.filter(shelter=shelter)
 
 class ReplyCreate(CreateAPIView):
