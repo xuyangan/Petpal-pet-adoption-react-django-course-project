@@ -8,8 +8,34 @@ const ReplyForm = ({commentId, onCommentAdded, onCancel }) => {
     const { authToken } = useContext(AuthContext);
     const { sheltername } = useParams();
 
+    const [error, setError] = useState('');
+
+    const validateReply = (text) => {
+        if (!text.trim()) {
+            return "Reply cannot be empty.";
+        } else if (text.length > 125) {
+            return "Comment cannot exceed 125 characters.";
+        }
+        return "";
+    };
+
+    const handleReplyChange = (e) => {
+        const text = e.target.value;
+        setReply(text);
+
+        const validationError = validateReply(text);
+        setError(validationError);
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        const validationError = validateReply(reply);
+        if (validationError) {
+            setError(validationError);
+            document.getElementById('textAreaExample').focus();
+            return; 
+        }
 
         fetch(`http://localhost:8000/comments/${sheltername}/${commentId}/replies/`, {
             method: 'POST',
@@ -41,13 +67,14 @@ const ReplyForm = ({commentId, onCommentAdded, onCancel }) => {
             <div className="d-flex flex-start w-100">
                 <div className="form-outline w-100">
                     <textarea
-                        className="form-control"
+                          className={`form-control ${error ? 'is-invalid' : ''}`}
                         placeholder="Write your reply here..."
                         rows="3"
                         style={{ background: '#fff' }}
                         value={reply}
-                        onChange={(e) => setReply(e.target.value)}
+                        onChange={handleReplyChange}
                     ></textarea>
+                    {error && <div className="invalid-feedback">{error}</div>}
                 </div>
             </div>
             <div className="float-end mt-2 pt-1">
@@ -57,7 +84,7 @@ const ReplyForm = ({commentId, onCommentAdded, onCancel }) => {
                 <button
                     type="button"
                     className="btn btn-outline-primary btn-sm"
-                    onClick={handleCancel} // Use the handleCancel function here
+                    onClick={handleCancel} 
                 >
                       Cancel
                     </button>

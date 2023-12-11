@@ -56,14 +56,32 @@ const CommentList = ({ comments, onReplyAdded, nextPageUrl, prevPageUrl, handleN
                                 <p className="small mb-0">{comment.text}</p>
                                 </div>
                                 {comment.replies && comment.replies.map(reply => (
-                                    <div key={reply.id} className="mt-2">
-                                        {reply.user.username}: {reply.text}
-                                        <span className="small"> - {comment.time_since_posted} </span>
-                                    </div>
+                                     <div key={reply.id} className="reply-container mt-2">
+                                     {/* Flex Container */}
+                                     <div className="user-info">
+                                         {/* Profile Image */}
+                                         <img
+                                             className="rounded-circle"
+                                             src={`http://localhost:8000${reply.user.profile_picture}`}
+                                             alt={`${reply.user.username}'s avatar`}
+                                             width="30"  // Adjust size as needed
+                                             height="30"
+                                         />
+                                         {/* Username */}
+                                         <strong className="ms-2">{reply.user.username}</strong>
+                                         <span className="small"> - {reply.time_since_posted} </span>
+                                     </div>
+                                     {/* Reply Text */}
+                                     <div className="reply-text">
+                                         {reply.text}
+                                     </div>
+                                 </div>
                                 ))}
-                                
+                            
                                 {activeReply === comment.id && (
+                                    
                                     <ReplyForm 
+                                    
                                         commentId={comment.id} 
                                         onCommentAdded={() => {
                                             onReplyAdded(comment.id); 

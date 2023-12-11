@@ -751,4 +751,23 @@
   border-color: red;
 }
 
+.reply-container {
+  margin-bottom: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 5px;
+}
+
+.user-info img {
+  border-radius: 50%; 
+}
+
+.reply-text {
+  margin-left: 40px;
+}
+
+
 

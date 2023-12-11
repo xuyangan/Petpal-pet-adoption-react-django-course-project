@@ -3,21 +3,19 @@ import React, { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import '../../style.css';
-import TextAreaField from '../../components/FormComponents/TextAreaField/text_area_field';
 
 
 const CommentForm = ({ sheltername, onCommentAdded }) => {
     const [commentText, setCommentText] = useState('');
     const [rating, setRating] = useState(0);  // State for rating
     const { authToken } = useContext(AuthContext);
-    const [formErrors, setFormErrors] = useState({});
     const [error, setError] = useState('');
 
     const validateComment = (text) => {
         if (!text.trim()) {
             return "Comment cannot be empty.";
         } else if (text.length > 125) {
-            return "Comment cannot exceed 200 characters.";
+            return "Comment cannot exceed 125 characters.";
         }
         return "";
     };
