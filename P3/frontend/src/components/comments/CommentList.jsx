@@ -19,7 +19,7 @@ const CommentList = ({ comments, onReplyAdded, nextPageUrl, prevPageUrl, handleN
                         {/* ... existing elements like avatar ... */}
                         <img
                             className="rounded-circle shadow-1-strong me-3"
-                            src={comment.user.profilePicture || "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"}
+                            src={"http://localhost:8000"+comment.user.profile_picture}
                             alt="avatar"
                             width="65"
                             height="65"

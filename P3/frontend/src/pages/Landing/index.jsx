@@ -1,7 +1,15 @@
 import './landing.css';
 import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Landing = () => {
+    const {setAuthToken} = useContext(AuthContext);
+
+    useEffect (() => {
+        setAuthToken("a");
+    }, []);
+
     return <>
         <div className="bg-color-gradient">
             <div className="main">

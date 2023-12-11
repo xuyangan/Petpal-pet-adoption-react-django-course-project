@@ -17,7 +17,11 @@ export const ShelterSeekerContextProvider = ({ children }) => {
     const [profile_picture, setProfilePicture] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-
+    useEffect(() => {
+        userType();
+    }
+    , [id, authToken]);
+    
     const userType = async () => {
         console.log("Checking user type...");
         console.log("User ID:", id);

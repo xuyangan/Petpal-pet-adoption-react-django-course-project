@@ -25,7 +25,7 @@ const PetInformation = ({ children }) => {
 
     const buttonOptions = () => {
         if (isShelter) {
-            return (<><Link to="pet-adoption-page.html" className="btn mx-1 text-white btn-secondary  ">
+            return (<><Link to={`/applications/dashboard/shelter`}  className="btn mx-1 text-white btn-secondary  ">
                 Check Applications
             </Link>
                 <button onClick={handleDelete} className="btn btn-link btn-rounded btn-sm fw-bold text-color-baby-blue">

@@ -240,7 +240,7 @@
     left: 50%;
     bottom: 0;
     opacity: 0;
-    transition: 0.3s ease-out;
+    transition: 0.1s ease-out;
   }
   
   .text-body2 {

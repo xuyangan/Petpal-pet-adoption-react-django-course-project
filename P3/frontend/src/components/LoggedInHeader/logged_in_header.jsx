@@ -1,21 +1,19 @@
 import PetPalLink from '../Links/PetPalLink/pet_pal_link';
 import NavLink from '../Links/NavLink/nav_link';
-import Dropdown from '../Dropdown/dropdown';
 import { ShelterSeekerContext } from '../../contexts/ShelterSeekerContext';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { IdContext } from '../../contexts/IdContext';
 import './logged_in_header.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const LoggedInHeader = () => {
-    const { id } = useContext(IdContext);
-    const { userType, isShelter, setIsShelter, isSeeker, profileURL,
-        shelterName, fullName, isLoading, setIsSeeker } = useContext(ShelterSeekerContext);
-
-    useEffect(() => {
-        userType();
-
-    }, [id]);
+    const { id, setId } = useContext(IdContext);
+    const { isShelter, isSeeker, profileURL,
+        shelterName, fullName, isLoading} = useContext(ShelterSeekerContext);
+    const { setAuthToken } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const NavLinks = () => {
         if (isShelter) {
@@ -42,6 +40,12 @@ const LoggedInHeader = () => {
         }
     }
 
+    const handleLogout = () => {
+        setAuthToken("a");
+        setId("");
+        navigate("/");
+    };
+
     const DropdownProfile = () => {
         if (isLoading) {
             return <div>Loading...</div>;
@@ -66,7 +70,7 @@ const LoggedInHeader = () => {
                             <ul className="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2" aria-labelledby="dropdownUser1">
                                 <li><div className="dropdown-signout" ><NavLink to={`/profile/shelter/${id}`} label="Profile" /></div></li>
                                 <li><div className="dropdown-signout" ><NavLink to={`/shelter_management`} label="Listing Management" /></div></li>
-                                <li><div className="dropdown-signout" ><NavLink to={`/profile/shelter/${id}`} label="Sign Out" /></div></li>
+                                <li><div className="dropdown-signout" ><NavLink to={`/`} label="Sign Out" /></div></li>
                             </ul>
                         </div>
                     </>
@@ -90,8 +94,8 @@ const LoggedInHeader = () => {
                                 </div>
                             </a>
                             <ul className="dropdown-menu dropdown-menu-dark bg-color-baby-blue-2" aria-labelledby="dropdownUser1">
-                                <li><div className="dropdown-signout" ><NavLink to={`profile/seeker/${id}`} label="Profile" /></div></li>
-                                <li><div className="dropdown-signout" ><NavLink to={`profile/seeker/${id}`} label="Sign Out" /></div></li>
+                                <li><div className="dropdown-signout" ><NavLink to={`/profile/seeker/${id}`} label="Profile" /></div></li>
+                                <li><div className="dropdown-signout" ><NavLink to={`/`} label="Sign Out" /></div></li>
                             </ul>
                         </div>
                     </>

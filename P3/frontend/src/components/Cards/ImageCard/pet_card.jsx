@@ -10,7 +10,7 @@ function PetCard({ name, status, imageSrc, detailLink, width, height }) {
 
   return (
     // <div className="col-xl-4">
-      <div className="card2 w-100 h-100">
+      <div className="card2 w-100 h-100 m-2">
         <div className="card-details2">
           <div className="rounded d-flex justify-content-center" style={{ overflow: 'hidden', ...cardStyle }}>
             <img src={imageSrc} alt={name} />
