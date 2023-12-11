@@ -68,7 +68,7 @@ function SignupSeeker() {
         try {
             // console.log("inside submit seeker");
             // console.log("sumbission", firstName, lastName, email, username, password1, phone, location, preferences, profile);
-            const response = await fetch("http://localhost:8000/accounts/signup/seeker/", {
+            const response = await fetch("http://localhost:8000/accounts/signupform/seeker/", {
                 method: "POST",
                 mode: "cors",
                 headers: {

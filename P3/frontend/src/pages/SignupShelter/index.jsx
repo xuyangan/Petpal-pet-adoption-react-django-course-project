@@ -53,7 +53,7 @@ function SignupShelter() {
 
 
         try {
-            const response = await fetch("http://localhost:8000/accounts/signup/shelter/", {
+            const response = await fetch("http://localhost:8000/accounts/signupform/shelter/", {
                 method: "POST",
                 mode: "cors",
                 headers: {

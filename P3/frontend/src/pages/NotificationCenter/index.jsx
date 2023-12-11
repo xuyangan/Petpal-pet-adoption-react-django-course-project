@@ -109,7 +109,7 @@ const NotificationCenter = () => {
     };
     
     const deleteNotification = (notificationId) => {
-        fetch(`http://localhost:8000/notifications/${notificationId}/delete/`, {
+        fetch(`http://localhost:8000/notifications/${notificationId}/removal/`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${authToken}`

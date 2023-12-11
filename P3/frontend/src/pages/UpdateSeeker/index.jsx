@@ -124,7 +124,7 @@ function  UpdateSeeker() {
                 data[key] = value;
             })
 
-            const response = await fetch("http://localhost:8000/accounts/update/seeker/", {
+            const response = await fetch("http://localhost:8000/accounts/updateform/seeker/", {
                 method: "PATCH",
                 mode: "cors",
                 headers: {

@@ -13,7 +13,7 @@ urlpatterns = [
     path('', PetListingCreate.as_view(), name='pet_listing_create'),
     path('list/', PetListingList.as_view(), name='pet_listing_list'),
     path('<int:pk>/', PetListingRetrieveUpdateDestroy.as_view(), name='pet_listing_retrieve_update_destroy'),
-    path('search/', PetListingQueryList.as_view(), name='pet_listing_search'),
+    path('query/', PetListingQueryList.as_view(), name='pet_listing_search'),
     path('<str:shelter_name>/', PetListingShelterList.as_view(), name='pet_listing_shelter_name' ),
     path('top-breeds-chart/', TopBreedsChartView.as_view(), name='top-breeds-chart'),
 ]

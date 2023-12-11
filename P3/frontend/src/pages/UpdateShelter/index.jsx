@@ -122,7 +122,7 @@ function UpdateShelter() {
         console.log(data);
 
         try {
-            const response = await fetch("http://localhost:8000/accounts/update/shelter/", {
+            const response = await fetch("http://localhost:8000/accounts/updateform/shelter/", {
                 method: "PATCH",
                 mode: "cors",
                 headers: {

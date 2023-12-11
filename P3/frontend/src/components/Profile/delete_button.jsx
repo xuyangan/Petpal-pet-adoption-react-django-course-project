@@ -9,7 +9,7 @@ function DeleteButton({isSeeker}) {
     async function deleteProfile({isSeeker}) {
         try {
             if (isSeeker) {
-                const response = await fetch("http://localhost:8000/accounts/delete/seeker/", {
+                const response = await fetch("http://localhost:8000/accounts/removal/seeker/", {
                     method: "DELETE",
                     mode: "cors",
                     headers: {"Authorization": `Bearer ${authToken}`}
@@ -30,7 +30,7 @@ function DeleteButton({isSeeker}) {
                 }
 
             } else {
-                const response = await fetch("http://localhost:8000/accounts/delete/shelter/", {
+                const response = await fetch("http://localhost:8000/accounts/removal/shelter/", {
                     method: "DELETE",
                     mode: "cors",
                     headers: {"Authorization": `Bearer ${authToken}`}
