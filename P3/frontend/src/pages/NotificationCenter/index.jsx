@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
-// import NotificationCard from './NotificationCard';
-
 
 const NotificationCenter = () => {
     const [notifications, setNotifications] = useState([]);
@@ -11,7 +9,10 @@ const NotificationCenter = () => {
     const [currentPageUrl, setCurrentPageUrl] = useState('http://localhost:8000/notifications/');
     const [nextPageUrl, setNextPageUrl] = useState(null);
     const [prevPageUrl, setPrevPageUrl] = useState(null);
+    const [currentPageNumber, setCurrentPageNumber] = useState(1);
+    const [isReadFilter, setIsReadFilter] = useState(false);
 
+    const BASE_NOTIFICATIONS_URL = 'http://localhost:8000/notifications/';
 
     const timeSince = (date) => {
         const seconds = Math.floor((new Date() - new Date(date)) / 1000);
@@ -38,27 +39,18 @@ const NotificationCenter = () => {
         }
         return Math.floor(seconds) + " seconds";
     };
+    const handleShowReadToggle = () => {
+        setIsReadFilter(prevIsReadFilter => !prevIsReadFilter);
+        setCurrentPageNumber(1);
+    };
     
-    const fetchNotifications = (url) => {
-        // const readStatus = showRead ? 'true' : 'false';
-        // // let fetchUrl = url.includes('?') ? `${url}&is_read=${readStatus}` : `${url}?is_read=${readStatus}`;
-        // let fetchUrl = url.includes('?') ? `${url}&is_read=${readStatus}` : `${url}?is_read=${readStatus}`;
-        const readStatus = showRead ? 'true' : 'false';
-        let baseUrl = currentPageUrl;
-        let queryParams = new URLSearchParams();
 
-        // Check if currentPageUrl already has query parameters
-        if (baseUrl.includes('?')) {
-            const urlParts = baseUrl.split('?');
-            baseUrl = urlParts[0];
-            queryParams = new URLSearchParams(urlParts[1]);
-        }
-
-        // Set or update the is_read parameter
-        queryParams.set('is_read', readStatus);
-
-        // Construct the final URL
-        const fetchUrl = `${baseUrl}?${queryParams.toString()}`;
+    const fetchNotifications = () => {
+        const queryParams = new URLSearchParams();
+        queryParams.set('page', currentPageNumber);
+        queryParams.set('is_read', isReadFilter);
+        const fetchUrl = `${BASE_NOTIFICATIONS_URL}?${queryParams.toString()}`;
+    
         fetch(fetchUrl, {
             method: 'GET',
             headers: {
@@ -68,12 +60,9 @@ const NotificationCenter = () => {
         })
         .then(response => response.json())
         .then(data => {
-            const sortedNotifications = data.results.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-            setNotifications(sortedNotifications);
+            setNotifications(data.results);
             setNextPageUrl(data.next);
             setPrevPageUrl(data.previous);
-            console.log("next URL:", nextPageUrl); // Debug log
-
         })
         .catch(error => console.error('Error fetching notifications', error));
     };
@@ -158,34 +147,28 @@ const NotificationCenter = () => {
     )}
 
     useEffect(() => {
-        fetchNotifications(currentPageUrl);
-    
-        const intervalId = setInterval(() => fetchNotifications(currentPageUrl), 5000);
-        return () => clearInterval(intervalId);
-    }, [currentPageUrl, showRead, authToken]);
+        fetchNotifications();
+    }, [currentPageNumber, isReadFilter, authToken]);
     
     const handleNextPage = () => {
         if (nextPageUrl) {
-            setCurrentPageUrl(nextPageUrl);
-            fetchNotifications(nextPageUrl); // Directly fetch notifications for the next page
+            setCurrentPageNumber(currentPageNumber + 1);
         }
     };
     
     const handlePrevPage = () => {
         if (prevPageUrl) {
-            setCurrentPageUrl(prevPageUrl);
-            fetchNotifications(prevPageUrl); // Directly fetch notifications for the previous page
+            setCurrentPageNumber(currentPageNumber - 1);
         }
     };
-       
-    
         
     return (
         <div className="container my-3">
             <h1 className="text-center mb-5">Notifications</h1>
-            <button onClick={() => setShowRead(!showRead)} className="btn btn-primary">
-                {showRead ? 'Show Unread' : 'Show Read'}
+            <button onClick={handleShowReadToggle} className="btn btn-primary">
+                {isReadFilter ? 'Show Unread' : 'Show Read'}
             </button>
+
             <div id="notificationAccordion">
                 {notifications.map((notification, index) => renderNotificationCard(notification, index))}
             </div>
