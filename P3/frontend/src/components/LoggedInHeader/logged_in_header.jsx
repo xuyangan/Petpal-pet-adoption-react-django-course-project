@@ -1,4 +1,5 @@
 import PetPalLink from '../Links/PetPalLink/pet_pal_link';
+import React, { useState, useEffect } from 'react';
 import NavLink from '../Links/NavLink/nav_link';
 import { ShelterSeekerContext } from '../../contexts/ShelterSeekerContext';
 import { useContext } from 'react';
@@ -13,8 +14,48 @@ const LoggedInHeader = () => {
     const { isShelter, isSeeker, profileURL,
         shelterName, fullName, isLoading} = useContext(ShelterSeekerContext);
     const { setAuthToken } = useContext(AuthContext);
+    const { authToken } = useContext(AuthContext);
     const navigate = useNavigate();
+    
+    const [unreadCount, setUnreadCount] = useState(0);
 
+    const fetchUnreadNotificationCount = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/notifications/unread-count/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${authToken}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            setUnreadCount(data.unread_count);
+            console.log(data.unread_count)
+        } catch (error) {
+            console.error('Error fetching unread notification count:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchUnreadNotificationCount();
+
+        const interval = setInterval(() => {
+            fetchUnreadNotificationCount();
+        }, 5000); 
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const getNotificationClass = (count) => {
+        if (count > 99) return "msg-count smaller";
+        if (count > 9) return "msg-count small";
+        return "msg-count";
+    };
+  
     
     const NavLinks = () => {
         if (isShelter) {
@@ -120,7 +161,7 @@ const LoggedInHeader = () => {
                             d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
                         ></path>
                     </svg>
-                    {/* <span className="msg-count">99</span> */}
+                    <span className={getNotificationClass(unreadCount)}>{unreadCount}</span>
                 </Link>
             );
         } else {
