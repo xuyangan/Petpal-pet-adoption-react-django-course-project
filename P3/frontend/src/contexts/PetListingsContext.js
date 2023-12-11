@@ -80,7 +80,7 @@ export const PetListingsContextProvider = ({ children }) => {
             parseAge();
             const params = new URLSearchParams(filters);
             console.log(params.toString());
-            const response = await fetch('http://localhost:8000/pet_listings/search/?page=' + page
+            const response = await fetch('http://localhost:8000/pet_listings/query/?page=' + page
                 + '&' + params.toString(),
                 {
                     method: 'GET',

@@ -4,13 +4,19 @@ from .models import ShelterComment, Reply
 from django.utils.timesince import timesince
 from django.utils import timezone
 import datetime
+from rest_framework.serializers import SerializerMethodField
 
 # Temp pet user serializer, need to be imported from accounts later
 class PetUserSerializer(serializers.ModelSerializer):
+    
+    profile_picture = SerializerMethodField()
+
     class Meta:
         model = PetUser
-        fields = ['id', 'username']
+        fields = ['id', 'username', 'profile_picture']
 
+    def get_profile_picture(self, obj):
+        return [image.image.url for image in obj.profile_picture.all()]
 
 
 class ReplySerializer(serializers.ModelSerializer):
