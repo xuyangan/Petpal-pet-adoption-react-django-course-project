@@ -59,7 +59,7 @@ function Login() {
                 // setUsername("");
                 // setPassword("");
                 // if (isShelter) {
-                    // navigate("/pet_listings/search/");
+                navigate("/pet_listings/search/");
                 // } else {
                 //     navigate("/pet_listings/");
                 // }
