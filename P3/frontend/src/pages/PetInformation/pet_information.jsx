@@ -111,7 +111,7 @@ const PetInformation = ({ children }) => {
                                                     <div className="col-md-6">
                                                         <DataComponent label="Behaviour" value={petListing.behaviour} />
                                                         <DataComponent label="Requirements" value={petListing.requirements} />
-                                                        <DataComponent label="Mefdical History" value={petListing.medical_history} />
+                                                        <DataComponent label="Medical History" value={petListing.medical_history} />
                                                         <DataComponent label="Location" value={petListing.location} />
                                                         <DataComponent label="Publication Date" value={petListing.publication_date} />
                                                         {/* ... more data components if needed */}
