@@ -76,7 +76,7 @@ const Analytics = () => {
               <font size="7" className="stylish-text card-text description">Pet Listings</font>
               <div className="stylish-text">
               <font size="4" className="card-text description">Every day, hundreds of shelters in the Greater Toronto Area are constantly rescuing pets from the streets, as well as recieving pet donations from owners that may not be able to continue taking care of them. </font>
-              <font size="4" className="card-text description">PetPal prides itself in achieving the top quality of pets and constantly seeking new shelters to join our one big family</font>
+              <font size="4" className="card-text description"> PetPal prides itself in achieving the top quality of pets and constantly seeking new shelters to join our one big family</font>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@ const Analytics = () => {
               <font size="7" className="stylish-text card-text description">Pets Adopted</font>
               <div className="stylish-text">
               <font size="4" className="card-text description">We pride ourselves in having a high success rate of pets getting adopted </font>
-              <font size="4" className="card-text description">We always get these pets new homes!!!</font>
+              <font size="4" className="card-text description"> We always get these pets new homes!!!</font>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@ const Analytics = () => {
               <font size="7" className="stylish-text card-text description">Shelters</font>
               <div className="stylish-text">
               <font size="4" className="card-text description">We are always expanding our family, and we can stress enough how much we've grown!</font>
-              <font size="4" className="card-text description">We always get shelters that are as equally motivated as us to rescue pets!!!!</font>
+              <font size="4" className="card-text description"> We always get shelters that are as equally motivated as us to rescue pets!!!!</font>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ const Analytics = () => {
               <font size="7" className="stylish-text card-text description">Seekers</font>
               <div className="stylish-text">
               <font size="4" className="card-text description">WE LOVE YOU SO MUCH!</font>
-              <font size="4" className="card-text description">We are constantly growing every day, and it is all thanks to you!</font>
+              <font size="4" className="card-text description"> We are constantly growing every day, and it is all thanks to you!</font>
               </div>
             </div>
           </div>
