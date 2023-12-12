@@ -154,7 +154,6 @@ const SearchPage = () => {
                 <div className="card p-5 ">
                     <h1> Search PetListings</h1>
                     <form className="" nonvalidate encType="multipart/form-data" onSubmit={handleSubmit}>
-                        <button type="submit" className="btn btn-primary">Search</button>
                         <div className='row'>
                             <div className='col-md-2'>
                                 <TextField
@@ -239,6 +238,7 @@ const SearchPage = () => {
                             <div className="uploaded-files-list">
                             </div>
                         </div>
+                        <button type="submit" className="btn btn-primary">Search</button>
                     </form>
                 </div>
                 <div>
